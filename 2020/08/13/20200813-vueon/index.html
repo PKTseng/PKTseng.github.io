@@ -24,7 +24,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="v-bind 及 v-on 的使用">
 <meta property="og:url" content="https://pktseng.github.io/2020/08/13/20200813-vueon/index.html">
-<meta property="og:site_name" content="PK&#39;s 記事本">
+<meta property="og:site_name" content="PK&#39;s 回憶錄">
 <meta property="og:description" content="v-bindv-bind 指令是用來把一個數值綁定到 HTML 屬性上，因為到後期會大量用到，所以會使用縮寫 “ : “">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/ph81atN.png">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>v-bind 及 v-on 的使用 | PK's 記事本</title>
+  <title>v-bind 及 v-on 的使用 | PK's 回憶錄</title>
   
 
 
@@ -100,10 +100,10 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">PK's 記事本</h1>
+      <h1 class="site-title">PK's 回憶錄</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">每記錄一次就會比昨天的自己更加厲害</p>
+      <p class="site-subtitle" itemprop="description">學過的東西過段時間沒複習就會忘，所以請記錄下來</p>
   </div>
 
   <div class="site-nav-right">
@@ -170,11 +170,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/1.jpg">
       <meta itemprop="name" content="PKTseng">
-      <meta itemprop="description" content="學過的東西過段時間沒複習就會忘，所以請記錄下來">
+      <meta itemprop="description" content="每記錄一次就會比昨天的自己更加厲害">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="PK's 記事本">
+      <meta itemprop="name" content="PK's 回憶錄">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -192,7 +192,21 @@
               <time title="創建時間：2020-08-13 11:11:52 / 修改時間：11:14:01" itemprop="dateCreated datePublished" datetime="2020-08-13T11:11:52+08:00">2020-08-13</time>
             </span>
 
-          
+          <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span></span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>NaN:aN</span>
+            </span>
 
         </div>
       </header>
@@ -308,7 +322,7 @@
     <img class="site-author-image" itemprop="image" alt="PKTseng"
       src="/images/1.jpg">
   <p class="site-author-name" itemprop="name">PKTseng</p>
-  <div class="site-description" itemprop="description">學過的東西過段時間沒複習就會忘，所以請記錄下來</div>
+  <div class="site-description" itemprop="description">每記錄一次就會比昨天的自己更加厲害</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -368,6 +382,18 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">PKTseng</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">總字數：</span>
+    <span title="總字數">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">所需總閱讀時間 &asymp;</span>
+    <span title="所需總閱讀時間">NaN:aN</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
   </div>
