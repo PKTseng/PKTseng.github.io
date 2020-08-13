@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="https://pktseng.github.io/2020/08/13/202008013-d-dlex/index.html">
 <meta property="og:site_name" content="PK&#39;s 記事本">
 <meta property="og:description" content="Flex 上課筆記Note:display:必備屬性flex-direction:決定flex軸線justify-content:主要軸線的對齊align-items:交錯軸線的對齊 Flex 外層屬性 (container) 介紹父元素有 display:flex，內層子元素之間的比例就會自動調整位置 1234.container .item.item1 1 .item.item2 2 .ite">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/CI2KfeC.png">
 <meta property="og:image" content="https://i.imgur.com/8POvW8H.png">
 <meta property="og:image" content="https://i.imgur.com/TM0sx6x.png">
@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://i.imgur.com/kpyczNo.png">
 <meta property="og:image" content="https://i.imgur.com/VGGHA5f.png">
 <meta property="article:published_time" content="2020-08-13T02:07:30.649Z">
-<meta property="article:modified_time" content="2020-08-13T02:08:27.069Z">
+<meta property="article:modified_time" content="2020-08-13T02:18:56.424Z">
 <meta property="article:author" content="PKTseng">
 <meta property="article:tag" content="--d-flex">
 <meta name="twitter:card" content="summary">
@@ -53,7 +53,7 @@
     sidebar: "",
     isHome : false,
     isPost : true,
-    lang   : 'en'
+    lang   : 'zh-TW'
   };
 </script>
 
@@ -97,7 +97,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切換導航欄">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -111,7 +111,7 @@
       <h1 class="site-title">PK's 記事本</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">學過的東西過段時間沒複習就會忘，所以請記錄下來</p>
+      <p class="site-subtitle" itemprop="description">每記錄一次就會比昨天的自己更加厲害</p>
   </div>
 
   <div class="site-nav-right">
@@ -127,12 +127,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
 
   </li>
   </ul>
@@ -162,13 +162,13 @@
     
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/08/13/202008013-d-dlex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="PKTseng">
-      <meta itemprop="description" content="每記錄一次就會比昨天的自己更加厲害">
+      <meta itemprop="description" content="學過的東西過段時間沒複習就會忘，所以請記錄下來">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -184,10 +184,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="Created: 2020-08-13 10:07:30 / Modified: 10:08:27" itemprop="dateCreated datePublished" datetime="2020-08-13T10:07:30+08:00">2020-08-13</time>
+              <time title="創建時間：2020-08-13 10:07:30 / 修改時間：10:18:56" itemprop="dateCreated datePublished" datetime="2020-08-13T10:07:30+08:00">2020-08-13</time>
             </span>
 
           
@@ -203,10 +203,9 @@
       
         <h1 id="Flex-上課筆記"><a href="#Flex-上課筆記" class="headerlink" title="Flex 上課筆記"></a>Flex 上課筆記</h1><h2 id="Note"><a href="#Note" class="headerlink" title="Note:"></a>Note:</h2><p>display:必備屬性<br>flex-direction:決定flex軸線<br>justify-content:主要軸線的對齊<br>align-items:交錯軸線的對齊</p>
 <h2 id="Flex-外層屬性-container-介紹"><a href="#Flex-外層屬性-container-介紹" class="headerlink" title="Flex 外層屬性 (container) 介紹"></a>Flex 外層屬性 (container) 介紹</h2><p>父元素有 display:flex，內層子元素之間的比例就會自動調整位置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.container</span><br><span class="line"> .item.item1 1</span><br><span class="line"> .item.item2 2</span><br><span class="line"> .item.item3 3</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.container</span><br><span class="line"> .item.item1 1</span><br><span class="line"> .item.item2 2</span><br><span class="line"> .item.item3 3</span><br></pre></td></tr></table></figure>
 <p>即使item寬度調成 200 5000 10000 px，也不會超出 container，因為父層有display:flex，但內層如果單一設定高度，其他項目也會跟著一起變更高度<br>若在 item1、2、3 個別加上屬性值<br>會呈現下圖</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#0099ff</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#00ffa2</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#d32a2a</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">36px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item1</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item2</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">width</span>: auto;</span><br><span class="line">  //因為沒設定寬度，所以會自適應延伸父元素，</span><br><span class="line">  //父元素寬多少ex:500px，子元素寬就會多少ex:500px</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item3</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: auto;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#0099ff</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#00ffa2</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#d32a2a</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">36px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item1</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item2</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">width</span>: auto;</span><br><span class="line">  //因為沒設定寬度，所以會自適應延伸父元素，</span><br><span class="line">  //父元素寬多少ex:500px，子元素寬就會多少ex:500px</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item3</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: auto;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>即使item寬度調成 200 5000 10000 px，也不會超出 container，因為父層有display:flex，但內層如果單一設定高度，其他項目也會跟著一起變更高度</p>
 <p>若在 item1、2、3 個別加上屬性值</p>
@@ -294,10 +293,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目錄
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          本站概要
         </li>
       </ul>
 
@@ -310,7 +309,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">PKTseng</p>
-  <div class="site-description" itemprop="description">每記錄一次就會比昨天的自己更加厲害</div>
+  <div class="site-description" itemprop="description">學過的東西過段時間沒複習就會忘，所以請記錄下來</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -318,12 +317,12 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">2</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">tags</span>
+        <span class="site-state-item-name">標籤</span>
       </div>
   </nav>
 </div>
@@ -355,7 +354,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">PKTseng</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
   </div>
 
         
