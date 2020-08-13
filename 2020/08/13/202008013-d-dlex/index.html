@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"pktseng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Flex 上課筆記Note:display:必備屬性flex-direction:決定flex軸線justify-content:主要軸線的對齊align-items:交錯軸線的對齊 Flex 外層屬性 (container) 介紹父元素有 display:flex，內層子元素之間的比例就會自動調整位置 1234.container .item.item1 1 .item.item2 2 .ite">
+  <meta name="description" content="Note:display:必備屬性flex-direction:決定flex軸線justify-content:主要軸線的對齊align-items:交錯軸線的對齊">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flex 上課筆記">
 <meta property="og:url" content="https://pktseng.github.io/2020/08/13/202008013-d-dlex/index.html">
 <meta property="og:site_name" content="PK&#39;s 記事本">
-<meta property="og:description" content="Flex 上課筆記Note:display:必備屬性flex-direction:決定flex軸線justify-content:主要軸線的對齊align-items:交錯軸線的對齊 Flex 外層屬性 (container) 介紹父元素有 display:flex，內層子元素之間的比例就會自動調整位置 1234.container .item.item1 1 .item.item2 2 .ite">
+<meta property="og:description" content="Note:display:必備屬性flex-direction:決定flex軸線justify-content:主要軸線的對齊align-items:交錯軸線的對齊">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/CI2KfeC.png">
 <meta property="og:image" content="https://i.imgur.com/8POvW8H.png">
@@ -38,9 +38,9 @@
 <meta property="og:image" content="https://i.imgur.com/kpyczNo.png">
 <meta property="og:image" content="https://i.imgur.com/VGGHA5f.png">
 <meta property="article:published_time" content="2020-08-13T02:07:30.649Z">
-<meta property="article:modified_time" content="2020-08-13T02:18:56.424Z">
+<meta property="article:modified_time" content="2020-08-13T02:35:05.529Z">
 <meta property="article:author" content="PKTseng">
-<meta property="article:tag" content="--d-flex">
+<meta property="article:tag" content="d-flex">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.imgur.com/CI2KfeC.png">
 
@@ -187,7 +187,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2020-08-13 10:07:30 / 修改時間：10:18:56" itemprop="dateCreated datePublished" datetime="2020-08-13T10:07:30+08:00">2020-08-13</time>
+              <time title="創建時間：2020-08-13 10:07:30 / 修改時間：10:35:05" itemprop="dateCreated datePublished" datetime="2020-08-13T10:07:30+08:00">2020-08-13</time>
             </span>
 
           
@@ -201,9 +201,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Flex-上課筆記"><a href="#Flex-上課筆記" class="headerlink" title="Flex 上課筆記"></a>Flex 上課筆記</h1><h2 id="Note"><a href="#Note" class="headerlink" title="Note:"></a>Note:</h2><p>display:必備屬性<br>flex-direction:決定flex軸線<br>justify-content:主要軸線的對齊<br>align-items:交錯軸線的對齊</p>
+        <h2 id="Note"><a href="#Note" class="headerlink" title="Note:"></a>Note:</h2><p>display:必備屬性<br>flex-direction:決定flex軸線<br>justify-content:主要軸線的對齊<br>align-items:交錯軸線的對齊</p>
+<a id="more"></a>
 <h2 id="Flex-外層屬性-container-介紹"><a href="#Flex-外層屬性-container-介紹" class="headerlink" title="Flex 外層屬性 (container) 介紹"></a>Flex 外層屬性 (container) 介紹</h2><p>父元素有 display:flex，內層子元素之間的比例就會自動調整位置</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.container</span><br><span class="line"> .item.item1 1</span><br><span class="line"> .item.item2 2</span><br><span class="line"> .item.item3 3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.container</span><br><span class="line"> .item.item1 1</span><br><span class="line"> .item.item2 2</span><br><span class="line"> .item.item3 3</span><br></pre></td></tr></table></figure>
 <p>即使item寬度調成 200 5000 10000 px，也不會超出 container，因為父層有display:flex，但內層如果單一設定高度，其他項目也會跟著一起變更高度<br>若在 item1、2、3 個別加上屬性值<br>會呈現下圖</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#0099ff</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#00ffa2</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#d32a2a</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">36px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item1</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item2</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">width</span>: auto;</span><br><span class="line">  //因為沒設定寬度，所以會自適應延伸父元素，</span><br><span class="line">  //父元素寬多少ex:500px，子元素寬就會多少ex:500px</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item3</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: auto;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -222,7 +223,7 @@
 <p><img src="https://i.imgur.com/VGGHA5f.png"><br>要改變方向要下display: flex &amp; flex-direction: column(垂直)<br>row橫向本身是預設可不寫</p>
 <p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/gOpVKzo">六角 Flex 模擬器</a><br><a target="_blank" rel="noopener" href="http://flexbox.help/">TEST CSS FLEXBOX RULES</a></p>
 <hr>
-<h2 id="資料來源-六角學院-Flex-網頁排版技巧"><a href="#資料來源-六角學院-Flex-網頁排版技巧" class="headerlink" title="資料來源:六角學院-Flex 網頁排版技巧"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/enrolled/666803">資料來源:六角學院-Flex 網頁排版技巧</a></h2><h2 id="職人必修的-RWD-網頁入門班"><a href="#職人必修的-RWD-網頁入門班" class="headerlink" title="職人必修的 RWD 網頁入門班"></a><a target="_blank" rel="noopener" href="https://hahow.in/courses/591d96d300f58c070078c4c6/discussions?item=5a1e1759a2c4b000589ddcff">職人必修的 RWD 網頁入門班</a></h2>
+<h2 id="資料來源-六角學院-Flex-網頁排版技巧"><a href="#資料來源-六角學院-Flex-網頁排版技巧" class="headerlink" title="資料來源:六角學院-Flex 網頁排版技巧"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/enrolled/666803">資料來源:六角學院-Flex 網頁排版技巧</a></h2><h2 id="資料來源-職人必修的-RWD-網頁入門班"><a href="#資料來源-職人必修的-RWD-網頁入門班" class="headerlink" title="資料來源:職人必修的 RWD 網頁入門班"></a><a target="_blank" rel="noopener" href="https://hahow.in/courses/591d96d300f58c070078c4c6/discussions?item=5a1e1759a2c4b000589ddcff">資料來源:職人必修的 RWD 網頁入門班</a></h2>
     </div>
 
     
@@ -231,7 +232,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/d-flex/" rel="tag"># --d-flex</a>
+              <a href="/tags/d-flex/" rel="tag"># d-flex</a>
           </div>
 
         
@@ -239,11 +240,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/08/13/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
-    </a></div>
       <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/13/20200813-vue-if/" rel="next" title="v-if">
+      v-if <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -302,7 +303,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Flex-%E4%B8%8A%E8%AA%B2%E7%AD%86%E8%A8%98"><span class="nav-number">1.</span> <span class="nav-text">Flex 上課筆記</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.1.</span> <span class="nav-text">Note:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flex-%E5%A4%96%E5%B1%A4%E5%B1%AC%E6%80%A7-container-%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.2.</span> <span class="nav-text">Flex 外層屬性 (container) 介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flex-direction-%E6%8E%92%E7%89%88%E6%96%B9%E5%90%91"><span class="nav-number">1.3.</span> <span class="nav-text">Flex-direction 排版方向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-direction-row"><span class="nav-number">1.3.1.</span> <span class="nav-text">flex-direction: row</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-direction-row-reverse"><span class="nav-number">1.3.2.</span> <span class="nav-text">flex-direction: row-reverse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-direction-colume"><span class="nav-number">1.3.3.</span> <span class="nav-text">flex-direction: colume</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-direction-colume-reverse"><span class="nav-number">1.3.4.</span> <span class="nav-text">flex-direction: colume-reverse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#justify-content-%E2%80%94-%E6%B1%BA%E5%AE%9A%E4%B8%BB%E8%BB%B8%E5%B0%8D%E9%BD%8A%E6%96%B9%E5%BC%8F"><span class="nav-number">1.3.5.</span> <span class="nav-text">justify-content — 決定主軸對齊方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90-%E5%85%AD%E8%A7%92%E5%AD%B8%E9%99%A2-Flex-%E7%B6%B2%E9%A0%81%E6%8E%92%E7%89%88%E6%8A%80%E5%B7%A7"><span class="nav-number">1.4.</span> <span class="nav-text">資料來源:六角學院-Flex 網頁排版技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%B7%E4%BA%BA%E5%BF%85%E4%BF%AE%E7%9A%84-RWD-%E7%B6%B2%E9%A0%81%E5%85%A5%E9%96%80%E7%8F%AD"><span class="nav-number">1.5.</span> <span class="nav-text">職人必修的 RWD 網頁入門班</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flex-%E5%A4%96%E5%B1%A4%E5%B1%AC%E6%80%A7-container-%E4%BB%8B%E7%B4%B9"><span class="nav-number">2.</span> <span class="nav-text">Flex 外層屬性 (container) 介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flex-direction-%E6%8E%92%E7%89%88%E6%96%B9%E5%90%91"><span class="nav-number">3.</span> <span class="nav-text">Flex-direction 排版方向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-direction-row"><span class="nav-number">3.1.</span> <span class="nav-text">flex-direction: row</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-direction-row-reverse"><span class="nav-number">3.2.</span> <span class="nav-text">flex-direction: row-reverse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-direction-colume"><span class="nav-number">3.3.</span> <span class="nav-text">flex-direction: colume</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-direction-colume-reverse"><span class="nav-number">3.4.</span> <span class="nav-text">flex-direction: colume-reverse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#justify-content-%E2%80%94-%E6%B1%BA%E5%AE%9A%E4%B8%BB%E8%BB%B8%E5%B0%8D%E9%BD%8A%E6%96%B9%E5%BC%8F"><span class="nav-number">3.5.</span> <span class="nav-text">justify-content — 決定主軸對齊方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90-%E5%85%AD%E8%A7%92%E5%AD%B8%E9%99%A2-Flex-%E7%B6%B2%E9%A0%81%E6%8E%92%E7%89%88%E6%8A%80%E5%B7%A7"><span class="nav-number">4.</span> <span class="nav-text">資料來源:六角學院-Flex 網頁排版技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90-%E8%81%B7%E4%BA%BA%E5%BF%85%E4%BF%AE%E7%9A%84-RWD-%E7%B6%B2%E9%A0%81%E5%85%A5%E9%96%80%E7%8F%AD"><span class="nav-number">5.</span> <span class="nav-text">資料來源:職人必修的 RWD 網頁入門班</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -321,7 +322,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">標籤</span>
       </div>
   </nav>
