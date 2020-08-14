@@ -20,30 +20,39 @@
     var CONFIG = {"hostname":"pktseng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="函式裡面一定會帶上一個 this ， this 在執行函式的時候自然就會產生，不需要特別宣告">
+  <meta name="description" content="Vue-cli 是一個用單一檔案組件來開發，就是 html 、css 、 javascript 都是放在同一個檔案裡面，所以一個檔案就是一個組件。那想要用這個檔案必須要經過轉換跟打包才能讓瀏覽器執行，那在執行 Vue-cli 之前必須先知道並運用以下工具。 Node.jsNode.js 是一個可以讓電腦執行 javascript 的環境，拿原本可以跑 js 的是瀏覽器，要在瀏覽器之外可以跑 js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最常見的 this：物件的方法調用">
-<meta property="og:url" content="https://pktseng.github.io/2020/08/13/20200813-javascript/index.html">
+<meta property="og:title" content="Vue-cli">
+<meta property="og:url" content="https://pktseng.github.io/2020/08/14/20200814-vue-cli/index.html">
 <meta property="og:site_name" content="PK&#39;s 回憶錄">
-<meta property="og:description" content="函式裡面一定會帶上一個 this ， this 在執行函式的時候自然就會產生，不需要特別宣告">
+<meta property="og:description" content="Vue-cli 是一個用單一檔案組件來開發，就是 html 、css 、 javascript 都是放在同一個檔案裡面，所以一個檔案就是一個組件。那想要用這個檔案必須要經過轉換跟打包才能讓瀏覽器執行，那在執行 Vue-cli 之前必須先知道並運用以下工具。 Node.jsNode.js 是一個可以讓電腦執行 javascript 的環境，拿原本可以跑 js 的是瀏覽器，要在瀏覽器之外可以跑 js">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/9jiIVE1.png">
-<meta property="og:image" content="https://i.imgur.com/OmKjnpU.png">
-<meta property="og:image" content="https://i.imgur.com/sRu5pPK.png">
-<meta property="og:image" content="https://i.imgur.com/pyjbDxQ.png">
-<meta property="og:image" content="https://i.imgur.com/rlpXaM8.png">
-<meta property="og:image" content="https://i.imgur.com/MNVJCY4.png">
-<meta property="og:image" content="https://i.imgur.com/FB2N78p.png">
-<meta property="og:image" content="https://i.imgur.com/YMU8nGg.png">
-<meta property="article:published_time" content="2020-08-13T02:50:59.603Z">
-<meta property="article:modified_time" content="2020-08-13T15:59:21.925Z">
+<meta property="og:image" content="https://i.imgur.com/7kxlDuD.png">
+<meta property="og:image" content="https://i.imgur.com/HOLpQv1.png">
+<meta property="og:image" content="https://i.imgur.com/kpx2XoE.png">
+<meta property="og:image" content="https://i.imgur.com/S6VoRhX.png">
+<meta property="og:image" content="https://i.imgur.com/DiBR5CK.png">
+<meta property="og:image" content="https://i.imgur.com/Ac7Ckhs.png">
+<meta property="og:image" content="https://i.imgur.com/7M4T9PZ.png">
+<meta property="og:image" content="https://i.imgur.com/MJiVes1.png">
+<meta property="og:image" content="https://i.imgur.com/59y13gj.png">
+<meta property="og:image" content="https://i.imgur.com/BeAhEwR.png">
+<meta property="og:image" content="https://i.imgur.com/zcfBh4v.png">
+<meta property="og:image" content="https://i.imgur.com/OPbJuQ0.png">
+<meta property="og:image" content="https://i.imgur.com/oCS7kEP.png">
+<meta property="og:image" content="https://i.imgur.com/xNwmUAx.png">
+<meta property="og:image" content="https://i.imgur.com/JA0CUIF.png">
+<meta property="og:image" content="https://i.imgur.com/KvX4YMA.png">
+<meta property="og:image" content="https://i.imgur.com/VDMIMEx.png">
+<meta property="og:image" content="https://i.imgur.com/aEftmTk.png">
+<meta property="article:published_time" content="2020-08-14T12:18:06.257Z">
+<meta property="article:modified_time" content="2020-08-14T12:19:02.872Z">
 <meta property="article:author" content="PKTseng">
-<meta property="article:tag" content="javascript">
-<meta property="article:tag" content="this">
+<meta property="article:tag" content="-vue -cli">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/9jiIVE1.png">
+<meta name="twitter:image" content="https://i.imgur.com/7kxlDuD.png">
 
-<link rel="canonical" href="https://pktseng.github.io/2020/08/13/20200813-javascript/">
+<link rel="canonical" href="https://pktseng.github.io/2020/08/14/20200814-vue-cli/">
 
 
 <script id="page-configurations">
@@ -56,7 +65,7 @@
   };
 </script>
 
-  <title>最常見的 this：物件的方法調用 | PK's 回憶錄</title>
+  <title>Vue-cli | PK's 回憶錄</title>
   
 
 
@@ -172,7 +181,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/08/13/20200813-javascript/">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/08/14/20200814-vue-cli/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/1.jpg">
@@ -185,7 +194,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          最常見的 this：物件的方法調用
+          Vue-cli
         </h1>
 
         <div class="post-meta">
@@ -196,7 +205,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2020-08-13 10:50:59 / 修改時間：23:59:21" itemprop="dateCreated datePublished" datetime="2020-08-13T10:50:59+08:00">2020-08-13</time>
+              <time title="創建時間：2020-08-14 20:18:06 / 修改時間：20:19:02" itemprop="dateCreated datePublished" datetime="2020-08-14T20:18:06+08:00">2020-08-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -204,7 +213,7 @@
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
                 </span>
             </span>
 
@@ -217,8 +226,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2020/08/13/20200813-javascript/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/13/20200813-javascript/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2020/08/14/20200814-vue-cli/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/14/20200814-vue-cli/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -227,13 +236,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span></span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>NaN:aN</span>
+              <span>1 分鐘</span>
             </span>
 
         </div>
@@ -245,22 +254,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>函式裡面一定會帶上一個 this ， this 在執行函式的時候自然就會產生，不需要特別宣告</p>
-<a id="more"></a>
-<p><img src="https://i.imgur.com/9jiIVE1.png"></p>
-<p><img src="https://i.imgur.com/OmKjnpU.png"></p>
-<p>作用域不一樣，var的作用域在函數 (function) 裡，let的作用域則是在區塊 (block) 裡。</p>
-<p><img src="https://i.imgur.com/sRu5pPK.png" alt="6角"><br><img src="https://i.imgur.com/pyjbDxQ.png"><br><img src="https://i.imgur.com/rlpXaM8.png"></p>
-<h3 id="範例-1"><a href="#範例-1" class="headerlink" title="範例 1"></a>範例 1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myName = <span class="string">&#x27;驚不驚喜&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>,<span class="built_in">this</span>.myName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> family = &#123;</span><br><span class="line">  myName: <span class="string">&#x27;老王&#x27;</span>,</span><br><span class="line">  callName: callName</span><br><span class="line">&#125;</span><br><span class="line">family.callName();</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/MNVJCY4.png"><br><code>this</code> 會指向函式前面的物件，所以 <code>this</code> 顯示 <code>family</code> 物件， <code>this.myName</code> 會顯示老王</p>
+        <p>Vue-cli 是一個用單一檔案組件來開發，就是 html 、css 、 javascript 都是放在同一個檔案裡面，所以一個檔案就是一個組件。那想要用這個檔案必須要經過轉換跟打包才能讓瀏覽器執行，那在執行 Vue-cli 之前必須先知道並運用以下工具。</p>
+<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p><a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a> 是一個可以讓電腦執行 javascript 的環境，拿原本可以跑 js 的是瀏覽器，要在瀏覽器之外可以跑 js 就會需要 node.js<br><img src="https://i.imgur.com/7kxlDuD.png"><br>安裝的時候選 LTS ( Long-term support 長期支援) ，因為 Node.js 團隊會長期維護此版本，所以可以安心使用。</p>
+<h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>node.js 安裝好之後，裡面有個工具叫做 <a target="_blank" rel="noopener" href="https://www.npmjs.com/">npm</a> ， 它是 node.js 裡面的一個指令，也是別人把程式寫好然後發佈到 npm 雲端，那我們就可以利用 npm 指令下載別人寫好的套件。</p>
+<h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><p>npm 套件裡面有個東西叫 webpack ，它會將原始檔裡面的所有資源，經過轉換+打包變成瀏覽器看得懂的語言，例如: sass =&gt; css 。<br><img src="https://i.imgur.com/HOLpQv1.png"></p>
+<h3 id="Vue-cli"><a href="#Vue-cli" class="headerlink" title="Vue-cli"></a>Vue-cli</h3><p>雖然 webpack 可以將眾多原始檔轉換打包，但在設定上會比較繁雜，所以這時候 vue 開發者就很佛心地幫我們建立一套開發工具: <a target="_blank" rel="noopener" href="https://cli.vuejs.org/">vue-cli</a> ，利用 vue-cli 就可以讓我們很迅速的建立開發模板，同時也可以幫我們用 webpack 打包原始檔。</p>
 <hr>
-<h3 id="範例-2"><a href="#範例-2" class="headerlink" title="範例 2"></a>範例 2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myName = <span class="string">&#x27;驚不驚喜&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>,<span class="built_in">this</span>.myName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> family = &#123;</span><br><span class="line">  myName: <span class="string">&#x27;來因&#x27;</span>,</span><br><span class="line">  callName: callName,</span><br><span class="line">  ana: &#123;</span><br><span class="line">    myName: <span class="string">&#x27;安納&#x27;</span>,</span><br><span class="line">    callName: callName</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">family.callName();</span><br><span class="line">family.ana.callName();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/FB2N78p.png"><br>這邊 <code>family</code> 裡面多了 <code>ana</code> 物件，<br>執行 <code>family.callName()</code> 會找到物件第一層，跟範例 1 一樣<br>在執行 <code>family.ana.callName()</code> 時，<code>callName()</code>的 this 會指向 <code>ana</code> 物件</p>
+<h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><h3 id="此為舊版安裝方法-v2-版本"><a href="#此為舊版安裝方法-v2-版本" class="headerlink" title="此為舊版安裝方法(v2 版本)"></a>此為舊版安裝方法(v2 版本)</h3><p>如<a target="_blank" rel="noopener" href="https://cli.vuejs.org/guide/installation.html">官方說明</a></p>
+<ul>
+<li><code>npm install -g @vue/cli</code><br>這樣 npm 就會從雲端下載 vue-cli 到我的電腦裡面，同時也讓我的 node.js 可以執行 vue-cli，安裝時間大概2~3分鐘<br><img src="https://i.imgur.com/kpx2XoE.png"><br>安裝完後會顯示版本: @vue/cli@4.5.3</li>
+</ul>
 <hr>
-<h3 id="範例-3"><a href="#範例-3" class="headerlink" title="範例 3"></a>範例 3</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myName = <span class="string">&#x27;驚不驚喜&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>,<span class="built_in">this</span>.myName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> family = &#123;</span><br><span class="line">  myName: <span class="string">&#x27;來因&#x27;</span>,</span><br><span class="line">  callName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>, <span class="built_in">this</span>.myName);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// family.callName();</span></span><br><span class="line"><span class="keyword">var</span> callName = family.callName;</span><br><span class="line">callName()</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/YMU8nGg.png"><br>如果執行 <code>family.callName()</code> 結果會跟範例 1 一樣，但如果重新宣告 <code>callName</code> 再執行結果為什麼會是 <code>驚不驚喜</code> ?<br>因為<code>callName</code> 是在全域執行，所以 this 就不會指向 <code>family</code> 這個物件，是指向全域的 <code>window</code> ，而全域 <code>window</code> 的 <code>myName</code> 就是 <code>驚不驚喜</code> 。<br>就算少了 <code>var callName = family.callName;</code> 結果仍是一樣</p>
+<p>如果沒安裝全域 cli 出現的錯誤，如下圖<br><img src="https://i.imgur.com/S6VoRhX.png"></p>
 <hr>
-<h2 id="參考資料-JavaScript-核心篇"><a href="#參考資料-JavaScript-核心篇" class="headerlink" title="參考資料: JavaScript 核心篇"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/enrolled/670037">參考資料: JavaScript 核心篇</a></h2>
+<p><strong>繼續安裝步驟</strong><br>1.在桌面創建專案資料夾(我的範例是 v2)<br>2.在切換到資料夾: cd 把資料夾托過來，出現第二行<br>3.(舊版安裝方法) <code>vue init 樣板(下圖) 專案名(v2)</code>，接下來依照個人需求跟喜好來設定<br><img src="https://i.imgur.com/DiBR5CK.png"><br><img src="https://i.imgur.com/Ac7Ckhs.png"></p>
+<p>4.安裝結束後會跳出下圖</p>
+<p><img src="https://i.imgur.com/7M4T9PZ.png"></p>
+<p>5.再輸入黃色指定</p>
+<p><img src="https://i.imgur.com/MJiVes1.png">.</p>
+<p>6.輸入網址就會出現下圖畫面</p>
+<p><img src="https://i.imgur.com/59y13gj.png"></p>
+<hr>
+<h3 id="此為-GUI-安裝方法"><a href="#此為-GUI-安裝方法" class="headerlink" title="此為 GUI 安裝方法"></a>此為 GUI 安裝方法</h3><p>1.創建資料夾(我的是 v3)，不要創資料夾也可以，但創建的路徑要自己決定，我在桌面創 v3 是希望創建完就出現在我指定的地點<br>2.切換到資料夾，並輸入 <code>vue ui</code><br><img src="https://i.imgur.com/BeAhEwR.png"></p>
+<p>輸入後會開啟新視窗<br><img src="https://i.imgur.com/zcfBh4v.png"></p>
+<p>接下來要新建專案<br><img src="https://i.imgur.com/OPbJuQ0.png"></p>
+<p><img src="https://i.imgur.com/oCS7kEP.png"><br>管理器，我習慣用 npm<br><img src="https://i.imgur.com/xNwmUAx.png"><br>手動一照個人喜好設定<br><img src="https://i.imgur.com/JA0CUIF.png"></p>
+<p><img src="https://i.imgur.com/KvX4YMA.png"></p>
+<p><img src="https://i.imgur.com/VDMIMEx.png"><br>按下新增專案後會問你要不是把現在的設定保存起來，日後可以直接呼叫<br><img src="https://i.imgur.com/aEftmTk.png"></p>
+<hr>
+<h3 id="資料來源"><a href="#資料來源" class="headerlink" title="資料來源:"></a>資料來源:</h3><p><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">精通 VueJS 前端開發完全指南</a><br><a target="_blank" rel="noopener" href="https://nodejs.org/en/">node.js 官方文件</a><br><a target="_blank" rel="noopener" href="https://webpack.js.org/">webpack 官方文件</a><br><a target="_blank" rel="noopener" href="https://cli.vuejs.org/">vue-cli 官方文件</a> </p>
+
     </div>
 
     
@@ -269,8 +292,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/javascript/" rel="tag"># javascript</a>
-              <a href="/tags/this/" rel="tag"># this</a>
+              <a href="/tags/vue-cli/" rel="tag"># -vue -cli</a>
           </div>
 
         
@@ -279,13 +301,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/13/20200813-vuemvvm/" rel="prev" title="MVVM">
-      <i class="fa fa-chevron-left"></i> MVVM
+    <a href="/2020/08/13/20200813-vue/" rel="prev" title="圖片上傳">
+      <i class="fa fa-chevron-left"></i> 圖片上傳
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/13/20200813-javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="next" title="Javascript 核心篇-執行環境">
-      Javascript 核心篇-執行環境 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -351,7 +370,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B-1"><span class="nav-number">1.</span> <span class="nav-text">範例 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B-2"><span class="nav-number">2.</span> <span class="nav-text">範例 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B-3"><span class="nav-number">3.</span> <span class="nav-text">範例 3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99-JavaScript-%E6%A0%B8%E5%BF%83%E7%AF%87"><span class="nav-number"></span> <span class="nav-text">參考資料: JavaScript 核心篇</span></a></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js"><span class="nav-number">1.</span> <span class="nav-text">Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm"><span class="nav-number">2.</span> <span class="nav-text">npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack"><span class="nav-number">3.</span> <span class="nav-text">webpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-cli"><span class="nav-number">4.</span> <span class="nav-text">Vue-cli</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D"><span class="nav-number"></span> <span class="nav-text">安裝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A4%E7%82%BA%E8%88%8A%E7%89%88%E5%AE%89%E8%A3%9D%E6%96%B9%E6%B3%95-v2-%E7%89%88%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">此為舊版安裝方法(v2 版本)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A4%E7%82%BA-GUI-%E5%AE%89%E8%A3%9D%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">此為 GUI 安裝方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">資料來源:</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -499,9 +518,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://pktseng.github.io/2020/08/13/20200813-javascript/";
-    this.page.identifier = "2020/08/13/20200813-javascript/";
-    this.page.title = "最常見的 this：物件的方法調用";
+    this.page.url = "https://pktseng.github.io/2020/08/14/20200814-vue-cli/";
+    this.page.identifier = "2020/08/14/20200814-vue-cli/";
+    this.page.title = "Vue-cli";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
