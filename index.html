@@ -183,7 +183,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2020-08-14 20:18:06 / 修改時間：20:19:02" itemprop="dateCreated datePublished" datetime="2020-08-14T20:18:06+08:00">2020-08-14</time>
+              <time title="創建時間：2020-08-14 20:18:06 / 修改時間：20:20:14" itemprop="dateCreated datePublished" datetime="2020-08-14T20:18:06+08:00">2020-08-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,35 +233,14 @@
 
       
           <p>Vue-cli 是一個用單一檔案組件來開發，就是 html 、css 、 javascript 都是放在同一個檔案裡面，所以一個檔案就是一個組件。那想要用這個檔案必須要經過轉換跟打包才能讓瀏覽器執行，那在執行 Vue-cli 之前必須先知道並運用以下工具。</p>
-<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p><a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a> 是一個可以讓電腦執行 javascript 的環境，拿原本可以跑 js 的是瀏覽器，要在瀏覽器之外可以跑 js 就會需要 node.js<br><img src="https://i.imgur.com/7kxlDuD.png"><br>安裝的時候選 LTS ( Long-term support 長期支援) ，因為 Node.js 團隊會長期維護此版本，所以可以安心使用。</p>
-<h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>node.js 安裝好之後，裡面有個工具叫做 <a target="_blank" rel="noopener" href="https://www.npmjs.com/">npm</a> ， 它是 node.js 裡面的一個指令，也是別人把程式寫好然後發佈到 npm 雲端，那我們就可以利用 npm 指令下載別人寫好的套件。</p>
-<h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><p>npm 套件裡面有個東西叫 webpack ，它會將原始檔裡面的所有資源，經過轉換+打包變成瀏覽器看得懂的語言，例如: sass =&gt; css 。<br><img src="https://i.imgur.com/HOLpQv1.png"></p>
-<h3 id="Vue-cli"><a href="#Vue-cli" class="headerlink" title="Vue-cli"></a>Vue-cli</h3><p>雖然 webpack 可以將眾多原始檔轉換打包，但在設定上會比較繁雜，所以這時候 vue 開發者就很佛心地幫我們建立一套開發工具: <a target="_blank" rel="noopener" href="https://cli.vuejs.org/">vue-cli</a> ，利用 vue-cli 就可以讓我們很迅速的建立開發模板，同時也可以幫我們用 webpack 打包原始檔。</p>
-<hr>
-<h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><h3 id="此為舊版安裝方法-v2-版本"><a href="#此為舊版安裝方法-v2-版本" class="headerlink" title="此為舊版安裝方法(v2 版本)"></a>此為舊版安裝方法(v2 版本)</h3><p>如<a target="_blank" rel="noopener" href="https://cli.vuejs.org/guide/installation.html">官方說明</a></p>
-<ul>
-<li><code>npm install -g @vue/cli</code><br>這樣 npm 就會從雲端下載 vue-cli 到我的電腦裡面，同時也讓我的 node.js 可以執行 vue-cli，安裝時間大概2~3分鐘<br><img src="https://i.imgur.com/kpx2XoE.png"><br>安裝完後會顯示版本: @vue/cli@4.5.3</li>
-</ul>
-<hr>
-<p>如果沒安裝全域 cli 出現的錯誤，如下圖<br><img src="https://i.imgur.com/S6VoRhX.png"></p>
-<hr>
-<p><strong>繼續安裝步驟</strong><br>1.在桌面創建專案資料夾(我的範例是 v2)<br>2.在切換到資料夾: cd 把資料夾托過來，出現第二行<br>3.(舊版安裝方法) <code>vue init 樣板(下圖) 專案名(v2)</code>，接下來依照個人需求跟喜好來設定<br><img src="https://i.imgur.com/DiBR5CK.png"><br><img src="https://i.imgur.com/Ac7Ckhs.png"></p>
-<p>4.安裝結束後會跳出下圖</p>
-<p><img src="https://i.imgur.com/7M4T9PZ.png"></p>
-<p>5.再輸入黃色指定</p>
-<p><img src="https://i.imgur.com/MJiVes1.png">.</p>
-<p>6.輸入網址就會出現下圖畫面</p>
-<p><img src="https://i.imgur.com/59y13gj.png"></p>
-<hr>
-<h3 id="此為-GUI-安裝方法"><a href="#此為-GUI-安裝方法" class="headerlink" title="此為 GUI 安裝方法"></a>此為 GUI 安裝方法</h3><p>1.創建資料夾(我的是 v3)，不要創資料夾也可以，但創建的路徑要自己決定，我在桌面創 v3 是希望創建完就出現在我指定的地點<br>2.切換到資料夾，並輸入 <code>vue ui</code><br><img src="https://i.imgur.com/BeAhEwR.png"></p>
-<p>輸入後會開啟新視窗<br><img src="https://i.imgur.com/zcfBh4v.png"></p>
-<p>接下來要新建專案<br><img src="https://i.imgur.com/OPbJuQ0.png"></p>
-<p><img src="https://i.imgur.com/oCS7kEP.png"><br>管理器，我習慣用 npm<br><img src="https://i.imgur.com/xNwmUAx.png"><br>手動一照個人喜好設定<br><img src="https://i.imgur.com/JA0CUIF.png"></p>
-<p><img src="https://i.imgur.com/KvX4YMA.png"></p>
-<p><img src="https://i.imgur.com/VDMIMEx.png"><br>按下新增專案後會問你要不是把現在的設定保存起來，日後可以直接呼叫<br><img src="https://i.imgur.com/aEftmTk.png"></p>
-<hr>
-<h3 id="資料來源"><a href="#資料來源" class="headerlink" title="資料來源:"></a>資料來源:</h3><p><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">精通 VueJS 前端開發完全指南</a><br><a target="_blank" rel="noopener" href="https://nodejs.org/en/">node.js 官方文件</a><br><a target="_blank" rel="noopener" href="https://webpack.js.org/">webpack 官方文件</a><br><a target="_blank" rel="noopener" href="https://cli.vuejs.org/">vue-cli 官方文件</a> </p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/14/20200814-vue-cli/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
