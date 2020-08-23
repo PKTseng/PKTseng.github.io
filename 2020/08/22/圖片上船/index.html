@@ -20,21 +20,25 @@
     var CONFIG = {"hostname":"pktseng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="MVVM">
-<meta property="og:url" content="https://pktseng.github.io/2020/08/13/20200813-vuemvvm/index.html">
+  <meta name="description" content="在網站上填寫個資時，有些都會需要上傳證件照，這時候就可以用 v-on 。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="圖片上傳">
+<meta property="og:url" content="https://pktseng.github.io/2020/08/22/%E5%9C%96%E7%89%87%E4%B8%8A%E8%88%B9/index.html">
 <meta property="og:site_name" content="PK&#39;s 回憶錄">
+<meta property="og:description" content="在網站上填寫個資時，有些都會需要上傳證件照，這時候就可以用 v-on 。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/u6sNtyl.png">
-<meta property="og:image" content="https://i.imgur.com/u71Nukr.png">
-<meta property="article:published_time" content="2020-08-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-08-20T03:52:08.624Z">
+<meta property="og:image" content="https://i.imgur.com/QwVZpB5.png">
+<meta property="og:image" content="https://i.imgur.com/AHNXBYP.png">
+<meta property="og:image" content="https://i.imgur.com/ewfiPx7.png">
+<meta property="og:image" content="https://i.imgur.com/1w32rhr.png">
+<meta property="article:published_time" content="2020-08-22T15:05:17.283Z">
+<meta property="article:modified_time" content="2020-08-22T15:06:20.309Z">
 <meta property="article:author" content="PKTseng">
-<meta property="article:tag" content="MVVM">
+<meta property="article:tag" content="v-model">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/u6sNtyl.png">
+<meta name="twitter:image" content="https://i.imgur.com/QwVZpB5.png">
 
-<link rel="canonical" href="https://pktseng.github.io/2020/08/13/20200813-vuemvvm/">
+<link rel="canonical" href="https://pktseng.github.io/2020/08/22/%E5%9C%96%E7%89%87%E4%B8%8A%E8%88%B9/">
 
 
 <script id="page-configurations">
@@ -47,7 +51,7 @@
   };
 </script>
 
-  <title>MVVM | PK's 回憶錄</title>
+  <title>圖片上傳 | PK's 回憶錄</title>
   
 
 
@@ -163,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/08/13/20200813-vuemvvm/">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/08/22/%E5%9C%96%E7%89%87%E4%B8%8A%E8%88%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/1.jpg">
@@ -176,7 +180,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          MVVM
+          圖片上傳
         </h1>
 
         <div class="post-meta">
@@ -185,16 +189,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2020-08-13 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-13T00:00:00+08:00">2020-08-13</time>
+              <time title="創建時間：2020-08-22 23:05:17 / 修改時間：23:06:20" itemprop="dateCreated datePublished" datetime="2020-08-22T23:05:17+08:00">2020-08-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-08-20 11:52:08" itemprop="dateModified" datetime="2020-08-20T11:52:08+08:00">2020-08-20</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -214,8 +212,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2020/08/13/20200813-vuemvvm/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/13/20200813-vuemvvm/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2020/08/22/%E5%9C%96%E7%89%87%E4%B8%8A%E8%88%B9/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/22/圖片上船/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -224,7 +222,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>261</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -242,12 +240,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="https://i.imgur.com/u6sNtyl.png"></p>
+        <p>在網站上填寫個資時，有些都會需要上傳證件照，這時候就可以用 <code>v-on</code> 。</p>
 <a id="more"></a>
-<p><img src="https://i.imgur.com/u71Nukr.png"><br>MVVM 就由這三個東西之間的作用，可以比較好管理開法者的內容</p>
-<p>透過使用者的 view 操作來影響 view model ，只要在 view 裡面操做， view model 同時也會跟著變動，也同時修改 model 的內容，那 view model 資料發生變動，又會同時改變 View 顯示的內容，所以他們三個是互相交互作用的</p>
-<p>Vue 強大的地方在於 Vue 組件，他可以把龐大的 App 分裝，把相關的功能集中，讓這些組件獨立封裝而且好維護也好測試</p>
-<p>vue 組件可以把模板跟實例還有CSS統一放在裡面，讓我們很好的去做開發跟管理.</p>
+
+<p>在檔案上傳的 <code>input</code> 是沒辦法用 <code>v-model</code> ，所以必須改用 <code>v-on</code> 的 change 事件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;selectFile&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  methods:&#123;</span><br><span class="line">    selectFile(e)&#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> file = e.target.files.item(<span class="number">0</span>);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(file);</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/OJNyNMw?editors=1010">codepen</a></p>
+<p>e 就是 <code>@change</code> 的事件，<code> e.target</code> 就是發出事件的 <code>input</code>，後面的 files 是 filelist 的資料型態，用 console.log 可以看到以下屬性</p>
+<p><img src="https://i.imgur.com/QwVZpB5.png"></p>
+<p>但目前圖片還是沒辦法顯示，只能透過建立一個 <code>FileReader</code> ，並偵聽 <code>FileReader</code> 的 <code>load</code> 事件，程式碼如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;selectFile&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">&quot;image&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line"><span class="javascript">    image: <span class="string">&#x27;&#x27;</span>,</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    selectFile(e)&#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> file = e.target.files.item(<span class="number">0</span>);</span></span><br><span class="line"><span class="javascript">      <span class="comment">// console.log(file);</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> reader = <span class="keyword">new</span> FileReader();</span></span><br><span class="line"><span class="javascript">      reader.addEventListener(<span class="string">&#x27;load&#x27;</span>, <span class="built_in">this</span>.imageLoaded);</span></span><br><span class="line">      reader.readAsDataURL(file);</span><br><span class="line">    &#125;,</span><br><span class="line">    imageLoaded(e)&#123;</span><br><span class="line"><span class="javascript">      <span class="built_in">this</span>.image = e.target.result;</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/PKTseng/6021dcb601d9caf875d87589567c8979">codepen</a></p>
+<p><img src="https://i.imgur.com/AHNXBYP.png"></p>
+<p>在 <code>input</code> 裡的 type 是 file 的時候，<code>e.target</code> 就會有 files 屬性，如果在 <code>input</code> 標籤加上 <code>multiple</code> ，檔案會變成可以複選，但目前只要一個檔案，所以加上 item(0) ，然後建立一個新的 FileReader 並偵聽 load 事件，一旦 load 完，就會呼叫 <code>imageLoaded</code> 函式，在 <code>reader</code> 偵聽之後會 <code>readAsDataURL</code> ，<code>DataURL</code> 是指下圖很長的字串，也稱為 base64 編碼 ( base64 編碼就是可以把很長的英文跟數字轉成字串)，那這編碼可以指定成 image 當成 source。當 <code>reader</code> 發出 <code>load</code> 事件的時候就可以偵聽 <code>imageLoaded</code> 事件，並呼叫第 15行 <code>imageLoaded</code> 函式，函式會將 <code>load</code> 事件當成參數(e)，<code>e.target</code> 就是指第 11 行發出 <code>load</code> 事件的 <code>reader</code> 物件，<code>reader</code> 完之後會 result DataURL 屬性，在將 <code>DataURL</code> 指定到第 4 行的 <code>image</code> 。</p>
+<p><img src="https://i.imgur.com/ewfiPx7.png"></p>
+<p>那有時候圖會是壞掉的，如下圖<br><img src="https://i.imgur.com/1w32rhr.png"></p>
+<p>這時候可以在 img 標籤加上 v-if =”image” 來判斷要不要顯示圖片</p>
 <hr>
 <h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2>
     </div>
@@ -258,7 +266,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/MVVM/" rel="tag"># MVVM</a>
+              <a href="/tags/v-model/" rel="tag"># v-model</a>
           </div>
 
         
@@ -267,13 +275,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/13/20200813-javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="prev" title="Javascript 核心篇-執行環境">
-      <i class="fa fa-chevron-left"></i> Javascript 核心篇-執行環境
+    <a href="/2020/08/21/%E4%B8%8B%E6%8B%89%E9%81%B8%E5%96%AE/" rel="prev" title="下拉選單">
+      <i class="fa fa-chevron-left"></i> 下拉選單
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/13/20200813-v-for/" rel="next" title="列表渲染 v-for">
-      列表渲染 v-for <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -487,9 +492,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://pktseng.github.io/2020/08/13/20200813-vuemvvm/";
-    this.page.identifier = "2020/08/13/20200813-vuemvvm/";
-    this.page.title = "MVVM";
+    this.page.url = "https://pktseng.github.io/2020/08/22/%E5%9C%96%E7%89%87%E4%B8%8A%E8%88%B9/";
+    this.page.identifier = "2020/08/22/圖片上船/";
+    this.page.title = "圖片上傳";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
