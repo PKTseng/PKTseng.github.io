@@ -20,25 +20,29 @@
     var CONFIG = {"hostname":"pktseng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="利用 v-on 做出圖片上傳功能">
+  <meta name="description" content="在 window 作業系統下執行 linux 指令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="圖片上傳">
-<meta property="og:url" content="https://pktseng.github.io/2020/08/22/%E5%9C%96%E7%89%87%E4%B8%8A%E8%88%B9/index.html">
+<meta property="og:title" content="在 Windows 上安裝 WSL1">
+<meta property="og:url" content="https://pktseng.github.io/2020/12/17/WSL/index.html">
 <meta property="og:site_name" content="PK&#39;s 回憶錄">
-<meta property="og:description" content="利用 v-on 做出圖片上傳功能">
+<meta property="og:description" content="在 window 作業系統下執行 linux 指令">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/QwVZpB5.png">
-<meta property="og:image" content="https://i.imgur.com/AHNXBYP.png">
-<meta property="og:image" content="https://i.imgur.com/ewfiPx7.png">
-<meta property="og:image" content="https://i.imgur.com/1w32rhr.png">
-<meta property="article:published_time" content="2020-08-22T15:05:17.283Z">
-<meta property="article:modified_time" content="2020-12-15T13:12:42.999Z">
+<meta property="og:image" content="https://i.imgur.com/FgEeIdc.jpg">
+<meta property="og:image" content="https://i.imgur.com/VTHHBhF.jpg">
+<meta property="og:image" content="https://i.imgur.com/aPlBSSk.png">
+<meta property="og:image" content="https://i.imgur.com/2H0A0Ww.png">
+<meta property="og:image" content="https://i.imgur.com/wVsWMYa.png">
+<meta property="og:image" content="https://i.imgur.com/YMn39pB.png">
+<meta property="og:image" content="https://i.imgur.com/4GsUaf3.png">
+<meta property="og:image" content="https://i.imgur.com/mKs4ll2.png">
+<meta property="article:published_time" content="2020-12-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-17T13:31:33.790Z">
 <meta property="article:author" content="PKTseng">
-<meta property="article:tag" content="v-model">
+<meta property="article:tag" content="WSL1">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/QwVZpB5.png">
+<meta name="twitter:image" content="https://i.imgur.com/FgEeIdc.jpg">
 
-<link rel="canonical" href="https://pktseng.github.io/2020/08/22/%E5%9C%96%E7%89%87%E4%B8%8A%E8%88%B9/">
+<link rel="canonical" href="https://pktseng.github.io/2020/12/17/WSL/">
 
 
 <script id="page-configurations">
@@ -51,7 +55,7 @@
   };
 </script>
 
-  <title>圖片上傳 | PK's 回憶錄</title>
+  <title>在 Windows 上安裝 WSL1 | PK's 回憶錄</title>
   
 
 
@@ -167,7 +171,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/08/22/%E5%9C%96%E7%89%87%E4%B8%8A%E8%88%B9/">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/12/17/WSL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/1.jpg">
@@ -180,7 +184,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          圖片上傳
+          在 Windows 上安裝 WSL1
         </h1>
 
         <div class="post-meta">
@@ -189,23 +193,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2020-08-22 23:05:17" itemprop="dateCreated datePublished" datetime="2020-08-22T23:05:17+08:00">2020-08-22</time>
+              <time title="創建時間：2020-12-17 00:00:00 / 修改時間：21:31:33" itemprop="dateCreated datePublished" datetime="2020-12-17T00:00:00+08:00">2020-12-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-12-15 21:12:42" itemprop="dateModified" datetime="2020-12-15T21:12:42+08:00">2020-12-15</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                  <a href="/categories/WSL1/" itemprop="url" rel="index"><span itemprop="name">WSL1</span></a>
                 </span>
             </span>
 
@@ -218,8 +216,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2020/08/22/%E5%9C%96%E7%89%87%E4%B8%8A%E8%88%B9/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/22/圖片上船/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2020/12/17/WSL/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/17/WSL/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -228,7 +226,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>1.6k</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -236,7 +234,7 @@
               </span>
               <span>1 分鐘</span>
             </span>
-            <div class="post-description">利用 v-on 做出圖片上傳功能</div>
+            <div class="post-description">在 window 作業系統下執行 linux 指令</div>
 
         </div>
       </header>
@@ -247,22 +245,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在網站上填寫個資時，有些都會需要上傳證件照，這時候就可以用 <code>v-on</code> 。</p>
-<p>在檔案上傳的 <code>input</code> 是沒辦法用 <code>v-model</code> ，所以必須改用 <code>v-on</code> 的 change 事件</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;selectFile&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  methods:&#123;</span><br><span class="line">    selectFile(e)&#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> file = e.target.files.item(<span class="number">0</span>);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(file);</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/OJNyNMw?editors=1010">codepen</a></p>
-<p>e 就是 <code>@change</code> 的事件，<code> e.target</code> 就是發出事件的 <code>input</code>，後面的 files 是 filelist 的資料型態，用 console.log 可以看到以下屬性</p>
-<p><img src="https://i.imgur.com/QwVZpB5.png"></p>
-<p>但目前圖片還是沒辦法顯示，只能透過建立一個 <code>FileReader</code> ，並偵聽 <code>FileReader</code> 的 <code>load</code> 事件，程式碼如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;selectFile&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">&quot;image&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line"><span class="javascript">    image: <span class="string">&#x27;&#x27;</span>,</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    selectFile(e)&#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> file = e.target.files.item(<span class="number">0</span>);</span></span><br><span class="line"><span class="javascript">      <span class="comment">// console.log(file);</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> reader = <span class="keyword">new</span> FileReader();</span></span><br><span class="line"><span class="javascript">      reader.addEventListener(<span class="string">&#x27;load&#x27;</span>, <span class="built_in">this</span>.imageLoaded);</span></span><br><span class="line">      reader.readAsDataURL(file);</span><br><span class="line">    &#125;,</span><br><span class="line">    imageLoaded(e)&#123;</span><br><span class="line"><span class="javascript">      <span class="built_in">this</span>.image = e.target.result;</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://gist.github.com/PKTseng/6021dcb601d9caf875d87589567c8979">codepen</a></p>
-<p><img src="https://i.imgur.com/AHNXBYP.png"></p>
-<p>在 <code>input</code> 裡的 type 是 file 的時候，<code>e.target</code> 就會有 files 屬性，如果在 <code>input</code> 標籤加上 <code>multiple</code> ，檔案會變成可以複選，但目前只要一個檔案，所以加上 item(0) ，然後建立一個新的 FileReader 並偵聽 load 事件，一旦 load 完，就會呼叫 <code>imageLoaded</code> 函式，在 <code>reader</code> 偵聽之後會 <code>readAsDataURL</code> ，<code>DataURL</code> 是指下圖很長的字串，也稱為 base64 編碼 ( base64 編碼就是可以把很長的英文跟數字轉成字串)，那這編碼可以指定成 image 當成 source。當 <code>reader</code> 發出 <code>load</code> 事件的時候就可以偵聽 <code>imageLoaded</code> 事件，並呼叫第 15行 <code>imageLoaded</code> 函式，函式會將 <code>load</code> 事件當成參數(e)，<code>e.target</code> 就是指第 11 行發出 <code>load</code> 事件的 <code>reader</code> 物件，<code>reader</code> 完之後會 result DataURL 屬性，在將 <code>DataURL</code> 指定到第 4 行的 <code>image</code> 。</p>
-<p><img src="https://i.imgur.com/ewfiPx7.png"></p>
-<p>那有時候圖會是壞掉的，如下圖<br><img src="https://i.imgur.com/1w32rhr.png"></p>
-<p>這時候可以在 img 標籤加上 v-if =”image” 來判斷要不要顯示圖片</p>
+        <p>為了在 window 作業系統上執行 linux ，所以會需要安裝 WSL<br>WSL 又有分1 跟 2，1 的話較為簡單，以下只示範 WSL1</p>
 <hr>
-<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2>
+<h2 id="安裝-WSL1"><a href="#安裝-WSL1" class="headerlink" title="安裝 WSL1"></a>安裝 WSL1</h2><p>依照官網的<strong>手動安裝步驟</strong><br>用系統管理員身分開啟 PowerShell 並輸入:<br><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code></p>
+<p>如下圖<br><img src="https://i.imgur.com/FgEeIdc.jpg"></p>
+<p>然後再依照說明跳到<strong>步驟6</strong>，到 Microsoft Store 搜尋 Ubuntu ，這邊選用 18.04 LTS 的版本<br><img src="https://i.imgur.com/VTHHBhF.jpg"></p>
+<p>或是點選下面附上的連結也可以<br><img src="https://i.imgur.com/aPlBSSk.png"><br>安裝好後再開啟 <strong>Ubuntu 18.04 LTS</strong></p>
+<p>如果開啟後看到以下訊息也不要慌張~<br>這代表我還未安裝 Windows 子系統</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Installing, this may take a few minutes...</span><br><span class="line">WslRegisterDistribution failed with error: 0x8007019e</span><br><span class="line">The Windows Subsystem for Linux optional component is not enabled. Please enable it and try again.</span><br><span class="line">See https:&#x2F;&#x2F;aka.ms&#x2F;wslinstall for details.</span><br><span class="line">Press any key to continue...</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/2H0A0Ww.png"></p>
+<p>解決方法:<br>用系統管理員開啟 PowerShell ，並輸入以下指令<br><code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</code><br><img src="https://i.imgur.com/wVsWMYa.png"></p>
+<p><font color=#FF0000>這邊請不要急著按!!! 請先把該存檔的資料存檔在按 Y ，因為電腦會直接重新開機</font></p>
+<p>重開後會顯示要輸入使用者名字跟密碼<br><font color=#FF0000>注意! 請不要輸入特殊字元，不然會叫你重新輸入</font><br>輸入密碼時會有第二次確認，而且螢幕不會顯示出來，所以請慢慢輸入~<br>完成後會顯示下圖:<br><img src="https://i.imgur.com/YMn39pB.png"></p>
+<hr>
+<h2 id="WSL2"><a href="#WSL2" class="headerlink" title="WSL2"></a>WSL2</h2><p>WSL2 官網有特別說明，若要更新至 WSL 2，必須是 <strong>Windows 10</strong>，除此之外組建編號必須是 <font color=#FF0000>18362.1049+</font> 或 <font color=#FF0000>18363.1049+</font>這兩種版本</p>
+<p><img src="https://i.imgur.com/4GsUaf3.png"><br>確認 window 10 的版本號，確認方法是:<strong>按住 Windows + R 然後在對話方塊，接著輸入「winver」</strong><br>就會出現下圖<br><img src="https://i.imgur.com/mKs4ll2.png"></p>
+<p>因我的組建編號不符，故不更新</p>
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-tw/windows/wsl/install-win10">Windows 10 上適用於 Linux 的 Windows 子系統安裝指南</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/47541491">win10自带Bash安装的坑（Error Code: 0x8007019e，0x8000000D）</a><br><a target="_blank" rel="noopener" href="https://ed521.github.io/2019/08/hexo-markdown/">撰寫 Hexo 文章 - Markdown 語法大全</a></p>
+
     </div>
 
     
@@ -271,7 +272,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/v-model/" rel="tag"># v-model</a>
+              <a href="/tags/WSL1/" rel="tag"># WSL1</a>
           </div>
 
         
@@ -280,13 +281,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/21/%E4%B8%8B%E6%8B%89%E9%81%B8%E5%96%AE/" rel="prev" title="下拉選單">
-      <i class="fa fa-chevron-left"></i> 下拉選單
+    <a href="/2020/12/16/cmder/" rel="prev" title="安裝套件管理工具">
+      <i class="fa fa-chevron-left"></i> 安裝套件管理工具
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/25/data%E5%BF%85%E9%A0%88%E6%98%AF%E5%87%BD%E6%95%B8/" rel="next" title="data必須是函數">
-      data必須是函數 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -352,7 +350,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99-%E7%B2%BE%E9%80%9A-VueJS-%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97"><span class="nav-number">1.</span> <span class="nav-text">參考資料:精通 VueJS 前端開發完全指南</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-WSL1"><span class="nav-number">1.</span> <span class="nav-text">安裝 WSL1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WSL2"><span class="nav-number">2.</span> <span class="nav-text">WSL2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">3.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -500,9 +498,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://pktseng.github.io/2020/08/22/%E5%9C%96%E7%89%87%E4%B8%8A%E8%88%B9/";
-    this.page.identifier = "2020/08/22/圖片上船/";
-    this.page.title = "圖片上傳";
+    this.page.url = "https://pktseng.github.io/2020/12/17/WSL/";
+    this.page.identifier = "2020/12/17/WSL/";
+    this.page.title = "在 Windows 上安裝 WSL1";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
