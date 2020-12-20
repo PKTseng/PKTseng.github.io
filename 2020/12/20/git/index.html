@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"pktseng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="介紹 Git 基本指令的操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="簡易的 Git 操作">
+<meta property="og:url" content="https://pktseng.github.io/2020/12/20/git/index.html">
+<meta property="og:site_name" content="PK&#39;s 回憶錄">
+<meta property="og:description" content="介紹 Git 基本指令的操作">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/A0KD6ji.png">
+<meta property="og:image" content="https://i.imgur.com/Tga7KCl.png">
+<meta property="og:image" content="https://i.imgur.com/Ae4RKtN.png">
+<meta property="og:image" content="https://i.imgur.com/FeAhBnc.png">
+<meta property="og:image" content="https://i.imgur.com/7AHm6f6.png">
+<meta property="og:image" content="https://i.imgur.com/qQ0nwuq.png">
+<meta property="og:image" content="https://i.imgur.com/TF4JMgd.png">
+<meta property="og:image" content="https://i.imgur.com/rEvAKi8.png">
+<meta property="og:image" content="https://i.imgur.com/vqMTP0o.png">
+<meta property="og:image" content="https://i.imgur.com/zS5tHdk.png">
+<meta property="og:image" content="https://i.imgur.com/9HjeMar.png">
+<meta property="og:image" content="https://i.imgur.com/1ZPugtq.png">
+<meta property="og:image" content="https://i.imgur.com/1QXhPuf.png">
+<meta property="og:image" content="https://i.imgur.com/XZGOfc8.png">
+<meta property="og:image" content="https://i.imgur.com/oz44dB5.png">
+<meta property="og:image" content="https://i.imgur.com/WiXB10q.png">
+<meta property="og:image" content="https://i.imgur.com/q086OIx.png">
+<meta property="og:image" content="https://i.imgur.com/OfQeK2n.png">
+<meta property="og:image" content="https://i.imgur.com/KcZ8GBP.png">
+<meta property="og:image" content="https://i.imgur.com/Zco4gdf.png">
+<meta property="og:image" content="https://i.imgur.com/BrJ6tEq.png">
+<meta property="og:image" content="https://i.imgur.com/efIhab5.png">
+<meta property="og:image" content="https://i.imgur.com/cvzd86T.png">
+<meta property="article:published_time" content="2020-12-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-20T08:08:03.854Z">
+<meta property="article:author" content="PKTseng">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/A0KD6ji.png">
+
+<link rel="canonical" href="https://pktseng.github.io/2020/12/20/git/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>簡易的 Git 操作 | PK's 回憶錄</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">PK's 回憶錄</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">學過的東西過段時間沒複習就會忘，所以請記錄下來</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/12/20/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="PKTseng">
+      <meta itemprop="description" content="每記錄一次就會比昨天的自己更加厲害">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PK's 回憶錄">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          簡易的 Git 操作
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-12-20 00:00:00 / 修改時間：16:08:03" itemprop="dateCreated datePublished" datetime="2020-12-20T00:00:00+08:00">2020-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/12/20/git/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/20/git/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 分鐘</span>
+            </span>
+            <div class="post-description">介紹 Git 基本指令的操作</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h2><p>Git 是一個可控制程式碼版本的工具<br>當我們在開發的時候為了不影響線上的產品，就會先開一個分支出來在分支上做開發，這樣既可以大膽的開發也不怕會影響到線上正在運行的版本，同時又做到程式碼的控管，是一個很方便的工具</p>
+<h2 id="Git-指令"><a href="#Git-指令" class="headerlink" title="Git 指令"></a>Git 指令</h2><p>Git 有分幾個簡單寫常用的幾個指令<br><code>git init</code>: 在我們 local 端建立數據庫<br><code>git add .</code>: 加入索引<br><code>git commit -m</code>: 將目前加入索引的資料提交出去<br><code>git push origin</code>: 推送到遠端數據庫<br><code>git pull</code>: 從遠端數據庫拉取最新的版本<br><code>git branch</code>: 查看分支<br><code>git checkout </code>: 切換到該分支<br><code>git log</code>: 查看 git 歷史紀錄<br><code>git status</code>: 查看目前資料狀態<br><code>git merge</code>: 合併分支</p>
+<p>工作上常用的大概是以上這幾種</p>
+<hr>
+<h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p>OS: window<br>首先到 <a target="_blank" rel="noopener" href="https://git-scm.com/">Git 官網</a>下載 Git<br><img src="https://i.imgur.com/A0KD6ji.png"></p>
+<p>或是用 chcoclatey 安裝也可以 ，輸入<code>choco install git</code></p>
+<p>初次安裝的話會需要設定使用者名稱跟密碼</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>安裝完成後在桌面建立資料夾，並簡單新增檔案，然後再對資料夾案右鍵，選取 Git Bash Here<br><img src="https://i.imgur.com/Tga7KCl.png"><br>會出現 Bash 視窗<br><img src="https://i.imgur.com/Ae4RKtN.png"><br>這樣就初始化完成了</p>
+<h2 id="加入索引"><a href="#加入索引" class="headerlink" title="加入索引"></a>加入索引</h2><p>接下來就可以開發了</p>
+<p>本來是檔案內容是空的，現在加入一點基本資料，然後要將這資料加入索引<br>當我們新增或是更改完成時就要將資料新增到索引，同時放到一個暫存區裡面<br>因為 VScode 有內建 <code>git add</code> ，就是下圖紅框處，如果有更改某檔案的資料，在 changes 就會有紀錄，首先左邊選單選到 Source control 會看到有檔案變更，點擊紅框的 + 號，要加入索引就把滑鼠移至紅框，會出現 + 號，點擊就 add 了<br><img src="https://i.imgur.com/FeAhBnc.png"></p>
+<p>add 新增索引後，如下圖<br><img src="https://i.imgur.com/7AHm6f6.png"></p>
+<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>當確定好更改的檔案並加入索引後，我們要 commit ，把暫存區裡面的資料丟到儲存庫裡面<br>通常 commit 後面都會接此次更改的資訊，寫法如下<br><code>git commit -m &quot;add index.html&quot;</code>，要記得空格跟加雙引號<br><img src="https://i.imgur.com/qQ0nwuq.png"></p>
+<p>然後推送至遠端數據庫</p>
+<h2 id="建立遠端儲存庫"><a href="#建立遠端儲存庫" class="headerlink" title="建立遠端儲存庫"></a>建立遠端儲存庫</h2><p>在推送至遠端數據庫之前，要先在遠端建立遠端數據庫，那這會用到 Github ，<br>如果沒有 Github 要先辦一下<br>登入後看到右上角有個 + 號，點擊候選取 <code>New repository</code><br><img src="https://i.imgur.com/TF4JMgd.png"><br>會出現以下畫面，然後再紅框處輸入遠端數據庫的名稱，這邊用 test1 示範，然後點擊下面的<br>Create repository<br><img src="https://i.imgur.com/rEvAKi8.png"></p>
+<p>接著會顯示以下畫面<br><img src="https://i.imgur.com/vqMTP0o.png"></p>
+<h2 id="推送至遠端數據庫"><a href="#推送至遠端數據庫" class="headerlink" title="推送至遠端數據庫"></a>推送至遠端數據庫</h2><p>當我們把資料都丟到數據庫後，接下來要將新增或是修改的檔案推送到遠端數據庫中<br><code>git push origin test</code> ，意思是將 test 這個分之 push 到遠端的數據庫中<br>因為我剛剛已經 init、add、commit 了，所以現在就直接 push，點選右邊紅框的複製紐<br>直接貼上<br><img src="https://i.imgur.com/zS5tHdk.png"></p>
+<p>用 <code>git log</code> 指令確認一下狀態<br><img src="https://i.imgur.com/9HjeMar.png"></p>
+<p>在回到 Github 在刷新一次頁面，確認一下<br><img src="https://i.imgur.com/1ZPugtq.png"></p>
+<p>這樣不管是 loacal 或是 remote，前置作業就算是完成了</p>
+<h2 id="製造分支"><a href="#製造分支" class="headerlink" title="製造分支"></a>製造分支</h2><p>接下來我們可以試著用分支開發<br>造分支有兩種方法:</p>
+<ol>
+<li><p><code>git checkout -b 分支名稱</code>: 這方法比較直接，輸入完直接造分支同時切到該分支上<br><img src="https://i.imgur.com/1QXhPuf.png"></p>
+</li>
+<li><p><code>git branch 分支名稱</code>: 這方法會造分支但不會切換到該分支，必須再下 <code>git checkout 分支名稱</code> 才會切過去，以下示範<br>我先用 <code>branch</code> 創造分支 <code>dev2</code> ，然後再確認目前在哪個分支上<br>(<strong>亮綠色有星號的就是在該分支上</strong>)<br>但因為我創的是 <code>dev2</code> ，所以還沒轉過去，要用 <code>checkout</code> 才可以切換過去<br><img src="https://i.imgur.com/XZGOfc8.png"></p>
+</li>
+</ol>
+<h2 id="合併分支"><a href="#合併分支" class="headerlink" title="合併分支"></a>合併分支</h2><p>接下來流程跟上面步驟一樣</p>
+<ol>
+<li>建立索引 add 或是 按 +</li>
+<li>提交至儲存庫<code> git commit</code></li>
+<li>推送至遠端</li>
+</ol>
+<hr>
+<h3 id="實際操作"><a href="#實際操作" class="headerlink" title="實際操作:"></a>實際操作:</h3><ol>
+<li>確認在哪個分之</li>
+<li>在分支上新增 <code>h2</code> 內容，並加入索引</li>
+<li>用 <code>git status</code> 確認目前更改的檔案有哪些</li>
+</ol>
+<p>如下圖<br><img src="https://i.imgur.com/oz44dB5.png"></p>
+<p>提交到儲存庫後，左邊的暫存檔就會不見<br><img src="https://i.imgur.com/WiXB10q.png"></p>
+<p>再示範一次，新增 h3 內容<br>我們可以點擊更改的檔案查看哪邊有高亮，有代表變更的地方<br><img src="https://i.imgur.com/q086OIx.png"></p>
+<p>提交後。高亮就會不見<br><img src="https://i.imgur.com/OfQeK2n.png"></p>
+<p>再推送到遠端<br><code>git push origin 分支名稱</code><br><img src="https://i.imgur.com/KcZ8GBP.png"></p>
+<p>到遠端切換到分支上查看，確實有剛新增的內容<br><img src="https://i.imgur.com/Zco4gdf.png"></p>
+<h3 id="接下來要合併了"><a href="#接下來要合併了" class="headerlink" title="接下來要合併了"></a>接下來要合併了</h3><p><strong>切回 主支( main )</strong><br><img src="https://i.imgur.com/BrJ6tEq.png"></p>
+<p>可以看到沒有 h2、h3 的內容<br>但再切回 dev1 分支查看是有的<br><img src="https://i.imgur.com/efIhab5.png"></p>
+<p>合併時我們要先切到要被合併的那個分支上，可以用 <code>git branch</code> 確認高亮跟星號在哪，如下圖<br><img src="https://i.imgur.com/cvzd86T.png"><br><code>merge</code> 完後 dev1 的內容就會被新增到主支(main)上，然後就可以繼續做開發了</p>
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://gitbook.tw/chapters/using-git/add-to-git.html">把檔案交給 Git 控管</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Git/" rel="tag"># Git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/17/WSL/" rel="prev" title="在 Windows 上安裝 WSL1">
+      <i class="fa fa-chevron-left"></i> 在 Windows 上安裝 WSL1
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B0%A1%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">簡介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E6%8C%87%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">Git 指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D"><span class="nav-number">3.</span> <span class="nav-text">安裝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%85%A5%E7%B4%A2%E5%BC%95"><span class="nav-number">5.</span> <span class="nav-text">加入索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4"><span class="nav-number">6.</span> <span class="nav-text">提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB"><span class="nav-number">7.</span> <span class="nav-text">建立遠端儲存庫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E9%80%81%E8%87%B3%E9%81%A0%E7%AB%AF%E6%95%B8%E6%93%9A%E5%BA%AB"><span class="nav-number">8.</span> <span class="nav-text">推送至遠端數據庫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A3%BD%E9%80%A0%E5%88%86%E6%94%AF"><span class="nav-number">9.</span> <span class="nav-text">製造分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF"><span class="nav-number">10.</span> <span class="nav-text">合併分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%A6%E9%9A%9B%E6%93%8D%E4%BD%9C"><span class="nav-number">10.1.</span> <span class="nav-text">實際操作:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E4%B8%8B%E4%BE%86%E8%A6%81%E5%90%88%E4%BD%B5%E4%BA%86"><span class="nav-number">10.2.</span> <span class="nav-text">接下來要合併了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">11.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PKTseng"
+      src="/images/1.jpg">
+  <p class="site-author-name" itemprop="name">PKTseng</p>
+  <div class="site-description" itemprop="description">每記錄一次就會比昨天的自己更加厲害</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/PKTseng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;PKTseng" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jk0910948659@gmail.com" title="E-Mail → mailto:jk0910948659@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PKTseng</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">總字數：</span>
+    <span title="總字數">67k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">所需總閱讀時間 &asymp;</span>
+    <span title="所需總閱讀時間">1:01</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://PKTseng.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://pktseng.github.io/2020/12/20/git/";
+    this.page.identifier = "2020/12/20/git/";
+    this.page.title = "簡易的 Git 操作";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://PKTseng.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
