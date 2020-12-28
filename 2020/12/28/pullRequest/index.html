@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"pktseng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Pull Request、git clone、git pull 的基本介紹">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pull Request">
+<meta property="og:url" content="https://pktseng.github.io/2020/12/28/pullRequest/index.html">
+<meta property="og:site_name" content="PK&#39;s 回憶錄">
+<meta property="og:description" content="Pull Request、git clone、git pull 的基本介紹">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/SIEMhnl.jpg">
+<meta property="og:image" content="https://i.imgur.com/YCKG1RJ.jpg">
+<meta property="og:image" content="https://i.imgur.com/X7JS8Fu.png">
+<meta property="og:image" content="https://i.imgur.com/Fn1eXXI.png">
+<meta property="og:image" content="https://i.imgur.com/KcQ30Je.png">
+<meta property="og:image" content="https://i.imgur.com/2lQZlxZ.png">
+<meta property="og:image" content="https://i.imgur.com/vkAsffP.png">
+<meta property="og:image" content="https://i.imgur.com/dJDi880.png">
+<meta property="og:image" content="https://i.imgur.com/MEOjzcS.png">
+<meta property="og:image" content="https://i.imgur.com/yA8Saeh.png">
+<meta property="og:image" content="https://i.imgur.com/dJDi880.png">
+<meta property="article:published_time" content="2020-12-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-28T04:35:08.659Z">
+<meta property="article:author" content="PKTseng">
+<meta property="article:tag" content="Pull Request">
+<meta property="article:tag" content="git clone">
+<meta property="article:tag" content="git pull">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/SIEMhnl.jpg">
+
+<link rel="canonical" href="https://pktseng.github.io/2020/12/28/pullRequest/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>Pull Request | PK's 回憶錄</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">PK's 回憶錄</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">學過的東西過段時間沒複習就會忘，所以請記錄下來</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/12/28/pullRequest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="PKTseng">
+      <meta itemprop="description" content="每記錄一次就會比昨天的自己更加厲害">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PK's 回憶錄">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Pull Request
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-12-28 00:00:00 / 修改時間：12:35:08" itemprop="dateCreated datePublished" datetime="2020-12-28T00:00:00+08:00">2020-12-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Pull-Request/" itemprop="url" rel="index"><span itemprop="name">Pull Request</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/12/28/pullRequest/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/28/pullRequest/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分鐘</span>
+            </span>
+            <div class="post-description">Pull Request、git clone、git pull 的基本介紹</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ol>
+<li><code>git clone</code>、<code>git pull</code> 這兩個指令有什麼不同，又分別代表什麼意思。</li>
+<li><code>Pull Request</code> 的流程是甚麼</li>
+<li>為什麼需要透過 <code>Pull Request</code> 來開發</li>
+</ol>
+<hr>
+<h2 id="git-clone、git-pull-這兩個指令有什麼不同，又分別代表什麼意思。"><a href="#git-clone、git-pull-這兩個指令有什麼不同，又分別代表什麼意思。" class="headerlink" title="git clone、git pull 這兩個指令有什麼不同，又分別代表什麼意思。"></a><code>git clone</code>、<code>git pull</code> 這兩個指令有什麼不同，又分別代表什麼意思。</h2><p>兩個都是更新檔案，repository 更新的過程會不一樣，一個是整包下載，一個是下載本地端已經有只需要下載部分更新的檔案，兩個同樣都是把檔案更新到最新的狀態</p>
+<ul>
+<li><p><code>git clone</code> :在本地( local )端還沒有 repository 的狀況下，我們就會需要使用到 <code>clone</code> ，把整包 repository 載下來，一般也只需要 clone 一次，之後就只需要 pull 了。</p>
+</li>
+<li><p><code>git pull</code> :就是我們本地( local )端已經有 repository 了，這時候就不需要在 <code>clone</code> ，只需要透過 <code>pull</code> 的方式，將遠端 ( remote )的 repository 載下來就可以了</p>
+</li>
+</ul>
+<p>以上就是 clone、pull 的差別</p>
+<h2 id="為什麼需要透過-Pull-Request-來開發"><a href="#為什麼需要透過-Pull-Request-來開發" class="headerlink" title="為什麼需要透過 Pull Request 來開發"></a>為什麼需要透過 <code>Pull Request</code> 來開發</h2><p>一般在開發或是看到很有興趣的開源專案，如果想加入新功能或是加入開發專安的話就會需要使用到 <code>Pull Request</code>，也就是我們俗稱的 <code>PR</code></p>
+<h2 id="Pull-Request-的流程是甚麼"><a href="#Pull-Request-的流程是甚麼" class="headerlink" title="Pull Request 的流程是甚麼"></a><code>Pull Request</code> 的流程是甚麼</h2><p><strong>Pull Request 簡稱 PR</strong><br>如果已經是這個團隊的開者之一，那就單純 clone 就好，<br>如果是別的開源專案又不是這個專案的原始開發者之一，那就需要先將專案 fork 出來，再開始開發</p>
+<p>以饅頭計畫的專案為例，我們已經是這個專案的開發人員之一，所以只需要 clone 下來就好，然後開分之並在分支上進行開發，做完之後我們會需要 push 到 remote repository，這時候就要發 PR 了，讓資深工程師確認我們寫的需求有沒有問題，如果沒問題就會 merge 到主支上</p>
+<h3 id="以下示範"><a href="#以下示範" class="headerlink" title="以下示範:"></a>以下示範:</h3><p>因為之前已經 clone 過了，<font color=#FF0000><strong>請記得先切換到主之上</strong></font>，然後再把本地端的檔案 pull 到最新的狀態，然後再用 <code>git checkout -b 分支名稱</code>，創建該分支同時切換到該分支上，如下圖<br><img src="https://i.imgur.com/SIEMhnl.jpg"></p>
+<p>接下來就是 Git 基本操作了<br>在分支上新增好內容後，把新增或是更改資料加入索引<br><img src="https://i.imgur.com/YCKG1RJ.jpg"></p>
+<p>然後提交(commit)上去<br>出現<code>git push --set-upstream origin example-mission</code>的原因可以參考<a target="_blank" rel="noopener" href="https://blog.csdn.net/benben_2015/article/details/78803753">這篇文章</a><br>解決方法就是複製貼上…<br><img src="https://i.imgur.com/X7JS8Fu.png"></p>
+<p>上面太模糊..補上清晰版…<br><img src="https://i.imgur.com/Fn1eXXI.png"></p>
+<p>push 上去後到 Github 專案點選左上 Pull Request，<br>因為目前還沒有發 PR，所以沒看到我剛新增的內容。<br>要發 PR 的話要點選右邊那兩個紅框的，<br><img src="https://i.imgur.com/KcQ30Je.png"></p>
+<p>一種是 <strong>Compare &amp; pull request</strong> ，另一種是<strong>New pull request</strong>，兩個都可以發，過程不一樣而已，以下兩種都會示範</p>
+<h3 id="New-pull-request"><a href="#New-pull-request" class="headerlink" title="New pull request"></a>New pull request</h3><p>點擊 <strong>New pull request</strong> 會顯示下圖畫面，<br><font color=#FF0000>左邊 <code>base:main</code> 是主支千萬不要動到</font>，動右邊要 merge 的分支就好<br>因為我們要把剛才新增的內容合併到主之上，所以選擇剛才新增的分支名稱 <code>example-mission</code><br><img src="https://i.imgur.com/2lQZlxZ.png"></p>
+<p>選完就會顯示剛才新增的內容，如下圖，確認 OK 後點選右邊的 <code>Create pull request</code><br><img src="https://i.imgur.com/vkAsffP.png"></p>
+<p>接著會進入以下畫面，這邊就要寫一下大標題，還有較細項的更改內容，<br>填寫完後再按右下的 <code>Create pull request</code><br><img src="https://i.imgur.com/dJDi880.png"></p>
+<p>按下後會進入以下畫面<br><img src="https://i.imgur.com/MEOjzcS.png"></p>
+<p>再回到 Pull Request 刷新一下，就會看到剛才新發的 PR 了<br><img src="https://i.imgur.com/yA8Saeh.png"></p>
+<p>接下來就等資深工程師確認我們寫的內容有無問題，<br>沒問題就會按下 <code>Merge pull request</code>，合併到主支(main)上</p>
+<h3 id="Compare-amp-pull-request"><a href="#Compare-amp-pull-request" class="headerlink" title="Compare &amp; pull request"></a>Compare &amp; pull request</h3><p>這邊更簡單，也推薦使用這個<br>因為點選 Compare &amp; pull request 後系統會自動選取剛才新建的分支上，會顯示下圖<br><img src="https://i.imgur.com/dJDi880.png"></p>
+<p>接著叫輸入大標題跟內容再 <code>Create pull request</code> ，這樣 PR 就發完了</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://gitbook.tw/chapters/github/pull-request.html">與其它開發者的互動 - 使用 Pull Request（PR） - 為你自己學 Git | 高見龍</a><br><a target="_blank" rel="noopener" href="https://w3c.hexschool.com/git/b9be5b1e">git add、git commit - 提交版本</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/benben_2015/article/details/78803753">Git master branch has no upstream branch的解決</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Pull-Request/" rel="tag"># Pull Request</a>
+              <a href="/tags/git-clone/" rel="tag"># git clone</a>
+              <a href="/tags/git-pull/" rel="tag"># git pull</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/20/git/" rel="prev" title="簡易的 Git 操作">
+      <i class="fa fa-chevron-left"></i> 簡易的 Git 操作
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git-clone%E3%80%81git-pull-%E9%80%99%E5%85%A9%E5%80%8B%E6%8C%87%E4%BB%A4%E6%9C%89%E4%BB%80%E9%BA%BC%E4%B8%8D%E5%90%8C%EF%BC%8C%E5%8F%88%E5%88%86%E5%88%A5%E4%BB%A3%E8%A1%A8%E4%BB%80%E9%BA%BC%E6%84%8F%E6%80%9D%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">git clone、git pull 這兩個指令有什麼不同，又分別代表什麼意思。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E9%9C%80%E8%A6%81%E9%80%8F%E9%81%8E-Pull-Request-%E4%BE%86%E9%96%8B%E7%99%BC"><span class="nav-number">2.</span> <span class="nav-text">為什麼需要透過 Pull Request 來開發</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pull-Request-%E7%9A%84%E6%B5%81%E7%A8%8B%E6%98%AF%E7%94%9A%E9%BA%BC"><span class="nav-number">3.</span> <span class="nav-text">Pull Request 的流程是甚麼</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E4%B8%8B%E7%A4%BA%E7%AF%84"><span class="nav-number">3.1.</span> <span class="nav-text">以下示範:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#New-pull-request"><span class="nav-number">3.2.</span> <span class="nav-text">New pull request</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compare-amp-pull-request"><span class="nav-number">3.3.</span> <span class="nav-text">Compare &amp; pull request</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PKTseng"
+      src="/images/1.jpg">
+  <p class="site-author-name" itemprop="name">PKTseng</p>
+  <div class="site-description" itemprop="description">每記錄一次就會比昨天的自己更加厲害</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/PKTseng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;PKTseng" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jk0910948659@gmail.com" title="E-Mail → mailto:jk0910948659@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PKTseng</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">總字數：</span>
+    <span title="總字數">68k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">所需總閱讀時間 &asymp;</span>
+    <span title="所需總閱讀時間">1:02</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://PKTseng.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://pktseng.github.io/2020/12/28/pullRequest/";
+    this.page.identifier = "2020/12/28/pullRequest/";
+    this.page.title = "Pull Request";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://PKTseng.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
