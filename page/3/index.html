@@ -1,727 +1,1013 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-  <!-- Minima -->
-  <!-- Hexo theme created by @adisaktijrs -->
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-
   
   <title>PK&#39;s 回憶錄</title>
-  
-  <link rel="canonical" href="https://pktseng.github.io/page/3/">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="每記錄一次就會比昨天的自己更加厲害">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PK&#39;s 回憶錄">
+<meta property="og:url" content="https://pktseng.github.io/page/3/index.html">
+<meta property="og:site_name" content="PK&#39;s 回憶錄">
+<meta property="og:description" content="每記錄一次就會比昨天的自己更加厲害">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:author" content="PKTseng">
+<meta name="twitter:card" content="summary">
   
   
-  <meta name="author" content="PKTseng">
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   
-  <meta property="og:image" content="https://pktseng.github.io/images/thumbnail.jpg">
-  
-  <meta property="og:site_name" content="PK&#39;s 回憶錄" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="PK&#39;s 回憶錄" />
-  
-  <meta property="og:description" content="每記錄一次就會比昨天的自己更加厲害">
-  
-  <meta property="og:url" content="https://pktseng.github.io/page/3/" />
+<link rel="stylesheet" href="/css/style.css">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PK&#39;s 回憶錄">
-  
-  <meta name="twitter:description" content="每記錄一次就會比昨天的自己更加厲害">
-  
-  
-  <meta name="twitter:image" content="https://pktseng.github.io/images/thumbnail.jpg">
-  
-  <meta name="twitter:url" content="https://pktseng.github.io/page/3/" />
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Preload fonts
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  
-<link rel="stylesheet" href="/css/normalize.css">
-
-  
-<link rel="stylesheet" href="/css/skeleton.css">
-
-  
-<link rel="stylesheet" href="/css/custom.css">
-
-  
-<link rel="stylesheet" href="/css/prism-dark.css">
-
-  
-<link rel="stylesheet" href="/css/prism-line-numbers.css">
-
-  <!-- User css -->
-  
-  
-<link rel="stylesheet" href="/css/user.css">
-
-  
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-
-  <!-- Custom Theme Color Style
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <style>
-  a:not(.icon) {
-    text-decoration-color: #0FA0CE;
-    background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 50%,
-      #0FA0CE 50%
-    );
-  }
-  blockquote {
-    border-left: 8px solid #0FA0CE;
-  }
-  .nanobar .bar {
-    background: #0FA0CE;
-  }
-  .button.button-primary:hover,
-  button.button-primary:hover,
-  input[type="submit"].button-primary:hover,
-  input[type="reset"].button-primary:hover,
-  input[type="button"].button-primary:hover,
-  .button.button-primary:focus,
-  button.button-primary:focus,
-  input[type="submit"].button-primary:focus,
-  input[type="reset"].button-primary:focus,
-  input[type="button"].button-primary:focus {
-    background-color: #0FA0CE;
-    border-color: #0FA0CE;
-  }
-  input[type="email"]:focus,
-  input[type="number"]:focus,
-  input[type="search"]:focus,
-  input[type="text"]:focus,
-  input[type="tel"]:focus,
-  input[type="url"]:focus,
-  input[type="password"]:focus,
-  textarea:focus,
-  select:focus {
-    border: 1px solid #0FA0CE;
-  }
-</style>
-
-  <!-- Google Analytics (With Privacy Settings On)
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   
 
 <meta name="generator" content="Hexo 5.0.2"></head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div>
-
-        <div class="row">
-  <div class="two columns" style="max-width: 50px">
-    <h1 class="mt-2 mode">
-      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
-      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
-      <script >
-        if (localStorage.getItem('preferredTheme') == 'dark') {
-          setDarkMode(true)
-        }
-        function setDarkMode(isDark) {
-          var darkBtn = document.getElementById('darkBtn')
-          var lightBtn = document.getElementById('lightBtn')
-          if (isDark) {
-            lightBtn.style.display = "block"
-            darkBtn.style.display = "none"
-            localStorage.setItem('preferredTheme', 'dark');
-          } else {
-            lightBtn.style.display = "none"
-            darkBtn.style.display = "block"
-            localStorage.removeItem('preferredTheme');
-          }
-          document.body.classList.toggle("darkmode");
-        }
-      </script>
-    </h1>
+  <div id="container">
+    <!-- blair add baidu tongji start... @2017.10.03 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8864d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- blair add baidu tongji end ! @2017.10.03 -->
+<!-- jiangting add start... @2020.08.30 -->
+<div id="menu" class="duration-main" style="background-color: rgb(80, 144, 128);">
+  <a class="name" href="/article/Create-MyResume">dtysky</a>
+  <address class="icons">
+    <a href="/feeds/all" class="icon-font icon rss" target="_blank"></a>
+    <a href="https://github.com/dtysky" class="icon-font icon github" target="_blank"></a>
+    <a href="https://cn.linkedin.com/pub/tianyu-dai/a8/818/44a" class="icon-font icon linkedin" target="_blank"></a>
+    <a href="http://psnprofiles.com/dtysky" class="icon-font icon playstation" target="_blank"></a>
+  </address>
+  <div class="hr1"></div>
+  <nav>
+    <div>
+    <a class="home" href="/">Home</a></div>
+    <nav class="tag-ath">
+      <a class="tags" href="/tags">Tags</a>
+      <a class="authors" href="/authors">Authors</a>
+    </nav>
+  </nav>
+  <div class="hr2"></div>
+    <p class="links-p">Links</p>
+      <address class="links">
+      <a class="proj" href="/article/Create-MyWorld">Projects</a>
+      <a class="friend">Friends</a></address><div class="hr3">
   </div>
-
-  <div class="six columns ml-1">
-    <h1 class="mt-2">
-      Hi Folks.
-    </h1>
+  <p class="end">这是一个孤独行者的轨迹。</p>
+  <div id="menu-links" class="duration-main" style="top: -400px; background-color: rgb(80, 144, 128);">
+    <address>
+      <li><a target="_blank" href="http://lm7.xxxxxxxx.jp">Lm7</a></li>
+      <li><a target="_blank" href="http://www.pixiv.net/member.php?id=4933015">Domik</a></li>
+      <li><a target="_blank" href="http://hana-ui.moe">hana-ui</a></li>
+      <li><a target="_blank" href="http://fil.dtysky.moe">F-I-L</a></li>
+      <li><a target="_blank" href="http://paradise.dtysky.moe">Paradise</a></li>
+      <li><a target="_blank" href="http://moe-notes.dtysky.moe">MoeNotes</a></li>
+      <li><a target="_blank" href="http://kanata.dtysky.moe">Kanata</a></li>
+      <li><a target="_blank" href="http://blog.nekohand.moe">Nekohand</a></li>
+      <li><a target="_blank" href="http://www.jerryfu.net">JerryFu</a></li>
+      <li><a target="_blank" href="http://kawabangga.com">南史</a></li>
+      <li><a>Hide Links</a></li>
+    </address>
   </div>
+</div>
+<!-- jiangting add end !  @2020.08.30 -->
 
-  <div class="twelve columns">
-    <div class="row">
-      <div class="nine columns left">
-        <a href="/">Home</a>
+<header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
         
-          
-          <a href="/About" class="ml">About</a>
-          
-        
-        
-          
-            <a href="mailto:test@test.test" target="_blank" class="ml">Email</a>
-          
-        
-      </div>
-    </div>
-    <hr style="margin-bottom: 2.6rem">
-  </div>
-</div>
-
-        <div class="trans">
-          <div class="row">
-  <div class="column">
-    <!-- Main information, edit it on theme/_config.yml -->
-    <h2 class="mb-2">I am Adi Sakti Jrs</h2>
-    <p>A student and web developer from Indonesia 🇮🇩</p>
-    <p>This is Minima, an undoubtedly simple and lightweight dark/light mode theme for Hexo. I created this from scratch using Skeleton CSS boilerplate. It only uses CSS and Vanilla JS, without using unnecessary third-party &#39;render-blocking&#39; libraries! 😁</p>
-  </div>
-</div>
-
-<h3>Recent Posts</h3>
-
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2021年1月8日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2021/01/08/changeRate/" class="">
-      
-        簡易版匯率轉換
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年12月31日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/12/31/formVaild/" class="">
-      
-        簡易表單驗證
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年12月28日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/12/28/zh-tw/pullRequest/" class="">
-      
-        Pull Request
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年12月20日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/12/20/git/" class="">
-      
-        簡易的 Git 操作
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年12月17日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/12/17/zh-tw/WSL/" class="">
-      
-        在 Windows 上安裝 WSL1
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年12月16日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/12/16/cmder/" class="">
-      
-        安裝套件管理工具
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年12月15日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/12/15/zh-tw/ZAP/" class="">
-      
-        OWASP ZAP
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年12月13日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/12/13/Loading/" class="">
-      
-        用 Vue 做出頁面的 Loading 效果
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年12月3日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/12/03/%E4%B8%B2%E6%8E%A5%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%20API/" class="">
-      
-        串接上傳檔案 API
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年9月4日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/09/04/%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99-1/" class="">
-      
-        Vue出電商網站-1
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年9月2日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/09/02/computed/" class="">
-      
-        計算屬性(computed)
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月30日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/30/router/" class="">
-      
-        Vue-Router
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月25日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/25/data%E5%BF%85%E9%A0%88%E6%98%AF%E5%87%BD%E6%95%B8/" class="">
-      
-        data必須是函數
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月22日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/22/%E5%9C%96%E7%89%87%E4%B8%8A%E8%88%B9/" class="">
-      
-        圖片上傳
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月21日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/21/%E4%B8%8B%E6%8B%89%E9%81%B8%E5%96%AE/" class="">
-      
-        下拉選單
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月21日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/21/%E8%A1%A8%E5%96%AE%E7%B6%81%E5%AE%9A%E2%80%94%E6%8C%89%E9%88%95/" class="">
-      
-        表單綁定—按鈕
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月21日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/21/%E8%A1%A8%E5%96%AE%E7%B6%81%E5%AE%9A/" class="">
-      
-        表單綁定
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月20日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/20/Vue%20%E7%B5%84%E4%BB%B6%E7%9A%84%E8%A8%BB%E5%86%8A%E8%88%87%E4%BD%BF%E7%94%A8/" class="">
-      
-        Vue組件的使用
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月20日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/20/%E8%AA%9E%E6%B3%95%E4%BF%AE%E9%A3%BE/" class="">
-      
-        語法修飾
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月20日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/20/%E5%81%B5%E8%81%BD%E6%A1%88%E4%BB%B6/" class="">
-      
-        偵聽按鍵事件
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月20日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/20/20200819-%E5%9C%96%E7%89%87%E8%AE%80%E5%8F%96/" class="">
-      
-        偵聽圖片的 load 事件
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月16日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/16/220200816-javasript/" class="">
-      
-        JavaScript 網頁事件處理
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月16日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/16/20200816-AJAX/" class="">
-      
-        AJAX
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月14日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/14/20200814-vue-cli/" class="">
-      
-        Vue-cli
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月13日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/13/20200813-javascript/" class="">
-      
-        最常見的 this：物件的方法調用
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月13日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/13/202008013-d-dlex/" class="">
-      
-        Flex 上課筆記
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月13日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/13/20200813-vue-if/" class="">
-      
-        v-if
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月13日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/13/20200813-v-for/" class="">
-      
-        列表渲染
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月13日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/13/20200813-vuemvvm/" class="">
-      
-        MVVM 說明
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月13日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/13/20200813-javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="">
-      
-        Javascript 核心篇-執行環境
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月13日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/13/20200813-vueon/" class="">
-      
-        v-bind 及 v-on 的使用
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月13日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/13/20200813-select/" class="">
-      
-        下拉選單
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年8月13日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/08/13/20200813-vue/" class="">
-      
-        圖片上傳
-      
-    </a>
-  </div>
-</div>
-
-
-<h4> <a href="/archives">All Posts</a></h4>
-
-          <div class="row mt-2">
-  
-    <div class="eight columns">
-      <p id="madewith">Made with ❤ and
-        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
-        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
-        </a>
-        
-        at <a href="https://en.wikipedia.org/wiki/Earth" target="_blank" rel="noreferrer">Earth</a>.</p>
-        
-    </div>
-
-    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
-    <div class="four columns mb-3 posisi" >
-      
-      <a class="ml-0 footer-link icon" href="https://github.com/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
-        <svg class="github svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-      </a>
-      
-
-      
-      <a class="ml-0 footer-link icon" href="https://linkedin.com/in/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="LinkedIn">
-        <svg class="linkedin svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
-      
-
-      
-      <a class="ml-0 footer-link icon" href="https://twitter.com/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Twitter">
-        <svg class="twitter svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
-      </a>
-      
-
-      
-      <a class="ml-0 footer-link icon" href="https://instagram.com/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Instagram">
-        <svg class="instagram svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
-      </a>
-      
-
-    </div>
-  
-</div>
-
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://pktseng.github.io"></form>
         </div>
-      </div>
-
+      </nav>
     </div>
+  </div>
+</header>
+
+    <br>
+    <section id="main" class="outer">
+      <article id="post-20200819-圖片讀取" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <myh11 itemprop="name">
+      <a class="article-title-index" href="/2020/08/20/20200819-%E5%9C%96%E7%89%87%E8%AE%80%E5%8F%96/"><strong>偵聽圖片的 load 事件</strong></a>
+      <small class=article-date-index>&nbsp; 2020-08-20</small>
+      <!--<a>
+      <div = post.date  </div>
+      </a>-->
+      <br>
+      <br> <!-- blair add -->
+    </myh11>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      <!--<a href="/2020/08/20/20200819-%E5%9C%96%E7%89%87%E8%AE%80%E5%8F%96/" class="article-date">
+  <time datetime="2020-08-20T03:49:27.732Z" itemprop="datePublished">2020-08-20</time>
+</a>-->
+      <!--
+  <div class="article-category-index">
+    <a class="article-category-index-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+-->
+      <!--
+      
+      -->
+    </div>
+	
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>現在要製作一個當圖片讀取的時候，顯示 loading 讀取完顯示 complate 的小範例<br>先用簡單的 <code>v-if</code> 、 <code>else</code> 判斷式，在將判斷式的值綁到圖片上<br><a target="_blank" rel="noopener" href="https://picsum.photos/">隨機圖片網址</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">&#x27;loading&#x27;</span>&gt;</span>Loading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span> <span class="attr">v-else</span>&gt;</span>complate<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> @<span class="attr">load</span>=<span class="string">&#x27;loading=false&#x27;</span> <span class="attr">src</span>=<span class="string">&quot;https://picsum.photos/300/300&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line"><span class="javascript">    loading: <span class="literal">true</span>,</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/WNwGaEE?editors=1010">codepen</a><br><img src="https://i.imgur.com/4YgfqXY.png"> </p>
+<p>接下來加一點 CSS 樣式，讓畫面稍微生動一些<br>在 <code>img</code> 動態綁定到 <code>imgClass</code> 上，並加入 <code>computed</code> 屬性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">&#x27;loading&#x27;</span>&gt;</span>Loading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span> <span class="attr">v-else</span>&gt;</span>complate<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:Class</span>=<span class="string">&#x27;imgClass&#x27;</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">load</span>=<span class="string">&#x27;loading=false&#x27;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">src</span>=<span class="string">&quot;https://picsum.photos/300/300&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">alt</span>=<span class="string">&quot;img&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-class">.img</span><span class="selector-class">.hide</span>&#123;</span></span><br><span class="line">  opacity: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="css"><span class="selector-class">.img</span>&#123;</span></span><br><span class="line">  transition: opacity 1s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line"><span class="javascript">    loading: <span class="literal">true</span>,</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line">    imgClass()&#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">if</span>(<span class="built_in">this</span>.loading)&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="string">&#x27;img hide&#x27;</span>;</span></span><br><span class="line"><span class="javascript">      &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="string">&#x27;img&#x27;</span>;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/ZEWpqmm">codepen</a></p>
+<hr>
+<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2>
+      
+    </div>
+	
+    <!--
+	
+    -->
+    <!--
+    
+      <footer class="article-footer">
+      </footer>
+    
+    -->
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-220200816-javasript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <myh11 itemprop="name">
+      <a class="article-title-index" href="/2020/08/16/220200816-javasript/"><strong>JavaScript 網頁事件處理</strong></a>
+      <small class=article-date-index>&nbsp; 2020-08-16</small>
+      <!--<a>
+      <div = post.date  </div>
+      </a>-->
+      <br>
+      <br> <!-- blair add -->
+    </myh11>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      <!--<a href="/2020/08/16/220200816-javasript/" class="article-date">
+  <time datetime="2020-08-15T16:00:00.000Z" itemprop="datePublished">2020-08-16</time>
+</a>-->
+      <!--
+  <div class="article-category-index">
+    <a class="article-category-index-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+-->
+      <!--
+      
+      -->
+    </div>
+	
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="學習方向"><a href="#學習方向" class="headerlink" title="學習方向"></a>學習方向</h2><ol>
+<li>介面:如何改變事件</li>
+<li>事件:如何監聽事件並做出反應</li>
+<li>資料:如何跟 sever 交換資料</li>
+</ol>
+<hr>
+<h2 id="eventListener-與-callback-function"><a href="#eventListener-與-callback-function" class="headerlink" title="eventListener 與 callback function"></a>eventListener 與 callback function</h2><h3 id="eventListener"><a href="#eventListener" class="headerlink" title="eventListener"></a>eventListener</h3><p>給一個屬性跟屬性值，再用 <code>document.querySelector</code> 選一個元素並命名為 app ，透過點擊 hello world 做出彈跳視窗，那想做出彈跳視窗必須偵聽事件 <code>addEventListener</code> ，在 <code>addEventListener</code> 前面是事件的動作例如點擊或是按鍵盤…等等，那後面要傳入一個函式。</p>
+<h3 id="callback-function"><a href="#callback-function" class="headerlink" title="callback function"></a>callback function</h3><p>因為不知道使用者甚麼時候才會觸發函式(做甚麼動作)，所以我們必須跟瀏覽器說一但點擊了甚麼按鈕或是做了什麼動作(事件)，就幫我呼叫那個函式(觸發)，那呼叫函式就是 <code>callback function</code></p>
+<p>EX:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>hello world<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- -------------------------------------------&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 匿名函式 比較常見寫法--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> app = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.app&#x27;</span>);</span></span><br><span class="line"><span class="javascript">app.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    alert(<span class="string">&#x27;hello world&#x27;</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!---------------------------------------------&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> app = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.app&#x27;</span>);</span></span><br><span class="line"><span class="javascript">app.addEventListener(<span class="string">&#x27;click&#x27;</span>, onClick)</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">onClick</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;hello world&#x27;</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/BYG7UOJ.png"></p>
+<hr>
+<h2 id="event-e"><a href="#event-e" class="headerlink" title="event(e)"></a>event(e)</h2><p>當我們觸發事件時，瀏覽器就會把參數(event 縮寫為 e)帶入函示裡面。<br>使用 <code>console.log(e)</code> ，可以看到很多關於 e 的參數。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>hello world<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> app = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.app&#x27;</span>);</span></span><br><span class="line"><span class="javascript">app.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/WqDxtOD.png"></p>
+<p>改用 <code>console.log(e.target)</code><br><img src="https://i.imgur.com/TFYrlsD.png"></p>
+<p>當然如果想知道按鍵參數的話可以這樣寫<br>先改為全域 window </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;keypress&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(e.keyCode);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/A0uZqfO.png"><br><img src="https://i.imgur.com/lDm6hKO.png"><br>分別按下 a、b、c，可以知道 a = 97 、b = 98、c = 99</p>
+<hr>
+<h2 id="表單事件處理-onSubmit"><a href="#表單事件處理-onSubmit" class="headerlink" title="表單事件處理 onSubmit"></a>表單事件處理 onSubmit</h2><p>這可以應用在表單二次確認密碼的時候<br>寫出一個簡單的表單，並在判斷式內擷取密碼的值( value )</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&#x27;login&#x27;</span>&gt;</span></span><br><span class="line">  username:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  password:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;password&#x27;</span> <span class="attr">class</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  password:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;password&#x27;</span> <span class="attr">class</span>=<span class="string">&quot;password1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;submit&#x27;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">scrip</span>&gt;</span></span><br><span class="line">let login = document.querySelector(&#x27;.login&#x27;);</span><br><span class="line">login.addEventListener(&#x27;submit&#x27;,function(e)&#123;</span><br><span class="line">  let psw = document.querySelector(&#x27;.password&#x27;);</span><br><span class="line">  let psw1 = document.querySelector(&#x27;.password1&#x27;);</span><br><span class="line">  if(psw.value !== psw1.value)&#123;</span><br><span class="line">    alert(&#x27;密碼錯誤&#x27;);</span><br><span class="line">    e.preventDefault();</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    alert(&#x27;密碼正確&#x27;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">scrip</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/wvGGdgy?editors=1010">codepen</a><br><img src="https://i.imgur.com/ES5AVUI.png"></p>
+<hr>
+<h2 id="事件傳遞機制-捕獲跟冒泡事件"><a href="#事件傳遞機制-捕獲跟冒泡事件" class="headerlink" title="事件傳遞機制-捕獲跟冒泡事件"></a>事件傳遞機制-捕獲跟冒泡事件</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;one&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;two&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>click<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">addEvent(<span class="string">&#x27;.one&#x27;</span>);</span></span><br><span class="line"><span class="javascript">addEvent(<span class="string">&#x27;.two&#x27;</span>);</span></span><br><span class="line"><span class="javascript">addEvent(<span class="string">&#x27;button&#x27;</span>);</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">className</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">document</span>.querySelector(className)</span></span><br><span class="line"><span class="javascript">    .addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(className)</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/dyMMWVO?editors=1011">codepen</a></p>
+<p><img src="https://i.imgur.com/iSr9A3f.png"><br>當我點擊綠色區塊的時候只會跳出 one ，但點擊 click 時就會跳出上圖，但我明明只點 click 為甚麼會連帶影響到其他 class 區塊 ?</p>
+<p>因為這就是事件傳遞機制的捕獲跟冒泡事件</p>
+<p><a target="_blank" rel="noopener" href="https://blog.techbridge.cc/2017/07/15/javascript-event-propagation/">Huli 文章</a><br>下圖來源為 Huli 的文章<br><img src="https://i.imgur.com/V2KLVIV.png"><br>以下這段話擷取自 Huli 文章</p>
+<blockquote>
+<p>DOM 的事件在傳播時，會先從根節點開始往下傳遞到 target，這邊你如果加上事件的話，就會處於 CAPTURING_PHASE，捕獲階段。<br>target 就是你所點擊的那個目標，這時候在 target 身上所加的 eventListenr 會是  AT_TARGET 這一個 Phase。<br>你在點擊那一個 td 的時候，這一個點擊的事件會先從 window 開始往下傳，一直傳到 td 為止，到這邊就叫做 CAPTURING_PHASE，捕獲階段。<br>接著事件傳遞到 td 本身，這時候叫做 AT_TARGET。<br>最後事件會從 td 一路傳回去 window，這時候叫做 BUBBLING_PHASE，冒泡階段。<br>所以，在看一些講事件機制的文章的時候，都會看到一個口訣：先捕獲，再冒泡</p>
+</blockquote>
+<p>在監聽時函式後面加上 true 就是捕獲，false 是冒泡</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">addEvent(<span class="string">&#x27;.one&#x27;</span>);</span><br><span class="line">addEvent(<span class="string">&#x27;.two&#x27;</span>);</span><br><span class="line">addEvent(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">className</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.querySelector(className)</span><br><span class="line">    .addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(className, <span class="string">&#x27;捕獲&#x27;</span>)</span><br><span class="line">  &#125;,<span class="literal">true</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">document</span>.querySelector(className)</span><br><span class="line">    .addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(className, <span class="string">&#x27;冒泡&#x27;</span>)</span><br><span class="line">  &#125;,<span class="literal">false</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/YzqqVjQ?editors=1011">codepen</a></p>
+<p>當我點擊 click</p>
+<p><img src="https://i.imgur.com/g7pwU5s.png"></p>
+<p>就算我把順序顛倒過來，它還是會先捕獲在冒泡，跟上圖一樣</p>
+<hr>
+<h2 id="資料來源-FE102-前端必備：JavaScript"><a href="#資料來源-FE102-前端必備：JavaScript" class="headerlink" title="資料來源: [FE102] 前端必備：JavaScript"></a><a target="_blank" rel="noopener" href="https://lidemy.com/courses/390588/lectures/9653894">資料來源: [FE102] 前端必備：JavaScript</a></h2>
+      
+    </div>
+	
+    <!--
+	
+    -->
+    <!--
+    
+      <footer class="article-footer">
+      </footer>
+    
+    -->
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-20200816-AJAX" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <myh11 itemprop="name">
+      <a class="article-title-index" href="/2020/08/16/20200816-AJAX/"><strong>AJAX</strong></a>
+      <small class=article-date-index>&nbsp; 2020-08-16</small>
+      <!--<a>
+      <div = post.date  </div>
+      </a>-->
+      <br>
+      <br> <!-- blair add -->
+    </myh11>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      <!--<a href="/2020/08/16/20200816-AJAX/" class="article-date">
+  <time datetime="2020-08-15T16:00:00.000Z" itemprop="datePublished">2020-08-16</time>
+</a>-->
+      <!--
+  <div class="article-category-index">
+    <a class="article-category-index-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+-->
+      <!--
+      
+      -->
+    </div>
+	
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="透過-XMLHttpRequest-物件跨瀏覽器撈資料"><a href="#透過-XMLHttpRequest-物件跨瀏覽器撈資料" class="headerlink" title="透過 XMLHttpRequest 物件跨瀏覽器撈資料"></a>透過 XMLHttpRequest 物件跨瀏覽器撈資料</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/XMLHttpRequest/readyState">MDN 連結</a><br><code>XMLHttpRequest</code> 是瀏覽器跟伺服器要資料時必須存在的物件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27; 格式 &#x27;</span>,<span class="string">&#x27; 讀取的網址 &#x27;</span>, A )</span><br></pre></td></tr></table></figure>
+<p>格式: <code>get</code>(讀去資料) / <code>post</code>(傳送資料到伺服器)<br>A 是 <code>true/false</code> (同步或是非同步)<br><code>true</code> 是程式不等回傳結果，繼續往下執行<br><code>false</code> 是會等回傳結果再決定要不要繼續執行</p>
+<p>在 log 輸入 <code>xhr</code> 就會顯示相對應的資料，打開後顯示的各種格式<br>(目前還沒輸入格式跟網址)<br><img src="https://i.imgur.com/NdoTS3z.png"><br>其中 <code>readyState  = 0</code> 是代表已經產生一個 XMLHttpRequest 但還沒連結到我要撈的資料<br>圖片來源 MDN:<img src="https://i.imgur.com/ulBWlK5.png"></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://hexschool.github.io/ajaxHomework/data.json"> json 連結</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+<p>輸入完整格式跟網址後 readyState  顯示 1 ，意思是目前選擇了格式，但還沒把資料送出去<br><img src="https://i.imgur.com/n4sTfGk.png"></p>
+<hr>
+<p>目前只要 get 資料並非真的要傳送出去所以用 <code>null</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+<p>會發現有撈到資料，readyState  顯示 4 ，意思是完成下載操作<br><img src="https://i.imgur.com/Z9ap49J.png"></p>
+<hr>
+<h3 id="AJAX-非同步觀念"><a href="#AJAX-非同步觀念" class="headerlink" title="AJAX 非同步觀念"></a>AJAX 非同步觀念</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xhr.responseText);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/a3pXjib.png"><br>照理說我們用 <code>console.log</code> 看資料時應該要顯示，但為甚麼會顯示空直?<br>原因是用了 <code>true</code> 非同步，他不會等資料有沒有回傳，而是直接往下執行，所以<br><code>console.log(xhr.responseText)</code>是撈不到資料的，<br>相反的如果使用 <code>false</code> 則是會等資料回傳，收到資料後再繼續往下執行，如下圖</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">false</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xhr.responseText);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/Hcfipnh.png"></p>
+<p>但是當我們在往後執行程式時，不可能讓資料回傳再執行，必須讓程式繼續執行並且抓到資料，<br>所以我們使用 onload 監聽事件，並改成 true 非同步</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(xhr.responseText)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>載入完時，觸發 onload 事件然後擷取 <code>xhr.responseText</code> 的資料.<br><img src="https://i.imgur.com/2dbmRtE.png"></p>
+<hr>
+<p>接下來要在網頁上顯示 王小名</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(xhr.responseText)</span><br><span class="line">  <span class="keyword">var</span> str = <span class="built_in">JSON</span>.parse(xhr.responseText);</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.name&#x27;</span>).textContent = str[<span class="number">0</span>].name</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>把 <code>xhr.responseText</code> 轉成物件，再從這物件中提取第一筆資料(JS 中第一筆為0)<br><img src="https://i.imgur.com/0LwFAMY.png"></p>
+<p>總結 AJAX 動作:</p>
+<ol>
+<li>建立 XMLHttpRequest</li>
+<li>將資料傳送到對方伺服器裡</li>
+<li>回傳資料到自己的瀏覽器</li>
+<li>對資料進行擷取</li>
+</ol>
+<hr>
+<h2 id="資料來源-JavaScript-入門篇-學徒的試煉"><a href="#資料來源-JavaScript-入門篇-學徒的試煉" class="headerlink" title="資料來源:JavaScript 入門篇 - 學徒的試煉"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/670042/lectures/11952421">資料來源:JavaScript 入門篇 - 學徒的試煉</a></h2>
+      
+    </div>
+	
+    <!--
+	
+    -->
+    <!--
+    
+      <footer class="article-footer">
+      </footer>
+    
+    -->
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-20200814-vue-cli" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <myh11 itemprop="name">
+      <a class="article-title-index" href="/2020/08/14/20200814-vue-cli/"><strong>Vue-cli</strong></a>
+      <small class=article-date-index>&nbsp; 2020-08-14</small>
+      <!--<a>
+      <div = post.date  </div>
+      </a>-->
+      <br>
+      <br> <!-- blair add -->
+    </myh11>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      <!--<a href="/2020/08/14/20200814-vue-cli/" class="article-date">
+  <time datetime="2020-08-13T16:00:00.000Z" itemprop="datePublished">2020-08-14</time>
+</a>-->
+      <!--
+  <div class="article-category-index">
+    <a class="article-category-index-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+-->
+      <!--
+      
+      -->
+    </div>
+	
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Vue-cli 是一個用單一檔案組件來開發，就是 html 、css 、 javascript 都是放在同一個檔案裡面，所以一個檔案就是一個組件。那想要用這個檔案必須要經過轉換跟打包才能讓瀏覽器執行，那在執行 Vue-cli 之前必須先知道並運用以下工具。</p>
+<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p><a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a> 是一個可以讓電腦執行 javascript 的環境，拿原本可以跑 js 的是瀏覽器，要在瀏覽器之外可以跑 js 就會需要 node.js<br><img src="https://i.imgur.com/7kxlDuD.png"><br>安裝的時候選 LTS ( Long-term support 長期支援) ，因為 Node.js 團隊會長期維護此版本，所以可以安心使用。</p>
+<h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>node.js 安裝好之後，裡面有個工具叫做 <a target="_blank" rel="noopener" href="https://www.npmjs.com/">npm</a> ， 它是 node.js 裡面的一個指令，也是別人把程式寫好然後發佈到 npm 雲端，那我們就可以利用 npm 指令下載別人寫好的套件。</p>
+<h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><p>npm 套件裡面有個東西叫 webpack ，它會將原始檔裡面的所有資源，經過轉換+打包變成瀏覽器看得懂的語言，例如: sass =&gt; css 。<br><img src="https://i.imgur.com/HOLpQv1.png"></p>
+<h3 id="Vue-cli"><a href="#Vue-cli" class="headerlink" title="Vue-cli"></a>Vue-cli</h3><p>雖然 webpack 可以將眾多原始檔轉換打包，但在設定上會比較繁雜，所以這時候 vue 開發者就很佛心地幫我們建立一套開發工具: <a target="_blank" rel="noopener" href="https://cli.vuejs.org/">vue-cli</a> ，利用 vue-cli 就可以讓我們很迅速的建立開發模板，同時也可以幫我們用 webpack 打包原始檔。</p>
+<hr>
+<h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><h3 id="此為舊版安裝方法-v2-版本"><a href="#此為舊版安裝方法-v2-版本" class="headerlink" title="此為舊版安裝方法(v2 版本)"></a>此為舊版安裝方法(v2 版本)</h3><p>如<a target="_blank" rel="noopener" href="https://cli.vuejs.org/guide/installation.html">官方說明</a></p>
+<ul>
+<li><code>npm install -g @vue/cli</code><br>這樣 npm 就會從雲端下載 vue-cli 到我的電腦裡面，同時也讓我的 node.js 可以執行 vue-cli，安裝時間大概2~3分鐘<br><img src="https://i.imgur.com/kpx2XoE.png"><br>安裝完後會顯示版本: @vue/cli@4.5.3</li>
+</ul>
+<hr>
+<p>如果沒安裝全域 cli 出現的錯誤，如下圖<br><img src="https://i.imgur.com/S6VoRhX.png"></p>
+<hr>
+<p><strong>繼續安裝步驟</strong><br>1.在桌面創建專案資料夾(我的範例是 v2)<br>2.在切換到資料夾: cd 把資料夾托過來，出現第二行<br>3.(舊版安裝方法) <code>vue init 樣板(下圖) 專案名(v2)</code>，接下來依照個人需求跟喜好來設定<br><img src="https://i.imgur.com/DiBR5CK.png"><br><img src="https://i.imgur.com/Ac7Ckhs.png"></p>
+<p>4.安裝結束後會跳出下圖</p>
+<p><img src="https://i.imgur.com/7M4T9PZ.png"></p>
+<p>5.再輸入黃色指定</p>
+<p><img src="https://i.imgur.com/MJiVes1.png">.</p>
+<p>6.輸入網址就會出現下圖畫面</p>
+<p><img src="https://i.imgur.com/59y13gj.png"></p>
+<hr>
+<h3 id="此為-GUI-安裝方法"><a href="#此為-GUI-安裝方法" class="headerlink" title="此為 GUI 安裝方法"></a>此為 GUI 安裝方法</h3><p>1.創建資料夾(我的是 v3)，不要創資料夾也可以，但創建的路徑要自己決定，我在桌面創 v3 是希望創建完就出現在我指定的地點<br>2.切換到資料夾，並輸入 <code>vue ui</code><br><img src="https://i.imgur.com/BeAhEwR.png"></p>
+<p>輸入後會開啟新視窗<br><img src="https://i.imgur.com/zcfBh4v.png"></p>
+<p>接下來要新建專案<br><img src="https://i.imgur.com/OPbJuQ0.png"></p>
+<p><img src="https://i.imgur.com/oCS7kEP.png"><br>管理器，我習慣用 npm<br><img src="https://i.imgur.com/xNwmUAx.png"><br>手動一照個人喜好設定<br><img src="https://i.imgur.com/JA0CUIF.png"></p>
+<p><img src="https://i.imgur.com/KvX4YMA.png"></p>
+<p><img src="https://i.imgur.com/VDMIMEx.png"><br>按下新增專案後會問你要不是把現在的設定保存起來，日後可以直接呼叫<br><img src="https://i.imgur.com/aEftmTk.png"></p>
+<hr>
+<h3 id="資料來源"><a href="#資料來源" class="headerlink" title="資料來源:"></a>資料來源:</h3><p><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">精通 VueJS 前端開發完全指南</a><br><a target="_blank" rel="noopener" href="https://nodejs.org/en/">node.js 官方文件</a><br><a target="_blank" rel="noopener" href="https://webpack.js.org/">webpack 官方文件</a><br><a target="_blank" rel="noopener" href="https://cli.vuejs.org/">vue-cli 官方文件</a> </p>
+
+      
+    </div>
+	
+    <!--
+	
+    -->
+    <!--
+    
+      <footer class="article-footer">
+      </footer>
+    
+    -->
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-20200813-javascript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <myh11 itemprop="name">
+      <a class="article-title-index" href="/2020/08/13/20200813-javascript/"><strong>最常見的 this：物件的方法調用</strong></a>
+      <small class=article-date-index>&nbsp; 2020-08-13</small>
+      <!--<a>
+      <div = post.date  </div>
+      </a>-->
+      <br>
+      <br> <!-- blair add -->
+    </myh11>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      <!--<a href="/2020/08/13/20200813-javascript/" class="article-date">
+  <time datetime="2020-08-13T02:50:59.603Z" itemprop="datePublished">2020-08-13</time>
+</a>-->
+      <!--
+  <div class="article-category-index">
+    <a class="article-category-index-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+-->
+      <!--
+      
+      -->
+    </div>
+	
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>函式裡面一定會帶上一個 this ， this 在執行函式的時候自然就會產生，不需要特別宣告<br><img src="https://i.imgur.com/9jiIVE1.png"></p>
+<p><img src="https://i.imgur.com/OmKjnpU.png"></p>
+<p>作用域不一樣，var的作用域在函數 (function) 裡，let的作用域則是在區塊 (block) 裡。</p>
+<p><img src="https://i.imgur.com/sRu5pPK.png" alt="6角"><br><img src="https://i.imgur.com/pyjbDxQ.png"><br><img src="https://i.imgur.com/rlpXaM8.png"></p>
+<h3 id="範例-1"><a href="#範例-1" class="headerlink" title="範例 1"></a>範例 1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myName = <span class="string">&#x27;驚不驚喜&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>,<span class="built_in">this</span>.myName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> family = &#123;</span><br><span class="line">  myName: <span class="string">&#x27;老王&#x27;</span>,</span><br><span class="line">  callName: callName</span><br><span class="line">&#125;</span><br><span class="line">family.callName();</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/MNVJCY4.png"><br><code>this</code> 會指向函式前面的物件，所以 <code>this</code> 顯示 <code>family</code> 物件， <code>this.myName</code> 會顯示老王</p>
+<hr>
+<h3 id="範例-2"><a href="#範例-2" class="headerlink" title="範例 2"></a>範例 2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myName = <span class="string">&#x27;驚不驚喜&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>,<span class="built_in">this</span>.myName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> family = &#123;</span><br><span class="line">  myName: <span class="string">&#x27;來因&#x27;</span>,</span><br><span class="line">  callName: callName,</span><br><span class="line">  ana: &#123;</span><br><span class="line">    myName: <span class="string">&#x27;安納&#x27;</span>,</span><br><span class="line">    callName: callName</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">family.callName();</span><br><span class="line">family.ana.callName();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/FB2N78p.png"><br>這邊 <code>family</code> 裡面多了 <code>ana</code> 物件，<br>執行 <code>family.callName()</code> 會找到物件第一層，跟範例 1 一樣<br>在執行 <code>family.ana.callName()</code> 時，<code>callName()</code>的 this 會指向 <code>ana</code> 物件</p>
+<hr>
+<h3 id="範例-3"><a href="#範例-3" class="headerlink" title="範例 3"></a>範例 3</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myName = <span class="string">&#x27;驚不驚喜&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>,<span class="built_in">this</span>.myName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> family = &#123;</span><br><span class="line">  myName: <span class="string">&#x27;來因&#x27;</span>,</span><br><span class="line">  callName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>, <span class="built_in">this</span>.myName);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// family.callName();</span></span><br><span class="line"><span class="keyword">var</span> callName = family.callName;</span><br><span class="line">callName()</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/YMU8nGg.png"><br>如果執行 <code>family.callName()</code> 結果會跟範例 1 一樣，但如果重新宣告 <code>callName</code> 再執行結果為什麼會是 <code>驚不驚喜</code> ?<br>因為<code>callName</code> 是在全域執行，所以 this 就不會指向 <code>family</code> 這個物件，是指向全域的 <code>window</code> ，而全域 <code>window</code> 的 <code>myName</code> 就是 <code>驚不驚喜</code> 。<br>就算少了 <code>var callName = family.callName;</code> 結果仍是一樣</p>
+<hr>
+<h2 id="參考資料-JavaScript-核心篇"><a href="#參考資料-JavaScript-核心篇" class="headerlink" title="參考資料: JavaScript 核心篇"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/enrolled/670037">參考資料: JavaScript 核心篇</a></h2>
+      
+    </div>
+	
+    <!--
+	
+    -->
+    <!--
+    
+      <footer class="article-footer">
+      </footer>
+    
+    -->
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-202008013-d-dlex" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <myh11 itemprop="name">
+      <a class="article-title-index" href="/2020/08/13/202008013-d-dlex/"><strong>Flex 上課筆記</strong></a>
+      <small class=article-date-index>&nbsp; 2020-08-13</small>
+      <!--<a>
+      <div = post.date  </div>
+      </a>-->
+      <br>
+      <br> <!-- blair add -->
+    </myh11>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      <!--<a href="/2020/08/13/202008013-d-dlex/" class="article-date">
+  <time datetime="2020-08-12T16:00:00.000Z" itemprop="datePublished">2020-08-13</time>
+</a>-->
+      <!--
+  <div class="article-category-index">
+    <a class="article-category-index-link" href="/categories/Flex/">Flex</a>
+  </div>
+
+-->
+      <!--
+      
+      -->
+    </div>
+	
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Note"><a href="#Note" class="headerlink" title="Note:"></a>Note:</h2><p>display:必備屬性<br>flex-direction:決定flex軸線<br>justify-content:主要軸線的對齊<br>align-items:交錯軸線的對齊</p>
+<h2 id="Flex-外層屬性-container-介紹"><a href="#Flex-外層屬性-container-介紹" class="headerlink" title="Flex 外層屬性 (container) 介紹"></a>Flex 外層屬性 (container) 介紹</h2><p>父元素有 display:flex，內層子元素之間的比例就會自動調整位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.container</span><br><span class="line"> .item.item1 1</span><br><span class="line"> .item.item2 2</span><br><span class="line"> .item.item3 3</span><br></pre></td></tr></table></figure>
+<p>即使item寬度調成 200 5000 10000 px，也不會超出 container，因為父層有display:flex，但內層如果單一設定高度，其他項目也會跟著一起變更高度<br>若在 item1、2、3 個別加上屬性值<br>會呈現下圖</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#0099ff</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#00ffa2</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#d32a2a</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">36px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item1</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item2</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">width</span>: auto;</span><br><span class="line">  //因為沒設定寬度，所以會自適應延伸父元素，</span><br><span class="line">  //父元素寬多少ex:500px，子元素寬就會多少ex:500px</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item3</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: auto;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>即使item寬度調成 200 5000 10000 px，也不會超出 container，因為父層有display:flex，但內層如果單一設定高度，其他項目也會跟著一起變更高度</p>
+<p>若在 item1、2、3 個別加上屬性值</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#0099ff</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#00ffa2</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#d32a2a</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">36px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item1</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item2</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">width</span>: auto;</span><br><span class="line">  //因為沒設定寬度，所以會自適應延伸父元素，</span><br><span class="line">  //父元素寬多少ex:500px，子元素寬就會多少ex:500px</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.item3</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: auto;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>會呈現下圖<br><img src="https://i.imgur.com/CI2KfeC.png"><br>若在.container css 加上display: flex 跟 .item + margin: 0 0 10px 10px<br>會呈現下圖<br><img src="https://i.imgur.com/8POvW8H.png"><br>item3 因為沒設定高度，所以會依照.item2的高度自適應延伸<br>item1 因為”有”設定高度，所以不會自適應延伸<br>如果item都沒設定高度，就會依照元素內的內容設定高度<br>note: item預設是等高(or寬)的，會依照container內部距離自動調整</p>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/wvaVmZB?editors=0100">codepen範例</a></p>
+<hr>
+<h2 id="Flex-direction-排版方向"><a href="#Flex-direction-排版方向" class="headerlink" title="Flex-direction 排版方向"></a>Flex-direction 排版方向</h2><h3 id="flex-direction-row"><a href="#flex-direction-row" class="headerlink" title="flex-direction: row"></a>flex-direction: row</h3><p><img src="https://i.imgur.com/TM0sx6x.png"></p>
+<h3 id="flex-direction-row-reverse"><a href="#flex-direction-row-reverse" class="headerlink" title="flex-direction: row-reverse"></a>flex-direction: row-reverse</h3><p><img src="https://i.imgur.com/FFkZsKJ.png"></p>
+<h3 id="flex-direction-colume"><a href="#flex-direction-colume" class="headerlink" title="flex-direction: colume"></a>flex-direction: colume</h3><p><img src="https://i.imgur.com/P8e2EUb.png"></p>
+<h3 id="flex-direction-colume-reverse"><a href="#flex-direction-colume-reverse" class="headerlink" title="flex-direction: colume-reverse"></a>flex-direction: colume-reverse</h3><p><img src="https://i.imgur.com/7VOAUuk.png"></p>
+<h3 id="justify-content-—-決定主軸對齊方式"><a href="#justify-content-—-決定主軸對齊方式" class="headerlink" title="justify-content — 決定主軸對齊方式"></a>justify-content — 決定主軸對齊方式</h3><p><img src="https://i.imgur.com/GiOy9xd.png"><br><img src="https://i.imgur.com/v3otwc7.png"><br><img src="https://i.imgur.com/kpyczNo.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">display: flex</span><br><span class="line">flex-direction: column</span><br><span class="line">justify-content: space-between</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/VGGHA5f.png"><br>要改變方向要下display: flex &amp; flex-direction: column(垂直)<br>row橫向本身是預設可不寫</p>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/gOpVKzo">六角 Flex 模擬器</a><br><a target="_blank" rel="noopener" href="http://flexbox.help/">TEST CSS FLEXBOX RULES</a></p>
+<hr>
+<h2 id="資料來源-六角學院-Flex-網頁排版技巧"><a href="#資料來源-六角學院-Flex-網頁排版技巧" class="headerlink" title="資料來源:六角學院-Flex 網頁排版技巧"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/enrolled/666803">資料來源:六角學院-Flex 網頁排版技巧</a></h2><h2 id="資料來源-職人必修的-RWD-網頁入門班"><a href="#資料來源-職人必修的-RWD-網頁入門班" class="headerlink" title="資料來源:職人必修的 RWD 網頁入門班"></a><a target="_blank" rel="noopener" href="https://hahow.in/courses/591d96d300f58c070078c4c6/discussions?item=5a1e1759a2c4b000589ddcff">資料來源:職人必修的 RWD 網頁入門班</a></h2>
+      
+    </div>
+	
+    <!--
+	
+    -->
+    <!--
+    
+      <footer class="article-footer">
+      </footer>
+    
+    -->
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-20200813-vue-if" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <myh11 itemprop="name">
+      <a class="article-title-index" href="/2020/08/13/20200813-vue-if/"><strong>v-if</strong></a>
+      <small class=article-date-index>&nbsp; 2020-08-13</small>
+      <!--<a>
+      <div = post.date  </div>
+      </a>-->
+      <br>
+      <br> <!-- blair add -->
+    </myh11>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      <!--<a href="/2020/08/13/20200813-vue-if/" class="article-date">
+  <time datetime="2020-08-12T16:00:00.000Z" itemprop="datePublished">2020-08-13</time>
+</a>-->
+      <!--
+  <div class="article-category-index">
+    <a class="article-category-index-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+-->
+      <!--
+      
+      -->
+    </div>
+	
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h2><p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/ZEQgEoG?editors=1010">CodePen</a><br>我想透過勾選來決定要不要顯示 h1 標籤的內容，顯用 <code>v-model</code> 綁定屬性，再用 <code>v-if</code> 判斷決定與否</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;checked&quot;</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">&quot;checked&quot;</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Scss --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- #app&#123;</span></span><br><span class="line"><span class="comment">  text-align: center;</span></span><br><span class="line"><span class="comment">  h1&#123;</span></span><br><span class="line"><span class="comment">    font-size: 30px;</span></span><br><span class="line"><span class="comment">    color: red;</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">&#125; --&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el:<span class="string">&quot;#app&quot;</span>,</span><br><span class="line">  data:&#123;</span><br><span class="line">    checked: <span class="literal">false</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/02GE7NZ.png"></p>
+<hr>
+<p>v-if 除了可以用在元素上，也可以用 template 模板包住某些元素<br><img src="https://i.imgur.com/ZNNucL1.png"></p>
+<p>這樣一個一個寫在元素太麻煩，所以改成直接寫在 <code>template</code> 模板上，會有一樣的效果</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;checked&quot;</span> &gt;</span></span><br><span class="line"><span class="comment">&lt;!--   &lt;h1 v-if=&quot;checked&quot;&gt;Hello World!&lt;/h1&gt; --&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-if</span>=<span class="string">&quot;checked&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>html<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>javascript<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>css<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el:<span class="string">&quot;#app&quot;</span>,</span><br><span class="line">  data:&#123;</span><br><span class="line">    checked: <span class="literal">false</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/wakHHCD.png"></p>
+<hr>
+<p>在<strong>勾選</strong>顯示時，用開發者工具看會顯示 DOM 元素<br><img src="https://i.imgur.com/eZ04Y1R.png"></p>
+<hr>
+<p>但是<strong>不勾選</strong>時，DOM 元素會直接被拿掉而不是用 <code>display:none</code> 隱藏<br><img src="https://i.imgur.com/rBTAJQ8.png"></p>
+<hr>
+<h2 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a>v-else</h2><p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/PoZMwpr?editors=1010">CodePen</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;checked&quot;</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">&quot;checked&quot;</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-else</span>&gt;</span> OverWatch<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el:<span class="string">&quot;#app&quot;</span>,</span><br><span class="line">  data:&#123;</span><br><span class="line">    checked: <span class="literal">true</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>不是 A 就是 B，當 <code>v-if</code> 屬性是 <code>false</code> 時，則會顯示 <code>v-else</code>，而 <strong><code>v-if</code> 跟 <code>v-else</code> 之間不能有任何元素</strong>，若出現其他元素 <code>v-else</code> 就不會觸發<br>用開發者工具看，會發現一樣不是透過 <code>display:none</code> 隱藏<br><img src="https://i.imgur.com/CWUZZn3.png"><br><img src="https://i.imgur.com/3qKlC19.png"></p>
+<hr>
+<h2 id="v-else-if"><a href="#v-else-if" class="headerlink" title="v-else-if"></a>v-else-if</h2><p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/ExPqabQ?editors=1010">CodePen</a></p>
+<p><code>v-if</code> 跟 <code>v-else</code> 是簡單的二元判斷，那<code>v-else-if</code> 是提供兩者之間的選擇，介於 <code>v-if</code> 跟 <code>v-else</code> 之間，同時很多個 <code>v-else-if</code> 也沒關係!</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;checkedOne&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;checkedTwo&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">&quot;checkedOne&quot;</span>&gt;</span>勾選 checkedOne!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-else-if</span>=<span class="string">&quot;checkedTwo&quot;</span>&gt;</span>勾選 checkedTwo<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-else</span>&gt;</span> checkedOne、checkedTwo，都不是<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el:<span class="string">&quot;#app&quot;</span>,</span><br><span class="line">  data:&#123;</span><br><span class="line">    checkedOne: <span class="literal">false</span>,</span><br><span class="line">    checkedTwo: <span class="literal">false</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>再都不勾選情況下:<br><img src="https://i.imgur.com/Z2PDQ6q.png"></p>
+<p>勾選 checkedOne:<br><img src="https://i.imgur.com/aUjUlsJ.png"></p>
+<p>勾選 checkTwo:<br><img src="https://i.imgur.com/g8cSZyH.png"></p>
+<p>兩個都勾，會顯示 checkedOne 是因為判斷第一個 v-if 已經成立<br><img src="https://i.imgur.com/vdKqwV4.png"></p>
+<hr>
+<h2 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h2><p><code>v-if</code> 是透過刪除 DOM 元素來決定顯示與否，但如果要透過 CSS 的 <code>display:none</code>來控制 並且在不刪除 DOM 情況下，這時就要用 <code>v-show</code> 。</p>
+<p>v-show 有兩個地方要特別注意:<br><font color="red">1. 沒有 v-else<br>2. 不能用 template </font></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;checkedOne&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-show</span>=<span class="string">&quot;checkedOne&quot;</span>&gt;</span>勾選 checkedOne!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el:<span class="string">&quot;#app&quot;</span>,</span><br><span class="line">  data:&#123;</span><br><span class="line">    checkedOne: <span class="literal">false</span>,</span><br><span class="line">    checkedTwo: <span class="literal">false</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2>
+      
+    </div>
+	
+    <!--
+	
+    -->
+    <!--
+    
+      <footer class="article-footer">
+      </footer>
+    
+    -->
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-20200813-v-for" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <myh11 itemprop="name">
+      <a class="article-title-index" href="/2020/08/13/20200813-v-for/"><strong>列表渲染</strong></a>
+      <small class=article-date-index>&nbsp; 2020-08-13</small>
+      <!--<a>
+      <div = post.date  </div>
+      </a>-->
+      <br>
+      <br> <!-- blair add -->
+    </myh11>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      <!--<a href="/2020/08/13/20200813-v-for/" class="article-date">
+  <time datetime="2020-08-12T16:00:00.000Z" itemprop="datePublished">2020-08-13</time>
+</a>-->
+      <!--
+  <div class="article-category-index">
+    <a class="article-category-index-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+-->
+      <!--
+      
+      -->
+    </div>
+	
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="8-1用-v-for-把陣列轉換為一組元素"><a href="#8-1用-v-for-把陣列轉換為一組元素" class="headerlink" title="8-1用 v-for 把陣列轉換為一組元素"></a>8-1用 v-for 把陣列轉換為一組元素</h2><p>將 <code>data</code> 裡面的 <code>todo</code> 陣列顯示在 <code>li</code> 上，<code>v-for=&quot;todos in todo&quot;</code> 後面的<code>todos</code> 代表陣列，前面的<code>todo</code> 代表陣列裡面的每個元素</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;todos in todo&quot;</span>&gt;</span>&#123;&#123;todos&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el:<span class="string">&quot;#app&quot;</span>,</span><br><span class="line">  data:&#123;</span><br><span class="line">    todo:[</span><br><span class="line">      <span class="string">&quot;html&quot;</span>,</span><br><span class="line">      <span class="string">&quot;javascript&quot;</span>,</span><br><span class="line">      <span class="string">&quot;css&quot;</span>,</span><br><span class="line">    ],</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/br0hybR.png"></p>
+<hr>
+<h3 id="下拉選單"><a href="#下拉選單" class="headerlink" title="下拉選單"></a>下拉選單</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">&quot;month in months&quot;</span>&gt;</span>&#123;&#123;month&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el:<span class="string">&quot;#app&quot;</span>,</span><br><span class="line">  data:&#123;</span><br><span class="line">    months:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>],</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/yLemJQy?editors=1010">codepen</a></p>
+<p>這種數字的有另一個寫法，可以將 <code>months</code> 改寫成數字，而改寫的數字就會是最大值，而 <code>months</code> 的陣列可以刪除。<br>範例如下:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">&quot;month in 30&quot;</span>&gt;</span>&#123;&#123;month&#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el:<span class="string">&quot;#app&quot;</span>,</span><br><span class="line">  data:&#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>這樣就會有30個數字選項</p>
+<h3 id="月份綁-value"><a href="#月份綁-value" class="headerlink" title="月份綁 value"></a>月份綁 value</h3><p>這是在陣列是字串下，但又希望 value 值是數字 123，這時可以在 <code>month</code> 後面加上 <code>index</code> 或是 <code>idx</code> 、 <code>i </code>等等任意變數，再用 <code>v-bind</code> 綁 <code>value</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">&quot;(month, index) in months&quot;</span> <span class="attr">:vlaue</span>=<span class="string">&quot;index+1&quot;</span>&gt;</span>&#123;&#123;month&#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el:<span class="string">&quot;#app&quot;</span>,</span><br><span class="line">  data:&#123;</span><br><span class="line">    months:[</span><br><span class="line">      <span class="string">&#x27;Jan&#x27;</span>,<span class="string">&#x27;Feb&#x27;</span>,<span class="string">&#x27;Mar&#x27;</span>,<span class="string">&#x27;Apr&#x27;</span>,<span class="string">&#x27;May&#x27;</span>,<span class="string">&#x27;Jun&#x27;</span>,<span class="string">&#x27;Jul&#x27;</span>,<span class="string">&#x27;Aug&#x27;</span>,<span class="string">&#x27;Sep&#x27;</span>,<span class="string">&#x27;Oct&#x27;</span>,<span class="string">&#x27;Nov&#x27;</span>,<span class="string">&#x27;Dec&#x27;</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/8HMNTpb.png"><br><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/MWKNjgK?editors=1010">codepen</a></p>
+<hr>
+<h2 id="8-2用-v-for-把一個物件轉換為一組元素"><a href="#8-2用-v-for-把一個物件轉換為一組元素" class="headerlink" title="8-2用 v-for 把一個物件轉換為一組元素"></a>8-2用 v-for 把一個物件轉換為一組元素</h2><p>如果要取物件內的 key 值，就在 value 後面加上 key 就好<br>跟陣列很像，<strong>陣列</strong>是 (元素, idx) ，<strong>物件</strong>是 (value, key)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;(value, key) in obj&quot;</span>&gt;</span>&#123;&#123;key&#125;&#125; : &#123;&#123;value&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    obj:&#123;</span><br><span class="line"><span class="javascript">   <span class="comment">// 前面為 key: 後面為 value</span></span></span><br><span class="line"><span class="javascript">      name : <span class="string">&quot;PKT&quot;</span>,</span></span><br><span class="line"><span class="javascript">      number : <span class="string">&quot;123456&quot;</span>,</span></span><br><span class="line"><span class="javascript">      age : <span class="string">&quot;22&quot;</span>,</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/2WF7ILF.png"></p>
+<hr>
+<p>v-for 轉物件，渲染出來的順序不一定會跟我寫的一樣，例如我用不規律的數字做開頭</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;(value, key) in obj&quot;</span>&gt;</span>&#123;&#123;key&#125;&#125; : &#123;&#123;value&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    obj:&#123;</span><br><span class="line"><span class="javascript">      name : <span class="string">&quot;PKT&quot;</span>,</span></span><br><span class="line"><span class="javascript">      number : <span class="string">&quot;123456&quot;</span>,</span></span><br><span class="line"><span class="javascript">      age : <span class="string">&quot;22&quot;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="number">12</span> :  <span class="string">&#x27;中餐&#x27;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="number">8</span> : <span class="string">&#x27;早餐&#x27;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="number">6</span> : <span class="string">&#x27;晚餐&#x27;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="number">2</span> : <span class="string">&#x27;宵夜&#x27;</span>,</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>渲染出來的結果會長這樣<br><img src="https://i.imgur.com/hKlcyV5.png"><br>明明我的順序是 12 =&gt; 8 =&gt; 6 =&gt; 2，但是選染出來卻是按照順序排列，這是因為我們用 <strong>v-for 來轉物件</strong>，若真要按照順序排列的話 code 也不會這樣打，但這是特定情況，必須依照我寫 code 的順序排列，所以就要用 <strong>v-for 轉陣列</strong>的方式，來修正。</p>
+<p>先把物件轉陣列型式，並且在陣列內新增 prop &amp; value 屬性<br>再把 v-for 轉成陣列，下面的 obj 是陣列</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;item in obj&quot;</span>&gt;</span>&#123;&#123;item.prop&#125;&#125; : &#123;&#123;item.value&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    obj:[</span><br><span class="line"><span class="javascript">      &#123; <span class="attr">prop</span>: <span class="string">&#x27;name&#x27;</span>, <span class="attr">value</span>: <span class="string">&quot;PKT&quot;</span>&#125;,</span></span><br><span class="line"><span class="javascript">      &#123; <span class="attr">prop</span>: <span class="string">&#x27;number&#x27;</span>, <span class="attr">value</span>: <span class="string">&quot;123456&quot;</span>&#125;,</span></span><br><span class="line"><span class="javascript">      &#123; <span class="attr">prop</span>: <span class="string">&#x27;age&#x27;</span>, <span class="attr">value</span>: <span class="string">&quot;22&quot;</span>&#125;,</span></span><br><span class="line"><span class="javascript">      &#123; <span class="attr">prop</span>: <span class="number">12</span>, <span class="attr">value</span>: <span class="string">&#x27;中餐&#x27;</span>&#125;,</span></span><br><span class="line"><span class="javascript">      &#123; <span class="attr">prop</span>: <span class="number">8</span>, <span class="attr">value</span>: <span class="string">&#x27;早餐&#x27;</span>&#125;,</span></span><br><span class="line"><span class="javascript">      &#123; <span class="attr">prop</span>: <span class="number">6</span>, <span class="attr">value</span>: <span class="string">&#x27;晚餐&#x27;</span>&#125;,</span></span><br><span class="line"><span class="javascript">      &#123; <span class="attr">prop</span>: <span class="number">2</span>, <span class="attr">value</span>: <span class="string">&#x27;宵夜&#x27;</span>&#125;,</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/ZEWoRoy?editors=1010">code</a><br>這樣就可以依照我指定的順序來顯示了<br><img src="https://i.imgur.com/8O4Uqwo.png"></p>
+<hr>
+<h2 id="修改陣列或物件的注意事項"><a href="#修改陣列或物件的注意事項" class="headerlink" title="修改陣列或物件的注意事項"></a>修改陣列或物件的注意事項</h2><p>常用語法：</p>
+<ol>
+<li>push: 新增數字</li>
+<li>pop: 減少數字</li>
+<li>shift: 移除並回傳陣列的第一個元素</li>
+<li>unshift: 從陣列開頭塞數字</li>
+<li>splice: 從頭數到第 X 個，移除 Y 個，加入 Z </li>
+<li>sort: 把亂掉的順序，按順序排列</li>
+<li>reverse: 順序顛倒<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&#x27;item in nums&#x27;</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&#x27;add&#x27;</span>&gt;</span>add<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    nums:[1,2,3,4,5],</span><br><span class="line">    </span><br><span class="line"><span class="javascript">    <span class="comment">// sort 用</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// nums:[1,3,5,7,2,4,6,8],</span></span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    add()&#123;</span><br><span class="line"><span class="javascript">      <span class="comment">// this.nums.push(this.nums.length+1);</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// this.nums.pop();</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// this.nums.shift();</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// this.nums.unshift(0);</span></span></span><br><span class="line">      </span><br><span class="line"><span class="javascript">      <span class="comment">// this.nums.splice(idx, length);</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// this.nums.splice(2, 1, 9,8,7,);</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// </span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// this.nums.sort();</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// this.nums.reverse();</span></span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/NWNMLgO?editors=1010">code</a></li>
+</ol>
+<hr>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/filters.html">文件</a><br><code>filter</code> 會把陣列內的所有元素拿去跑函式，同時又不會更動原本的陣列，而是產生新的陣列。<br>那函式跑完回傳的值是 true ，就會產生新的陣列，是 false 就不會有新元素出現在新陣列內。</p>
+<p>簡言之，就是把原本的陣列過濾並產生新的陣列。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&#x27;item in nums&#x27;</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&#x27;add&#x27;</span>&gt;</span>add<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    nums:[1,2,3,4,5,6,7,8,9]</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    add()&#123;</span><br><span class="line"><span class="javascript">      <span class="built_in">this</span>.nums = <span class="built_in">this</span>.nums.filter( <span class="function"><span class="params">elm</span> =&gt;</span> (elm%<span class="number">2</span> ===<span class="number">0</span>));</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/BaKVyym?editors=1010">code</a><br>過濾後會變成下圖<br><img src="https://i.imgur.com/t5ziwrX.png"></p>
+<hr>
+<h3 id="修改陣列並反應在元素上"><a href="#修改陣列並反應在元素上" class="headerlink" title="修改陣列並反應在元素上"></a>修改陣列並反應在元素上</h3><p>想感變陣列內的值可以用 <code>splice</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&#x27;item in nums&#x27;</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&#x27;add&#x27;</span>&gt;</span>add<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    nums:[1,2,3,4,5,6,7,8,9]</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    add()&#123;</span><br><span class="line"><span class="javascript">      <span class="comment">// 這樣是不會有任何反應的</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// this.nums[0] = 10;</span></span></span><br><span class="line">      </span><br><span class="line"><span class="javascript">      <span class="comment">// 從第2個，移除1個，加入789 或是 單值</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 從第0開始算，移除1開始算</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// this.nums.splice(2, 1, 7,8,9);</span></span></span><br><span class="line">      </span><br><span class="line"><span class="javascript">      <span class="comment">// 從第 X 個之後都移除掉</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 移除1開始算</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// this.nums.splice(2);</span></span></span><br><span class="line">      </span><br><span class="line"><span class="javascript">      <span class="comment">// 只保留從 X 到 Y，其他移除掉</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 從第0開始算，移除1開始算</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// slice(從, 第)</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// this.nums = this.nums.slice(1, 4);</span></span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/VwadYbP?editors=1010">code</a></p>
+<hr>
+<h3 id="物件內新增值"><a href="#物件內新增值" class="headerlink" title="物件內新增值"></a>物件內新增值</h3><p>以上都是 v-for 轉陣列，現在是轉物件，並在物件內新增值</p>
+<p>新方法 <code>$set(設定屬性的物件, 設定物件的 key, key 的值)</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&#x27;(item, key) in nums&#x27;</span>&gt;</span>&#123;&#123;key&#125;&#125;: &#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&#x27;add&#x27;</span>&gt;</span>add<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    nums:&#123;</span><br><span class="line">      x: 10,</span><br><span class="line">      y: 20,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    add()&#123;</span><br><span class="line"><span class="javascript">      <span class="comment">// 這樣是無法新增的</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// this.nums.z = 30;</span></span></span><br><span class="line">      </span><br><span class="line"><span class="javascript">      <span class="built_in">this</span>.$set(<span class="built_in">this</span>.nums, <span class="string">&#x27;z&#x27;</span>, <span class="number">30</span>);</span></span><br><span class="line">      </span><br><span class="line"><span class="javascript">      <span class="comment">// 除了 $set 還可以用 Vue，但是用 Vue 就沒有$</span></span></span><br><span class="line"><span class="javascript">      Vue.set(<span class="built_in">this</span>.nums, <span class="string">&#x27;z&#x27;</span>, <span class="number">30</span>);</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/vYGrEaW?editors=1010">code</a><br>這樣就可以新增了<br><img src="https://i.imgur.com/pjDK5Rr.png"></p>
+<p>以上是示範物件內原本沒有的，但是要新增新的物件，才會用到 set<br>那如果原本就有的，但是要修改原本的物件要怎麼寫? 以下示範</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&#x27;(item, key) in nums&#x27;</span>&gt;</span>&#123;&#123;key&#125;&#125;: &#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&#x27;add&#x27;</span>&gt;</span>add<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    nums:&#123;</span><br><span class="line">      x: 10,</span><br><span class="line">      y: 20,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    add()&#123;</span><br><span class="line"><span class="javascript">      <span class="built_in">this</span>.nums.x = <span class="number">30</span></span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/bGpKNZz?editors=1010">code</a></p>
+<hr>
+<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2>
+      
+    </div>
+	
+    <!--
+	
+    -->
+    <!--
+    
+      <footer class="article-footer">
+      </footer>
+    
+    -->
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-20200813-vuemvvm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <myh11 itemprop="name">
+      <a class="article-title-index" href="/2020/08/13/20200813-vuemvvm/"><strong>MVVM 說明</strong></a>
+      <small class=article-date-index>&nbsp; 2020-08-13</small>
+      <!--<a>
+      <div = post.date  </div>
+      </a>-->
+      <br>
+      <br> <!-- blair add -->
+    </myh11>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      <!--<a href="/2020/08/13/20200813-vuemvvm/" class="article-date">
+  <time datetime="2020-08-12T16:00:00.000Z" itemprop="datePublished">2020-08-13</time>
+</a>-->
+      <!--
+  <div class="article-category-index">
+    <a class="article-category-index-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+-->
+      <!--
+      
+      -->
+    </div>
+	
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://i.imgur.com/u6sNtyl.png"></p>
+        
+      
+    </div>
+	
+    <!--
+	
+    -->
+    <!--
+    
+      <footer class="article-footer">
+      </footer>
+    
+    -->
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-20200813-javascript作用域" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <myh11 itemprop="name">
+      <a class="article-title-index" href="/2020/08/13/20200813-javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/"><strong>Javascript 核心篇-執行環境</strong></a>
+      <small class=article-date-index>&nbsp; 2020-08-13</small>
+      <!--<a>
+      <div = post.date  </div>
+      </a>-->
+      <br>
+      <br> <!-- blair add -->
+    </myh11>
+  
+
+
+      </header>
+    
+    <div class="article-meta">
+      <!--<a href="/2020/08/13/20200813-javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="article-date">
+  <time datetime="2020-08-12T16:00:00.000Z" itemprop="datePublished">2020-08-13</time>
+</a>-->
+      <!--
+  <div class="article-category-index">
+    <a class="article-category-index-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+-->
+      <!--
+      
+      -->
+    </div>
+	
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript 是直譯式語言<br>當 JavaScript 在函示內找不到變數就會向外查找<br>window === this<br>但this會隨執行環境而有所不同</p>
+<h2 id="語法作用域-Lexical-scope"><a href="#語法作用域-Lexical-scope" class="headerlink" title="語法作用域 (Lexical scope)"></a>語法作用域 (Lexical scope)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value); <span class="comment">// 語法作用域：1</span></span><br><span class="line">  <span class="comment">// 動態作用域：2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> value = <span class="number">2</span>;</span><br><span class="line">  fn1();</span><br><span class="line">&#125;</span><br><span class="line">fn2();</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p><strong>語法作用域的順序:</strong><br>(因為 JS 式語法作用域，所以會跑這個步驟)fu2 執行 value 值就會變 2 ，在執行 fn1 ，因為裡面沒有 value 值所以會向外查找全域變數 value = 1，函式執行完結果為1</p>
+</li>
+<li><p><strong>動態作用域的順序:</strong><br> 全域賦予 value=1，這時候會執行 fn2 ，並且重新定義 value = 2 ，再執行 fn1 ，這時會開始查找 value 值在哪裡，這時因為函式調用的時候才會決定它的作用域，並向上一層函式查找宣告的變數值</p>
+<hr>
+<h2 id="範圍鍊"><a href="#範圍鍊" class="headerlink" title="範圍鍊"></a>範圍鍊</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="string">&#x27;老媽&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;hi &#x27;</span> + person);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person = <span class="string">&#x27;老爸&#x27;</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> person = <span class="string">&#x27;漂亮阿姨&#x27;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;哈囉～ &#x27;</span> + person);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// sayHi();</span></span><br><span class="line">  <span class="comment">//meetAuntie();</span></span><br><span class="line">&#125;</span><br><span class="line"> sayHi();</span><br><span class="line"><span class="comment">//doMorningWork();  // 執行</span></span><br></pre></td></tr></table></figure>
+<p>因為 sayHi function 裡面沒有 person 變數，所以會向外尋找<br><img src="https://i.imgur.com/lATjYBE.png"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="string">&#x27;老媽&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;hi &#x27;</span> + person);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person = <span class="string">&#x27;老爸&#x27;</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> person = <span class="string">&#x27;漂亮阿姨&#x27;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;哈囉～ &#x27;</span> + person);</span><br><span class="line">  &#125;</span><br><span class="line">  sayHi();</span><br><span class="line">  <span class="comment">//meetAuntie();</span></span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">//sayHi();</span></span><br><span class="line"> doMorningWork();  <span class="comment">// 執行</span></span><br></pre></td></tr></table></figure>
+<p>doMorningWork 函式雖然有 person 變數，但不會影響到 sayHi 函式的範圍練，所以 sayHi 函式一樣會向外尋找 person 變數<br><img src="https://i.imgur.com/lbU8OCA.png"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="string">&#x27;老媽&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;hi &#x27;</span> + person);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person = <span class="string">&#x27;老爸&#x27;</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> person = <span class="string">&#x27;漂亮阿姨&#x27;</span>; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;哈囉～ &#x27;</span> + person);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// sayHi();</span></span><br><span class="line">  meetAuntie();</span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">//sayHi();</span></span><br><span class="line"> doMorningWork();  <span class="comment">// 執行</span></span><br></pre></td></tr></table></figure>
+<p>因為 meetAuntie 函式本身就有 person 變數，所以不會像尋找，結果為 哈囉~ 漂亮阿姨<br>如果把 var person = ‘漂亮阿姨’; 註解掉，那 person 變數會向外尋找。結果為 哈囉~老爸</p>
+</li>
+</ol>
+<h4 id="論是-只要函式內沒找到相對應的變數，就會像向外一層尋找相對應的變數，直到找到為止"><a href="#論是-只要函式內沒找到相對應的變數，就會像向外一層尋找相對應的變數，直到找到為止" class="headerlink" title="論是: 只要函式內沒找到相對應的變數，就會像向外一層尋找相對應的變數，直到找到為止"></a>論是: 只要函式內沒找到相對應的變數，就會像向外一層尋找相對應的變數，直到找到為止</h4><hr>
+<h2 id="提升"><a href="#提升" class="headerlink" title="提升"></a>提升</h2><p><img src="https://i.imgur.com/uXG14Oe.png"><br>先想像記憶體是成對的，左邊的格子表示 key，右邊是 value。<br>再創造環境的時候，會先把 a (變數)放到記憶體裡面(左邊格子)，但這時候還不會給 a 值，所以用 console.log 的時候會 defined ，等到執行時才會把 1 套到 a 裡面。</p>
+<p>所以執行環境的時候會先創造環境，創造環境會先把程式碼裡面的變數全部挑出來並存在記憶體上，這個動作稱為”提升 Hoisting”，在這個階段還不會給他值，所以如果在此時去取用這些變數的話，值會是 undefined。到執行環境的時候才會賦予它的值</p>
+<p><img src="https://i.imgur.com/GRULStI.png"></p>
+<p>再創造階段 a 是沒有值的，所以會顯示 undefined，直到宣告階段才會把值帶入 。<br>但是函式會把整個函式內容都先載入，所以<strong>函式再創造階段就已經可以運行了</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ming;                <span class="comment">//創造階段</span></span><br><span class="line">ming = <span class="string">&quot;小名&quot;</span>;            <span class="comment">//執行</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;ming&#x27;</span>);</span><br><span class="line"></span><br><span class="line">callName();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小名&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//會等於下列</span></span><br><span class="line"><span class="comment">//-----------------------</span></span><br><span class="line"><span class="comment">//創造階段</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小名&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName();</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/I8kQ3ob.png"></p>
+<h3 id="函式表達式寫法"><a href="#函式表達式寫法" class="headerlink" title="函式表達式寫法:"></a>函式表達式寫法:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">callName() <span class="comment">//這時候的 callName 是還沒有被定義的</span></span><br><span class="line"><span class="keyword">var</span> callName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小名&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>輸出如下圖:<br><img src="https://i.imgur.com/32RDACz.png"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//創造階段</span></span><br><span class="line"><span class="keyword">var</span> callName(); <span class="comment">//這時候 callName 被定義了但沒給值，所以會undefine</span></span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">//這時 function 已經被賦予到 callName  這個函式上</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小名&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"> callName(); <span class="comment">//才可呼叫</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/ddWNmYt.png"></p>
+<h3 id="範例"><a href="#範例" class="headerlink" title="範例:"></a>範例:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// var callName = function () &#123;</span></span><br><span class="line"><span class="comment">//   console.log(&#x27;呼叫小明 2&#x27;);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// function callName() &#123;  </span></span><br><span class="line"><span class="comment">//   console.log(&#x27;呼叫小明 1&#x27;);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// callName();</span></span><br><span class="line"><span class="comment">//以上為原式</span></span><br><span class="line"><span class="comment">//-----------------------------------</span></span><br><span class="line"><span class="comment">//拆解過後</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;  <span class="comment">// 首先函式優先 創造階段</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小明 1&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">var</span> callName;<span class="comment">//第2階段才把變數往前移</span></span><br><span class="line">callName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line"><span class="comment">//因為變數往前移的關係，這時 function 已經被賦予到 callName  這個函式上</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小明 2&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName();</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/uPdFhSw.png"></p>
+<h2 id="範例-1"><a href="#範例-1" class="headerlink" title="範例:"></a>範例:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//創造，函式陳述式優先創造</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;小明&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">callName(); <span class="comment">// 第一次執行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;杰倫&#x27;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/FwfUh7L.png"></p>
+<h2 id="拆解-amp-分析"><a href="#拆解-amp-分析" class="headerlink" title="拆解&amp;分析:"></a>拆解&amp;分析:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 創造</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;小明&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;杰倫&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 執行</span></span><br><span class="line">callName(); <span class="comment">// 第一次執行</span></span><br><span class="line">callName(); <span class="comment">// 第二次執行</span></span><br></pre></td></tr></table></figure>
+<p>兩個函式長一樣，後面得值會蓋掉前面的值</p>
+<h3 id="測驗分析"><a href="#測驗分析" class="headerlink" title="測驗分析:"></a>測驗分析:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whosName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (name) &#123;</span><br><span class="line">    name = <span class="string">&#x27;杰倫&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;小明&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(name);</span><br><span class="line">whosName()</span><br></pre></td></tr></table></figure>
+<p>因為創造階段，函式陳述式優先創造，變數 name 只生出記憶體，並未賦予值執行階段，呼叫 whosName 的函式時，name 向外查找 name 變數，但未賦予值，所以在 whosName 裡面的 name 被賦予為”杰倫”的值<br>函式跟一般變數不太一樣，函式陳述式在創造環境階段會被優先載入，記憶體在這個階段就會有函式的完整內容。所以函式在創造環境階段就已經可以被運行。</p>
+<h2 id="Not-Defined-VS-undefined"><a href="#Not-Defined-VS-undefined" class="headerlink" title="Not Defined VS undefined"></a>Not Defined VS undefined</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a ;</span><br><span class="line">console.log(a) &#x2F;&#x2F;輸出 undefined</span><br></pre></td></tr></table></figure>
+<p>因為記憶體已經有 a 了，但沒有賦值，所以會跳 undefined<br>同理，記憶體沒有 a 就會跳 Not Defined</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;如果要賦予空值要寫</span><br><span class="line">var a &#x3D; null;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="執行緒與同步、非同步"><a href="#執行緒與同步、非同步" class="headerlink" title="執行緒與同步、非同步"></a>執行緒與同步、非同步</h2><p>JavaScript 是單執行序的語言</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eatBreakfast</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;吃早餐&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">washingPlate</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;洗餐盤&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callSomeone</span>(<span class="params">someone</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;打給&#x27;</span> + someone)</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//這段為非同步，而非同步的任務會移到事件佇列</span></span><br><span class="line">    <span class="built_in">console</span>.log(someone + <span class="string">&#x27;回電&#x27;</span>);</span><br><span class="line">  &#125;, <span class="number">1000</span>); <span class="comment">//就算這邊秒數調成0秒，也不會優先執行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> auntie = <span class="string">&#x27;漂亮阿姨&#x27;</span>;</span><br><span class="line">  eatBreakfast();</span><br><span class="line">  callSomeone(auntie);</span><br><span class="line">  washingPlate();</span><br><span class="line">&#125;</span><br><span class="line">doWork();</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/2aFzBGJ.png"></p>
+<p>同步概念來看的話，這三個概念是依序執行的，不會有早餐沒吃完就跳到洗碗盤去</p>
+<p><img src="https://i.imgur.com/iVYdmVA.png"><br><img src="https://i.imgur.com/WYchUh0.png"></p>
+<hr>
+<p>執行順序為:</p>
+<ol>
+<li>do work</li>
+<li>吃早餐</li>
+<li>打給漂亮阿姨，但因為裡面有 SetTimeout 事件，所以會移到”事件佇列”裡面</li>
+<li>洗碗</li>
+<li>直到 do work 執行完後才會再去執行 SetTimeout 函式<br><img src="https://i.imgur.com/aNRGXtW.png"></li>
+</ol>
+<hr>
+<h2 id="參考資料-JavaScript-核心篇"><a href="#參考資料-JavaScript-核心篇" class="headerlink" title="參考資料: JavaScript 核心篇"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/enrolled/670037">參考資料: JavaScript 核心篇</a></h2>
+      
+    </div>
+	
+    <!--
+	
+    -->
+    <!--
+    
+      <footer class="article-footer">
+      </footer>
+    
+    -->
+  </div>
+  
+</article>
+
+
+
+    
+      <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Назад</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Далее &amp;raquo;</a>
+      </nav>
+    
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 PKTseng&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a target="_blank" rel="noopener" href="http://github.com/52binge/hexo-theme-blairos">blairos</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+      displayMath: [ ['$$','$$']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://myserver.com/MathJax/config/local/local.js">
+</script>
+
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
 
   </div>
-  <script src="/js/nanobar.min.js"></script>
-  <script>
-    var options = {
-      classname: 'nanobar',
-      id: 'myNanobar'
-    };
-    var nanobar = new Nanobar(options);
-    nanobar.go(30);
-    nanobar.go(76);
-    nanobar.go(100);
-  </script>
-
 </body>
-
 </html>
