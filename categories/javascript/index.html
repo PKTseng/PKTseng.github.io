@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>Kategorie: JavaScript - PK&#39;s 回憶錄</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="每記錄一次就會比昨天的自己更加厲害">
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+
+<meta name="generator" content="Hexo 5.0.2"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section section-heading">
+    <div class="container">
+        <div class="content">
+            <h5><i class="far fa-folder"></i>JavaScript</h5>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2020/08/16/220200816-javasript/" itemprop="url">JavaScript 網頁事件處理</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2020-08-15T16:00:00.000Z" itemprop="datePublished">8月 16 2020</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            7 分钟 lesen (Über 994 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h2 id="學習方向"><a href="#學習方向" class="headerlink" title="學習方向"></a>學習方向</h2><ol>
+<li>介面:如何改變事件</li>
+<li>事件:如何監聽事件並做出反應</li>
+<li>資料:如何跟 sever 交換資料</li>
+</ol>
+<hr>
+<h2 id="eventListener-與-callback-function"><a href="#eventListener-與-callback-function" class="headerlink" title="eventListener 與 callback function"></a>eventListener 與 callback function</h2><h3 id="eventListener"><a href="#eventListener" class="headerlink" title="eventListener"></a>eventListener</h3><p>給一個屬性跟屬性值，再用 <code>document.querySelector</code> 選一個元素並命名為 app ，透過點擊 hello world 做出彈跳視窗，那想做出彈跳視窗必須偵聽事件 <code>addEventListener</code> ，在 <code>addEventListener</code> 前面是事件的動作例如點擊或是按鍵盤…等等，那後面要傳入一個函式。</p>
+<h3 id="callback-function"><a href="#callback-function" class="headerlink" title="callback function"></a>callback function</h3><p>因為不知道使用者甚麼時候才會觸發函式(做甚麼動作)，所以我們必須跟瀏覽器說一但點擊了甚麼按鈕或是做了什麼動作(事件)，就幫我呼叫那個函式(觸發)，那呼叫函式就是 <code>callback function</code></p>
+<p>EX:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>hello world<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- -------------------------------------------&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 匿名函式 比較常見寫法--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> app = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.app&#x27;</span>);</span></span><br><span class="line"><span class="javascript">app.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    alert(<span class="string">&#x27;hello world&#x27;</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!---------------------------------------------&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> app = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.app&#x27;</span>);</span></span><br><span class="line"><span class="javascript">app.addEventListener(<span class="string">&#x27;click&#x27;</span>, onClick)</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">onClick</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;hello world&#x27;</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/BYG7UOJ.png"></p>
+<hr>
+<h2 id="event-e"><a href="#event-e" class="headerlink" title="event(e)"></a>event(e)</h2><p>當我們觸發事件時，瀏覽器就會把參數(event 縮寫為 e)帶入函示裡面。<br>使用 <code>console.log(e)</code> ，可以看到很多關於 e 的參數。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>hello world<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> app = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.app&#x27;</span>);</span></span><br><span class="line"><span class="javascript">app.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/WqDxtOD.png"></p>
+<p>改用 <code>console.log(e.target)</code><br><img src="https://i.imgur.com/TFYrlsD.png"></p>
+<p>當然如果想知道按鍵參數的話可以這樣寫<br>先改為全域 window </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;keypress&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(e.keyCode);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/A0uZqfO.png"><br><img src="https://i.imgur.com/lDm6hKO.png"><br>分別按下 a、b、c，可以知道 a = 97 、b = 98、c = 99</p>
+<hr>
+<h2 id="表單事件處理-onSubmit"><a href="#表單事件處理-onSubmit" class="headerlink" title="表單事件處理 onSubmit"></a>表單事件處理 onSubmit</h2><p>這可以應用在表單二次確認密碼的時候<br>寫出一個簡單的表單，並在判斷式內擷取密碼的值( value )</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&#x27;login&#x27;</span>&gt;</span></span><br><span class="line">  username:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  password:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;password&#x27;</span> <span class="attr">class</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  password:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;password&#x27;</span> <span class="attr">class</span>=<span class="string">&quot;password1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;submit&#x27;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">scrip</span>&gt;</span></span><br><span class="line">let login = document.querySelector(&#x27;.login&#x27;);</span><br><span class="line">login.addEventListener(&#x27;submit&#x27;,function(e)&#123;</span><br><span class="line">  let psw = document.querySelector(&#x27;.password&#x27;);</span><br><span class="line">  let psw1 = document.querySelector(&#x27;.password1&#x27;);</span><br><span class="line">  if(psw.value !== psw1.value)&#123;</span><br><span class="line">    alert(&#x27;密碼錯誤&#x27;);</span><br><span class="line">    e.preventDefault();</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    alert(&#x27;密碼正確&#x27;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">scrip</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/wvGGdgy?editors=1010">codepen</a><br><img src="https://i.imgur.com/ES5AVUI.png"></p>
+<hr>
+<h2 id="事件傳遞機制-捕獲跟冒泡事件"><a href="#事件傳遞機制-捕獲跟冒泡事件" class="headerlink" title="事件傳遞機制-捕獲跟冒泡事件"></a>事件傳遞機制-捕獲跟冒泡事件</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;one&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;two&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>click<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">addEvent(<span class="string">&#x27;.one&#x27;</span>);</span></span><br><span class="line"><span class="javascript">addEvent(<span class="string">&#x27;.two&#x27;</span>);</span></span><br><span class="line"><span class="javascript">addEvent(<span class="string">&#x27;button&#x27;</span>);</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">className</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">document</span>.querySelector(className)</span></span><br><span class="line"><span class="javascript">    .addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(className)</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/dyMMWVO?editors=1011">codepen</a></p>
+<p><img src="https://i.imgur.com/iSr9A3f.png"><br>當我點擊綠色區塊的時候只會跳出 one ，但點擊 click 時就會跳出上圖，但我明明只點 click 為甚麼會連帶影響到其他 class 區塊 ?</p>
+<p>因為這就是事件傳遞機制的捕獲跟冒泡事件</p>
+<p><a target="_blank" rel="noopener" href="https://blog.techbridge.cc/2017/07/15/javascript-event-propagation/">Huli 文章</a><br>下圖來源為 Huli 的文章<br><img src="https://i.imgur.com/V2KLVIV.png"><br>以下這段話擷取自 Huli 文章</p>
+<blockquote>
+<p>DOM 的事件在傳播時，會先從根節點開始往下傳遞到 target，這邊你如果加上事件的話，就會處於 CAPTURING_PHASE，捕獲階段。<br>target 就是你所點擊的那個目標，這時候在 target 身上所加的 eventListenr 會是  AT_TARGET 這一個 Phase。<br>你在點擊那一個 td 的時候，這一個點擊的事件會先從 window 開始往下傳，一直傳到 td 為止，到這邊就叫做 CAPTURING_PHASE，捕獲階段。<br>接著事件傳遞到 td 本身，這時候叫做 AT_TARGET。<br>最後事件會從 td 一路傳回去 window，這時候叫做 BUBBLING_PHASE，冒泡階段。<br>所以，在看一些講事件機制的文章的時候，都會看到一個口訣：先捕獲，再冒泡</p>
+</blockquote>
+<p>在監聽時函式後面加上 true 就是捕獲，false 是冒泡</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">addEvent(<span class="string">&#x27;.one&#x27;</span>);</span><br><span class="line">addEvent(<span class="string">&#x27;.two&#x27;</span>);</span><br><span class="line">addEvent(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">className</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.querySelector(className)</span><br><span class="line">    .addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(className, <span class="string">&#x27;捕獲&#x27;</span>)</span><br><span class="line">  &#125;,<span class="literal">true</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">document</span>.querySelector(className)</span><br><span class="line">    .addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(className, <span class="string">&#x27;冒泡&#x27;</span>)</span><br><span class="line">  &#125;,<span class="literal">false</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/YzqqVjQ?editors=1011">codepen</a></p>
+<p>當我點擊 click</p>
+<p><img src="https://i.imgur.com/g7pwU5s.png"></p>
+<p>就算我把順序顛倒過來，它還是會先捕獲在冒泡，跟上圖一樣</p>
+<hr>
+<h2 id="資料來源-FE102-前端必備：JavaScript"><a href="#資料來源-FE102-前端必備：JavaScript" class="headerlink" title="資料來源: [FE102] 前端必備：JavaScript"></a><a target="_blank" rel="noopener" href="https://lidemy.com/courses/390588/lectures/9653894">資料來源: [FE102] 前端必備：JavaScript</a></h2>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2020/08/16/20200816-AJAX/" itemprop="url">AJAX</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2020-08-15T16:00:00.000Z" itemprop="datePublished">8月 16 2020</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            5 分钟 lesen (Über 763 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h3 id="透過-XMLHttpRequest-物件跨瀏覽器撈資料"><a href="#透過-XMLHttpRequest-物件跨瀏覽器撈資料" class="headerlink" title="透過 XMLHttpRequest 物件跨瀏覽器撈資料"></a>透過 XMLHttpRequest 物件跨瀏覽器撈資料</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/XMLHttpRequest/readyState">MDN 連結</a><br><code>XMLHttpRequest</code> 是瀏覽器跟伺服器要資料時必須存在的物件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27; 格式 &#x27;</span>,<span class="string">&#x27; 讀取的網址 &#x27;</span>, A )</span><br></pre></td></tr></table></figure>
+<p>格式: <code>get</code>(讀去資料) / <code>post</code>(傳送資料到伺服器)<br>A 是 <code>true/false</code> (同步或是非同步)<br><code>true</code> 是程式不等回傳結果，繼續往下執行<br><code>false</code> 是會等回傳結果再決定要不要繼續執行</p>
+<p>在 log 輸入 <code>xhr</code> 就會顯示相對應的資料，打開後顯示的各種格式<br>(目前還沒輸入格式跟網址)<br><img src="https://i.imgur.com/NdoTS3z.png"><br>其中 <code>readyState  = 0</code> 是代表已經產生一個 XMLHttpRequest 但還沒連結到我要撈的資料<br>圖片來源 MDN:<img src="https://i.imgur.com/ulBWlK5.png"></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://hexschool.github.io/ajaxHomework/data.json"> json 連結</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+<p>輸入完整格式跟網址後 readyState  顯示 1 ，意思是目前選擇了格式，但還沒把資料送出去<br><img src="https://i.imgur.com/n4sTfGk.png"></p>
+<hr>
+<p>目前只要 get 資料並非真的要傳送出去所以用 <code>null</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+<p>會發現有撈到資料，readyState  顯示 4 ，意思是完成下載操作<br><img src="https://i.imgur.com/Z9ap49J.png"></p>
+<hr>
+<h3 id="AJAX-非同步觀念"><a href="#AJAX-非同步觀念" class="headerlink" title="AJAX 非同步觀念"></a>AJAX 非同步觀念</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xhr.responseText);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/a3pXjib.png"><br>照理說我們用 <code>console.log</code> 看資料時應該要顯示，但為甚麼會顯示空直?<br>原因是用了 <code>true</code> 非同步，他不會等資料有沒有回傳，而是直接往下執行，所以<br><code>console.log(xhr.responseText)</code>是撈不到資料的，<br>相反的如果使用 <code>false</code> 則是會等資料回傳，收到資料後再繼續往下執行，如下圖</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">false</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xhr.responseText);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/Hcfipnh.png"></p>
+<p>但是當我們在往後執行程式時，不可能讓資料回傳再執行，必須讓程式繼續執行並且抓到資料，<br>所以我們使用 onload 監聽事件，並改成 true 非同步</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(xhr.responseText)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>載入完時，觸發 onload 事件然後擷取 <code>xhr.responseText</code> 的資料.<br><img src="https://i.imgur.com/2dbmRtE.png"></p>
+<hr>
+<p>接下來要在網頁上顯示 王小名</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(xhr.responseText)</span><br><span class="line">  <span class="keyword">var</span> str = <span class="built_in">JSON</span>.parse(xhr.responseText);</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.name&#x27;</span>).textContent = str[<span class="number">0</span>].name</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>把 <code>xhr.responseText</code> 轉成物件，再從這物件中提取第一筆資料(JS 中第一筆為0)<br><img src="https://i.imgur.com/0LwFAMY.png"></p>
+<p>總結 AJAX 動作:</p>
+<ol>
+<li>建立 XMLHttpRequest</li>
+<li>將資料傳送到對方伺服器裡</li>
+<li>回傳資料到自己的瀏覽器</li>
+<li>對資料進行擷取</li>
+</ol>
+<hr>
+<h2 id="資料來源-JavaScript-入門篇-學徒的試煉"><a href="#資料來源-JavaScript-入門篇-學徒的試煉" class="headerlink" title="資料來源:JavaScript 入門篇 - 學徒的試煉"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/670042/lectures/11952421">資料來源:JavaScript 入門篇 - 學徒的試煉</a></h2>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2020/08/13/20200813-javascript/" itemprop="url">最常見的 this：物件的方法調用</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2020-08-13T02:50:59.603Z" itemprop="datePublished">8月 13 2020</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分钟 lesen (Über 398 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>函式裡面一定會帶上一個 this ， this 在執行函式的時候自然就會產生，不需要特別宣告<br><img src="https://i.imgur.com/9jiIVE1.png"></p>
+<p><img src="https://i.imgur.com/OmKjnpU.png"></p>
+<p>作用域不一樣，var的作用域在函數 (function) 裡，let的作用域則是在區塊 (block) 裡。</p>
+<p><img src="https://i.imgur.com/sRu5pPK.png" alt="6角"><br><img src="https://i.imgur.com/pyjbDxQ.png"><br><img src="https://i.imgur.com/rlpXaM8.png"></p>
+<h3 id="範例-1"><a href="#範例-1" class="headerlink" title="範例 1"></a>範例 1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myName = <span class="string">&#x27;驚不驚喜&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>,<span class="built_in">this</span>.myName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> family = &#123;</span><br><span class="line">  myName: <span class="string">&#x27;老王&#x27;</span>,</span><br><span class="line">  callName: callName</span><br><span class="line">&#125;</span><br><span class="line">family.callName();</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/MNVJCY4.png"><br><code>this</code> 會指向函式前面的物件，所以 <code>this</code> 顯示 <code>family</code> 物件， <code>this.myName</code> 會顯示老王</p>
+<hr>
+<h3 id="範例-2"><a href="#範例-2" class="headerlink" title="範例 2"></a>範例 2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myName = <span class="string">&#x27;驚不驚喜&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>,<span class="built_in">this</span>.myName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> family = &#123;</span><br><span class="line">  myName: <span class="string">&#x27;來因&#x27;</span>,</span><br><span class="line">  callName: callName,</span><br><span class="line">  ana: &#123;</span><br><span class="line">    myName: <span class="string">&#x27;安納&#x27;</span>,</span><br><span class="line">    callName: callName</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">family.callName();</span><br><span class="line">family.ana.callName();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/FB2N78p.png"><br>這邊 <code>family</code> 裡面多了 <code>ana</code> 物件，<br>執行 <code>family.callName()</code> 會找到物件第一層，跟範例 1 一樣<br>在執行 <code>family.ana.callName()</code> 時，<code>callName()</code>的 this 會指向 <code>ana</code> 物件</p>
+<hr>
+<h3 id="範例-3"><a href="#範例-3" class="headerlink" title="範例 3"></a>範例 3</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myName = <span class="string">&#x27;驚不驚喜&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>,<span class="built_in">this</span>.myName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> family = &#123;</span><br><span class="line">  myName: <span class="string">&#x27;來因&#x27;</span>,</span><br><span class="line">  callName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>, <span class="built_in">this</span>.myName);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// family.callName();</span></span><br><span class="line"><span class="keyword">var</span> callName = family.callName;</span><br><span class="line">callName()</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/YMU8nGg.png"><br>如果執行 <code>family.callName()</code> 結果會跟範例 1 一樣，但如果重新宣告 <code>callName</code> 再執行結果為什麼會是 <code>驚不驚喜</code> ?<br>因為<code>callName</code> 是在全域執行，所以 this 就不會指向 <code>family</code> 這個物件，是指向全域的 <code>window</code> ，而全域 <code>window</code> 的 <code>myName</code> 就是 <code>驚不驚喜</code> 。<br>就算少了 <code>var callName = family.callName;</code> 結果仍是一樣</p>
+<hr>
+<h2 id="參考資料-JavaScript-核心篇"><a href="#參考資料-JavaScript-核心篇" class="headerlink" title="參考資料: JavaScript 核心篇"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/enrolled/670037">參考資料: JavaScript 核心篇</a></h2>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2020/08/13/20200813-javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/" itemprop="url">Javascript 核心篇-執行環境</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2020-08-12T16:00:00.000Z" itemprop="datePublished">8月 13 2020</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            11 分钟 lesen (Über 1588 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>JavaScript 是直譯式語言<br>當 JavaScript 在函示內找不到變數就會向外查找<br>window === this<br>但this會隨執行環境而有所不同</p>
+<h2 id="語法作用域-Lexical-scope"><a href="#語法作用域-Lexical-scope" class="headerlink" title="語法作用域 (Lexical scope)"></a>語法作用域 (Lexical scope)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value); <span class="comment">// 語法作用域：1</span></span><br><span class="line">  <span class="comment">// 動態作用域：2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> value = <span class="number">2</span>;</span><br><span class="line">  fn1();</span><br><span class="line">&#125;</span><br><span class="line">fn2();</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p><strong>語法作用域的順序:</strong><br>(因為 JS 式語法作用域，所以會跑這個步驟)fu2 執行 value 值就會變 2 ，在執行 fn1 ，因為裡面沒有 value 值所以會向外查找全域變數 value = 1，函式執行完結果為1</p>
+</li>
+<li><p><strong>動態作用域的順序:</strong><br> 全域賦予 value=1，這時候會執行 fn2 ，並且重新定義 value = 2 ，再執行 fn1 ，這時會開始查找 value 值在哪裡，這時因為函式調用的時候才會決定它的作用域，並向上一層函式查找宣告的變數值</p>
+<hr>
+<h2 id="範圍鍊"><a href="#範圍鍊" class="headerlink" title="範圍鍊"></a>範圍鍊</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="string">&#x27;老媽&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;hi &#x27;</span> + person);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person = <span class="string">&#x27;老爸&#x27;</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> person = <span class="string">&#x27;漂亮阿姨&#x27;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;哈囉～ &#x27;</span> + person);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// sayHi();</span></span><br><span class="line">  <span class="comment">//meetAuntie();</span></span><br><span class="line">&#125;</span><br><span class="line"> sayHi();</span><br><span class="line"><span class="comment">//doMorningWork();  // 執行</span></span><br></pre></td></tr></table></figure>
+<p>因為 sayHi function 裡面沒有 person 變數，所以會向外尋找<br><img src="https://i.imgur.com/lATjYBE.png"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="string">&#x27;老媽&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;hi &#x27;</span> + person);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person = <span class="string">&#x27;老爸&#x27;</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> person = <span class="string">&#x27;漂亮阿姨&#x27;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;哈囉～ &#x27;</span> + person);</span><br><span class="line">  &#125;</span><br><span class="line">  sayHi();</span><br><span class="line">  <span class="comment">//meetAuntie();</span></span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">//sayHi();</span></span><br><span class="line"> doMorningWork();  <span class="comment">// 執行</span></span><br></pre></td></tr></table></figure>
+<p>doMorningWork 函式雖然有 person 變數，但不會影響到 sayHi 函式的範圍練，所以 sayHi 函式一樣會向外尋找 person 變數<br><img src="https://i.imgur.com/lbU8OCA.png"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="string">&#x27;老媽&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;hi &#x27;</span> + person);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person = <span class="string">&#x27;老爸&#x27;</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> person = <span class="string">&#x27;漂亮阿姨&#x27;</span>; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;哈囉～ &#x27;</span> + person);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// sayHi();</span></span><br><span class="line">  meetAuntie();</span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">//sayHi();</span></span><br><span class="line"> doMorningWork();  <span class="comment">// 執行</span></span><br></pre></td></tr></table></figure>
+<p>因為 meetAuntie 函式本身就有 person 變數，所以不會像尋找，結果為 哈囉~ 漂亮阿姨<br>如果把 var person = ‘漂亮阿姨’; 註解掉，那 person 變數會向外尋找。結果為 哈囉~老爸</p>
+</li>
+</ol>
+<h4 id="論是-只要函式內沒找到相對應的變數，就會像向外一層尋找相對應的變數，直到找到為止"><a href="#論是-只要函式內沒找到相對應的變數，就會像向外一層尋找相對應的變數，直到找到為止" class="headerlink" title="論是: 只要函式內沒找到相對應的變數，就會像向外一層尋找相對應的變數，直到找到為止"></a>論是: 只要函式內沒找到相對應的變數，就會像向外一層尋找相對應的變數，直到找到為止</h4><hr>
+<h2 id="提升"><a href="#提升" class="headerlink" title="提升"></a>提升</h2><p><img src="https://i.imgur.com/uXG14Oe.png"><br>先想像記憶體是成對的，左邊的格子表示 key，右邊是 value。<br>再創造環境的時候，會先把 a (變數)放到記憶體裡面(左邊格子)，但這時候還不會給 a 值，所以用 console.log 的時候會 defined ，等到執行時才會把 1 套到 a 裡面。</p>
+<p>所以執行環境的時候會先創造環境，創造環境會先把程式碼裡面的變數全部挑出來並存在記憶體上，這個動作稱為”提升 Hoisting”，在這個階段還不會給他值，所以如果在此時去取用這些變數的話，值會是 undefined。到執行環境的時候才會賦予它的值</p>
+<p><img src="https://i.imgur.com/GRULStI.png"></p>
+<p>再創造階段 a 是沒有值的，所以會顯示 undefined，直到宣告階段才會把值帶入 。<br>但是函式會把整個函式內容都先載入，所以<strong>函式再創造階段就已經可以運行了</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ming;                <span class="comment">//創造階段</span></span><br><span class="line">ming = <span class="string">&quot;小名&quot;</span>;            <span class="comment">//執行</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;ming&#x27;</span>);</span><br><span class="line"></span><br><span class="line">callName();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小名&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//會等於下列</span></span><br><span class="line"><span class="comment">//-----------------------</span></span><br><span class="line"><span class="comment">//創造階段</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小名&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName();</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/I8kQ3ob.png"></p>
+<h3 id="函式表達式寫法"><a href="#函式表達式寫法" class="headerlink" title="函式表達式寫法:"></a>函式表達式寫法:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">callName() <span class="comment">//這時候的 callName 是還沒有被定義的</span></span><br><span class="line"><span class="keyword">var</span> callName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小名&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>輸出如下圖:<br><img src="https://i.imgur.com/32RDACz.png"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//創造階段</span></span><br><span class="line"><span class="keyword">var</span> callName(); <span class="comment">//這時候 callName 被定義了但沒給值，所以會undefine</span></span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">//這時 function 已經被賦予到 callName  這個函式上</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小名&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"> callName(); <span class="comment">//才可呼叫</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/ddWNmYt.png"></p>
+<h3 id="範例"><a href="#範例" class="headerlink" title="範例:"></a>範例:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// var callName = function () &#123;</span></span><br><span class="line"><span class="comment">//   console.log(&#x27;呼叫小明 2&#x27;);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// function callName() &#123;  </span></span><br><span class="line"><span class="comment">//   console.log(&#x27;呼叫小明 1&#x27;);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// callName();</span></span><br><span class="line"><span class="comment">//以上為原式</span></span><br><span class="line"><span class="comment">//-----------------------------------</span></span><br><span class="line"><span class="comment">//拆解過後</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;  <span class="comment">// 首先函式優先 創造階段</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小明 1&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">var</span> callName;<span class="comment">//第2階段才把變數往前移</span></span><br><span class="line">callName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line"><span class="comment">//因為變數往前移的關係，這時 function 已經被賦予到 callName  這個函式上</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小明 2&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName();</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/uPdFhSw.png"></p>
+<h2 id="範例-1"><a href="#範例-1" class="headerlink" title="範例:"></a>範例:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//創造，函式陳述式優先創造</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;小明&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">callName(); <span class="comment">// 第一次執行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;杰倫&#x27;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/FwfUh7L.png"></p>
+<h2 id="拆解-amp-分析"><a href="#拆解-amp-分析" class="headerlink" title="拆解&amp;分析:"></a>拆解&amp;分析:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 創造</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;小明&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;杰倫&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 執行</span></span><br><span class="line">callName(); <span class="comment">// 第一次執行</span></span><br><span class="line">callName(); <span class="comment">// 第二次執行</span></span><br></pre></td></tr></table></figure>
+<p>兩個函式長一樣，後面得值會蓋掉前面的值</p>
+<h3 id="測驗分析"><a href="#測驗分析" class="headerlink" title="測驗分析:"></a>測驗分析:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whosName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (name) &#123;</span><br><span class="line">    name = <span class="string">&#x27;杰倫&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;小明&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(name);</span><br><span class="line">whosName()</span><br></pre></td></tr></table></figure>
+<p>因為創造階段，函式陳述式優先創造，變數 name 只生出記憶體，並未賦予值執行階段，呼叫 whosName 的函式時，name 向外查找 name 變數，但未賦予值，所以在 whosName 裡面的 name 被賦予為”杰倫”的值<br>函式跟一般變數不太一樣，函式陳述式在創造環境階段會被優先載入，記憶體在這個階段就會有函式的完整內容。所以函式在創造環境階段就已經可以被運行。</p>
+<h2 id="Not-Defined-VS-undefined"><a href="#Not-Defined-VS-undefined" class="headerlink" title="Not Defined VS undefined"></a>Not Defined VS undefined</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a ;</span><br><span class="line">console.log(a) &#x2F;&#x2F;輸出 undefined</span><br></pre></td></tr></table></figure>
+<p>因為記憶體已經有 a 了，但沒有賦值，所以會跳 undefined<br>同理，記憶體沒有 a 就會跳 Not Defined</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;如果要賦予空值要寫</span><br><span class="line">var a &#x3D; null;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="執行緒與同步、非同步"><a href="#執行緒與同步、非同步" class="headerlink" title="執行緒與同步、非同步"></a>執行緒與同步、非同步</h2><p>JavaScript 是單執行序的語言</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eatBreakfast</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;吃早餐&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">washingPlate</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;洗餐盤&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callSomeone</span>(<span class="params">someone</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;打給&#x27;</span> + someone)</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//這段為非同步，而非同步的任務會移到事件佇列</span></span><br><span class="line">    <span class="built_in">console</span>.log(someone + <span class="string">&#x27;回電&#x27;</span>);</span><br><span class="line">  &#125;, <span class="number">1000</span>); <span class="comment">//就算這邊秒數調成0秒，也不會優先執行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> auntie = <span class="string">&#x27;漂亮阿姨&#x27;</span>;</span><br><span class="line">  eatBreakfast();</span><br><span class="line">  callSomeone(auntie);</span><br><span class="line">  washingPlate();</span><br><span class="line">&#125;</span><br><span class="line">doWork();</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/2aFzBGJ.png"></p>
+<p>同步概念來看的話，這三個概念是依序執行的，不會有早餐沒吃完就跳到洗碗盤去</p>
+<p><img src="https://i.imgur.com/iVYdmVA.png"><br><img src="https://i.imgur.com/WYchUh0.png"></p>
+<hr>
+<p>執行順序為:</p>
+<ol>
+<li>do work</li>
+<li>吃早餐</li>
+<li>打給漂亮阿姨，但因為裡面有 SetTimeout 事件，所以會移到”事件佇列”裡面</li>
+<li>洗碗</li>
+<li>直到 do work 執行完後才會再去執行 SetTimeout 函式<br><img src="https://i.imgur.com/aNRGXtW.png"></li>
+</ol>
+<hr>
+<h2 id="參考資料-JavaScript-核心篇"><a href="#參考資料-JavaScript-核心篇" class="headerlink" title="參考資料: JavaScript 核心篇"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/enrolled/670037">參考資料: JavaScript 核心篇</a></h2>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+    
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2021 PKTseng&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+</body>
+</html>

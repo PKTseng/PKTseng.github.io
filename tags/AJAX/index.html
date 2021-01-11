@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>Tag: AJAX - PK&#39;s 回憶錄</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="每記錄一次就會比昨天的自己更加厲害">
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+
+<meta name="generator" content="Hexo 5.0.2"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section section-heading">
+    <div class="container">
+        <div class="content">
+            <h5>#AJAX</h5>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2020/08/16/20200816-AJAX/" itemprop="url">AJAX</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2020-08-15T16:00:00.000Z" itemprop="datePublished">8月 16 2020</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            5 分钟 lesen (Über 763 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h3 id="透過-XMLHttpRequest-物件跨瀏覽器撈資料"><a href="#透過-XMLHttpRequest-物件跨瀏覽器撈資料" class="headerlink" title="透過 XMLHttpRequest 物件跨瀏覽器撈資料"></a>透過 XMLHttpRequest 物件跨瀏覽器撈資料</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/XMLHttpRequest/readyState">MDN 連結</a><br><code>XMLHttpRequest</code> 是瀏覽器跟伺服器要資料時必須存在的物件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27; 格式 &#x27;</span>,<span class="string">&#x27; 讀取的網址 &#x27;</span>, A )</span><br></pre></td></tr></table></figure>
+<p>格式: <code>get</code>(讀去資料) / <code>post</code>(傳送資料到伺服器)<br>A 是 <code>true/false</code> (同步或是非同步)<br><code>true</code> 是程式不等回傳結果，繼續往下執行<br><code>false</code> 是會等回傳結果再決定要不要繼續執行</p>
+<p>在 log 輸入 <code>xhr</code> 就會顯示相對應的資料，打開後顯示的各種格式<br>(目前還沒輸入格式跟網址)<br><img src="https://i.imgur.com/NdoTS3z.png"><br>其中 <code>readyState  = 0</code> 是代表已經產生一個 XMLHttpRequest 但還沒連結到我要撈的資料<br>圖片來源 MDN:<img src="https://i.imgur.com/ulBWlK5.png"></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://hexschool.github.io/ajaxHomework/data.json"> json 連結</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+<p>輸入完整格式跟網址後 readyState  顯示 1 ，意思是目前選擇了格式，但還沒把資料送出去<br><img src="https://i.imgur.com/n4sTfGk.png"></p>
+<hr>
+<p>目前只要 get 資料並非真的要傳送出去所以用 <code>null</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+<p>會發現有撈到資料，readyState  顯示 4 ，意思是完成下載操作<br><img src="https://i.imgur.com/Z9ap49J.png"></p>
+<hr>
+<h3 id="AJAX-非同步觀念"><a href="#AJAX-非同步觀念" class="headerlink" title="AJAX 非同步觀念"></a>AJAX 非同步觀念</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xhr.responseText);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/a3pXjib.png"><br>照理說我們用 <code>console.log</code> 看資料時應該要顯示，但為甚麼會顯示空直?<br>原因是用了 <code>true</code> 非同步，他不會等資料有沒有回傳，而是直接往下執行，所以<br><code>console.log(xhr.responseText)</code>是撈不到資料的，<br>相反的如果使用 <code>false</code> 則是會等資料回傳，收到資料後再繼續往下執行，如下圖</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">false</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xhr.responseText);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/Hcfipnh.png"></p>
+<p>但是當我們在往後執行程式時，不可能讓資料回傳再執行，必須讓程式繼續執行並且抓到資料，<br>所以我們使用 onload 監聽事件，並改成 true 非同步</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(xhr.responseText)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>載入完時，觸發 onload 事件然後擷取 <code>xhr.responseText</code> 的資料.<br><img src="https://i.imgur.com/2dbmRtE.png"></p>
+<hr>
+<p>接下來要在網頁上顯示 王小名</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(xhr.responseText)</span><br><span class="line">  <span class="keyword">var</span> str = <span class="built_in">JSON</span>.parse(xhr.responseText);</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.name&#x27;</span>).textContent = str[<span class="number">0</span>].name</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>把 <code>xhr.responseText</code> 轉成物件，再從這物件中提取第一筆資料(JS 中第一筆為0)<br><img src="https://i.imgur.com/0LwFAMY.png"></p>
+<p>總結 AJAX 動作:</p>
+<ol>
+<li>建立 XMLHttpRequest</li>
+<li>將資料傳送到對方伺服器裡</li>
+<li>回傳資料到自己的瀏覽器</li>
+<li>對資料進行擷取</li>
+</ol>
+<hr>
+<h2 id="資料來源-JavaScript-入門篇-學徒的試煉"><a href="#資料來源-JavaScript-入門篇-學徒的試煉" class="headerlink" title="資料來源:JavaScript 入門篇 - 學徒的試煉"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/670042/lectures/11952421">資料來源:JavaScript 入門篇 - 學徒的試煉</a></h2>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+    
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2021 PKTseng&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+</body>
+</html>
