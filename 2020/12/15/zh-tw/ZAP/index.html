@@ -19,7 +19,7 @@
     <meta name="description" content="如何使用 ZAP 網頁滲透工具，測試網站的漏洞">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OWASP ZAP">
-<meta property="og:url" content="https://pktseng.github.io/2020/12/15/ZAP/index.html">
+<meta property="og:url" content="https://pktseng.github.io/2020/12/15/zh-tw/ZAP/index.html">
 <meta property="og:site_name" content="PK&#39;s 回憶錄">
 <meta property="og:description" content="如何使用 ZAP 網頁滲透工具，測試網站的漏洞">
 <meta property="og:locale" content="zh_TW">
@@ -117,14 +117,11 @@
             <a class="navbar-item "
                href="/zh-tw/about">關於</a>
             
-            <a class="navbar-item "
-               href="/zh-tw/friends">好友</a>
-            
         </div>
         
         <div class="navbar-menu navbar-end">
             
-            <a class="navbar-item search" title="Search" href="javascript:;">
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -156,20 +153,20 @@
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/ZAP/">ZAP</a>
+            <a class="article-category-link" href="/zh-tw/categories/ZAP/">ZAP</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            10 分鐘 read (About 1485 words)
+            10 分鐘 讀完 (約 1485 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h2 id="ZAP-網頁滲透工具"><a href="#ZAP-網頁滲透工具" class="headerlink" title="ZAP 網頁滲透工具"></a>ZAP 網頁滲透工具</h2><p>ZAP 測試分兩種方法: GUI 介面測試跟 Docker 測試<br>到官網下載 <a target="_blank" rel="noopener" href="https://www.zaproxy.org/download/">Cross Platform Package</a> 測試程式(此版本為 2.9.0)</p>
+        <html><head></head><body><h2 id="ZAP-網頁滲透工具"><a href="#ZAP-網頁滲透工具" class="headerlink" title="ZAP 網頁滲透工具"></a>ZAP 網頁滲透工具</h2><p>ZAP 測試分兩種方法: GUI 介面測試跟 Docker 測試<br>到官網下載 <a target="_blank" rel="noopener" href="https://www.zaproxy.org/download/">Cross Platform Package</a> 測試程式(此版本為 2.9.0)</p>
 <h3 id="GUI-介面測試"><a href="#GUI-介面測試" class="headerlink" title="GUI 介面測試"></a>GUI 介面測試</h3><p>開啟 GUI 前要先安裝 <a target="_blank" rel="noopener" href="https://www.oracle.com/tw/java/technologies/javase/javase-jdk8-downloads.html">jdk-8u271-windows-x64</a>，否則無法開啟，</p>
 <p>安裝好後將 Cross Platform Package 資料夾內 ZAP_2.9.0 檔開啟<br><img src="https://i.imgur.com/stovEwL.png"><br><img src="https://i.imgur.com/Al98tGQ.png"></p>
 <p>第一次開啟會問是否要將 session 存起來<br><img src="https://i.imgur.com/a8c3i5z.png"><br><a target="_blank" rel="noopener" href="https://ephrain.net/pentest-%E7%94%A8-owasp-zap-%E5%81%9A%E6%BB%B2%E9%80%8F%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%89%BE%E5%B0%8B%E7%B6%B2%E7%AB%99%E5%8F%AF%E8%83%BD%E7%9A%84%E5%BC%B1%E9%BB%9E/">圖片來源: EPH 的程式日記</a></p>
@@ -198,17 +195,17 @@
 <p>由於專案關係要將測試結果做成 report 並存到指定位置，所以將指令改寫成如下:<br><code>docker run -v C:\Users\ken.tseng\Desktop\zap:/zap/wrk/ -t owasp/zap2docker-stable zap-baseline.py -t https://xxxxxx.com/ -w report_md</code></p>
 <p>將指令輸入並打開 docker ，確認是否有在 run<br><img src="https://i.imgur.com/TRDOX7S.png"><br>前面測試大概會花5~10分鐘左右，只要 docker 顯示 RUNNING 就代表有在 Run</p>
 <p>以下為測結果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">PASS: Cookie No HttpOnly Flag [10010]</span><br><span class="line">PASS: Cookie Without Secure Flag [10011]</span><br><span class="line">PASS: Cross-Domain JavaScript Source File Inclusion [10017]</span><br><span class="line">PASS: Content-Type Header Missing [10019]</span><br><span class="line">PASS: X-Frame-Options Header [10020]</span><br><span class="line">PASS: Information Disclosure - Debug Error Messages [10023]</span><br><span class="line">PASS: Information Disclosure - Sensitive Information in URL [10024]</span><br><span class="line">PASS: Information Disclosure - Sensitive Information in HTTP Referrer Header [10025]</span><br><span class="line">PASS: HTTP Parameter Override [10026]</span><br><span class="line">PASS: Information Disclosure - Suspicious Comments [10027]</span><br><span class="line">PASS: Open Redirect [10028]</span><br><span class="line">PASS: Cookie Poisoning [10029]</span><br><span class="line">PASS: User Controllable Charset [10030]</span><br><span class="line">PASS: User Controllable HTML Element Attribute (Potential XSS) [10031]</span><br><span class="line">PASS: Viewstate [10032]</span><br><span class="line">PASS: Directory Browsing [10033]</span><br><span class="line">PASS: Heartbleed OpenSSL Vulnerability (Indicative) [10034]</span><br><span class="line">PASS: X-Backend-Server Header Information Leak [10039]</span><br><span class="line">PASS: Secure Pages Include Mixed Content [10040]</span><br><span class="line">PASS: HTTP to HTTPS Insecure Transition in Form Post [10041]</span><br><span class="line">PASS: HTTPS to HTTP Insecure Transition in Form Post [10042]</span><br><span class="line">PASS: User Controllable JavaScript Event (XSS) [10043]</span><br><span class="line">PASS: Big Redirect Detected (Potential Sensitive Information Leak) [10044]</span><br><span class="line">PASS: Retrieved from Cache [10050]</span><br><span class="line">PASS: X-ChromeLogger-Data (XCOLD) Header Information Leak [10052]</span><br><span class="line">PASS: Cookie Without SameSite Attribute [10054]</span><br><span class="line">PASS: X-Debug-Token Information Leak [10056]</span><br><span class="line">PASS: Username Hash Found [10057]</span><br><span class="line">PASS: X-AspNet-Version Response Header [10061]</span><br><span class="line">PASS: PII Disclosure [10062]</span><br><span class="line">PASS: Timestamp Disclosure [10096]</span><br><span class="line">PASS: Hash Disclosure [10097]</span><br><span class="line">PASS: Cross-Domain Misconfiguration [10098]</span><br><span class="line">PASS: Weak Authentication Method [10105]</span><br><span class="line">PASS: Reverse Tabnabbing [10108]</span><br><span class="line">PASS: Modern Web Application [10109]</span><br><span class="line">PASS: Absence of Anti-CSRF Tokens [10202]</span><br><span class="line">PASS: Private IP Disclosure [2]</span><br><span class="line">PASS: Session ID in URL Rewrite [3]</span><br><span class="line">PASS: Script Passive Scan Rules [50001]</span><br><span class="line">PASS: Insecure JSF ViewState [90001]</span><br><span class="line">PASS: Charset Mismatch [90011]</span><br><span class="line">PASS: Application Error Disclosure [90022]</span><br><span class="line">PASS: Loosely Scoped Cookie [90033]</span><br><span class="line">WARN-NEW: Incomplete or No Cache-control and Pragma HTTP Header Set [10015] x 1</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F; (200 OK)</span><br><span class="line">WARN-NEW: X-Content-Type-Options Header Missing [10021] x 2</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F; (200 OK)</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F;favicon.ico (200 OK)</span><br><span class="line">WARN-NEW: Strict-Transport-Security Header Not Set [10035] x 4</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F; (200 OK)</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F;robots.txt (404 Not Found)</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F;sitemap.xml (404 Not Found)</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F;favicon.ico (200 OK)</span><br><span class="line">WARN-NEW: Server Leaks Version Information via &quot;Server&quot; HTTP Response Header Field [10036] x 4</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F; (200 OK)</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F;robots.txt (404 Not Found)</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F;sitemap.xml (404 Not Found)</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F;favicon.ico (200 OK)</span><br><span class="line">WARN-NEW: Server Leaks Information via &quot;X-Powered-By&quot; HTTP Response Header Field(s) [10037] x 4</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F; (200 OK)</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F;robots.txt (404 Not Found)</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F;sitemap.xml (404 Not Found)</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F;favicon.ico (200 OK)</span><br><span class="line">WARN-NEW: Content Security Policy (CSP) Header Not Set [10038] x 1</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F; (200 OK)</span><br><span class="line">WARN-NEW: CSP: Wildcard Directive [10055] x 2</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F;robots.txt (404 Not Found)</span><br><span class="line">        https:&#x2F;&#x2F;xxxxxx.com&#x2F;sitemap.xml (404 Not Found)</span><br><span class="line">FAIL-NEW: 0     FAIL-INPROG: 0  WARN-NEW: 7     WARN-INPROG: 0  INFO: 0 IGNORE: 0PASS: 44</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">PASS: Cookie No HttpOnly Flag [10010]</span><br><span class="line">PASS: Cookie Without Secure Flag [10011]</span><br><span class="line">PASS: Cross-Domain JavaScript Source File Inclusion [10017]</span><br><span class="line">PASS: Content-Type Header Missing [10019]</span><br><span class="line">PASS: X-Frame-Options Header [10020]</span><br><span class="line">PASS: Information Disclosure - Debug Error Messages [10023]</span><br><span class="line">PASS: Information Disclosure - Sensitive Information in URL [10024]</span><br><span class="line">PASS: Information Disclosure - Sensitive Information in HTTP Referrer Header [10025]</span><br><span class="line">PASS: HTTP Parameter Override [10026]</span><br><span class="line">PASS: Information Disclosure - Suspicious Comments [10027]</span><br><span class="line">PASS: Open Redirect [10028]</span><br><span class="line">PASS: Cookie Poisoning [10029]</span><br><span class="line">PASS: User Controllable Charset [10030]</span><br><span class="line">PASS: User Controllable HTML Element Attribute (Potential XSS) [10031]</span><br><span class="line">PASS: Viewstate [10032]</span><br><span class="line">PASS: Directory Browsing [10033]</span><br><span class="line">PASS: Heartbleed OpenSSL Vulnerability (Indicative) [10034]</span><br><span class="line">PASS: X-Backend-Server Header Information Leak [10039]</span><br><span class="line">PASS: Secure Pages Include Mixed Content [10040]</span><br><span class="line">PASS: HTTP to HTTPS Insecure Transition in Form Post [10041]</span><br><span class="line">PASS: HTTPS to HTTP Insecure Transition in Form Post [10042]</span><br><span class="line">PASS: User Controllable JavaScript Event (XSS) [10043]</span><br><span class="line">PASS: Big Redirect Detected (Potential Sensitive Information Leak) [10044]</span><br><span class="line">PASS: Retrieved from Cache [10050]</span><br><span class="line">PASS: X-ChromeLogger-Data (XCOLD) Header Information Leak [10052]</span><br><span class="line">PASS: Cookie Without SameSite Attribute [10054]</span><br><span class="line">PASS: X-Debug-Token Information Leak [10056]</span><br><span class="line">PASS: Username Hash Found [10057]</span><br><span class="line">PASS: X-AspNet-Version Response Header [10061]</span><br><span class="line">PASS: PII Disclosure [10062]</span><br><span class="line">PASS: Timestamp Disclosure [10096]</span><br><span class="line">PASS: Hash Disclosure [10097]</span><br><span class="line">PASS: Cross-Domain Misconfiguration [10098]</span><br><span class="line">PASS: Weak Authentication Method [10105]</span><br><span class="line">PASS: Reverse Tabnabbing [10108]</span><br><span class="line">PASS: Modern Web Application [10109]</span><br><span class="line">PASS: Absence of Anti-CSRF Tokens [10202]</span><br><span class="line">PASS: Private IP Disclosure [2]</span><br><span class="line">PASS: Session ID in URL Rewrite [3]</span><br><span class="line">PASS: Script Passive Scan Rules [50001]</span><br><span class="line">PASS: Insecure JSF ViewState [90001]</span><br><span class="line">PASS: Charset Mismatch [90011]</span><br><span class="line">PASS: Application Error Disclosure [90022]</span><br><span class="line">PASS: Loosely Scoped Cookie [90033]</span><br><span class="line">WARN-NEW: Incomplete or No Cache-control and Pragma HTTP Header Set [10015] x 1</span><br><span class="line">        https://xxxxxx.com/ (200 OK)</span><br><span class="line">WARN-NEW: X-Content-Type-Options Header Missing [10021] x 2</span><br><span class="line">        https://xxxxxx.com/ (200 OK)</span><br><span class="line">        https://xxxxxx.com/favicon.ico (200 OK)</span><br><span class="line">WARN-NEW: Strict-Transport-Security Header Not Set [10035] x 4</span><br><span class="line">        https://xxxxxx.com/ (200 OK)</span><br><span class="line">        https://xxxxxx.com/robots.txt (404 Not Found)</span><br><span class="line">        https://xxxxxx.com/sitemap.xml (404 Not Found)</span><br><span class="line">        https://xxxxxx.com/favicon.ico (200 OK)</span><br><span class="line">WARN-NEW: Server Leaks Version Information via "Server" HTTP Response Header Field [10036] x 4</span><br><span class="line">        https://xxxxxx.com/ (200 OK)</span><br><span class="line">        https://xxxxxx.com/robots.txt (404 Not Found)</span><br><span class="line">        https://xxxxxx.com/sitemap.xml (404 Not Found)</span><br><span class="line">        https://xxxxxx.com/favicon.ico (200 OK)</span><br><span class="line">WARN-NEW: Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s) [10037] x 4</span><br><span class="line">        https://xxxxxx.com/ (200 OK)</span><br><span class="line">        https://xxxxxx.com/robots.txt (404 Not Found)</span><br><span class="line">        https://xxxxxx.com/sitemap.xml (404 Not Found)</span><br><span class="line">        https://xxxxxx.com/favicon.ico (200 OK)</span><br><span class="line">WARN-NEW: Content Security Policy (CSP) Header Not Set [10038] x 1</span><br><span class="line">        https://xxxxxx.com/ (200 OK)</span><br><span class="line">WARN-NEW: CSP: Wildcard Directive [10055] x 2</span><br><span class="line">        https://xxxxxx.com/robots.txt (404 Not Found)</span><br><span class="line">        https://xxxxxx.com/sitemap.xml (404 Not Found)</span><br><span class="line">FAIL-NEW: 0     FAIL-INPROG: 0  WARN-NEW: 7     WARN-INPROG: 0  INFO: 0 IGNORE: 0PASS: 44</span><br></pre></td></tr></tbody></table></figure>
 <p>測出結果有 7 項 WARN-NEW ，後面顯示有問題的項目提示，WARN-NEW 下面顯示的是有問題的 URL 有哪些，詳細的弱點描述跟解法資訊請看 report</p>
 <hr>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://www.zaproxy.org/docs/">官方文件</a><br><a target="_blank" rel="noopener" href="https://ephrain.net/pentest-%E7%94%A8-owasp-zap-%E5%81%9A%E6%BB%B2%E9%80%8F%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%89%BE%E5%B0%8B%E7%B6%B2%E7%AB%99%E5%8F%AF%E8%83%BD%E7%9A%84%E5%BC%B1%E9%BB%9E/">用 OWASP ZAP 做滲透測試，找尋網站可能的弱點</a><br><a target="_blank" rel="noopener" href="https://ephrain.net/pentest-%E7%94%A8-owasp-zap-%E5%81%9A%E6%BB%B2%E9%80%8F%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%89%BE%E5%B0%8B%E7%B6%B2%E7%AB%99%E5%8F%AF%E8%83%BD%E7%9A%84%E5%BC%B1%E9%BB%9E/">EPH 的程式日記</a></p>
-
+</body></html>
     
     </div>
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/OWASP/">#OWASP</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/zh-tw/tags/OWASP/">#OWASP</a></span>
     
     </div>
     
@@ -216,12 +213,10 @@
     <div class="columns is-mobile is-multiline article-nav">
         <span class="column is-12-mobile is-half-desktop  article-nav-prev">
             
-            <a href="/2020/12/16/cmder/">安裝套件管理工具</a>
+            <a href="/2020/12/17/zh-tw/WSL/">在 Windows 上安裝 WSL1</a>
             
         </span>
-        <span class="column is-12-mobile is-half-desktop  article-nav-next">
-            
-            <a href="/2020/12/13/Loading/">用 Vue 做出頁面的 Loading 效果</a>
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-next">
             
         </span>
     </div>
@@ -240,7 +235,7 @@
 
 
 <div class="comments">
-    <h3 class="title is-4">Comments</h3>
+    <h3 class="title is-4">評論</h3>
     
 <div id="disqus_thread">
     
@@ -433,7 +428,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋" />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -445,11 +440,11 @@
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
             },
             CONTENT_URL: '/content.zh-tw.json',
         };
