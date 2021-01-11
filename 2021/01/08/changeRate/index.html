@@ -88,7 +88,7 @@
         
         <div class="navbar-menu navbar-end">
             
-            <a class="navbar-item search" title="Buscar" href="javascript:;">
+            <a class="navbar-item search" title="Suche" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -130,7 +130,7 @@
         <span class="column is-narrow">
             
             
-            7 分钟 de lectura (Alrededor de 1017 palabras)
+            7 分钟 lesen (Über 1017 Wörter)
         </span>
         
     </div>
@@ -143,7 +143,7 @@
 <h4 id="監聽抓取-dom-的操作事件，同時綁定事件的操作"><a href="#監聽抓取-dom-的操作事件，同時綁定事件的操作" class="headerlink" title="監聽抓取 dom 的操作事件，同時綁定事件的操作"></a>監聽抓取 dom 的操作事件，同時綁定事件的操作</h4><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 監聽 DOM 狀態</span></span><br><span class="line">currencyElOne.addEventListener(<span class="hljs-string">'change'</span>, caclulate)</span><br><span class="line">currencyElTwo.addEventListener(<span class="hljs-string">'change'</span>, caclulate)</span><br><span class="line">amountElOne.addEventListener(<span class="hljs-string">'input'</span>, caclulate)</span><br><span class="line">amountElTwo.addEventListener(<span class="hljs-string">'input'</span>, caclulate)</span><br></pre></td></tr></tbody></table></figure>
 <hr>
 <h4 id="事件操作"><a href="#事件操作" class="headerlink" title="事件操作"></a>事件操作</h4><p><a target="_blank" rel="noopener" href="https://www.exchangerate-api.com/">API</a><br>這邊要注意的是 Fetch API 的方式，在打完 API ，response 資料的時候，雖然資料已經是 JSON 格式，但 Fetch 必須再轉一次 JSON，變成 <code>json promise</code>，否則是抓不到後端回傳的資料的。<br><a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/articles/201908/js-fetch.html">參考文章</a></p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 操作 DOM 同時執行運算</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">caclulate</span>(<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-comment">// 透過選取的 DOM 將該 DOM的值塞到新變數中</span></span><br><span class="line">  <span class="hljs-keyword">const</span> currencyOne = currencyElOne.value</span><br><span class="line">  <span class="hljs-keyword">const</span> currencyTwo = currencyElTwo.value</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 發送 request ，開始打 API</span></span><br><span class="line">  fetch(<span class="hljs-string">`https://api.exchangerate-api.com/v4/latest/<span class="hljs-subst">${currencyOne}</span>`</span>)</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 後端傳送 response 回傳結果</span></span><br><span class="line">  .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> res.json())<span class="hljs-comment">//將回傳結果轉換成 json 格式</span></span><br><span class="line">  .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {</span><br><span class="line">    <span class="hljs-comment">// console.log(data)</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// 用陣列的方式抓去 keyValue，再將值塞到 rate 變數中</span></span><br><span class="line">    <span class="hljs-keyword">const</span> rate = data.rates[currencyTwo] </span><br><span class="line">    <span class="hljs-comment">// console.log(rate)</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//將計算後的值放到綁定的 rate dom 中，同時計算當前匯率</span></span><br><span class="line">    rateEl.innerHTML = <span class="hljs-string">`1 <span class="hljs-subst">${currencyOne}</span> = <span class="hljs-subst">${rate}</span> <span class="hljs-subst">${currencyTwo}</span>`</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// 幣值2的值 = 幣值1的值*匯率，將值四捨五入</span></span><br><span class="line">    amountElTwo.value = (amountElOne.value*rate).toFixed(<span class="hljs-number">2</span>)</span><br><span class="line">  })</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 操作 DOM 同時執行運算</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">caclulate</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-comment">// 透過選取的 DOM 將該 DOM的值塞到新變數中</span></span><br><span class="line">  <span class="hljs-keyword">const</span> currencyOne = currencyElOne.value</span><br><span class="line">  <span class="hljs-keyword">const</span> currencyTwo = currencyElTwo.value</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 發送 request ，開始打 API</span></span><br><span class="line">  fetch(<span class="hljs-string">`https://api.exchangerate-api.com/v4/latest/<span class="hljs-subst">${currencyOne}</span>`</span>)</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 後端傳送 response 回傳結果</span></span><br><span class="line">  .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> res.json())<span class="hljs-comment">//將回傳結果轉換成 json 格式</span></span><br><span class="line">  .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {</span><br><span class="line">    <span class="hljs-comment">// console.log(data)</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// 用陣列的方式抓去 keyValue，再將值塞到 rate 變數中</span></span><br><span class="line">    <span class="hljs-keyword">const</span> rate = data.rates[currencyTwo] </span><br><span class="line">    <span class="hljs-comment">// console.log(rate)</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//將計算後的值放到綁定的 rate dom 中，同時計算當前匯率</span></span><br><span class="line">    rateEl.innerHTML = <span class="hljs-string">`1 <span class="hljs-subst">${currencyOne}</span> = <span class="hljs-subst">${rate}</span> <span class="hljs-subst">${currencyTwo}</span>`</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// 幣值2的值 = 幣值1的值*匯率，將值四捨五入</span></span><br><span class="line">    amountElTwo.value = (amountElOne.value*rate).toFixed(<span class="hljs-number">2</span>)</span><br><span class="line">  })</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <hr>
 <h4 id="切換匯率，將匯率互相對調"><a href="#切換匯率，將匯率互相對調" class="headerlink" title="切換匯率，將匯率互相對調"></a>切換匯率，將匯率互相對調</h4><p>這邊要注意的是，必須要先將<code>currencyElOne.value</code> 塞到 <code>temp</code> 變數中，方便待會賦值，會這樣做是有原因的</p>
 <p>以下列這段程式碼為例，分別用 <code>console.log</code> 查看值</p>
@@ -213,7 +213,7 @@
 
 
 <div class="comments">
-    <h3 class="title is-4">Comentarios</h3>
+    <h3 class="title is-4">Kommentare</h3>
     
 <script>
     var disqus_config = function () {
@@ -418,7 +418,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Escribe algo..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Suche etwas..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -431,10 +431,10 @@
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Páginas',
-                CATEGORIES: 'Categorías',
+                PAGES: 'Seiten',
+                CATEGORIES: 'Kategorien',
                 TAGS: 'Tags',
-                UNTITLED: '(Sin título)',
+                UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
         };
