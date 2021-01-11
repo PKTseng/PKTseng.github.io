@@ -1,2 +1,1492 @@
-<!DOCTYPE html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>PK's 回憶錄</title><meta name="description" content="每記錄一次就會比昨天的自己更加厲害"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="PK's 回憶錄"><meta name="generator" content="Hexo 5.0.2"><link rel="alternate" href="/atom.xml" title="PK's 回憶錄" type="application/atom+xml">
-</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="PK's 回憶錄"><img class="logo-image" src="/logo.png" alt="logo"></a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link active" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><ul class="home post-list"><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a class="post-title-link" href="/2021/01/08/changeRate/">簡易版匯率轉換</a></h2><div class="post-info"><a></a>2021-01-08</div><div class="post-content"></div><a class="read-more" href="/2021/01/08/changeRate/">&hellip; more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a class="post-title-link" href="/2020/12/31/formVaild/">簡易表單驗證</a></h2><div class="post-info"><a></a>2020-12-31</div><div class="post-content"></div><a class="read-more" href="/2020/12/31/formVaild/">&hellip; more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a class="post-title-link" href="/2020/12/28/zh-tw/pullRequest/">Pull Request</a></h2><div class="post-info"><a></a>2020-12-28</div><div class="post-content"></div><a class="read-more" href="/2020/12/28/zh-tw/pullRequest/">&hellip; more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a class="post-title-link" href="/2020/12/20/git/">簡易的 Git 操作</a></h2><div class="post-info"><a></a>2020-12-20</div><div class="post-content"></div><a class="read-more" href="/2020/12/20/git/">&hellip; more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a class="post-title-link" href="/2020/12/17/zh-tw/WSL/">在 Windows 上安裝 WSL1</a></h2><div class="post-info"><a></a>2020-12-17</div><div class="post-content"></div><a class="read-more" href="/2020/12/17/zh-tw/WSL/">&hellip; more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a class="post-title-link" href="/2020/12/16/cmder/">安裝套件管理工具</a></h2><div class="post-info"><a></a>2020-12-16</div><div class="post-content"></div><a class="read-more" href="/2020/12/16/cmder/">&hellip; more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a class="post-title-link" href="/2020/12/15/zh-tw/ZAP/">OWASP ZAP</a></h2><div class="post-info"><a></a>2020-12-15</div><div class="post-content"></div><a class="read-more" href="/2020/12/15/zh-tw/ZAP/">&hellip; more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a class="post-title-link" href="/2020/12/13/Loading/">用 Vue 做出頁面的 Loading 效果</a></h2><div class="post-info"><a></a>2020-12-13</div><div class="post-content"></div><a class="read-more" href="/2020/12/13/Loading/">&hellip; more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a class="post-title-link" href="/2020/12/03/%E4%B8%B2%E6%8E%A5%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%20API/">串接上傳檔案 API</a></h2><div class="post-info"><a></a>2020-12-03</div><div class="post-content"></div><a class="read-more" href="/2020/12/03/%E4%B8%B2%E6%8E%A5%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%20API/">&hellip; more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a class="post-title-link" href="/2020/09/04/%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99-1/">Vue出電商網站-1</a></h2><div class="post-info"><a></a>2020-09-04</div><div class="post-content"></div><a class="read-more" href="/2020/09/04/%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99-1/">&hellip; more</a></article></li></ul></main><footer><div class="paginator"><a class="next" href="/page/2/">next</a></div><div class="copyright"><p>&copy; 2021 <a href="https://pktseng.github.io">PKTseng</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div></body></html>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"pktseng.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="每記錄一次就會比昨天的自己更加厲害">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PK&#39;s 回憶錄">
+<meta property="og:url" content="https://pktseng.github.io/index.html">
+<meta property="og:site_name" content="PK&#39;s 回憶錄">
+<meta property="og:description" content="每記錄一次就會比昨天的自己更加厲害">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:author" content="PKTseng">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://pktseng.github.io/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>PK's 回憶錄</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="PK's 回憶錄" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">PK's 回憶錄</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">學過的東西過段時間沒複習就會忘，所以請記錄下來</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2021/01/08/changeRate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="PKTseng">
+      <meta itemprop="description" content="每記錄一次就會比昨天的自己更加厲害">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PK's 回憶錄">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/08/changeRate/" class="post-title-link" itemprop="url">簡易版匯率轉換</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2021-01-08 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-08T00:00:00+08:00">2021-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-01-11 11:02:05" itemprop="dateModified" datetime="2021-01-11T11:02:05+08:00">2021-01-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BD%9C%E5%93%81%E9%9B%86/" itemprop="url" rel="index"><span itemprop="name">作品集</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2021/01/08/changeRate/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/01/08/changeRate/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>4 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>附上 <a target="_blank" rel="noopener" href="https://github.com/PKTseng/Web-Side-Project/tree/gh-pages/mission23">Github</a><br><a href="https://pktseng.github.io/Web-Side-Project/mission23/index.html">Demo</a></p>
+<hr>
+<h2 id="1-用-JS-撰寫"><a href="#1-用-JS-撰寫" class="headerlink" title="1. 用 JS 撰寫"></a>1. 用 JS 撰寫</h2><h4 id="利用選擇器抓取-DOM-元素"><a href="#利用選擇器抓取-DOM-元素" class="headerlink" title="利用選擇器抓取 DOM 元素"></a>利用選擇器抓取 DOM 元素</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> currencyElOne = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#currencyOne&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> currencyElTwo = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#currencyTwo&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> amountElOne = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#amountOne&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> amountElTwo = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#amountTwo&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> swapEl = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#swap&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> rateEl = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#rate&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="監聽抓取-dom-的操作事件，同事綁定事件的操作"><a href="#監聽抓取-dom-的操作事件，同事綁定事件的操作" class="headerlink" title="監聽抓取 dom 的操作事件，同事綁定事件的操作"></a>監聽抓取 dom 的操作事件，同事綁定事件的操作</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 監聽 DOM 狀態</span></span><br><span class="line">currencyElOne.addEventListener(<span class="string">&#x27;change&#x27;</span>, caclulate)</span><br><span class="line">currencyElTwo.addEventListener(<span class="string">&#x27;change&#x27;</span>, caclulate)</span><br><span class="line">amountElOne.addEventListener(<span class="string">&#x27;input&#x27;</span>, caclulate)</span><br><span class="line">amountElTwo.addEventListener(<span class="string">&#x27;input&#x27;</span>, caclulate)</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="事件操作"><a href="#事件操作" class="headerlink" title="事件操作"></a>事件操作</h4><p><a target="_blank" rel="noopener" href="https://www.exchangerate-api.com/">API</a><br>這邊要注意的是 Fetch API 的方式，在打完 API ，response 資料的時候，雖然資料已經是 JSON 格式，但 Fetch 必須再轉一次 JSON，變成 <code>json promise</code>，否則是抓不到後端回傳的資料的。<br><a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/articles/201908/js-fetch.html">參考文章</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 操作 DOM 同時執行運算</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">caclulate</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 透過選取的 DOM 將該 DOM的值塞到新變數中</span></span><br><span class="line">  <span class="keyword">const</span> currencyOne = currencyElOne.value</span><br><span class="line">  <span class="keyword">const</span> currencyTwo = currencyElTwo.value</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 發送 request ，開始打 API</span></span><br><span class="line">  fetch(<span class="string">`https://api.exchangerate-api.com/v4/latest/<span class="subst">$&#123;currencyOne&#125;</span>`</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 後端傳送 response 回傳結果</span></span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> res.json())<span class="comment">//將回傳結果轉換成 json 格式</span></span><br><span class="line">  .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// console.log(data)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 用陣列的方式抓去 keyValue，再將值塞到 rate 變數中</span></span><br><span class="line">    <span class="keyword">const</span> rate = data.rates[currencyTwo] </span><br><span class="line">    <span class="comment">// console.log(rate)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//將計算後的值放到綁定的 rate dom 中，同時計算當前匯率</span></span><br><span class="line">    rateEl.innerHTML = <span class="string">`1 <span class="subst">$&#123;currencyOne&#125;</span> = <span class="subst">$&#123;rate&#125;</span> <span class="subst">$&#123;currencyTwo&#125;</span>`</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 幣值2的值 = 幣值1的值*匯率，將值四捨五入</span></span><br><span class="line">    amountElTwo.value = (amountElOne.value*rate).toFixed(<span class="number">2</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="切換匯率，將匯率互相對調"><a href="#切換匯率，將匯率互相對調" class="headerlink" title="切換匯率，將匯率互相對調"></a>切換匯率，將匯率互相對調</h4><p>這邊要注意的是，必須要先將<code>currencyElOne.value</code> 塞到 <code>temp</code> 變數中，方便待會賦值，會這樣做是有原因的</p>
+<p>以下列這段程式碼為例，分別用 <code>console.log</code> 查看值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">swapEl.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> temp = currencyElOne.value</span><br><span class="line"></span><br><span class="line">  currencyElOne.value = currencyElTwo.value</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;currencyElOne.value&#x27;</span>, currencyElOne.value)</span><br><span class="line"></span><br><span class="line">  currencyElTwo.value = currencyElOne.value</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;currencyElTwo.value&#x27;</span>, currencyElTwo.value)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// currencyElTwo.value = temp</span></span><br><span class="line">  <span class="comment">// console.log(&#x27;temp&#x27;, temp)</span></span><br><span class="line">  caclulate()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>結果如下圖<br><img src="https://i.imgur.com/qQYix3x.png"></p>
+<p>兩個轉換的匯率都會長一樣，而且匯率永遠都會卡 1，無法轉換，如下圖<br><img src="https://i.imgur.com/1AO39Zg.png"></p>
+<p>為防止這樣的情況發生，可以就要先將 <code>currencyElOne.value</code> 塞到 <code>temp</code> 中，再查看 <code>temp</code> 值的，就可以抓到 <code>currencyElOne.value</code> 的值，如下圖<br><img src="https://i.imgur.com/f4LpfCR.png"></p>
+<p>然後再將 <code>temp</code> 賦予到<code>currencyElTwo.value</code>，這樣就可以避免匯率卡1的問題，最後要記得執行計算。</p>
+<p>完整函式如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">swapEl.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> temp = currencyElOne.value</span><br><span class="line">  currencyElOne.value = currencyElTwo.value</span><br><span class="line">  currencyElTwo.value = temp</span><br><span class="line">  caclulate()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="2-用-jQuery-撰寫"><a href="#2-用-jQuery-撰寫" class="headerlink" title="2. 用 jQuery 撰寫"></a>2. 用 jQuery 撰寫</h2><h4 id="抓取-DOM-，同時綁定事件"><a href="#抓取-DOM-，同時綁定事件" class="headerlink" title="抓取 DOM ，同時綁定事件"></a>抓取 DOM ，同時綁定事件</h4><p>先將每個 DOM 事件切割成一小部分，撰寫方法也要為簡單，步驟如下:</p>
+<ol>
+<li>抓取 DOM 元素 <code>$(&#39;#currencyOne&#39;)</code></li>
+<li>後面再接事件<code>change</code>，</li>
+<li>事件裡面會包發生的動作 <code>caclulate()</code></li>
+<li>執行 <code>caclulate()</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 將 dom 切割成小事件</span></span><br><span class="line"><span class="comment">// 監聽 currencyOne 選取值</span></span><br><span class="line">$(<span class="string">&#x27;#currencyOne&#x27;</span>).change(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    caclulate()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 監聽 amountOne 選取值</span></span><br><span class="line">$( <span class="string">&#x27;#amountOne&#x27;</span>).change(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    caclulate()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 監聽 currencyTwo 選取值</span></span><br><span class="line">$( <span class="string">&#x27;#currencyTwo&#x27;</span>).change(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    caclulate()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 監聽 amountTwo 選取值</span></span><br><span class="line">$( <span class="string">&#x27;#amountTwo&#x27;</span>).change(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    caclulate()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">caclulate()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h4 id="事件裡面會包發生的動作"><a href="#事件裡面會包發生的動作" class="headerlink" title="事件裡面會包發生的動作"></a>事件裡面會包發生的動作</h4><p>這邊示範用 jquery ajax 打 api </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 變動容器內的 dom，同時計算匯率</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">caclulate</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 用 jquery 的方式命名變數</span></span><br><span class="line">  <span class="keyword">let</span> currencyOne = $(<span class="string">&#x27;#currencyOne&#x27;</span>).val()</span><br><span class="line">  <span class="keyword">let</span> currencyTwo = $(<span class="string">&#x27;#currencyTwo&#x27;</span>).val()</span><br><span class="line">  <span class="keyword">let</span> rate = $(<span class="string">&#x27;#rate&#x27;</span>).val()</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 用 ajax 打 api</span></span><br><span class="line">  $.ajax(&#123;</span><br><span class="line">      methods: <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">      url: <span class="string">`https://api.exchangerate-api.com/v4/latest/<span class="subst">$&#123;currencyOne&#125;</span>`</span>,</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// 後端 respose 資料，將資料用 res 命名</span></span><br><span class="line">  .done(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 可用 console.log(res) 查看 response api  </span></span><br><span class="line">    <span class="comment">// 將後端的資料塞到 rate 裡面，[currencyTwo] 是抓取物件 keyValue</span></span><br><span class="line">    <span class="keyword">let</span> rate = res.rates[currencyTwo]</span><br><span class="line">    <span class="comment">// 用 console.log(rate) 查看是否有抓到 keyValue</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 將匯率轉換後的值塞到 amountTwo dom 裡面，並4捨5入取到第2位</span></span><br><span class="line">    $(<span class="string">&#x27;#amountTwo&#x27;</span>).val(($(<span class="string">&#x27;#amountOne&#x27;</span>).val() * rate).toFixed(<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 將轉換的匯率顯示在各匯率之間</span></span><br><span class="line">    $(<span class="string">&#x27;#rate&#x27;</span>).text(<span class="string">`1 <span class="subst">$&#123;currencyOne&#125;</span> = <span class="subst">$&#123;currencyTwo&#125;</span> * <span class="subst">$&#123;rate&#125;</span>`</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="動作的匯率對調"><a href="#動作的匯率對調" class="headerlink" title="動作的匯率對調"></a>動作的匯率對調</h4><p>函式邏輯跟上面 js 的一樣，差別寫法上會有些微的不同</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 按下 swap dom 會將匯率對調</span></span><br><span class="line">$(<span class="string">&#x27;#swap&#x27;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> temp = $(<span class="string">&#x27;#currencyOne&#x27;</span>).val()</span><br><span class="line">  $(<span class="string">&#x27;#currencyOne&#x27;</span>).val($(<span class="string">&#x27;#currencyTwo&#x27;</span>).val())</span><br><span class="line">  $(<span class="string">&#x27;#currencyTwo&#x27;</span>).val(temp)</span><br><span class="line">  caclulate()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/articles/201908/js-fetch.html">JavaScript Fetch API 使用教學</a><br><a target="_blank" rel="noopener" href="https://www.udemy.com/course/web-projects-with-vanilla-javascript/learn/lecture/17842116#questions">20 Web Projects With Vanilla JavaScript</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/12/31/formVaild/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="PKTseng">
+      <meta itemprop="description" content="每記錄一次就會比昨天的自己更加厲害">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PK's 回憶錄">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/31/formVaild/" class="post-title-link" itemprop="url">簡易表單驗證</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-12-31 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-31T00:00:00+08:00">2020-12-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-01-11 13:41:57" itemprop="dateModified" datetime="2021-01-11T13:41:57+08:00">2021-01-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BD%9C%E5%93%81%E9%9B%86/" itemprop="url" rel="index"><span itemprop="name">作品集</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/12/31/formVaild/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/31/formVaild/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>4 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>附上 <a target="_blank" rel="noopener" href="https://github.com/PKTseng/Web-Side-Project/tree/gh-pages/mission21">Github</a><br><a href="https://pktseng.github.io/Web-Side-Project/mission21/index.html">Demo</a></p>
+<h2 id="第一部分-刻板-上色"><a href="#第一部分-刻板-上色" class="headerlink" title="第一部分: 刻板+上色"></a>第一部分: 刻板+上色</h2><p>先寫好要一般 form 表單要填寫的資料，</p>
+<ol>
+<li>使用者名稱</li>
+<li>使用者信箱</li>
+<li>密碼</li>
+<li>密碼2次驗證</li>
+</ol>
+<p>上色跟輸入框的間隔可依照個人喜好設定</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 輸入使用者名稱 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&#x27;form&#x27;</span> <span class="attr">id</span>=<span class="string">&#x27;form&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>表單驗證<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;formControl&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;username&quot;</span>&gt;</span>UserName:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Key in UserName&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">small</span> <span class="attr">class</span>=<span class="string">&#x27;failMessage&#x27;</span>&gt;</span>Error message<span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 輸入使用者e-mail --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;formControl&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;email&quot;</span>&gt;</span>E-mail:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;email&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Key in E-mail&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">small</span> <span class="attr">class</span>=<span class="string">&#x27;failMessage&#x27;</span>&gt;</span>Error message<span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 輸入使用者密碼 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;formControl&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;password&quot;</span>&gt;</span>Password:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">id</span>=<span class="string">&quot;password&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Key in password&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">small</span> <span class="attr">class</span>=<span class="string">&#x27;failMessage&#x27;</span>&gt;</span>密碼錯誤<span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 確認使用者密碼 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;formControl&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;confirmPassword&quot;</span>&gt;</span>Confirm Password:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">id</span>=<span class="string">&quot;confirmPassword&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Key in password again&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">small</span> <span class="attr">class</span>=<span class="string">&#x27;failMessage&#x27;</span>&gt;</span>請重新輸入密碼<span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./all.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="第二部分-驗證"><a href="#第二部分-驗證" class="headerlink" title="第二部分: 驗證"></a>第二部分: 驗證</h2><h3 id="抓取-DOM"><a href="#抓取-DOM" class="headerlink" title="抓取 DOM"></a>抓取 DOM</h3><p>先抓取 dom 元素，因為是抓 id 所以是用 <code>#</code> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 抓取 dom 元素</span></span><br><span class="line"><span class="keyword">const</span> form = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#form&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> username = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#username&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> email = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#email&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> password = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#password&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> confirmPassword = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#confirmPassword&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="常用的獨立寫出來"><a href="#常用的獨立寫出來" class="headerlink" title="常用的獨立寫出來"></a>常用的獨立寫出來</h3><p>因為只要寫錯就會顯示錯誤訊息，這動作很重複所以將這些函式獨立拉出來，<br>利用 callback function 的方式重複使用<br>要特別注意以下兩點</p>
+<ol>
+<li>是第3行 <code>formControl</code> 必須要用 <code>父元素</code> 的方式不能用 class 選擇器，不然它只會抓取 class 選擇器的最後一個，不會抓到每個 input 輸入框的父層</li>
+<li>第5行的 <code>small</code> 必須用 <code>formControl</code> 的方式抓，不能用 <code>document</code> ，不然會抓不到<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 失敗顯示</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showFail</span>(<span class="params">input, message</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> formControl = input.parentElement</span><br><span class="line">    formControl.className = <span class="string">&#x27;formControl fail&#x27;</span></span><br><span class="line">    <span class="keyword">const</span> small = formControl.querySelector(<span class="string">&#x27;small&#x27;</span>)</span><br><span class="line">    small.innerText = message</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 成功顯示</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showSuccess</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> formControl = input.parentElement</span><br><span class="line">    formControl.className = <span class="string">&#x27;formControl success&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一字體變大寫</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFiledName</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> input.id.slice(<span class="number">0</span>,<span class="number">1</span>).toUpperCase() +input.id.slice(<span class="number">1</span>).toLowerCase()</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="取消重複性"><a href="#取消重複性" class="headerlink" title="取消重複性"></a>取消重複性</h3><p>因為每個 dom 的 <code>input</code> 都要驗證的話就會有很多 <code>if else</code> 判斷式，這時候可以用 javascript 的 <code>forEach</code> 來讀取每個 dom ，然後再寫一次 <code>if else</code> 就可以每個都判斷</p>
+<p><code>checkInput</code> 裡面的值用陣列顯示，那每個質都要被讀取到就用 <code>forEach</code> ，在陣列中的 dom 因為綁了 <code>input</code> 所以直接帶入是否是空值得判斷式，因為如果寫在裡面會太大包，造成日後不好維護，外加太醜，所以這邊直接用 callback function 的方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 輸入框輸入確認</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkInput</span>(<span class="params">inputId</span>)</span>&#123;</span><br><span class="line">    inputId.forEach(inputArr)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 輸入框 callback function</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inputArr</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(input.value.trim() === <span class="string">&#x27;&#x27;</span>)&#123;</span><br><span class="line">        showFail(input, <span class="string">`<span class="subst">$&#123;getFiledName(input)&#125;</span> is require`</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        showSuccess(input)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="驗證"><a href="#驗證" class="headerlink" title="驗證"></a>驗證</h3><h4 id="使用者名稱長度的驗證"><a href="#使用者名稱長度的驗證" class="headerlink" title="使用者名稱長度的驗證"></a>使用者名稱長度的驗證</h4><p>為了防止使用者名字長度過長或是過短，所以要設定一個卡關機制</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 輸入使用者名稱跟密碼長度限制</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkLength</span>(<span class="params">input, min, max</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(input.value.length &lt; min)&#123;</span><br><span class="line">        showFail(input, <span class="string">`<span class="subst">$&#123;getFiledName(input)&#125;</span> must be at least <span class="subst">$&#123;min&#125;</span> characters`</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (input.value.length &gt; max)&#123;</span><br><span class="line">        showFail(input, <span class="string">`<span class="subst">$&#123;getFiledName(input)&#125;</span> must be  less than <span class="subst">$&#123;max&#125;</span> characters`</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        showSuccess(input)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="信箱驗證"><a href="#信箱驗證" class="headerlink" title="信箱驗證"></a>信箱驗證</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 信箱正規表達驗證</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkMail</span> (<span class="params">input</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> re = <span class="regexp">/^(([^&lt;&gt;()[\]\\.,;:\s@&quot;]+(\.[^&lt;&gt;()[\]\\.,;:\s@&quot;]+)*)|(&quot;.+&quot;))@((\[[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]&#123;2,&#125;))$/</span></span><br><span class="line">    <span class="comment">// return re.test(String(email).toLowerCase())</span></span><br><span class="line">    <span class="keyword">if</span>(re.test(input.value))&#123;</span><br><span class="line">        showSuccess(input)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        showFail(input, <span class="string">&#x27;email is not valid&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="密碼雙重驗證"><a href="#密碼雙重驗證" class="headerlink" title="密碼雙重驗證"></a>密碼雙重驗證</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 密碼雙重驗證</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkPasswordMatch</span>(<span class="params">password, confirmPassword</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(password.value !== confirmPassword.value)&#123;</span><br><span class="line">        showFail(confirmPassword, <span class="string">&#x27;password is not match&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="執行"><a href="#執行" class="headerlink" title="執行"></a>執行</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 執行</span></span><br><span class="line">form.addEventListener(<span class="string">&#x27;submit&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.preventDefault()</span><br><span class="line">    checkInput([username, email, password, confirmPassword])</span><br><span class="line">    checkLength(username, <span class="number">3</span>, <span class="number">8</span>)</span><br><span class="line">    checkLength(password, <span class="number">3</span>, <span class="number">12</span>)</span><br><span class="line">    checkMail(email)</span><br><span class="line">    checkPasswordMatch(password, confirmPassword)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/JjRpOje?editors=1010">Demo</a></h3><h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://www.udemy.com/course/web-projects-with-vanilla-javascript/learn/lecture/17842050#overview">20 Web Projects With Vanilla JavaScript</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/12/28/zh-tw/pullRequest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="PKTseng">
+      <meta itemprop="description" content="每記錄一次就會比昨天的自己更加厲害">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PK's 回憶錄">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/28/zh-tw/pullRequest/" class="post-title-link" itemprop="url">Pull Request</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-12-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-28T00:00:00+08:00">2020-12-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-01-11 10:44:32" itemprop="dateModified" datetime="2021-01-11T10:44:32+08:00">2021-01-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Pull-Request/" itemprop="url" rel="index"><span itemprop="name">Pull Request</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/12/28/zh-tw/pullRequest/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/28/zh-tw/pullRequest/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li><code>git clone</code>、<code>git pull</code> 這兩個指令有什麼不同，又分別代表什麼意思。</li>
+<li><code>Pull Request</code> 的流程是甚麼</li>
+<li>為什麼需要透過 <code>Pull Request</code> 來開發</li>
+</ol>
+<hr>
+<h2 id="git-clone、git-pull-這兩個指令有什麼不同，又分別代表什麼意思。"><a href="#git-clone、git-pull-這兩個指令有什麼不同，又分別代表什麼意思。" class="headerlink" title="git clone、git pull 這兩個指令有什麼不同，又分別代表什麼意思。"></a><code>git clone</code>、<code>git pull</code> 這兩個指令有什麼不同，又分別代表什麼意思。</h2><p>兩個都是更新檔案，repository 更新的過程會不一樣，一個是整包下載，一個是下載本地端已經有只需要下載部分更新的檔案，兩個同樣都是把檔案更新到最新的狀態</p>
+<ul>
+<li><p><code>git clone</code> :在本地( local )端還沒有 repository 的狀況下，我們就會需要使用到 <code>clone</code> ，把整包 repository 載下來，一般也只需要 clone 一次，之後就只需要 pull 了。</p>
+</li>
+<li><p><code>git pull</code> :就是我們本地( local )端已經有 repository 了，這時候就不需要在 <code>clone</code> ，只需要透過 <code>pull</code> 的方式，將遠端 ( remote )的 repository 載下來就可以了</p>
+</li>
+</ul>
+<p>以上就是 clone、pull 的差別</p>
+<h2 id="為什麼需要透過-Pull-Request-來開發"><a href="#為什麼需要透過-Pull-Request-來開發" class="headerlink" title="為什麼需要透過 Pull Request 來開發"></a>為什麼需要透過 <code>Pull Request</code> 來開發</h2><p>一般在開發或是看到很有興趣的開源專案，如果想加入新功能或是加入開發專安的話就會需要使用到 <code>Pull Request</code>，也就是我們俗稱的 <code>PR</code></p>
+<h2 id="Pull-Request-的流程是甚麼"><a href="#Pull-Request-的流程是甚麼" class="headerlink" title="Pull Request 的流程是甚麼"></a><code>Pull Request</code> 的流程是甚麼</h2><p><strong>Pull Request 簡稱 PR</strong><br>如果已經是這個團隊的開者之一，那就單純 clone 就好，<br>如果是別的開源專案又不是這個專案的原始開發者之一，那就需要先將專案 fork 出來，再開始開發</p>
+<p>以饅頭計畫的專案為例，我們已經是這個專案的開發人員之一，所以只需要 clone 下來就好，然後開分之並在分支上進行開發，做完之後我們會需要 push 到 remote repository，這時候就要發 PR 了，讓資深工程師確認我們寫的需求有沒有問題，如果沒問題就會 merge 到主支上</p>
+<h3 id="以下示範"><a href="#以下示範" class="headerlink" title="以下示範:"></a>以下示範:</h3><p>因為之前已經 clone 過了，<font color=#FF0000><strong>請記得先切換到主之上</strong></font>，然後再把本地端的檔案 pull 到最新的狀態，然後再用 <code>git checkout -b 分支名稱</code>，創建該分支同時切換到該分支上，如下圖<br><img src="https://i.imgur.com/SIEMhnl.jpg"></p>
+<p>接下來就是 Git 基本操作了<br>在分支上新增好內容後，把新增或是更改資料加入索引<br><img src="https://i.imgur.com/YCKG1RJ.jpg"></p>
+<p>然後提交(commit)上去<br>出現<code>git push --set-upstream origin example-mission</code>的原因可以參考<a target="_blank" rel="noopener" href="https://blog.csdn.net/benben_2015/article/details/78803753">這篇文章</a><br>解決方法就是複製貼上…<br><img src="https://i.imgur.com/X7JS8Fu.png"></p>
+<p>上面太模糊..補上清晰版…<br><img src="https://i.imgur.com/Fn1eXXI.png"></p>
+<p>push 上去後到 Github 專案點選左上 Pull Request，<br>因為目前還沒有發 PR，所以沒看到我剛新增的內容。<br>要發 PR 的話要點選右邊那兩個紅框的，<br><img src="https://i.imgur.com/KcQ30Je.png"></p>
+<p>一種是 <strong>Compare &amp; pull request</strong> ，另一種是<strong>New pull request</strong>，兩個都可以發，過程不一樣而已，以下兩種都會示範</p>
+<h3 id="New-pull-request"><a href="#New-pull-request" class="headerlink" title="New pull request"></a>New pull request</h3><p>點擊 <strong>New pull request</strong> 會顯示下圖畫面，<br><font color=#FF0000>左邊 <code>base:main</code> 是主支千萬不要動到</font>，動右邊要 merge 的分支就好<br>因為我們要把剛才新增的內容合併到主之上，所以選擇剛才新增的分支名稱 <code>example-mission</code><br><img src="https://i.imgur.com/2lQZlxZ.png"></p>
+<p>選完就會顯示剛才新增的內容，如下圖，確認 OK 後點選右邊的 <code>Create pull request</code><br><img src="https://i.imgur.com/vkAsffP.png"></p>
+<p>接著會進入以下畫面，這邊就要寫一下大標題，還有較細項的更改內容，<br>填寫完後再按右下的 <code>Create pull request</code><br><img src="https://i.imgur.com/dJDi880.png"></p>
+<p>按下後會進入以下畫面<br><img src="https://i.imgur.com/MEOjzcS.png"></p>
+<p>再回到 Pull Request 刷新一下，就會看到剛才新發的 PR 了<br><img src="https://i.imgur.com/yA8Saeh.png"></p>
+<p>接下來就等資深工程師確認我們寫的內容有無問題，<br>沒問題就會按下 <code>Merge pull request</code>，合併到主支(main)上</p>
+<h3 id="Compare-amp-pull-request"><a href="#Compare-amp-pull-request" class="headerlink" title="Compare &amp; pull request"></a>Compare &amp; pull request</h3><p>這邊更簡單，也推薦使用這個<br>因為點選 Compare &amp; pull request 後系統會自動選取剛才新建的分支上，會顯示下圖<br><img src="https://i.imgur.com/dJDi880.png"></p>
+<p>接著叫輸入大標題跟內容再 <code>Create pull request</code> ，這樣 PR 就發完了</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://gitbook.tw/chapters/github/pull-request.html">與其它開發者的互動 - 使用 Pull Request（PR） - 為你自己學 Git | 高見龍</a><br><a target="_blank" rel="noopener" href="https://w3c.hexschool.com/git/b9be5b1e">git add、git commit - 提交版本</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/benben_2015/article/details/78803753">Git master branch has no upstream branch的解決</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/12/20/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="PKTseng">
+      <meta itemprop="description" content="每記錄一次就會比昨天的自己更加厲害">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PK's 回憶錄">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/20/git/" class="post-title-link" itemprop="url">簡易的 Git 操作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-12-20 00:00:00 / 修改時間：16:08:03" itemprop="dateCreated datePublished" datetime="2020-12-20T00:00:00+08:00">2020-12-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/12/20/git/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/20/git/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>介紹 Git 基本指令的操作</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/20/git/">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/12/17/zh-tw/WSL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="PKTseng">
+      <meta itemprop="description" content="每記錄一次就會比昨天的自己更加厲害">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PK's 回憶錄">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/17/zh-tw/WSL/" class="post-title-link" itemprop="url">在 Windows 上安裝 WSL1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-12-17 00:00:00 / 修改時間：21:31:33" itemprop="dateCreated datePublished" datetime="2020-12-17T00:00:00+08:00">2020-12-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WSL1/" itemprop="url" rel="index"><span itemprop="name">WSL1</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/12/17/zh-tw/WSL/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/17/zh-tw/WSL/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在 window 作業系統下執行 linux 指令</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/17/zh-tw/WSL/">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/12/16/cmder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="PKTseng">
+      <meta itemprop="description" content="每記錄一次就會比昨天的自己更加厲害">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PK's 回憶錄">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/16/cmder/" class="post-title-link" itemprop="url">安裝套件管理工具</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-12-16 23:55:35" itemprop="dateCreated datePublished" datetime="2020-12-16T23:55:35+08:00">2020-12-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-01-10 21:08:08" itemprop="dateModified" datetime="2021-01-10T21:08:08+08:00">2021-01-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/chocolatey/" itemprop="url" rel="index"><span itemprop="name">chocolatey</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/12/16/cmder/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/16/cmder/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>用最懶人的方式教你安裝第三方套件，或是開發工具</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/16/cmder/">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/12/15/zh-tw/ZAP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="PKTseng">
+      <meta itemprop="description" content="每記錄一次就會比昨天的自己更加厲害">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PK's 回憶錄">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/15/zh-tw/ZAP/" class="post-title-link" itemprop="url">OWASP ZAP</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-12-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-15T00:00:00+08:00">2020-12-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-12-16 19:28:59" itemprop="dateModified" datetime="2020-12-16T19:28:59+08:00">2020-12-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ZAP/" itemprop="url" rel="index"><span itemprop="name">ZAP</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/12/15/zh-tw/ZAP/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/15/zh-tw/ZAP/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>4.6k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>4 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>如何使用 ZAP 網頁滲透工具，測試網站的漏洞</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/15/zh-tw/ZAP/">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/12/13/Loading/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="PKTseng">
+      <meta itemprop="description" content="每記錄一次就會比昨天的自己更加厲害">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PK's 回憶錄">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/13/Loading/" class="post-title-link" itemprop="url">用 Vue 做出頁面的 Loading 效果</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-12-13 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-13T00:00:00+08:00">2020-12-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-12-14 19:34:03" itemprop="dateModified" datetime="2020-12-14T19:34:03+08:00">2020-12-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/12/13/Loading/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/13/Loading/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>製作網頁局部或是全域的 Loading 效果</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/13/Loading/">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/12/03/%E4%B8%B2%E6%8E%A5%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%20API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="PKTseng">
+      <meta itemprop="description" content="每記錄一次就會比昨天的自己更加厲害">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PK's 回憶錄">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/03/%E4%B8%B2%E6%8E%A5%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%20API/" class="post-title-link" itemprop="url">串接上傳檔案 API</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-12-03 00:00:00 / 修改時間：21:37:48" itemprop="dateCreated datePublished" datetime="2020-12-03T00:00:00+08:00">2020-12-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/12/03/%E4%B8%B2%E6%8E%A5%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%20API/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/03/串接上傳檔案 API/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>介紹 API 圖片如何上傳</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/03/%E4%B8%B2%E6%8E%A5%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%20API/">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://pktseng.github.io/2020/09/04/%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="PKTseng">
+      <meta itemprop="description" content="每記錄一次就會比昨天的自己更加厲害">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PK's 回憶錄">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/04/%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99-1/" class="post-title-link" itemprop="url">Vue出電商網站-1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-09-04 18:57:46" itemprop="dateCreated datePublished" datetime="2020-09-04T18:57:46+08:00">2020-09-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-09-07 10:52:02" itemprop="dateModified" datetime="2020-09-07T10:52:02+08:00">2020-09-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">電商網站</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/09/04/%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99-1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/04/電商網站-1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>3.6k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>3 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>註冊課程專屬練習 API、啟用一個 Vue Cli 並且 引用帶入專屬 API、引用 Bootstrap 套件，並客製化樣式</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/04/%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99-1/">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PKTseng"
+      src="/images/1.jpg">
+  <p class="site-author-name" itemprop="name">PKTseng</p>
+  <div class="site-description" itemprop="description">每記錄一次就會比昨天的自己更加厲害</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/PKTseng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;PKTseng" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jk0910948659@gmail.com" title="E-Mail → mailto:jk0910948659@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PKTseng</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">總字數：</span>
+    <span title="總字數">77k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">所需總閱讀時間 &asymp;</span>
+    <span title="所需總閱讀時間">1:10</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://PKTseng.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+</body>
+</html>
