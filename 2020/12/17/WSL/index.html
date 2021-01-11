@@ -79,7 +79,7 @@
                href="/archives">文章歸檔</a>
             
             <a class="navbar-item "
-               href="/ategories">分類</a>
+               href="/categories">分類</a>
             
             <a class="navbar-item "
                href="/tags">標籤</a>
@@ -88,7 +88,7 @@
         
         <div class="navbar-menu navbar-end">
             
-            <a class="navbar-item search" title="Suche" href="javascript:;">
+            <a class="navbar-item search" title="Search" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -130,13 +130,14 @@
         <span class="column is-narrow">
             
             
-            4 分钟 lesen (Über 552 Wörter)
+            4 分钟 read (About 553 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <html><head></head><body><p>為了在 window 作業系統上執行 linux ，所以會需要安裝 WSL<br>WSL 又有分1 跟 2，1 的話較為簡單，以下只示範 WSL1</p>
+<a id="more"></a>
 <hr>
 <h2 id="安裝-WSL1"><a href="#安裝-WSL1" class="headerlink" title="安裝 WSL1"></a>安裝 WSL1</h2><p>依照官網的<strong>手動安裝步驟</strong><br>用系統管理員身分開啟 PowerShell 並輸入:<br><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code></p>
 <p>如下圖<br><img src="https://i.imgur.com/FgEeIdc.jpg"></p>
@@ -192,7 +193,7 @@
 
 
 <div class="comments">
-    <h3 class="title is-4">Kommentare</h3>
+    <h3 class="title is-4">Comments</h3>
     
 <script>
     var disqus_config = function () {
@@ -397,7 +398,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Suche etwas..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -410,10 +411,10 @@
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'Kategorien',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
-                UNTITLED: '(Sin título)',
+                UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
         };

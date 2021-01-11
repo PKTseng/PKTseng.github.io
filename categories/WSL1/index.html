@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>Kategorie: WSL1 - PK&#39;s 回憶錄</title>
+<title>Category: WSL1 - PK&#39;s 回憶錄</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -79,7 +79,7 @@
                href="/archives">文章歸檔</a>
             
             <a class="navbar-item "
-               href="/ategories">分類</a>
+               href="/categories">分類</a>
             
             <a class="navbar-item "
                href="/tags">標籤</a>
@@ -88,7 +88,7 @@
         
         <div class="navbar-menu navbar-end">
             
-            <a class="navbar-item search" title="Suche" href="javascript:;">
+            <a class="navbar-item search" title="Search" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -138,31 +138,16 @@
         <span class="column is-narrow">
             
             
-            4 分钟 lesen (Über 552 Wörter)
+            4 分钟 read (About 553 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p>為了在 window 作業系統上執行 linux ，所以會需要安裝 WSL<br>WSL 又有分1 跟 2，1 的話較為簡單，以下只示範 WSL1</p>
-<hr>
-<h2 id="安裝-WSL1"><a href="#安裝-WSL1" class="headerlink" title="安裝 WSL1"></a>安裝 WSL1</h2><p>依照官網的<strong>手動安裝步驟</strong><br>用系統管理員身分開啟 PowerShell 並輸入:<br><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code></p>
-<p>如下圖<br><img src="https://i.imgur.com/FgEeIdc.jpg"></p>
-<p>然後再依照說明跳到<strong>步驟6</strong>，到 Microsoft Store 搜尋 Ubuntu ，這邊選用 18.04 LTS 的版本<br><img src="https://i.imgur.com/VTHHBhF.jpg"></p>
-<p>或是點選下面附上的連結也可以<br><img src="https://i.imgur.com/aPlBSSk.png"><br>安裝好後再開啟 <strong>Ubuntu 18.04 LTS</strong></p>
-<p>如果開啟後看到以下訊息也不要慌張~<br>這代表我還未安裝 Windows 子系統</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Installing, this may take a few minutes...</span><br><span class="line">WslRegisterDistribution failed with error: 0x8007019e</span><br><span class="line">The Windows Subsystem for Linux optional component is not enabled. Please enable it and try again.</span><br><span class="line">See https://aka.ms/wslinstall for details.</span><br><span class="line">Press any key to continue...</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://i.imgur.com/2H0A0Ww.png"></p>
-<p>解決方法:<br>用系統管理員開啟 PowerShell ，並輸入以下指令<br><code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</code><br><img src="https://i.imgur.com/wVsWMYa.png"></p>
-<p><font color="#FF0000">這邊請不要急著按!!! 請先把該存檔的資料存檔在按 Y ，因為電腦會直接重新開機</font></p>
-<p>重開後會顯示要輸入使用者名字跟密碼<br><font color="#FF0000">注意! 請不要輸入特殊字元，不然會叫你重新輸入</font><br>輸入密碼時會有第二次確認，而且螢幕不會顯示出來，所以請慢慢輸入~<br>完成後會顯示下圖:<br><img src="https://i.imgur.com/YMn39pB.png"></p>
-<hr>
-<h2 id="WSL2"><a href="#WSL2" class="headerlink" title="WSL2"></a>WSL2</h2><p>WSL2 官網有特別說明，若要更新至 WSL 2，必須是 <strong>Windows 10</strong>，除此之外組建編號必須是 <font color="#FF0000">18362.1049+</font> 或 <font color="#FF0000">18363.1049+</font>這兩種版本</p>
-<p><img src="https://i.imgur.com/4GsUaf3.png"><br>確認 window 10 的版本號，確認方法是:<strong>按住 Windows + R 然後在對話方塊，接著輸入「winver」</strong><br>就會出現下圖<br><img src="https://i.imgur.com/mKs4ll2.png"></p>
-<p>因我的組建編號不符，故不更新</p>
-<hr>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-tw/windows/wsl/install-win10">Windows 10 上適用於 Linux 的 Windows 子系統安裝指南</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/47541491">win10自带Bash安装的坑（Error Code: 0x8007019e，0x8000000D）</a><br><a target="_blank" rel="noopener" href="https://ed521.github.io/2019/08/hexo-markdown/">撰寫 Hexo 文章 - Markdown 語法大全</a></p>
-</body></html>
+        <html><head></head><body><p>為了在 window 作業系統上執行 linux ，所以會需要安裝 WSL<br>WSL 又有分1 跟 2，1 的話較為簡單，以下只示範 WSL1</p></body></html>
+        <p class="article-more-link">
+            <a href="/2020/12/17/WSL/#more">Read More</a>
+        </p>
     
     </div>
     
@@ -355,7 +340,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Suche etwas..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -368,10 +353,10 @@
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'Kategorien',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
-                UNTITLED: '(Sin título)',
+                UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
         };

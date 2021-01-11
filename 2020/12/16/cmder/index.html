@@ -79,7 +79,7 @@
                href="/archives">文章歸檔</a>
             
             <a class="navbar-item "
-               href="/ategories">分類</a>
+               href="/categories">分類</a>
             
             <a class="navbar-item "
                href="/tags">標籤</a>
@@ -88,7 +88,7 @@
         
         <div class="navbar-menu navbar-end">
             
-            <a class="navbar-item search" title="Suche" href="javascript:;">
+            <a class="navbar-item search" title="Search" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -130,17 +130,18 @@
         <span class="column is-narrow">
             
             
-            4 分钟 lesen (Über 630 Wörter)
+            4 分钟 read (About 631 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h2 id="作業系統"><a href="#作業系統" class="headerlink" title="作業系統"></a>作業系統</h2><ol>
+        <html><head></head><body><h2 id="作業系統"><a href="#作業系統" class="headerlink" title="作業系統"></a>作業系統</h2><ol>
 <li>在 <strong>mac</strong> 上是用 <strong>homebrew</strong></li>
 <li>在 <strong>Windwo</strong> 上是用 <strong>chocolatey</strong></li>
 </ol>
 <p>chocolatey 算是一個可以用指令來下載的打包工具，<br>安裝 chocolatey 方法也簡單，安裝工具的起手式是 <code>choco install</code> 後面打想要的工具名稱。</p>
+<a id="more"></a>
 <p>例如:</p>
 <ul>
 <li>要下載 JAVA =&gt; <code>choco install jdk8</code></li>
@@ -155,10 +156,10 @@
 <p>官網 Chocolatey Install 那邊說明要用<strong>系統管理員</strong>的身分來執行，所以我們使用系統管理員身分開啟 PowerShell ，為了在安裝過程中可以不受限制又能提高安全性，所以我們使用<br><code>Get-ExecutionPolicy</code> 的指令來查看</p>
 <p><img src="https://i.imgur.com/Ol2OOnv.png"></p>
 <p>初次安裝會先看到 Restricted (google 翻譯是受限制的)，我們要改成 AllSigned ，所以要下<br><code>Set-ExecutionPolicy AllSigned</code> 的指令，過程中會問執行這項變更會有風險要不要變更，回 <strong>Y</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">PS C:\WINDOWS\system32&gt; Get-ExecutionPolicy</span><br><span class="line">RemoteSigned</span><br><span class="line">PS C:\WINDOWS\system32&gt; Set-ExecutionPolicy AllSigned</span><br><span class="line"></span><br><span class="line">執行原則變更</span><br><span class="line">執行原則有助於防範您不信任的指令碼。如果變更執行原則，可能會使您接觸到 about_Execution_Policies 說明主題 (網址為</span><br><span class="line">https:&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkID&#x3D;135170) 中所述的安全性風險。您要變更執行原則嗎?</span><br><span class="line">[Y] 是(Y)  [A] 全部皆是(A)  [N] 否(N)  [L] 全部皆否(L)  [S] 暫停(S)  [?] 說明 (預設值為 &quot;N&quot;): y</span><br><span class="line"></span><br><span class="line">再下一次&#96;Get-ExecutionPolicy&#96;指令確認有沒有轉成 AllSigned</span><br><span class="line">PS C:\WINDOWS\system32&gt; Get-ExecutionPolicy</span><br><span class="line">AllSigned</span><br><span class="line">PS C:\WINDOWS\system32&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">PS C:\WINDOWS\system32&gt; Get-ExecutionPolicy</span><br><span class="line">RemoteSigned</span><br><span class="line">PS C:\WINDOWS\system32&gt; Set-ExecutionPolicy AllSigned</span><br><span class="line"></span><br><span class="line">執行原則變更</span><br><span class="line">執行原則有助於防範您不信任的指令碼。如果變更執行原則，可能會使您接觸到 about_Execution_Policies 說明主題 (網址為</span><br><span class="line">https:/go.microsoft.com/fwlink/?LinkID=135170) 中所述的安全性風險。您要變更執行原則嗎?</span><br><span class="line">[Y] 是(Y)  [A] 全部皆是(A)  [N] 否(N)  [L] 全部皆否(L)  [S] 暫停(S)  [?] 說明 (預設值為 "N"): y</span><br><span class="line"></span><br><span class="line">再下一次`Get-ExecutionPolicy`指令確認有沒有轉成 AllSigned</span><br><span class="line">PS C:\WINDOWS\system32&gt; Get-ExecutionPolicy</span><br><span class="line">AllSigned</span><br><span class="line">PS C:\WINDOWS\system32&gt;</span><br></pre></td></tr></tbody></table></figure>
 
 
-<p>然後再複製:<br><code>Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))</code></p>
+<p>然後再複製:<br><code>Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))</code></p>
 <p><img src="https://i.imgur.com/V98mRMS.png"></p>
 <p>然後下 <code>choco</code> 指令確認一下有沒有安裝好，正常會顯示 <code>Chocolatey v0.10.15</code> Chocolatey 後面帶版本號</p>
 <hr>
@@ -168,7 +169,7 @@
 <p><img src="https://i.imgur.com/WsvwzxQ.png"></p>
 <p>依照顯示的路徑找到工具開啟就 ok 了!<br><img src="https://i.imgur.com/kP2y79J.png"><br><img src="https://i.imgur.com/cf2XbCt.png"></p>
 <hr>
-
+</body></html>
     
     </div>
     
@@ -208,7 +209,7 @@
 
 
 <div class="comments">
-    <h3 class="title is-4">Kommentare</h3>
+    <h3 class="title is-4">Comments</h3>
     
 <script>
     var disqus_config = function () {
@@ -413,7 +414,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Suche etwas..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -426,10 +427,10 @@
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'Kategorien',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
-                UNTITLED: '(Sin título)',
+                UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
         };

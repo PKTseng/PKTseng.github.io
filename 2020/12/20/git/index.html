@@ -79,7 +79,7 @@
                href="/archives">文章歸檔</a>
             
             <a class="navbar-item "
-               href="/ategories">分類</a>
+               href="/categories">分類</a>
             
             <a class="navbar-item "
                href="/tags">標籤</a>
@@ -88,7 +88,7 @@
         
         <div class="navbar-menu navbar-end">
             
-            <a class="navbar-item search" title="Suche" href="javascript:;">
+            <a class="navbar-item search" title="Search" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -130,13 +130,14 @@
         <span class="column is-narrow">
             
             
-            10 分钟 lesen (Über 1500 Wörter)
+            10 分钟 read (About 1501 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h2 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h2><p>Git 是一個可控制程式碼版本的工具<br>當我們在開發的時候為了不影響線上的產品，就會先開一個分支出來在分支上做開發，這樣既可以大膽的開發也不怕會影響到線上正在運行的版本，同時又做到程式碼的控管，是一個很方便的工具</p>
+        <html><head></head><body><h2 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h2><p>Git 是一個可控制程式碼版本的工具<br>當我們在開發的時候為了不影響線上的產品，就會先開一個分支出來在分支上做開發，這樣既可以大膽的開發也不怕會影響到線上正在運行的版本，同時又做到程式碼的控管，是一個很方便的工具</p>
+<a id="more"></a>
 <h2 id="Git-指令"><a href="#Git-指令" class="headerlink" title="Git 指令"></a>Git 指令</h2><p>Git 有分幾個簡單寫常用的幾個指令<br><code>git init</code>: 在我們 local 端建立數據庫<br><code>git add .</code>: 加入索引<br><code>git commit -m</code>: 將目前加入索引的資料提交出去<br><code>git push origin</code>: 推送到遠端數據庫<br><code>git pull</code>: 從遠端數據庫拉取最新的版本<br><code>git branch</code>: 查看分支<br><code>git checkout </code>: 切換到該分支<br><code>git log</code>: 查看 git 歷史紀錄<br><code>git status</code>: 查看目前資料狀態<br><code>git merge</code>: 合併分支</p>
 <p>工作上常用的大概是以上這幾種</p>
 <hr>
@@ -147,7 +148,7 @@
 <h2 id="加入索引"><a href="#加入索引" class="headerlink" title="加入索引"></a>加入索引</h2><p>接下來就可以開發了</p>
 <p>本來是檔案內容是空的，現在加入一點基本資料，然後要將這資料加入索引<br>當我們新增或是更改完成時就要將資料新增到索引，同時放到一個暫存區裡面<br>因為 VScode 有內建 <code>git add</code> ，就是下圖紅框處，如果有更改某檔案的資料，在 changes 就會有紀錄，首先左邊選單選到 Source control 會看到有檔案變更，點擊紅框的 + 號，要加入索引就把滑鼠移至紅框，會出現 + 號，點擊就 add 了<br><img src="https://i.imgur.com/FeAhBnc.png"></p>
 <p>add 新增索引後，如下圖<br><img src="https://i.imgur.com/7AHm6f6.png"></p>
-<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>當確定好更改的檔案並加入索引後，我們要 commit ，把暫存區裡面的資料丟到儲存庫裡面<br>通常 commit 後面都會接此次更改的資訊，寫法如下<br><code>git commit -m &quot;add index.html&quot;</code>，要記得空格跟加雙引號<br><img src="https://i.imgur.com/qQ0nwuq.png"></p>
+<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>當確定好更改的檔案並加入索引後，我們要 commit ，把暫存區裡面的資料丟到儲存庫裡面<br>通常 commit 後面都會接此次更改的資訊，寫法如下<br><code>git commit -m "add index.html"</code>，要記得空格跟加雙引號<br><img src="https://i.imgur.com/qQ0nwuq.png"></p>
 <p>然後推送至遠端數據庫</p>
 <h2 id="建立遠端儲存庫"><a href="#建立遠端儲存庫" class="headerlink" title="建立遠端儲存庫"></a>建立遠端儲存庫</h2><p>在推送至遠端數據庫之前，要先在遠端建立遠端數據庫，那這會用到 Github ，<br>如果沒有 Github 要先辦一下<br>登入後看到右上角有個 + 號，點擊候選取 <code>New repository</code><br><img src="https://i.imgur.com/TF4JMgd.png"><br>會出現以下畫面，然後再紅框處輸入遠端數據庫的名稱，這邊用 test1 示範，然後點擊下面的<br>Create repository<br><img src="https://i.imgur.com/rEvAKi8.png"></p>
 <p>接著會顯示以下畫面<br><img src="https://i.imgur.com/vqMTP0o.png"></p>
@@ -185,7 +186,7 @@
 <p>合併時我們要先切到要被合併的那個分支上，可以用 <code>git branch</code> 確認高亮跟星號在哪，如下圖<br><img src="https://i.imgur.com/cvzd86T.png"><br><code>merge</code> 完後 dev1 的內容就會被新增到主支(main)上，然後就可以繼續做開發了</p>
 <hr>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://gitbook.tw/chapters/using-git/add-to-git.html">把檔案交給 Git 控管</a></p>
-
+</body></html>
     
     </div>
     
@@ -223,7 +224,7 @@
 
 
 <div class="comments">
-    <h3 class="title is-4">Kommentare</h3>
+    <h3 class="title is-4">Comments</h3>
     
 <script>
     var disqus_config = function () {
@@ -428,7 +429,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Suche etwas..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -441,10 +442,10 @@
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'Kategorien',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
-                UNTITLED: '(Sin título)',
+                UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
         };

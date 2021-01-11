@@ -79,7 +79,7 @@
                href="/archives">文章歸檔</a>
             
             <a class="navbar-item "
-               href="/ategories">分類</a>
+               href="/categories">分類</a>
             
             <a class="navbar-item "
                href="/tags">標籤</a>
@@ -88,7 +88,7 @@
         
         <div class="navbar-menu navbar-end">
             
-            <a class="navbar-item search" title="Suche" href="javascript:;">
+            <a class="navbar-item search" title="Search" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -130,23 +130,25 @@
         <span class="column is-narrow">
             
             
-            4 分钟 lesen (Über 624 Wörter)
+            4 分钟 read (About 625 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p><a target="_blank" rel="noopener" href="https://github.com/ankurk91/vue-loading-overlay">vue-loading-overlay</a><br>首先安裝 npm: <code>npm install vue-loading-overlay</code><br>再到 main.js 載入</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Import component</span></span><br><span class="line"><span class="keyword">import</span> Loading <span class="keyword">from</span> <span class="string">&#x27;vue-loading-overlay&#x27;</span>;</span><br><span class="line"><span class="comment">// Import stylesheet</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;vue-loading-overlay/dist/vue-loading.css&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 因為是全域每個 component 都會用，所以用 Vue.component</span></span><br><span class="line">Vue.component(<span class="string">&#x27;Loading&#x27;</span>, Loading)</span><br></pre></td></tr></table></figure>
+        <html><head></head><body><p><a target="_blank" rel="noopener" href="https://github.com/ankurk91/vue-loading-overlay">vue-loading-overlay</a><br>首先安裝 npm: <code>npm install vue-loading-overlay</code><br>再到 main.js 載入</p>
+<a id="more"></a>
+
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// Import component</span></span><br><span class="line"><span class="hljs-keyword">import</span> Loading <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-loading-overlay'</span>;</span><br><span class="line"><span class="hljs-comment">// Import stylesheet</span></span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">'vue-loading-overlay/dist/vue-loading.css'</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 因為是全域每個 component 都會用，所以用 Vue.component</span></span><br><span class="line">Vue.component(<span class="hljs-string">'Loading'</span>, Loading)</span><br></pre></td></tr></tbody></table></figure>
 <p><img src="https://i.imgur.com/NxbUi4i.png"></p>
 <hr>
 <h2 id="全域Loading"><a href="#全域Loading" class="headerlink" title="全域Loading"></a>全域Loading</h2><p>接下來要在 components 裡面加入讀取的判斷式跟綁定<br>先將 lading 預設好，只有在等待的時間下才會轉 <code> isLoading: false,</code></p>
 <p><img src="https://i.imgur.com/cLak0kf.png"></p>
 <p>然後把範例拿過來用 </p>
-<p>在div 內一層加上 <code>&lt;loading :active.sync=&quot;isLoading&quot;&gt;&lt;/loading&gt;</code></p>
+<p>在div 內一層加上 <code>&lt;loading :active.sync="isLoading"&gt;&lt;/loading&gt;</code></p>
 <p><img src="https://i.imgur.com/kX4o8Kv.png"></p>
 <p>接下來要在 AJAX 的行為上面新增 <code> isLoading: false,</code><br>在啟用 <code>getProducts</code> 的時候就會觸發 loading ( true )，在完成的時候結束( false )<br>範例如下:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">getProducts() &#123;</span><br><span class="line">  <span class="keyword">const</span> api = <span class="string">`<span class="subst">$&#123;process.env.APIPATH&#125;</span>/api/<span class="subst">$&#123;process.env.MYPATH&#125;</span>/products`</span></span><br><span class="line">  <span class="built_in">this</span>.isLoading = <span class="literal">true</span></span><br><span class="line">  <span class="built_in">this</span>.$http.get(api).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.products = response.data.products</span><br><span class="line">    <span class="built_in">this</span>.isLoading = <span class="literal">false</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">getProducts() {</span><br><span class="line">  <span class="hljs-keyword">const</span> api = <span class="hljs-string">`<span class="hljs-subst">${process.env.APIPATH}</span>/api/<span class="hljs-subst">${process.env.MYPATH}</span>/products`</span></span><br><span class="line">  <span class="hljs-built_in">this</span>.isLoading = <span class="hljs-literal">true</span></span><br><span class="line">  <span class="hljs-built_in">this</span>.$http.get(api).then(<span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {</span><br><span class="line">    <span class="hljs-built_in">this</span>.products = response.data.products</span><br><span class="line">    <span class="hljs-built_in">this</span>.isLoading = <span class="hljs-literal">false</span></span><br><span class="line">  })</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
 
 <p>然後再重新整理，畫面中間就會出現 Loading 的效果，<br>再試試按下編輯或是新增然後直接按下確認也會有 Loading 的效果</p>
 <p>這樣全域就完成了!!</p>
@@ -162,10 +164,10 @@
 <p>再到模板那邊用 v-if 判斷做動態綁定</p>
 <p><img src="https://i.imgur.com/doiggrR.png"></p>
 <p>然後在上傳圖片的函示( uploadImg )內加入局部 loading 判斷</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">uploadImg() &#123;</span><br><span class="line">    <span class="comment">// 在拉圖片進去讀取的時候 fileUpLoading 會是 true</span></span><br><span class="line">  <span class="built_in">this</span>.status.fileUpLoading =  <span class="literal">true</span></span><br><span class="line">  <span class="keyword">const</span> uploadFile = <span class="built_in">this</span>.$refs.files.files[<span class="number">0</span>]</span><br><span class="line">  <span class="keyword">const</span> formData = <span class="keyword">new</span> FormData()</span><br><span class="line">  formData.append(<span class="string">&#x27;file-to-upload&#x27;</span>, uploadFile)</span><br><span class="line">  <span class="comment">//接下來定義路徑</span></span><br><span class="line">  <span class="keyword">const</span> url = <span class="string">`<span class="subst">$&#123;process.env.APIPATH&#125;</span>/api/<span class="subst">$&#123;process.env.MYPATH&#125;</span>/admin/upload`</span></span><br><span class="line">  <span class="built_in">this</span>.$http</span><br><span class="line">    .post(url, formData, &#123;</span><br><span class="line">      headers: &#123;</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;multipart/form-data&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(res.data)</span><br><span class="line">      <span class="comment">// AJAX 結束後 fileUpLoading 就 false</span></span><br><span class="line">      <span class="built_in">this</span>.status.fileUpLoading = <span class="literal">false</span></span><br><span class="line">      <span class="keyword">if</span> (res.data.success) &#123;</span><br><span class="line">        <span class="comment">// this.tempProduct.imgUrl = res.data.imageUrl</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.tempProduct)</span><br><span class="line">        <span class="built_in">this</span>.$set(<span class="built_in">this</span>.tempProduct, <span class="string">&#x27;imgUrl&#x27;</span>, res.data.imageUrl)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">uploadImg() {</span><br><span class="line">    <span class="hljs-comment">// 在拉圖片進去讀取的時候 fileUpLoading 會是 true</span></span><br><span class="line">  <span class="hljs-built_in">this</span>.status.fileUpLoading =  <span class="hljs-literal">true</span></span><br><span class="line">  <span class="hljs-keyword">const</span> uploadFile = <span class="hljs-built_in">this</span>.$refs.files.files[<span class="hljs-number">0</span>]</span><br><span class="line">  <span class="hljs-keyword">const</span> formData = <span class="hljs-keyword">new</span> FormData()</span><br><span class="line">  formData.append(<span class="hljs-string">'file-to-upload'</span>, uploadFile)</span><br><span class="line">  <span class="hljs-comment">//接下來定義路徑</span></span><br><span class="line">  <span class="hljs-keyword">const</span> url = <span class="hljs-string">`<span class="hljs-subst">${process.env.APIPATH}</span>/api/<span class="hljs-subst">${process.env.MYPATH}</span>/admin/upload`</span></span><br><span class="line">  <span class="hljs-built_in">this</span>.$http</span><br><span class="line">    .post(url, formData, {</span><br><span class="line">      headers: {</span><br><span class="line">        <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'multipart/form-data'</span></span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">    .then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> {</span><br><span class="line">      <span class="hljs-built_in">console</span>.log(res.data)</span><br><span class="line">      <span class="hljs-comment">// AJAX 結束後 fileUpLoading 就 false</span></span><br><span class="line">      <span class="hljs-built_in">this</span>.status.fileUpLoading = <span class="hljs-literal">false</span></span><br><span class="line">      <span class="hljs-keyword">if</span> (res.data.success) {</span><br><span class="line">        <span class="hljs-comment">// this.tempProduct.imgUrl = res.data.imageUrl</span></span><br><span class="line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.tempProduct)</span><br><span class="line">        <span class="hljs-built_in">this</span>.$set(<span class="hljs-built_in">this</span>.tempProduct, <span class="hljs-string">'imgUrl'</span>, res.data.imageUrl)</span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <hr>
-<h2 id="資料來源-Vue-出電商網站"><a href="#資料來源-Vue-出電商網站" class="headerlink" title="資料來源: Vue 出電商網站"></a><a target="_blank" rel="noopener" href="https://www.udemy.com/course/vue-hexschool/learn/lecture/10896746#questions">資料來源: Vue 出電商網站</a></h2>
+<h2 id="資料來源-Vue-出電商網站"><a href="#資料來源-Vue-出電商網站" class="headerlink" title="資料來源: Vue 出電商網站"></a><a target="_blank" rel="noopener" href="https://www.udemy.com/course/vue-hexschool/learn/lecture/10896746#questions">資料來源: Vue 出電商網站</a></h2></body></html>
     
     </div>
     
@@ -184,7 +186,7 @@
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-            <a href="/2020/12/03/%E4%B8%B2%E6%8E%A5%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%20API/">串接上傳檔案 API</a>
+            <a href="/2020/08/30/router/">Vue-Router</a>
             
         </span>
     </div>
@@ -203,7 +205,7 @@
 
 
 <div class="comments">
-    <h3 class="title is-4">Kommentare</h3>
+    <h3 class="title is-4">Comments</h3>
     
 <script>
     var disqus_config = function () {
@@ -408,7 +410,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Suche etwas..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -421,10 +423,10 @@
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'Kategorien',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
-                UNTITLED: '(Sin título)',
+                UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
         };

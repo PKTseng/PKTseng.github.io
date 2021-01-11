@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://pktseng.github.io/2021/01/08/changeRate/</loc>
+    <loc>https://pktseng.github.io/2020/12/16/cmder/</loc>
     
     <lastmod>2021-01-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pktseng.github.io/2020/12/31/formVaild/</loc>
+    <loc>https://pktseng.github.io/2020/12/20/git/</loc>
     
     <lastmod>2021-01-11</lastmod>
     
@@ -23,58 +23,51 @@
   </url>
   
   <url>
-    <loc>https://pktseng.github.io/2020/12/16/cmder/</loc>
+    <loc>https://pktseng.github.io/2020/08/30/router/</loc>
     
-    <lastmod>2021-01-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/20/20200819-%E5%9C%96%E7%89%87%E8%AE%80%E5%8F%96/</loc>
-    
-    <lastmod>2021-01-10</lastmod>
+    <lastmod>2021-01-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pktseng.github.io/2020/08/14/20200814-vue-cli/</loc>
+    <loc>https://pktseng.github.io/2020/12/17/WSL/</loc>
     
-    <lastmod>2021-01-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/13/20200813-vueon/</loc>
-    
-    <lastmod>2021-01-10</lastmod>
+    <lastmod>2021-01-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pktseng.github.io/2020/08/13/20200813-vuemvvm/</loc>
+    <loc>https://pktseng.github.io/2020/12/15/ZAP/</loc>
     
-    <lastmod>2021-01-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/13/20200813-vue/</loc>
-    
-    <lastmod>2021-01-10</lastmod>
+    <lastmod>2021-01-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pktseng.github.io/2020/08/13/20200813-vue-if/</loc>
+    <loc>https://pktseng.github.io/2020/08/20/%E8%AA%9E%E6%B3%95%E4%BF%AE%E9%A3%BE/</loc>
     
-    <lastmod>2021-01-10</lastmod>
+    <lastmod>2021-01-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://pktseng.github.io/2020/08/13/20200813-v-for/</loc>
+    <loc>https://pktseng.github.io/2020/12/13/Loading/</loc>
     
-    <lastmod>2021-01-10</lastmod>
+    <lastmod>2021-01-11</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pktseng.github.io/2020/12/31/formVaild/</loc>
+    
+    <lastmod>2021-01-11</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pktseng.github.io/2021/01/08/changeRate/</loc>
+    
+    <lastmod>2021-01-11</lastmod>
     
   </url>
   
@@ -113,160 +106,6 @@
     
   </url>
   
-  <url>
-    <loc>https://pktseng.github.io/2020/12/20/git/</loc>
-    
-    <lastmod>2020-12-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/12/17/WSL/</loc>
-    
-    <lastmod>2020-12-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/12/15/ZAP/</loc>
-    
-    <lastmod>2020-12-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/22/%E5%9C%96%E7%89%87%E4%B8%8A%E8%88%B9/</loc>
-    
-    <lastmod>2020-12-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/12/13/Loading/</loc>
-    
-    <lastmod>2020-12-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/12/03/%E4%B8%B2%E6%8E%A5%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%20API/</loc>
-    
-    <lastmod>2020-12-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/13/20200813-javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/</loc>
-    
-    <lastmod>2020-09-21</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/30/router/</loc>
-    
-    <lastmod>2020-09-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/09/04/%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99-1/</loc>
-    
-    <lastmod>2020-09-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/13/20200813-javascript/</loc>
-    
-    <lastmod>2020-09-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/13/20200813-select/</loc>
-    
-    <lastmod>2020-09-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/16/20200816-AJAX/</loc>
-    
-    <lastmod>2020-09-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/13/202008013-d-dlex/</loc>
-    
-    <lastmod>2020-09-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/16/220200816-javasript/</loc>
-    
-    <lastmod>2020-09-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/21/%E4%B8%8B%E6%8B%89%E9%81%B8%E5%96%AE/</loc>
-    
-    <lastmod>2020-09-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/21/%E8%A1%A8%E5%96%AE%E7%B6%81%E5%AE%9A/</loc>
-    
-    <lastmod>2020-09-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/20/%E8%AA%9E%E6%B3%95%E4%BF%AE%E9%A3%BE/</loc>
-    
-    <lastmod>2020-09-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/25/data%E5%BF%85%E9%A0%88%E6%98%AF%E5%87%BD%E6%95%B8/</loc>
-    
-    <lastmod>2020-09-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/21/%E8%A1%A8%E5%96%AE%E7%B6%81%E5%AE%9A%E2%80%94%E6%8C%89%E9%88%95/</loc>
-    
-    <lastmod>2020-09-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/20/%E5%81%B5%E8%81%BD%E6%A1%88%E4%BB%B6/</loc>
-    
-    <lastmod>2020-09-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/08/20/Vue%20%E7%B5%84%E4%BB%B6%E7%9A%84%E8%A8%BB%E5%86%8A%E8%88%87%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2020-09-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/2020/09/02/computed/</loc>
-    
-    <lastmod>2020-09-04</lastmod>
-    
-  </url>
-  
 
   <url>
     <loc>https://pktseng.github.io/</loc>
@@ -277,133 +116,7 @@
 
   
   <url>
-    <loc>https://pktseng.github.io/tags/d-flex/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/vue/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/javascript/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/this/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/MVVM/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/v-if/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/v-for/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/v-on/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/v-model/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/cli/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/AJAX/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://pktseng.github.io/tags/Vue/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/v-else/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/v-bind/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/eventListener/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/callback-function/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/event/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/onSubmit/</loc>
     <lastmod>2021-01-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -431,56 +144,7 @@
   </url>
   
   <url>
-    <loc>https://pktseng.github.io/tags/component/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/Vue-%E7%B5%84%E4%BB%B6%E7%9A%84-data/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://pktseng.github.io/tags/Router/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/computed/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/8-1%E7%94%A8-v-for-%E6%8A%8A%E9%99%A3%E5%88%97%E8%BD%89%E6%8F%9B%E7%82%BA%E4%B8%80%E7%B5%84%E5%85%83%E7%B4%A0/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/8-2%E7%94%A8-v-for-%E6%8A%8A%E4%B8%80%E5%80%8B%E7%89%A9%E4%BB%B6%E8%BD%89%E6%8F%9B%E7%82%BA%E4%B8%80%E7%B5%84%E5%85%83%E7%B4%A0/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/8-3%E4%BF%AE%E6%94%B9%E9%99%A3%E5%88%97%E6%88%96%E7%89%A9%E4%BB%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/tags/API/</loc>
     <lastmod>2021-01-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -574,27 +238,6 @@
   
   <url>
     <loc>https://pktseng.github.io/categories/Vue/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/categories/JavaScript/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/categories/Flex/</loc>
-    <lastmod>2021-01-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pktseng.github.io/categories/%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99/</loc>
     <lastmod>2021-01-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
