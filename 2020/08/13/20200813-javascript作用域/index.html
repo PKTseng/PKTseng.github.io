@@ -16,38 +16,9 @@
 
 
 
-    <meta name="description" content="介紹 Javascript 如何執行跟作用域">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Javascript 核心篇-執行環境">
-<meta property="og:url" content="https://pktseng.github.io/2020/08/13/20200813-javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/index.html">
-<meta property="og:site_name" content="PK&#39;s 回憶錄">
-<meta property="og:description" content="介紹 Javascript 如何執行跟作用域">
-<meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/lATjYBE.png">
-<meta property="og:image" content="https://i.imgur.com/lbU8OCA.png">
-<meta property="og:image" content="https://i.imgur.com/uXG14Oe.png">
-<meta property="og:image" content="https://i.imgur.com/GRULStI.png">
-<meta property="og:image" content="https://i.imgur.com/I8kQ3ob.png">
-<meta property="og:image" content="https://i.imgur.com/32RDACz.png">
-<meta property="og:image" content="https://i.imgur.com/ddWNmYt.png">
-<meta property="og:image" content="https://i.imgur.com/uPdFhSw.png">
-<meta property="og:image" content="https://i.imgur.com/FwfUh7L.png">
-<meta property="og:image" content="https://i.imgur.com/2aFzBGJ.png">
-<meta property="og:image" content="https://i.imgur.com/iVYdmVA.png">
-<meta property="og:image" content="https://i.imgur.com/WYchUh0.png">
-<meta property="og:image" content="https://i.imgur.com/aNRGXtW.png">
-<meta property="article:published_time" content="2020-08-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-21T12:40:37.605Z">
-<meta property="article:author" content="PKTseng">
-<meta property="article:tag" content="執行環境">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/lATjYBE.png">
 
 
 
-
-
-<link rel="icon" href="/favicon.png">
 
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
@@ -66,19 +37,6 @@
 
 
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
 
 
 <meta name="generator" content="Hexo 5.0.2"></head>
@@ -99,39 +57,9 @@
             </div>
         </div>
         
-        <div class="navbar-menu navbar-start">
-            
-            <a class="navbar-item "
-               href="/zh-tw/archives">歸檔</a>
-            
-            <a class="navbar-item "
-               href="/zh-tw/categories">分類</a>
-            
-            <a class="navbar-item "
-               href="/zh-tw/tags">標籤</a>
-            
-            <a class="navbar-item "
-               href="/zh-tw/schedule">行程</a>
-            
-            <a class="navbar-item "
-               href="/zh-tw/about">關於</a>
-            
-        </div>
-        
         <div class="navbar-menu navbar-end">
             
-            <a class="navbar-item search" title="Buscar" href="javascript:;">
-                <i class="fas fa-search"></i>
-            </a>
             
-            
-            
-            <a class="navbar-item" target="_blank" title="GitHub" href="https://github.com/ppoffice/hexo-theme-minos">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-               
             
         </div>
     </div>
@@ -245,28 +173,7 @@
 </article>
 
 
-<div class="sharebox">
-    
-<div class="notification is-danger">
-    You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.
-</div>
 
-</div>
-
-
-
-<div class="comments">
-    <h3 class="title is-4">Comentarios</h3>
-    
-<div id="disqus_thread">
-    
-    <div class="notification is-danger">
-        You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.
-    </div>
-    
-    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-</div>
 
     </div>
 </section>
@@ -280,19 +187,6 @@
             </div>
             <div class="column is-hidden-mobile"></div>
 
-            
-            <div class="column is-narrow">
-                <div class="columns is-mobile is-multiline is-centered">
-                
-                    
-                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-minos">
-                    
-                    GitHub
-                    
-                </a>
-                
-                </div>
-            </div>
             
             
         </div>
@@ -327,153 +221,10 @@
 </script>
 
 
-    
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script>
-    MathJax.Hub.Config({
-        "HTML-CSS": {
-            matchFontHeight: false
-        },
-        SVG: {
-            matchFontHeight: false
-        },
-        CommonHTML: {
-            matchFontHeight: false
-        },
-        tex2jax: {
-            inlineMath: [
-                ['$','$'],
-                ['\\(','\\)']
-            ]
-        }
-    });
-</script>
-
-    
-    
-    
-    
-<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
-<script>
-    (function ($) {
-        $(document).ready(function () {
-            if (typeof($.fn.lightGallery) === 'function') {
-                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof($.fn.justifiedGallery) === 'function') {
-                $('.justified-gallery').justifiedGallery();
-            }
-        });
-    })(jQuery);
-</script>
-
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-    <style>
-        .hljs {
-            position: relative;
-        }
-
-        .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
-        }
-
-        .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
-        }
-
-        .hljs:hover > .clipboard-btn {
-            display: inline;
-        }
-
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
-        }
-    </style>
-    <script>
-      $(document).ready(function () {
-        $('figure.hljs').each(function(i, figure) {
-          var codeId = 'code-' + i;
-          var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
-          code.id = codeId;
-          copyButton.addClass('clipboard-btn');
-          copyButton.attr('data-clipboard-target-id', codeId);
-
-          var figcaption = figure.querySelector('figcaption');
-
-          if (figcaption) {
-            figcaption.append(copyButton[0]);
-          } else {
-            figure.prepend(copyButton[0]);
-          }
-        })
-
-        var clipboard = new ClipboardJS('.clipboard-btn', {
-          target: function(trigger) {
-            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
-          }
-        });
-        clipboard.on('success', function(e) {
-          e.clearSelection();
-        })
-      })
-    </script>
-
-    
-    
-
-    
-
 
 
 <script src="/js/script.js"></script>
 
-
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-mask"></div>
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Escribe algo..." />
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Páginas',
-                CATEGORIES: 'Categorías',
-                TAGS: 'Tags',
-                UNTITLED: '(Sin título)',
-            },
-            CONTENT_URL: '/content.zh-tw.json',
-        };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-
-<script src="/js/insight.js"></script>
 
     
 </body>
