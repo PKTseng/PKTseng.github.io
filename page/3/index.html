@@ -85,7 +85,7 @@
         
         <div class="navbar-menu navbar-end">
             
-            <a class="navbar-item search" title="Search" href="javascript:;">
+            <a class="navbar-item search" title="Suche" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -104,6 +104,205 @@
 
     <section class="section">
     <div class="container">
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2020/08/20/20200819-%E5%9C%96%E7%89%87%E8%AE%80%E5%8F%96/" itemprop="url">偵聽圖片的 load 事件</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2020-08-20T03:49:27.732Z" itemprop="datePublished">8月 20 2020</time>
+                <span class="second-date-block"> (8月 20 2020)</span>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/Vue/">Vue</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分钟 lesen (Über 176 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>現在要製作一個當圖片讀取的時候，顯示 loading 讀取完顯示 complate 的小範例<br>先用簡單的 <code>v-if</code> 、 <code>else</code> 判斷式，在將判斷式的值綁到圖片上<br><a target="_blank" rel="noopener" href="https://picsum.photos/">隨機圖片網址</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">&#x27;loading&#x27;</span>&gt;</span>Loading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span> <span class="attr">v-else</span>&gt;</span>complate<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> @<span class="attr">load</span>=<span class="string">&#x27;loading=false&#x27;</span> <span class="attr">src</span>=<span class="string">&quot;https://picsum.photos/300/300&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line"><span class="javascript">    loading: <span class="literal">true</span>,</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/WNwGaEE?editors=1010">codepen</a><br><img src="https://i.imgur.com/4YgfqXY.png"> </p>
+<p>接下來加一點 CSS 樣式，讓畫面稍微生動一些<br>在 <code>img</code> 動態綁定到 <code>imgClass</code> 上，並加入 <code>computed</code> 屬性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">&#x27;loading&#x27;</span>&gt;</span>Loading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span> <span class="attr">v-else</span>&gt;</span>complate<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:Class</span>=<span class="string">&#x27;imgClass&#x27;</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">load</span>=<span class="string">&#x27;loading=false&#x27;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">src</span>=<span class="string">&quot;https://picsum.photos/300/300&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">alt</span>=<span class="string">&quot;img&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-class">.img</span><span class="selector-class">.hide</span>&#123;</span></span><br><span class="line">  opacity: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="css"><span class="selector-class">.img</span>&#123;</span></span><br><span class="line">  transition: opacity 1s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line"><span class="javascript">    loading: <span class="literal">true</span>,</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line">    imgClass()&#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">if</span>(<span class="built_in">this</span>.loading)&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="string">&#x27;img hide&#x27;</span>;</span></span><br><span class="line"><span class="javascript">      &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="string">&#x27;img&#x27;</span>;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/ZEWpqmm">codepen</a></p>
+<hr>
+<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2020/08/16/220200816-javasript/" itemprop="url">JavaScript 網頁事件處理</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2020-08-15T16:00:00.000Z" itemprop="datePublished">8月 16 2020</time>
+                <span class="second-date-block"> (8月 16 2020)</span>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            7 分钟 lesen (Über 994 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h2 id="學習方向"><a href="#學習方向" class="headerlink" title="學習方向"></a>學習方向</h2><ol>
+<li>介面:如何改變事件</li>
+<li>事件:如何監聽事件並做出反應</li>
+<li>資料:如何跟 sever 交換資料</li>
+</ol>
+<hr>
+<h2 id="eventListener-與-callback-function"><a href="#eventListener-與-callback-function" class="headerlink" title="eventListener 與 callback function"></a>eventListener 與 callback function</h2><h3 id="eventListener"><a href="#eventListener" class="headerlink" title="eventListener"></a>eventListener</h3><p>給一個屬性跟屬性值，再用 <code>document.querySelector</code> 選一個元素並命名為 app ，透過點擊 hello world 做出彈跳視窗，那想做出彈跳視窗必須偵聽事件 <code>addEventListener</code> ，在 <code>addEventListener</code> 前面是事件的動作例如點擊或是按鍵盤…等等，那後面要傳入一個函式。</p>
+<h3 id="callback-function"><a href="#callback-function" class="headerlink" title="callback function"></a>callback function</h3><p>因為不知道使用者甚麼時候才會觸發函式(做甚麼動作)，所以我們必須跟瀏覽器說一但點擊了甚麼按鈕或是做了什麼動作(事件)，就幫我呼叫那個函式(觸發)，那呼叫函式就是 <code>callback function</code></p>
+<p>EX:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>hello world<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- -------------------------------------------&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 匿名函式 比較常見寫法--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> app = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.app&#x27;</span>);</span></span><br><span class="line"><span class="javascript">app.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    alert(<span class="string">&#x27;hello world&#x27;</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!---------------------------------------------&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> app = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.app&#x27;</span>);</span></span><br><span class="line"><span class="javascript">app.addEventListener(<span class="string">&#x27;click&#x27;</span>, onClick)</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">onClick</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;hello world&#x27;</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/BYG7UOJ.png"></p>
+<hr>
+<h2 id="event-e"><a href="#event-e" class="headerlink" title="event(e)"></a>event(e)</h2><p>當我們觸發事件時，瀏覽器就會把參數(event 縮寫為 e)帶入函示裡面。<br>使用 <code>console.log(e)</code> ，可以看到很多關於 e 的參數。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>hello world<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> app = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.app&#x27;</span>);</span></span><br><span class="line"><span class="javascript">app.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/WqDxtOD.png"></p>
+<p>改用 <code>console.log(e.target)</code><br><img src="https://i.imgur.com/TFYrlsD.png"></p>
+<p>當然如果想知道按鍵參數的話可以這樣寫<br>先改為全域 window </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;keypress&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(e.keyCode);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/A0uZqfO.png"><br><img src="https://i.imgur.com/lDm6hKO.png"><br>分別按下 a、b、c，可以知道 a = 97 、b = 98、c = 99</p>
+<hr>
+<h2 id="表單事件處理-onSubmit"><a href="#表單事件處理-onSubmit" class="headerlink" title="表單事件處理 onSubmit"></a>表單事件處理 onSubmit</h2><p>這可以應用在表單二次確認密碼的時候<br>寫出一個簡單的表單，並在判斷式內擷取密碼的值( value )</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&#x27;login&#x27;</span>&gt;</span></span><br><span class="line">  username:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  password:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;password&#x27;</span> <span class="attr">class</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  password:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;password&#x27;</span> <span class="attr">class</span>=<span class="string">&quot;password1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;submit&#x27;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">scrip</span>&gt;</span></span><br><span class="line">let login = document.querySelector(&#x27;.login&#x27;);</span><br><span class="line">login.addEventListener(&#x27;submit&#x27;,function(e)&#123;</span><br><span class="line">  let psw = document.querySelector(&#x27;.password&#x27;);</span><br><span class="line">  let psw1 = document.querySelector(&#x27;.password1&#x27;);</span><br><span class="line">  if(psw.value !== psw1.value)&#123;</span><br><span class="line">    alert(&#x27;密碼錯誤&#x27;);</span><br><span class="line">    e.preventDefault();</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    alert(&#x27;密碼正確&#x27;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">scrip</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/wvGGdgy?editors=1010">codepen</a><br><img src="https://i.imgur.com/ES5AVUI.png"></p>
+<hr>
+<h2 id="事件傳遞機制-捕獲跟冒泡事件"><a href="#事件傳遞機制-捕獲跟冒泡事件" class="headerlink" title="事件傳遞機制-捕獲跟冒泡事件"></a>事件傳遞機制-捕獲跟冒泡事件</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;one&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;two&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>click<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">addEvent(<span class="string">&#x27;.one&#x27;</span>);</span></span><br><span class="line"><span class="javascript">addEvent(<span class="string">&#x27;.two&#x27;</span>);</span></span><br><span class="line"><span class="javascript">addEvent(<span class="string">&#x27;button&#x27;</span>);</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">className</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">document</span>.querySelector(className)</span></span><br><span class="line"><span class="javascript">    .addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(className)</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/dyMMWVO?editors=1011">codepen</a></p>
+<p><img src="https://i.imgur.com/iSr9A3f.png"><br>當我點擊綠色區塊的時候只會跳出 one ，但點擊 click 時就會跳出上圖，但我明明只點 click 為甚麼會連帶影響到其他 class 區塊 ?</p>
+<p>因為這就是事件傳遞機制的捕獲跟冒泡事件</p>
+<p><a target="_blank" rel="noopener" href="https://blog.techbridge.cc/2017/07/15/javascript-event-propagation/">Huli 文章</a><br>下圖來源為 Huli 的文章<br><img src="https://i.imgur.com/V2KLVIV.png"><br>以下這段話擷取自 Huli 文章</p>
+<blockquote>
+<p>DOM 的事件在傳播時，會先從根節點開始往下傳遞到 target，這邊你如果加上事件的話，就會處於 CAPTURING_PHASE，捕獲階段。<br>target 就是你所點擊的那個目標，這時候在 target 身上所加的 eventListenr 會是  AT_TARGET 這一個 Phase。<br>你在點擊那一個 td 的時候，這一個點擊的事件會先從 window 開始往下傳，一直傳到 td 為止，到這邊就叫做 CAPTURING_PHASE，捕獲階段。<br>接著事件傳遞到 td 本身，這時候叫做 AT_TARGET。<br>最後事件會從 td 一路傳回去 window，這時候叫做 BUBBLING_PHASE，冒泡階段。<br>所以，在看一些講事件機制的文章的時候，都會看到一個口訣：先捕獲，再冒泡</p>
+</blockquote>
+<p>在監聽時函式後面加上 true 就是捕獲，false 是冒泡</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">addEvent(<span class="string">&#x27;.one&#x27;</span>);</span><br><span class="line">addEvent(<span class="string">&#x27;.two&#x27;</span>);</span><br><span class="line">addEvent(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">className</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.querySelector(className)</span><br><span class="line">    .addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(className, <span class="string">&#x27;捕獲&#x27;</span>)</span><br><span class="line">  &#125;,<span class="literal">true</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">document</span>.querySelector(className)</span><br><span class="line">    .addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(className, <span class="string">&#x27;冒泡&#x27;</span>)</span><br><span class="line">  &#125;,<span class="literal">false</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/YzqqVjQ?editors=1011">codepen</a></p>
+<p>當我點擊 click</p>
+<p><img src="https://i.imgur.com/g7pwU5s.png"></p>
+<p>就算我把順序顛倒過來，它還是會先捕獲在冒泡，跟上圖一樣</p>
+<hr>
+<h2 id="資料來源-FE102-前端必備：JavaScript"><a href="#資料來源-FE102-前端必備：JavaScript" class="headerlink" title="資料來源: [FE102] 前端必備：JavaScript"></a><a target="_blank" rel="noopener" href="https://lidemy.com/courses/390588/lectures/9653894">資料來源: [FE102] 前端必備：JavaScript</a></h2>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2020/08/16/20200816-AJAX/" itemprop="url">AJAX</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2020-08-15T16:00:00.000Z" itemprop="datePublished">8月 16 2020</time>
+                <span class="second-date-block"> (8月 16 2020)</span>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            5 分钟 lesen (Über 763 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h3 id="透過-XMLHttpRequest-物件跨瀏覽器撈資料"><a href="#透過-XMLHttpRequest-物件跨瀏覽器撈資料" class="headerlink" title="透過 XMLHttpRequest 物件跨瀏覽器撈資料"></a>透過 XMLHttpRequest 物件跨瀏覽器撈資料</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/XMLHttpRequest/readyState">MDN 連結</a><br><code>XMLHttpRequest</code> 是瀏覽器跟伺服器要資料時必須存在的物件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27; 格式 &#x27;</span>,<span class="string">&#x27; 讀取的網址 &#x27;</span>, A )</span><br></pre></td></tr></table></figure>
+<p>格式: <code>get</code>(讀去資料) / <code>post</code>(傳送資料到伺服器)<br>A 是 <code>true/false</code> (同步或是非同步)<br><code>true</code> 是程式不等回傳結果，繼續往下執行<br><code>false</code> 是會等回傳結果再決定要不要繼續執行</p>
+<p>在 log 輸入 <code>xhr</code> 就會顯示相對應的資料，打開後顯示的各種格式<br>(目前還沒輸入格式跟網址)<br><img src="https://i.imgur.com/NdoTS3z.png"><br>其中 <code>readyState  = 0</code> 是代表已經產生一個 XMLHttpRequest 但還沒連結到我要撈的資料<br>圖片來源 MDN:<img src="https://i.imgur.com/ulBWlK5.png"></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://hexschool.github.io/ajaxHomework/data.json"> json 連結</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+<p>輸入完整格式跟網址後 readyState  顯示 1 ，意思是目前選擇了格式，但還沒把資料送出去<br><img src="https://i.imgur.com/n4sTfGk.png"></p>
+<hr>
+<p>目前只要 get 資料並非真的要傳送出去所以用 <code>null</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+<p>會發現有撈到資料，readyState  顯示 4 ，意思是完成下載操作<br><img src="https://i.imgur.com/Z9ap49J.png"></p>
+<hr>
+<h3 id="AJAX-非同步觀念"><a href="#AJAX-非同步觀念" class="headerlink" title="AJAX 非同步觀念"></a>AJAX 非同步觀念</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xhr.responseText);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/a3pXjib.png"><br>照理說我們用 <code>console.log</code> 看資料時應該要顯示，但為甚麼會顯示空直?<br>原因是用了 <code>true</code> 非同步，他不會等資料有沒有回傳，而是直接往下執行，所以<br><code>console.log(xhr.responseText)</code>是撈不到資料的，<br>相反的如果使用 <code>false</code> 則是會等資料回傳，收到資料後再繼續往下執行，如下圖</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">false</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xhr.responseText);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/Hcfipnh.png"></p>
+<p>但是當我們在往後執行程式時，不可能讓資料回傳再執行，必須讓程式繼續執行並且抓到資料，<br>所以我們使用 onload 監聽事件，並改成 true 非同步</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(xhr.responseText)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>載入完時，觸發 onload 事件然後擷取 <code>xhr.responseText</code> 的資料.<br><img src="https://i.imgur.com/2dbmRtE.png"></p>
+<hr>
+<p>接下來要在網頁上顯示 王小名</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(xhr.responseText)</span><br><span class="line">  <span class="keyword">var</span> str = <span class="built_in">JSON</span>.parse(xhr.responseText);</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.name&#x27;</span>).textContent = str[<span class="number">0</span>].name</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>把 <code>xhr.responseText</code> 轉成物件，再從這物件中提取第一筆資料(JS 中第一筆為0)<br><img src="https://i.imgur.com/0LwFAMY.png"></p>
+<p>總結 AJAX 動作:</p>
+<ol>
+<li>建立 XMLHttpRequest</li>
+<li>將資料傳送到對方伺服器裡</li>
+<li>回傳資料到自己的瀏覽器</li>
+<li>對資料進行擷取</li>
+</ol>
+<hr>
+<h2 id="資料來源-JavaScript-入門篇-學徒的試煉"><a href="#資料來源-JavaScript-入門篇-學徒的試煉" class="headerlink" title="資料來源:JavaScript 入門篇 - 學徒的試煉"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/670042/lectures/11952421">資料來源:JavaScript 入門篇 - 學徒的試煉</a></h2>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
     
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
@@ -128,7 +327,7 @@
         <span class="column is-narrow">
             
             
-            6 分钟 read (About 923 words)
+            6 分钟 lesen (Über 923 Wörter)
         </span>
         
     </div>
@@ -197,7 +396,7 @@
         <span class="column is-narrow">
             
             
-            3 分钟 read (About 398 words)
+            3 分钟 lesen (Über 398 Wörter)
         </span>
         
     </div>
@@ -250,7 +449,7 @@
         <span class="column is-narrow">
             
             
-            5 分钟 read (About 693 words)
+            5 分钟 lesen (Über 693 Wörter)
         </span>
         
     </div>
@@ -311,7 +510,7 @@
         <span class="column is-narrow">
             
             
-            4 分钟 read (About 595 words)
+            4 分钟 lesen (Über 595 Wörter)
         </span>
         
     </div>
@@ -386,7 +585,7 @@
         <span class="column is-narrow">
             
             
-            8 分钟 read (About 1255 words)
+            8 分钟 lesen (Über 1255 Wörter)
         </span>
         
     </div>
@@ -483,7 +682,7 @@
         <span class="column is-narrow">
             
             
-            2 分钟 read (About 227 words)
+            2 分钟 lesen (Über 227 Wörter)
         </span>
         
     </div>
@@ -491,7 +690,7 @@
     
         <p><img src="https://i.imgur.com/u6sNtyl.png"></p>
         <p class="article-more-link">
-            <a href="/2020/08/13/20200813-vuemvvm/#more">Read More</a>
+            <a href="/2020/08/13/20200813-vuemvvm/#more">mehr</a>
         </p>
     
     </div>
@@ -526,7 +725,7 @@
         <span class="column is-narrow">
             
             
-            11 分钟 read (About 1588 words)
+            11 分钟 lesen (Über 1588 Wörter)
         </span>
         
     </div>
@@ -596,182 +795,14 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/08/13/20200813-vueon/" itemprop="url">v-bind 及 v-on 的使用</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2020-08-12T16:00:00.000Z" itemprop="datePublished">8月 13 2020</time>
-                <span class="second-date-block"> (8月 13 2020)</span>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Vue/">Vue</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            2 分钟 read (About 240 words)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <h2 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h2><p>v-bind 指令是用來把一個數值綁定到 HTML 屬性上，因為到後期會大量用到，所以會使用縮寫 “ : “</p>
-<h4 id="用-v-bind-製作一個簡單的按鈕"><a href="#用-v-bind-製作一個簡單的按鈕" class="headerlink" title="用 v-bind 製作一個簡單的按鈕"></a>用 v-bind 製作一個簡單的按鈕</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">:type</span>=<span class="string">&quot;selected&quot;</span>&gt;</span>selected<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">    el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">    data:&#123;</span><br><span class="line"><span class="javascript">      selected: <span class="string">&#x27;submit&#x27;</span>,</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span>    </span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/bGEXQrj">codepen</a></p>
-<p><img src="https://i.imgur.com/ph81atN.png"></p>
-<p>透過 v-bind 可以將 submit 這個值綁到 type 屬性上</p>
-<hr>
-<h2 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h2><p>v-on 縮寫為 “@”，用來偵聽 DOM 輸入的事件並改變資料</p>
-<h4 id="製作一個簡單的按鈕"><a href="#製作一個簡單的按鈕" class="headerlink" title="製作一個簡單的按鈕"></a>製作一個簡單的按鈕</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">:checked</span>=<span class="string">&quot;selected&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;toggle&quot;</span>&gt;</span>toggle<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line"><span class="javascript">    selected: <span class="literal">false</span>,</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    toggle()&#123;</span><br><span class="line"><span class="javascript">      <span class="built_in">this</span>.selected = !<span class="built_in">this</span>.selected;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/bGEXQrj?editors=1010">codepen</a></p>
-<p><img src="https://i.imgur.com/9ciSSo0.png"></p>
-<p>checked 屬性是控制 input 著 checkbox 有沒有被勾選到，而 selected 這個值是代表 data 裡面的 selected，要讓 selected 賦予值，就必須要用 v-bind 動態綁定到 checked 屬性上，再透過 v-on 偵聽事件綁定 selected。</p>
-<hr>
-<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/08/13/20200813-select/" itemprop="url">下拉選單</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2020-08-12T16:00:00.000Z" itemprop="datePublished">8月 13 2020</time>
-                <span class="second-date-block"> (8月 13 2020)</span>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Vue/">Vue</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            2 分钟 read (About 362 words)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <h2 id="年份選擇"><a href="#年份選擇" class="headerlink" title="年份選擇"></a>年份選擇</h2><p>將 select 用 v-model 做作雙向綁定，因為 number 是空字串，所以在一開始 option 會指定到 value 為空值的選項。假設 option 裡面沒有 value ，那 option 就會顯示 2020 等年分，但給了 value 就會顯示 value 值。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">&quot;number&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--     第一個預設 disabled， value 可能給空值或是-1 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">disabled</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span>&gt;</span>select number<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;001&quot;</span>&gt;</span>2020<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;002&quot;</span>&gt;</span>2021<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;003&quot;</span>&gt;</span>2022<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">&lt;!--&lt;option&gt;2020&lt;/option&gt;</span></span><br><span class="line"><span class="comment">    &lt;option&gt;2021&lt;/option&gt;</span></span><br><span class="line"><span class="comment">    &lt;option&gt;2022&lt;/option&gt; --&gt;</span></span><br><span class="line">    </span><br><span class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;number&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line"><span class="javascript">    number: <span class="string">&#x27;&#x27;</span>,</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/qBZOOWY?editors=1010">codepen</a><br><img src="https://i.imgur.com/YJoNJSc.png" alt="001為 value 裡面的值"></p>
-<hr>
-<p>除了以上方法將每個選項都寫出來，還可以用 v-for 來做下拉選單並綁定到陣列上，如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">&quot;number in numbers&quot;</span> <span class="attr">:value</span>=<span class="string">&quot;number&quot;</span>&gt;</span>&#123;&#123;number&#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    numbers: [2020, 2021, 2022],</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/Ez0cdq3.png"></p>
-<hr>
-<p>利用 v-for 的方式將 option 內的 value 指定為 number，再用 v-model 將初始值設定為 2020，範例如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">&quot;selectNumber&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">&quot;number in numbers&quot;</span> &gt;</span>&#123;&#123;number&#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;selectNumber&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    numbers: [2020, 2021, 2022],</span><br><span class="line">    selectNumber: 2020,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/zYqvrMY?editors=1010">codepen</a></p>
-<hr>
-<h2 id="月份選擇"><a href="#月份選擇" class="headerlink" title="月份選擇"></a>月份選擇</h2><p>更為簡潔的寫法，範例如下</p>
-<p>直接在 option 裡面寫最大數字，並將初始值 selectMonth 設定為 1，這樣就有下拉選單裡面有包含 12 個數字</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">&quot;selectMonth&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">&quot;month in 12&quot;</span> &gt;</span>&#123;&#123;month&#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;selectMonth&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    selectMonth: 1,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/dyMYGxv?editors=1010">codepen</a></p>
-<hr>
-<h2 id="陣列包物件寫法"><a href="#陣列包物件寫法" class="headerlink" title="陣列包物件寫法"></a>陣列包物件寫法</h2><p>透過陣列將陣列內的物件顯示出來</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">&quot;selectGender&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">&quot;option in options&quot;</span> <span class="attr">:value</span>=<span class="string">&#x27;option.value&#x27;</span>&gt;</span>&#123;&#123;option.text&#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;selectGender&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    options: [</span><br><span class="line"><span class="javascript">      &#123; <span class="attr">value</span>:<span class="number">1</span>, <span class="attr">text</span>:<span class="string">&#x27;boy&#x27;</span>&#125;,</span></span><br><span class="line"><span class="javascript">      &#123; <span class="attr">value</span>:<span class="number">2</span>, <span class="attr">text</span>:<span class="string">&#x27;girl&#x27;</span>&#125;,</span></span><br><span class="line"><span class="javascript">      &#123; <span class="attr">value</span>:<span class="number">3</span>, <span class="attr">text</span>:<span class="string">&#x27;others&#x27;</span>&#125;</span></span><br><span class="line">    ],</span><br><span class="line">    selectGender: 1,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/jOqbqEJ?editors=1010">codepen</a></p>
-<hr>
-<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/08/13/20200813-vue/" itemprop="url">圖片上傳</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2020-08-12T16:00:00.000Z" itemprop="datePublished">8月 13 2020</time>
-                <span class="second-date-block"> (8月 13 2020)</span>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Vue/">Vue</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分钟 read (About 528 words)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <p>在檔案上傳的 input 是沒辦法用 v-model ，所以必須改用 v-on 的 change 事件</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;selectFile&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  methods:&#123;</span><br><span class="line">    selectFile(e)&#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> file = e.target.files.item(<span class="number">0</span>);</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(file);</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/OJNyNMw?editors=1010">codepen</a></p>
-<p>e 就是 <code>@change</code> 的事件， <code>e.target</code> 就是發出事件的 <code>input</code>，後面的 <code>files</code> 是 filelist 的資料型態，用 <code>console.log</code> 可以看到以下屬性</p>
-<p><img src="https://i.imgur.com/iofvadJ.png"></p>
-<p>但目前圖片還是沒辦法顯示，只能透過建立一個 <a target="_blank" rel="noopener" href="https://www.google.com/search?q=FileReader&oq=FileReader&aqs=chrome..69i57&sourceid=chrome&ie=UTF-8">FileReader</a> ，並偵聽 <code>FileReader</code> 的 <code>load</code> 事件，如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;selectFile&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">&quot;image&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line"><span class="javascript">    image: <span class="string">&#x27;&#x27;</span>,</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    selectFile(e)&#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> file = e.target.files.item(<span class="number">0</span>);</span></span><br><span class="line"><span class="javascript">      <span class="comment">// console.log(file);</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> reader = <span class="keyword">new</span> FileReader();</span></span><br><span class="line"><span class="javascript">      reader.addEventListener(<span class="string">&#x27;load&#x27;</span>, <span class="built_in">this</span>.imageLoaded);</span></span><br><span class="line">      reader.readAsDataURL(file);</span><br><span class="line">    &#125;,</span><br><span class="line">    imageLoaded(e)&#123;</span><br><span class="line"><span class="javascript">      <span class="built_in">this</span>.image = e.target.result;</span></span><br><span class="line"><span class="javascript">            <span class="comment">// e.target.result就是讀取 DataURL 檔案內容的字串</span></span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>[codepen](<a target="_blank" rel="noopener" href="https://gist.github.com/PKTseng/6021dcb601d9caf875d87589567c8979">https://gist.github.com/PKTseng/6021dcb601d9caf875d87589567c8979</a><br><img src="https://i.imgur.com/uVIZ1hq.png"></p>
-<p>在 input 裡的 <code>type</code> 是 <code>file</code> 的時候，<code>e.target</code> 就會有 <code>files</code> 屬性，如果在 input 標籤加上 <code>multiple</code> ，檔案會變成可以複選，但目前只要一個檔案，所以加上 <code>item(0)</code> ，然後建立一個新的 <code>FileReader</code> 並偵聽 <code>load</code> 事件，一旦 <code>load</code> 完，就會呼叫 <code>imageLoaded</code> 函式，在<code>reader</code> 偵聽之後會 <code>readAsDataURL</code> ，DataURL 是指下圖很長的字串，也稱為 base64 編碼 ( base64 編碼就是可以把很長的英文跟數字轉成字串)，那這編碼可以指定成 <code>data</code> 裡面的 <code>image</code> 同時第 3 行 img 也會被當成 source。當 <code>reader</code> 發出 <code>load</code> 事件的時候就可以偵聽 <code>imageLoaded</code> 事件，並呼叫第 15行 <code>imageLoaded</code> 函式，函式會將 <code>load</code> 事件當成參數(e)，<code>e.target</code> 就是指第 11 行發出 <code>load</code> 事件的 reader 物件，<code>reader</code> 完之後會 <code>result</code> DataURL 屬性，在江 DataURL 指定到第 4 行的 <code>image</code> 。</p>
-<p><img src="https://i.imgur.com/pvEiEgK.png"></p>
-<p>那有時候圖會是壞掉的，如下圖</p>
-<p><img src="https://i.imgur.com/x31bdrT.png"></p>
-<p>這時候可以在 img 標籤加上 <code>v-if =&quot;image&quot;</code> 來判斷要不要顯示圖片</p>
-<hr>
-<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
     <div class="pagination-previous">
-        <a href="/page/2/">Prev</a>
+        <a href="/page/2/">Vorheriges</a>
     </div>
-    <div class="pagination-next is-invisible is-hidden-mobile">
-        <a href="/page/4/">Next</a>
+    <div class="pagination-next">
+        <a href="/page/4/">Nächstes</a>
     </div>
     <ul class="pagination-list is-hidden-mobile">
         
@@ -780,6 +811,8 @@
         <li><a class="pagination-link" href="/page/2/">2</a></li>
         
         <li><a class="pagination-link is-current" href="/page/3/">3</a></li>
+        
+        <li><a class="pagination-link" href="/page/4/">4</a></li>
         
     </ul>
 </nav>
@@ -965,7 +998,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Suche etwas..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -978,10 +1011,10 @@
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
+                PAGES: 'Seiten',
+                CATEGORIES: 'Kategorien',
                 TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                UNTITLED: '(Sans Titre)',
             },
             CONTENT_URL: '/content.json',
         };

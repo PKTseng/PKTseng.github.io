@@ -85,7 +85,7 @@
         
         <div class="navbar-menu navbar-end">
             
-            <a class="navbar-item search" title="Search" href="javascript:;">
+            <a class="navbar-item search" title="Suche" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -104,6 +104,178 @@
 
     <section class="section">
     <div class="container">
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2020/09/02/computed/" itemprop="url">計算屬性(computed)</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2020-09-02T15:24:52.567Z" itemprop="datePublished">9月 2 2020</time>
+                <span class="second-date-block"> (9月 2 2020)</span>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/Vue/">Vue</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分钟 lesen (Über 253 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>計算用法:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">v-model</span>=<span class="string">&#x27;a&#x27;</span>&gt;</span></span><br><span class="line">  +</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">v-model</span>=<span class="string">&#x27;b&#x27;</span>&gt;</span></span><br><span class="line">  =</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">v-model</span>=<span class="string">&#x27;ans&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    a: 0,</span><br><span class="line">    b: 0,</span><br><span class="line">    c: 0</span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line">    ans()&#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> <span class="built_in">parseInt</span>(<span class="built_in">this</span>.a)+<span class="built_in">parseInt</span>(<span class="built_in">this</span>.b);</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/ZEWXeer?editors=1010">codepen</a><br>computed 裡面的屬性不能跟 data、methods 撞名，同樣的在 ans 不能是箭頭函式，因為用箭頭函式，那 ans 裡面的 this 就會是 window 物件</p>
+<hr>
+<p>除了簡單的計算外還有進階的用法，就是 computed 裡面除了宣告成函式外還可以宣告成物件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el:<span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  data:&#123;</span><br><span class="line">    a: <span class="number">0</span>,</span><br><span class="line">    b: <span class="number">0</span>,</span><br><span class="line">    c: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line">    ans:&#123;</span><br><span class="line">      get()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">parseInt</span>(<span class="built_in">this</span>.a)+<span class="built_in">parseInt</span>(<span class="built_in">this</span>.b);</span><br><span class="line">      &#125;,</span><br><span class="line">      set(val)&#123;</span><br><span class="line">        <span class="built_in">this</span>.b = <span class="built_in">parseInt</span>(val) - <span class="built_in">parseInt</span>(<span class="built_in">this</span>.a)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/OJNxmGo?editors=1010">codepen</a><br>get 是指，當我需要 ans 值的時候，就會用 get 呼叫函式，取出 return 的值</p>
+<p>set 是指，當我設定某個值到 ans 的時候，要用 set 的函式，那 set 函式它吃一個值( value )，範例是當我設定 ans 的時候就要算出 a or b 的值</p>
+<hr>
+<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2020/08/30/router/" itemprop="url">Vue-Router</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2020-08-30T11:55:58.883Z" itemprop="datePublished">8月 30 2020</time>
+                <span class="second-date-block"> (8月 30 2020)</span>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/Vue/">Vue</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            10 分钟 lesen (Über 1564 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h2 id="新增路由路徑及連結"><a href="#新增路由路徑及連結" class="headerlink" title="新增路由路徑及連結"></a>新增路由路徑及連結</h2><p><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/installation.html"> Vue-router:官方文件</a></p>
+<p>透過切換網址來決定要顯示的組件內容，而切換網址就要用 router 來幫你達成!</p>
+<p>在終端機切換到自己命名的資料夾並安裝 <code>npm install vue-router --save</code></p>
+<p>到 index.js 引入 <code>Vue.use()</code> ，啟用路由功能</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">//以上為官方元件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 這邊路徑就是左邊檔案路徑，保險起見一律都不加 .vue 字尾!!!</span></span><br><span class="line"><span class="comment">// 路徑除了 from 要加入根目錄的 &#x27;@&#x27; 以外，其他地方不要加</span></span><br><span class="line"><span class="keyword">import</span> home <span class="keyword">from</span> <span class="string">&#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line"><span class="keyword">import</span> page <span class="keyword">from</span> <span class="string">&#x27;@/components/pages/page&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter); <span class="comment">//路由啟用。這行很重要!!</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  <span class="comment">// 這邊路徑是自訂的</span></span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">&quot;元件呈現的名稱&quot;</span>, </span><br><span class="line">      path: <span class="string">&quot;對應的虛擬路徑&quot;</span>, </span><br><span class="line">      component: 對應的元件, </span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">&#x27;/index&#x27;</span>,</span><br><span class="line">      name: <span class="string">&#x27;home&#x27;</span>,</span><br><span class="line">      component: home</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">&#x27;/page&#x27;</span>,</span><br><span class="line">      name: <span class="string">&#x27;page&#x27;</span>,</span><br><span class="line">      component: page</span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><a href="export:">export 解釋</a><br>路由載入完啟用後，再到 main.js 載入路由配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&quot;./router&quot;</span>; <span class="comment">//新增這行</span></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: <span class="string">&#x27;&lt;App/&gt;&#x27;</span>,</span><br><span class="line">  router, <span class="comment">//跟這行</span></span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>這邊示範一下透過設定的路徑來顯示組件內容</p>
+<p>因為首頁(HelloWorld.vue)的路徑(path)我定義為 /index ，<br>所以在網址上如果沒有輸入定義路徑會顯示下圖<br><img src="https://i.imgur.com/OpDIjWn.png"><br>可以看到，畫面只會顯示 app.vue 的圖片沒有其他內容，但如果在網址後面輸入 /index ，就會顯示下圖<br><img src="https://i.imgur.com/s8j7vel.png"><br>這樣就可以看到 HelloWorld.vue 的內容</p>
+<hr>
+<h4 id="接下來使用-BS4-套件，來快速顯示組件的內容"><a href="#接下來使用-BS4-套件，來快速顯示組件的內容" class="headerlink" title="接下來使用 BS4 套件，來快速顯示組件的內容"></a>接下來使用 BS4 套件，來快速顯示組件的內容</h4><p>首先，在 index.html 引入 <a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/4.4/getting-started/introduction/">BS4</a> cdn<br>有分頁才會有不同路徑，所以在 components 底下新增 pages 資料夾，裡面新增 page.vue<br><img src="https://i.imgur.com/u1kUcmR.png"></p>
+<p>到 page.vue 新增模板記得在模板內加上 div (這邊用 hello 標籤示範)。<br>接著在標籤內貼上 BS4 套件(這邊用 card 套件示範)，<code>src</code> 裡面的 …記得刪除!!，不然會錯誤!!</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hello&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 18rem;&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;card-img-top&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;...&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card-body&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h5</span> <span class="attr">class</span>=<span class="string">&quot;card-title&quot;</span>&gt;</span>Card title<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;card-text&quot;</span>&gt;</span>Some quick example text to build on the card title and make up the bulk of the card&#x27;s content.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn btn-primary&quot;</span>&gt;</span>Go somewhere<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>再來要製做可以切換組件內容的 navbar<br>先把 app.vue 內容刪除，留下 app 標籤跟 router-view，img 也可以留下做分隔，<br>並在裡面套入 BS4 導覽列套件，然後把不要的內容刪掉並補上 vue 的連結標籤，這邊的連結已經不是&lt; a href=”#” &gt; 了，而是 <code>router-link</code> ，連結路徑用 <code>to</code> ，這個路徑是 index.js 裡面自定義的路徑，記得要寫 router-view 這樣才可以顯示組件，如下圖</p>
+<blockquote>
+<p>這邊說明一下 router-view：<br>router-view 是呈現 router/index.js 裡面的元件，<br>而 router/index.js 是設定各元件之間的連結</p>
+</blockquote>
+<p><img src="https://i.imgur.com/mJyGWw8.png"></p>
+<p>完成後會看到畫面如下<br><img src="https://i.imgur.com/MkY1IT5.png"><br>沒有任何組件，因為網址還沒輸入任何自定義路徑</p>
+<p>按一下 index，會顯示下圖<br><img src="https://i.imgur.com/qNPA2Nv.png"></p>
+<p>按一下 page，會顯示下圖<br><img src="https://i.imgur.com/C7LFYrj.png"></p>
+<hr>
+<h2 id="製作巢狀路由頁面"><a href="#製作巢狀路由頁面" class="headerlink" title="製作巢狀路由頁面"></a>製作巢狀路由頁面</h2><p>接下來要做巢狀路由</p>
+<p><strong>注意!!!!在巢狀裡面一律不加斜號 ‘/‘ !!!</strong></p>
+<p><a target="_blank" rel="noopener" href="https://dotblogs.com.tw/wasichris/2017/03/06/235449">參考文件</a><br>繼續在 pages 資料夾下新建立3個組件(這邊用 childX 示範)，然後再引入 BS4 套件的，只是要辨別而以所以用簡單的 alert 套件就好(其實是懶)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">這是 child1 範本</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;alert alert-primary&quot;</span> <span class="attr">role</span>=<span class="string">&quot;alert&quot;</span>&gt;</span></span><br><span class="line">      child1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/yWI4RJb.png"></p>
+<p>因為我們要在 page 裡面切換 child 組件，所以先把 card 套件內的內容通通刪掉並補上 <code>router-view</code> </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hello&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 18rem;&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>接下來要自定義路徑，但這是巢狀路徑，所以要在 page 底下加上 children，這 children 是使用陣列，裡面內容就跟外面的物件一樣，但在的第一個子元件的路徑可以是空直，這樣只要切到 page 頁面就會自動載入 child1 元件，子元件下陣列內的路徑也甭加 ‘/‘ ，直接寫路徑名字就好。<br>下面組件新增完後上面也要引入組件路徑。<br>範例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">//以上為官方元件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 這邊路徑就是左邊檔案路徑</span></span><br><span class="line"><span class="keyword">import</span> home <span class="keyword">from</span> <span class="string">&#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line"><span class="keyword">import</span> page <span class="keyword">from</span> <span class="string">&#x27;@/components/pages/page&#x27;</span></span><br><span class="line"><span class="keyword">import</span> child1 <span class="keyword">from</span> <span class="string">&#x27;@/components/pages/child1&#x27;</span></span><br><span class="line"><span class="keyword">import</span> child2 <span class="keyword">from</span> <span class="string">&#x27;@/components/pages/child2&#x27;</span></span><br><span class="line"><span class="keyword">import</span> child3 <span class="keyword">from</span> <span class="string">&#x27;@/components/pages/child3&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.use(Router) <span class="comment">// 路由啟用。這行很重要!!</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  <span class="comment">// 這邊路徑是自訂的</span></span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">&#x27;/index&#x27;</span>, <span class="comment">//對應的虛擬路徑</span></span><br><span class="line">      name: <span class="string">&#x27;home&#x27;</span>, <span class="comment">//元件呈現的名稱</span></span><br><span class="line">      component: home <span class="comment">//對應的元件</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">&#x27;/page&#x27;</span>, <span class="comment">//對應的虛擬路徑</span></span><br><span class="line">      name: <span class="string">&#x27;page&#x27;</span>,<span class="comment">//元件呈現的名稱</span></span><br><span class="line">      component: page,<span class="comment">//對應的元件</span></span><br><span class="line">      children: [</span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;&#x27;</span>, <span class="comment">//對應的虛擬路徑</span></span><br><span class="line">          name: <span class="string">&#x27;child1&#x27;</span>,<span class="comment">//元件呈現的名稱</span></span><br><span class="line">          component: child1,<span class="comment">//對應的元件</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;child2&#x27;</span>,<span class="comment">//對應的虛擬路徑</span></span><br><span class="line">          name: <span class="string">&#x27;child2&#x27;</span>,<span class="comment">//元件呈現的名稱</span></span><br><span class="line">          component: child2,<span class="comment">//對應的元件</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;child3&#x27;</span>,<span class="comment">//對應的虛擬路徑</span></span><br><span class="line">          name: <span class="string">&#x27;child3&#x27;</span>,<span class="comment">//元件呈現的名稱</span></span><br><span class="line">          component: child3,<span class="comment">//對應的元件</span></span><br><span class="line">        &#125;,</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>OK，到目前為止我們只要切換網址就可以看到 child 組件了，先試試 page 頁<br>我有在 app.vue 用 container 限制寬並置中<br><img src="https://i.imgur.com/VQac8sW.png"></p>
+<p>可以看到目前在 page 頁，並自動帶入 child1<br>輸入 child2 如下圖<br><img src="https://i.imgur.com/Oo9tIoy.png"></p>
+<p>接下來要在 page 頁面下新增子分頁的連結，</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hello&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/page/&quot;</span>&gt;</span>child1<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/page/child2&quot;</span>&gt;</span>child2<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/page/child3&quot;</span>&gt;</span>child3<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">&lt;!--     也可以用 v-bind 動態綁定 name 的方式來連結路徑，下面示範 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">&quot;&#123; name: &#x27;child3&#x27; &#125;&quot;</span>&gt;</span>child3<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 18rem;&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>結果如下圖，本想把 card 套件移除，但發現他剛好可以把 alert 套件框住不會滿版，就索性留著<br><img src="https://i.imgur.com/KsCUrFh.png"><br>然後注意網址!!!<br>在點擊子組件的時候就會切換到自訂義的網址，同時也顯示不同子頁面<br><img src="https://i.imgur.com/vEjYlxE.png"><br><img src="https://i.imgur.com/0hV0ukO.png"></p>
+<hr>
+<h3 id="參考資料："><a href="#參考資料：" class="headerlink" title="參考資料："></a>參考資料：</h3><h3 id="Vue-出電商網站"><a href="#Vue-出電商網站" class="headerlink" title="Vue 出電商網站"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/670031/lectures/11949226">Vue 出電商網站</a></h3><h3 id="Vue-官方文件"><a href="#Vue-官方文件" class="headerlink" title="Vue 官方文件"></a><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/#html">Vue 官方文件</a></h3><h3 id="搞搞就懂部落格"><a href="#搞搞就懂部落格" class="headerlink" title="搞搞就懂部落格"></a><a target="_blank" rel="noopener" href="https://dotblogs.com.tw/wasichris/2017/03/06/235449">搞搞就懂部落格</a></h3>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2020/08/25/data%E5%BF%85%E9%A0%88%E6%98%AF%E5%87%BD%E6%95%B8/" itemprop="url">data必須是函數</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2020-08-25T15:15:54.834Z" itemprop="datePublished">8月 25 2020</time>
+                <span class="second-date-block"> (8月 25 2020)</span>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/Vue/">Vue</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分钟 lesen (Über 170 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h2 id="data-必須是函數"><a href="#data-必須是函數" class="headerlink" title="data 必須是函數"></a>data 必須是函數</h2><p>範例為簡單的計數器<br>在第8行用 data 來 return 一個物件，這時的 data 必須是函式。<br>如果 data 是物件的話，那 counter 是不會被宣告兩次的，但如果 data 是函式的時候，每次只要執行 +1 都會 return 出一個新物件，這樣組件在使用的時候，就不會同時被影響，因為 return 出來的物件都會是新建立的物件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&#x27;app&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">counter</span>&gt;</span><span class="tag">&lt;/<span class="name">counter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">counter</span>&gt;</span><span class="tag">&lt;/<span class="name">counter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&#x27;counter&#x27;</span>,&#123;</span></span><br><span class="line">  data()&#123;</span><br><span class="line"><span class="javascript">    <span class="keyword">return</span>&#123;</span></span><br><span class="line">      count: 0,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template:`</span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><span class="template-variable">&#123;&#123;<span class="name">count</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&#x27;count+=1&#x27;</span>&gt;</span>+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span>`</span></span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/PoNppeB?editors=1011">codepen</a><br><img src="https://i.imgur.com/U9YN08F.png"></p>
+<hr>
+<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
     
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
@@ -128,7 +300,7 @@
         <span class="column is-narrow">
             
             
-            3 分钟 read (About 519 words)
+            3 分钟 lesen (Über 519 Wörter)
         </span>
         
     </div>
@@ -183,7 +355,7 @@
         <span class="column is-narrow">
             
             
-            2 分钟 read (About 318 words)
+            2 分钟 lesen (Über 318 Wörter)
         </span>
         
     </div>
@@ -244,7 +416,7 @@
         <span class="column is-narrow">
             
             
-            2 分钟 read (About 328 words)
+            2 分钟 lesen (Über 328 Wörter)
         </span>
         
     </div>
@@ -297,7 +469,7 @@
         <span class="column is-narrow">
             
             
-            2 分钟 read (About 319 words)
+            2 分钟 lesen (Über 319 Wörter)
         </span>
         
     </div>
@@ -353,7 +525,7 @@
         <span class="column is-narrow">
             
             
-            3 分钟 read (About 464 words)
+            3 分钟 lesen (Über 464 Wörter)
         </span>
         
     </div>
@@ -411,7 +583,7 @@
         <span class="column is-narrow">
             
             
-            4 分钟 read (About 564 words)
+            4 分钟 lesen (Über 564 Wörter)
         </span>
         
     </div>
@@ -469,7 +641,7 @@
         <span class="column is-narrow">
             
             
-            3 分钟 read (About 404 words)
+            3 分钟 lesen (Über 404 Wörter)
         </span>
         
     </div>
@@ -499,213 +671,14 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/08/20/20200819-%E5%9C%96%E7%89%87%E8%AE%80%E5%8F%96/" itemprop="url">偵聽圖片的 load 事件</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2020-08-20T03:49:27.732Z" itemprop="datePublished">8月 20 2020</time>
-                <span class="second-date-block"> (8月 20 2020)</span>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Vue/">Vue</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 分钟 read (About 176 words)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <p>現在要製作一個當圖片讀取的時候，顯示 loading 讀取完顯示 complate 的小範例<br>先用簡單的 <code>v-if</code> 、 <code>else</code> 判斷式，在將判斷式的值綁到圖片上<br><a target="_blank" rel="noopener" href="https://picsum.photos/">隨機圖片網址</a></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">&#x27;loading&#x27;</span>&gt;</span>Loading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span> <span class="attr">v-else</span>&gt;</span>complate<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> @<span class="attr">load</span>=<span class="string">&#x27;loading=false&#x27;</span> <span class="attr">src</span>=<span class="string">&quot;https://picsum.photos/300/300&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line"><span class="javascript">    loading: <span class="literal">true</span>,</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/WNwGaEE?editors=1010">codepen</a><br><img src="https://i.imgur.com/4YgfqXY.png"> </p>
-<p>接下來加一點 CSS 樣式，讓畫面稍微生動一些<br>在 <code>img</code> 動態綁定到 <code>imgClass</code> 上，並加入 <code>computed</code> 屬性</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">&#x27;loading&#x27;</span>&gt;</span>Loading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span> <span class="attr">v-else</span>&gt;</span>complate<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:Class</span>=<span class="string">&#x27;imgClass&#x27;</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">load</span>=<span class="string">&#x27;loading=false&#x27;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">src</span>=<span class="string">&quot;https://picsum.photos/300/300&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">alt</span>=<span class="string">&quot;img&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-class">.img</span><span class="selector-class">.hide</span>&#123;</span></span><br><span class="line">  opacity: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="css"><span class="selector-class">.img</span>&#123;</span></span><br><span class="line">  transition: opacity 1s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line"><span class="javascript">    loading: <span class="literal">true</span>,</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line">    imgClass()&#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">if</span>(<span class="built_in">this</span>.loading)&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="string">&#x27;img hide&#x27;</span>;</span></span><br><span class="line"><span class="javascript">      &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="string">&#x27;img&#x27;</span>;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/ZEWpqmm">codepen</a></p>
-<hr>
-<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/08/16/220200816-javasript/" itemprop="url">JavaScript 網頁事件處理</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2020-08-15T16:00:00.000Z" itemprop="datePublished">8月 16 2020</time>
-                <span class="second-date-block"> (8月 16 2020)</span>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            7 分钟 read (About 994 words)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <h2 id="學習方向"><a href="#學習方向" class="headerlink" title="學習方向"></a>學習方向</h2><ol>
-<li>介面:如何改變事件</li>
-<li>事件:如何監聽事件並做出反應</li>
-<li>資料:如何跟 sever 交換資料</li>
-</ol>
-<hr>
-<h2 id="eventListener-與-callback-function"><a href="#eventListener-與-callback-function" class="headerlink" title="eventListener 與 callback function"></a>eventListener 與 callback function</h2><h3 id="eventListener"><a href="#eventListener" class="headerlink" title="eventListener"></a>eventListener</h3><p>給一個屬性跟屬性值，再用 <code>document.querySelector</code> 選一個元素並命名為 app ，透過點擊 hello world 做出彈跳視窗，那想做出彈跳視窗必須偵聽事件 <code>addEventListener</code> ，在 <code>addEventListener</code> 前面是事件的動作例如點擊或是按鍵盤…等等，那後面要傳入一個函式。</p>
-<h3 id="callback-function"><a href="#callback-function" class="headerlink" title="callback function"></a>callback function</h3><p>因為不知道使用者甚麼時候才會觸發函式(做甚麼動作)，所以我們必須跟瀏覽器說一但點擊了甚麼按鈕或是做了什麼動作(事件)，就幫我呼叫那個函式(觸發)，那呼叫函式就是 <code>callback function</code></p>
-<p>EX:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>hello world<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- -------------------------------------------&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 匿名函式 比較常見寫法--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> app = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.app&#x27;</span>);</span></span><br><span class="line"><span class="javascript">app.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    alert(<span class="string">&#x27;hello world&#x27;</span>);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!---------------------------------------------&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> app = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.app&#x27;</span>);</span></span><br><span class="line"><span class="javascript">app.addEventListener(<span class="string">&#x27;click&#x27;</span>, onClick)</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">onClick</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  alert(<span class="string">&#x27;hello world&#x27;</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/BYG7UOJ.png"></p>
-<hr>
-<h2 id="event-e"><a href="#event-e" class="headerlink" title="event(e)"></a>event(e)</h2><p>當我們觸發事件時，瀏覽器就會把參數(event 縮寫為 e)帶入函示裡面。<br>使用 <code>console.log(e)</code> ，可以看到很多關於 e 的參數。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>hello world<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> app = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.app&#x27;</span>);</span></span><br><span class="line"><span class="javascript">app.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/WqDxtOD.png"></p>
-<p>改用 <code>console.log(e.target)</code><br><img src="https://i.imgur.com/TFYrlsD.png"></p>
-<p>當然如果想知道按鍵參數的話可以這樣寫<br>先改為全域 window </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;keypress&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(e.keyCode);</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/A0uZqfO.png"><br><img src="https://i.imgur.com/lDm6hKO.png"><br>分別按下 a、b、c，可以知道 a = 97 、b = 98、c = 99</p>
-<hr>
-<h2 id="表單事件處理-onSubmit"><a href="#表單事件處理-onSubmit" class="headerlink" title="表單事件處理 onSubmit"></a>表單事件處理 onSubmit</h2><p>這可以應用在表單二次確認密碼的時候<br>寫出一個簡單的表單，並在判斷式內擷取密碼的值( value )</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&#x27;login&#x27;</span>&gt;</span></span><br><span class="line">  username:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  password:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;password&#x27;</span> <span class="attr">class</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  password:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;password&#x27;</span> <span class="attr">class</span>=<span class="string">&quot;password1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;submit&#x27;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">scrip</span>&gt;</span></span><br><span class="line">let login = document.querySelector(&#x27;.login&#x27;);</span><br><span class="line">login.addEventListener(&#x27;submit&#x27;,function(e)&#123;</span><br><span class="line">  let psw = document.querySelector(&#x27;.password&#x27;);</span><br><span class="line">  let psw1 = document.querySelector(&#x27;.password1&#x27;);</span><br><span class="line">  if(psw.value !== psw1.value)&#123;</span><br><span class="line">    alert(&#x27;密碼錯誤&#x27;);</span><br><span class="line">    e.preventDefault();</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    alert(&#x27;密碼正確&#x27;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">scrip</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/wvGGdgy?editors=1010">codepen</a><br><img src="https://i.imgur.com/ES5AVUI.png"></p>
-<hr>
-<h2 id="事件傳遞機制-捕獲跟冒泡事件"><a href="#事件傳遞機制-捕獲跟冒泡事件" class="headerlink" title="事件傳遞機制-捕獲跟冒泡事件"></a>事件傳遞機制-捕獲跟冒泡事件</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;one&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;two&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>click<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">addEvent(<span class="string">&#x27;.one&#x27;</span>);</span></span><br><span class="line"><span class="javascript">addEvent(<span class="string">&#x27;.two&#x27;</span>);</span></span><br><span class="line"><span class="javascript">addEvent(<span class="string">&#x27;button&#x27;</span>);</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">className</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">document</span>.querySelector(className)</span></span><br><span class="line"><span class="javascript">    .addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(className)</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/dyMMWVO?editors=1011">codepen</a></p>
-<p><img src="https://i.imgur.com/iSr9A3f.png"><br>當我點擊綠色區塊的時候只會跳出 one ，但點擊 click 時就會跳出上圖，但我明明只點 click 為甚麼會連帶影響到其他 class 區塊 ?</p>
-<p>因為這就是事件傳遞機制的捕獲跟冒泡事件</p>
-<p><a target="_blank" rel="noopener" href="https://blog.techbridge.cc/2017/07/15/javascript-event-propagation/">Huli 文章</a><br>下圖來源為 Huli 的文章<br><img src="https://i.imgur.com/V2KLVIV.png"><br>以下這段話擷取自 Huli 文章</p>
-<blockquote>
-<p>DOM 的事件在傳播時，會先從根節點開始往下傳遞到 target，這邊你如果加上事件的話，就會處於 CAPTURING_PHASE，捕獲階段。<br>target 就是你所點擊的那個目標，這時候在 target 身上所加的 eventListenr 會是  AT_TARGET 這一個 Phase。<br>你在點擊那一個 td 的時候，這一個點擊的事件會先從 window 開始往下傳，一直傳到 td 為止，到這邊就叫做 CAPTURING_PHASE，捕獲階段。<br>接著事件傳遞到 td 本身，這時候叫做 AT_TARGET。<br>最後事件會從 td 一路傳回去 window，這時候叫做 BUBBLING_PHASE，冒泡階段。<br>所以，在看一些講事件機制的文章的時候，都會看到一個口訣：先捕獲，再冒泡</p>
-</blockquote>
-<p>在監聽時函式後面加上 true 就是捕獲，false 是冒泡</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">addEvent(<span class="string">&#x27;.one&#x27;</span>);</span><br><span class="line">addEvent(<span class="string">&#x27;.two&#x27;</span>);</span><br><span class="line">addEvent(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">className</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.querySelector(className)</span><br><span class="line">    .addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(className, <span class="string">&#x27;捕獲&#x27;</span>)</span><br><span class="line">  &#125;,<span class="literal">true</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">document</span>.querySelector(className)</span><br><span class="line">    .addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(className, <span class="string">&#x27;冒泡&#x27;</span>)</span><br><span class="line">  &#125;,<span class="literal">false</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/YzqqVjQ?editors=1011">codepen</a></p>
-<p>當我點擊 click</p>
-<p><img src="https://i.imgur.com/g7pwU5s.png"></p>
-<p>就算我把順序顛倒過來，它還是會先捕獲在冒泡，跟上圖一樣</p>
-<hr>
-<h2 id="資料來源-FE102-前端必備：JavaScript"><a href="#資料來源-FE102-前端必備：JavaScript" class="headerlink" title="資料來源: [FE102] 前端必備：JavaScript"></a><a target="_blank" rel="noopener" href="https://lidemy.com/courses/390588/lectures/9653894">資料來源: [FE102] 前端必備：JavaScript</a></h2>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/08/16/20200816-AJAX/" itemprop="url">AJAX</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2020-08-15T16:00:00.000Z" itemprop="datePublished">8月 16 2020</time>
-                <span class="second-date-block"> (8月 16 2020)</span>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            5 分钟 read (About 763 words)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <h3 id="透過-XMLHttpRequest-物件跨瀏覽器撈資料"><a href="#透過-XMLHttpRequest-物件跨瀏覽器撈資料" class="headerlink" title="透過 XMLHttpRequest 物件跨瀏覽器撈資料"></a>透過 XMLHttpRequest 物件跨瀏覽器撈資料</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/XMLHttpRequest/readyState">MDN 連結</a><br><code>XMLHttpRequest</code> 是瀏覽器跟伺服器要資料時必須存在的物件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27; 格式 &#x27;</span>,<span class="string">&#x27; 讀取的網址 &#x27;</span>, A )</span><br></pre></td></tr></table></figure>
-<p>格式: <code>get</code>(讀去資料) / <code>post</code>(傳送資料到伺服器)<br>A 是 <code>true/false</code> (同步或是非同步)<br><code>true</code> 是程式不等回傳結果，繼續往下執行<br><code>false</code> 是會等回傳結果再決定要不要繼續執行</p>
-<p>在 log 輸入 <code>xhr</code> 就會顯示相對應的資料，打開後顯示的各種格式<br>(目前還沒輸入格式跟網址)<br><img src="https://i.imgur.com/NdoTS3z.png"><br>其中 <code>readyState  = 0</code> 是代表已經產生一個 XMLHttpRequest 但還沒連結到我要撈的資料<br>圖片來源 MDN:<img src="https://i.imgur.com/ulBWlK5.png"></p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://hexschool.github.io/ajaxHomework/data.json"> json 連結</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
-<p>輸入完整格式跟網址後 readyState  顯示 1 ，意思是目前選擇了格式，但還沒把資料送出去<br><img src="https://i.imgur.com/n4sTfGk.png"></p>
-<hr>
-<p>目前只要 get 資料並非真的要傳送出去所以用 <code>null</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
-<p>會發現有撈到資料，readyState  顯示 4 ，意思是完成下載操作<br><img src="https://i.imgur.com/Z9ap49J.png"></p>
-<hr>
-<h3 id="AJAX-非同步觀念"><a href="#AJAX-非同步觀念" class="headerlink" title="AJAX 非同步觀念"></a>AJAX 非同步觀念</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xhr.responseText);</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/a3pXjib.png"><br>照理說我們用 <code>console.log</code> 看資料時應該要顯示，但為甚麼會顯示空直?<br>原因是用了 <code>true</code> 非同步，他不會等資料有沒有回傳，而是直接往下執行，所以<br><code>console.log(xhr.responseText)</code>是撈不到資料的，<br>相反的如果使用 <code>false</code> 則是會等資料回傳，收到資料後再繼續往下執行，如下圖</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">false</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(xhr.responseText);</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/Hcfipnh.png"></p>
-<p>但是當我們在往後執行程式時，不可能讓資料回傳再執行，必須讓程式繼續執行並且抓到資料，<br>所以我們使用 onload 監聽事件，並改成 true 非同步</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(xhr.responseText)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>載入完時，觸發 onload 事件然後擷取 <code>xhr.responseText</code> 的資料.<br><img src="https://i.imgur.com/2dbmRtE.png"></p>
-<hr>
-<p>接下來要在網頁上顯示 王小名</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;https://hexschool.github.io/ajaxHomework/data.json&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(xhr.responseText)</span><br><span class="line">  <span class="keyword">var</span> str = <span class="built_in">JSON</span>.parse(xhr.responseText);</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.name&#x27;</span>).textContent = str[<span class="number">0</span>].name</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>把 <code>xhr.responseText</code> 轉成物件，再從這物件中提取第一筆資料(JS 中第一筆為0)<br><img src="https://i.imgur.com/0LwFAMY.png"></p>
-<p>總結 AJAX 動作:</p>
-<ol>
-<li>建立 XMLHttpRequest</li>
-<li>將資料傳送到對方伺服器裡</li>
-<li>回傳資料到自己的瀏覽器</li>
-<li>對資料進行擷取</li>
-</ol>
-<hr>
-<h2 id="資料來源-JavaScript-入門篇-學徒的試煉"><a href="#資料來源-JavaScript-入門篇-學徒的試煉" class="headerlink" title="資料來源:JavaScript 入門篇 - 學徒的試煉"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/670042/lectures/11952421">資料來源:JavaScript 入門篇 - 學徒的試煉</a></h2>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
     <div class="pagination-previous">
-        <a href="/">Prev</a>
+        <a href="/">Vorheriges</a>
     </div>
     <div class="pagination-next">
-        <a href="/page/3/">Next</a>
+        <a href="/page/3/">Nächstes</a>
     </div>
     <ul class="pagination-list is-hidden-mobile">
         
@@ -714,6 +687,8 @@
         <li><a class="pagination-link is-current" href="/page/2/">2</a></li>
         
         <li><a class="pagination-link" href="/page/3/">3</a></li>
+        
+        <li><a class="pagination-link" href="/page/4/">4</a></li>
         
     </ul>
 </nav>
@@ -899,7 +874,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Suche etwas..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -912,10 +887,10 @@
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
+                PAGES: 'Seiten',
+                CATEGORIES: 'Kategorien',
                 TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                UNTITLED: '(Sans Titre)',
             },
             CONTENT_URL: '/content.json',
         };

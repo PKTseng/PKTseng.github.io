@@ -85,7 +85,7 @@
         
         <div class="navbar-menu navbar-end">
             
-            <a class="navbar-item search" title="Search" href="javascript:;">
+            <a class="navbar-item search" title="Suche" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -128,7 +128,7 @@
         <span class="column is-narrow">
             
             
-            7 分钟 read (About 1024 words)
+            7 分钟 lesen (Über 1024 Wörter)
         </span>
         
     </div>
@@ -205,7 +205,7 @@
         <span class="column is-narrow">
             
             
-            5 分钟 read (About 804 words)
+            5 分钟 lesen (Über 804 Wörter)
         </span>
         
     </div>
@@ -259,6 +259,78 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2020/12/28/pullRequest/" itemprop="url">Pull Request</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2020-12-27T16:00:00.000Z" itemprop="datePublished">12月 28 2020</time>
+                <span class="second-date-block"> (12月 28 2020)</span>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/Pull-Request/">Pull Request</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分钟 lesen (Über 1198 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><ol>
+<li><code>git clone</code>、<code>git pull</code> 這兩個指令有什麼不同，又分別代表什麼意思。</li>
+<li><code>Pull Request</code> 的流程是甚麼</li>
+<li>為什麼需要透過 <code>Pull Request</code> 來開發</li>
+</ol>
+<hr>
+<h2 id="git-clone、git-pull-這兩個指令有什麼不同，又分別代表什麼意思。"><a href="#git-clone、git-pull-這兩個指令有什麼不同，又分別代表什麼意思。" class="headerlink" title="git clone、git pull 這兩個指令有什麼不同，又分別代表什麼意思。"></a><code>git clone</code>、<code>git pull</code> 這兩個指令有什麼不同，又分別代表什麼意思。</h2><p>兩個都是更新檔案，repository 更新的過程會不一樣，一個是整包下載，一個是下載本地端已經有只需要下載部分更新的檔案，兩個同樣都是把檔案更新到最新的狀態</p>
+<ul>
+<li><p><code>git clone</code> :在本地( local )端還沒有 repository 的狀況下，我們就會需要使用到 <code>clone</code> ，把整包 repository 載下來，一般也只需要 clone 一次，之後就只需要 pull 了。</p>
+</li>
+<li><p><code>git pull</code> :就是我們本地( local )端已經有 repository 了，這時候就不需要在 <code>clone</code> ，只需要透過 <code>pull</code> 的方式，將遠端 ( remote )的 repository 載下來就可以了</p>
+</li>
+</ul>
+<p>以上就是 clone、pull 的差別</p>
+<h2 id="為什麼需要透過-Pull-Request-來開發"><a href="#為什麼需要透過-Pull-Request-來開發" class="headerlink" title="為什麼需要透過 Pull Request 來開發"></a>為什麼需要透過 <code>Pull Request</code> 來開發</h2><p>一般在開發或是看到很有興趣的開源專案，如果想加入新功能或是加入開發專安的話就會需要使用到 <code>Pull Request</code>，也就是我們俗稱的 <code>PR</code></p>
+<h2 id="Pull-Request-的流程是甚麼"><a href="#Pull-Request-的流程是甚麼" class="headerlink" title="Pull Request 的流程是甚麼"></a><code>Pull Request</code> 的流程是甚麼</h2><p><strong>Pull Request 簡稱 PR</strong><br>如果已經是這個團隊的開者之一，那就單純 clone 就好，<br>如果是別的開源專案又不是這個專案的原始開發者之一，那就需要先將專案 fork 出來，再開始開發</p>
+<p>以饅頭計畫的專案為例，我們已經是這個專案的開發人員之一，所以只需要 clone 下來就好，然後開分之並在分支上進行開發，做完之後我們會需要 push 到 remote repository，這時候就要發 PR 了，讓資深工程師確認我們寫的需求有沒有問題，如果沒問題就會 merge 到主支上</p>
+<h3 id="以下示範"><a href="#以下示範" class="headerlink" title="以下示範:"></a>以下示範:</h3><p>因為之前已經 clone 過了，<font color="#FF0000"><strong>請記得先切換到主之上</strong></font>，然後再把本地端的檔案 pull 到最新的狀態，然後再用 <code>git checkout -b 分支名稱</code>，創建該分支同時切換到該分支上，如下圖<br><img src="https://i.imgur.com/SIEMhnl.jpg"></p>
+<p>接下來就是 Git 基本操作了<br>在分支上新增好內容後，把新增或是更改資料加入索引<br><img src="https://i.imgur.com/YCKG1RJ.jpg"></p>
+<p>然後提交(commit)上去<br>出現<code>git push --set-upstream origin example-mission</code>的原因可以參考<a target="_blank" rel="noopener" href="https://blog.csdn.net/benben_2015/article/details/78803753">這篇文章</a><br>解決方法就是複製貼上…<br><img src="https://i.imgur.com/X7JS8Fu.png"></p>
+<p>上面太模糊..補上清晰版…<br><img src="https://i.imgur.com/Fn1eXXI.png"></p>
+<p>push 上去後到 Github 專案點選左上 Pull Request，<br>因為目前還沒有發 PR，所以沒看到我剛新增的內容。<br>要發 PR 的話要點選右邊那兩個紅框的，<br><img src="https://i.imgur.com/KcQ30Je.png"></p>
+<p>一種是 <strong>Compare &amp; pull request</strong> ，另一種是<strong>New pull request</strong>，兩個都可以發，過程不一樣而已，以下兩種都會示範</p>
+<h3 id="New-pull-request"><a href="#New-pull-request" class="headerlink" title="New pull request"></a>New pull request</h3><p>點擊 <strong>New pull request</strong> 會顯示下圖畫面，<br><font color="#FF0000">左邊 <code>base:main</code> 是主支千萬不要動到</font>，動右邊要 merge 的分支就好<br>因為我們要把剛才新增的內容合併到主之上，所以選擇剛才新增的分支名稱 <code>example-mission</code><br><img src="https://i.imgur.com/2lQZlxZ.png"></p>
+<p>選完就會顯示剛才新增的內容，如下圖，確認 OK 後點選右邊的 <code>Create pull request</code><br><img src="https://i.imgur.com/vkAsffP.png"></p>
+<p>接著會進入以下畫面，這邊就要寫一下大標題，還有較細項的更改內容，<br>填寫完後再按右下的 <code>Create pull request</code><br><img src="https://i.imgur.com/dJDi880.png"></p>
+<p>按下後會進入以下畫面<br><img src="https://i.imgur.com/MEOjzcS.png"></p>
+<p>再回到 Pull Request 刷新一下，就會看到剛才新發的 PR 了<br><img src="https://i.imgur.com/yA8Saeh.png"></p>
+<p>接下來就等資深工程師確認我們寫的內容有無問題，<br>沒問題就會按下 <code>Merge pull request</code>，合併到主支(main)上</p>
+<h3 id="Compare-amp-pull-request"><a href="#Compare-amp-pull-request" class="headerlink" title="Compare &amp; pull request"></a>Compare &amp; pull request</h3><p>這邊更簡單，也推薦使用這個<br>因為點選 Compare &amp; pull request 後系統會自動選取剛才新建的分支上，會顯示下圖<br><img src="https://i.imgur.com/dJDi880.png"></p>
+<p>接著叫輸入大標題跟內容再 <code>Create pull request</code> ，這樣 PR 就發完了</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://gitbook.tw/chapters/github/pull-request.html">與其它開發者的互動 - 使用 Pull Request（PR） - 為你自己學 Git | 高見龍</a><br><a target="_blank" rel="noopener" href="https://w3c.hexschool.com/git/b9be5b1e">git add、git commit - 提交版本</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/benben_2015/article/details/78803753">Git master branch has no upstream branch的解決</a></p>
+</body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2020/12/20/git/" itemprop="url">簡易的 Git 操作</a>
         
     </h1>
@@ -279,7 +351,7 @@
         <span class="column is-narrow">
             
             
-            10 分钟 read (About 1500 words)
+            10 分钟 lesen (Über 1500 Wörter)
         </span>
         
     </div>
@@ -348,6 +420,64 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2020/12/17/WSL/" itemprop="url">在 Windows 上安裝 WSL1</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2020-12-16T16:00:00.000Z" itemprop="datePublished">12月 17 2020</time>
+                <span class="second-date-block"> (12月 17 2020)</span>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/WSL1/">WSL1</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分钟 lesen (Über 552 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>為了在 window 作業系統上執行 linux ，所以會需要安裝 WSL<br>WSL 又有分1 跟 2，1 的話較為簡單，以下只示範 WSL1</p>
+<hr>
+<h2 id="安裝-WSL1"><a href="#安裝-WSL1" class="headerlink" title="安裝 WSL1"></a>安裝 WSL1</h2><p>依照官網的<strong>手動安裝步驟</strong><br>用系統管理員身分開啟 PowerShell 並輸入:<br><code>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code></p>
+<p>如下圖<br><img src="https://i.imgur.com/FgEeIdc.jpg"></p>
+<p>然後再依照說明跳到<strong>步驟6</strong>，到 Microsoft Store 搜尋 Ubuntu ，這邊選用 18.04 LTS 的版本<br><img src="https://i.imgur.com/VTHHBhF.jpg"></p>
+<p>或是點選下面附上的連結也可以<br><img src="https://i.imgur.com/aPlBSSk.png"><br>安裝好後再開啟 <strong>Ubuntu 18.04 LTS</strong></p>
+<p>如果開啟後看到以下訊息也不要慌張~<br>這代表我還未安裝 Windows 子系統</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Installing, this may take a few minutes...</span><br><span class="line">WslRegisterDistribution failed with error: 0x8007019e</span><br><span class="line">The Windows Subsystem for Linux optional component is not enabled. Please enable it and try again.</span><br><span class="line">See https://aka.ms/wslinstall for details.</span><br><span class="line">Press any key to continue...</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://i.imgur.com/2H0A0Ww.png"></p>
+<p>解決方法:<br>用系統管理員開啟 PowerShell ，並輸入以下指令<br><code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</code><br><img src="https://i.imgur.com/wVsWMYa.png"></p>
+<p><font color="#FF0000">這邊請不要急著按!!! 請先把該存檔的資料存檔在按 Y ，因為電腦會直接重新開機</font></p>
+<p>重開後會顯示要輸入使用者名字跟密碼<br><font color="#FF0000">注意! 請不要輸入特殊字元，不然會叫你重新輸入</font><br>輸入密碼時會有第二次確認，而且螢幕不會顯示出來，所以請慢慢輸入~<br>完成後會顯示下圖:<br><img src="https://i.imgur.com/YMn39pB.png"></p>
+<hr>
+<h2 id="WSL2"><a href="#WSL2" class="headerlink" title="WSL2"></a>WSL2</h2><p>WSL2 官網有特別說明，若要更新至 WSL 2，必須是 <strong>Windows 10</strong>，除此之外組建編號必須是 <font color="#FF0000">18362.1049+</font> 或 <font color="#FF0000">18363.1049+</font>這兩種版本</p>
+<p><img src="https://i.imgur.com/4GsUaf3.png"><br>確認 window 10 的版本號，確認方法是:<strong>按住 Windows + R 然後在對話方塊，接著輸入「winver」</strong><br>就會出現下圖<br><img src="https://i.imgur.com/mKs4ll2.png"></p>
+<p>因我的組建編號不符，故不更新</p>
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-tw/windows/wsl/install-win10">Windows 10 上適用於 Linux 的 Windows 子系統安裝指南</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/47541491">win10自带Bash安装的坑（Error Code: 0x8007019e，0x8000000D）</a><br><a target="_blank" rel="noopener" href="https://ed521.github.io/2019/08/hexo-markdown/">撰寫 Hexo 文章 - Markdown 語法大全</a></p>
+</body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2020/12/16/cmder/" itemprop="url">安裝套件管理工具</a>
         
     </h1>
@@ -368,7 +498,7 @@
         <span class="column is-narrow">
             
             
-            4 分钟 read (About 630 words)
+            4 分钟 lesen (Über 630 Wörter)
         </span>
         
     </div>
@@ -420,6 +550,79 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2020/12/15/ZAP/" itemprop="url">OWASP ZAP</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2020-12-14T16:00:00.000Z" itemprop="datePublished">12月 15 2020</time>
+                <span class="second-date-block"> (12月 15 2020)</span>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/ZAP/">ZAP</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            10 分钟 lesen (Über 1485 Wörter)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><h2 id="ZAP-網頁滲透工具"><a href="#ZAP-網頁滲透工具" class="headerlink" title="ZAP 網頁滲透工具"></a>ZAP 網頁滲透工具</h2><p>ZAP 測試分兩種方法: GUI 介面測試跟 Docker 測試<br>到官網下載 <a target="_blank" rel="noopener" href="https://www.zaproxy.org/download/">Cross Platform Package</a> 測試程式(此版本為 2.9.0)</p>
+<h3 id="GUI-介面測試"><a href="#GUI-介面測試" class="headerlink" title="GUI 介面測試"></a>GUI 介面測試</h3><p>開啟 GUI 前要先安裝 <a target="_blank" rel="noopener" href="https://www.oracle.com/tw/java/technologies/javase/javase-jdk8-downloads.html">jdk-8u271-windows-x64</a>，否則無法開啟，</p>
+<p>安裝好後將 Cross Platform Package 資料夾內 ZAP_2.9.0 檔開啟<br><img src="https://i.imgur.com/stovEwL.png"><br><img src="https://i.imgur.com/Al98tGQ.png"></p>
+<p>第一次開啟會問是否要將 session 存起來<br><img src="https://i.imgur.com/a8c3i5z.png"><br><a target="_blank" rel="noopener" href="https://ephrain.net/pentest-%E7%94%A8-owasp-zap-%E5%81%9A%E6%BB%B2%E9%80%8F%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%89%BE%E5%B0%8B%E7%B6%B2%E7%AB%99%E5%8F%AF%E8%83%BD%E7%9A%84%E5%BC%B1%E9%BB%9E/">圖片來源: EPH 的程式日記</a></p>
+<p>開啟後要先設定 report 的儲存位置，<br>這裡示範在桌面創建資料(report)夾並將檔名命名為 test<br><img src="https://i.imgur.com/Zeryray.png"></p>
+<p>設定 ok 後，按下 Save</p>
+<p>接下來左上角可以設定測試模式(這邊選用標準模式示範)，右邊視窗選擇掃描模式(這邊用自動掃描)<br><img src="https://i.imgur.com/jRxM6uQ.png"></p>
+<p>選擇自動掃描後，在將要測試的網址寫入<br><img src="https://i.imgur.com/X8axeQO.png"></p>
+<p>按下 Attack ，下面區塊就開始掃描了<br><img src="https://i.imgur.com/QRQpLS1.png"></p>
+<p>測試完成，左邊旗子的顏色就是威脅的等級，以下測出我們有一個中威脅跟三個低威脅<br>(威脅等級分成高中低還有訊息，高威脅的旗子會是紅色的，中威脅的旗子是橘色，低威脅的旗子是黃色)<br><img src="https://i.imgur.com/Uv0BPEg.png"></p>
+<p>點開其中一個威脅，右邊視窗會跳出(由上而下)威脅等級、問題描述、解法跟可以參考的資料<br><img src="https://i.imgur.com/MkQC55j.png"></p>
+<p>然後再依照這些提示訊息加以修正</p>
+<p>以上是使用 GUI 介面測試的示範</p>
+<hr>
+<h2 id="Docker-ZAP-測試"><a href="#Docker-ZAP-測試" class="headerlink" title="Docker ZAP 測試"></a>Docker ZAP 測試</h2><p>此測法較為詳細，<a target="_blank" rel="noopener" href="https://www.zaproxy.org/docs/docker/">ZAP Docker Documentation</a><br>掃描方法分成兩種</p>
+<h3 id="開啟虛擬機"><a href="#開啟虛擬機" class="headerlink" title="開啟虛擬機"></a>開啟虛擬機</h3><p><a target="_blank" rel="noopener" href="https://ofeyhong.pixnet.net/blog/post/221133558">BIOS 開啟方法</a><br>因為要使用 docker 就要到 BIOS 開啟虛擬機，回到桌面開啟工作管理員/效能，確認虛擬機是否有開啟，如下圖<br><img src="https://i.imgur.com/xcDrs8C.png"></p>
+<hr>
+<h3 id="安裝環境"><a href="#安裝環境" class="headerlink" title="安裝環境"></a>安裝環境</h3><p><a target="_blank" rel="noopener" href="https://www.docker.com/get-started">Docker 官網</a>下載 docker<br><img src="https://i.imgur.com/zOgNtC2.png"></p>
+<p>安裝<br><img src="https://i.imgur.com/Savy4T5.png"></p>
+<p>安裝好 docker 後，會要求重新開機</p>
+<p>接下來要用 cmd 測試，指令可參考 <a target="_blank" rel="noopener" href="https://www.zaproxy.org/docs/docker/about/">ZAP Docker User Guide</a><br>有穩定版跟每周更新版，這邊示範穩定版<br>開啟 cmd 安裝 docker zap: <code>docker pull owasp/zap2docker-stable</code></p>
+<p>等大概5~10分鐘，安裝好後如下圖<br><img src="https://i.imgur.com/yr8ncmq.png"></p>
+<p>這樣就可以開始測試了</p>
+<hr>
+<h3 id="Baseline-Scan"><a href="#Baseline-Scan" class="headerlink" title="Baseline Scan"></a>Baseline Scan</h3><p><a target="_blank" rel="noopener" href="https://www.zaproxy.org/docs/docker/">ZAP Docker Documentation</a></p>
+<p>如果只是單純測試的話可以參考官方給的範例:<br><code>docker run -t owasp/zap2docker-stable zap-baseline.py -t https://www.example.com</code></p>
+<p>由於專案關係要將測試結果做成 report 並存到指定位置，所以將指令改寫成如下:<br><code>docker run -v C:\Users\ken.tseng\Desktop\zap:/zap/wrk/ -t owasp/zap2docker-stable zap-baseline.py -t https://xxxxxx.com/ -w report_md</code></p>
+<p>將指令輸入並打開 docker ，確認是否有在 run<br><img src="https://i.imgur.com/TRDOX7S.png"><br>前面測試大概會花5~10分鐘左右，只要 docker 顯示 RUNNING 就代表有在 Run</p>
+<p>以下為測結果</p>
+<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">PASS: Cookie No HttpOnly Flag [10010]</span><br><span class="line">PASS: Cookie Without Secure Flag [10011]</span><br><span class="line">PASS: Cross-Domain JavaScript Source File Inclusion [10017]</span><br><span class="line">PASS: Content-Type Header Missing [10019]</span><br><span class="line">PASS: X-Frame-Options Header [10020]</span><br><span class="line">PASS: Information Disclosure - Debug Error Messages [10023]</span><br><span class="line">PASS: Information Disclosure - Sensitive Information in URL [10024]</span><br><span class="line">PASS: Information Disclosure - Sensitive Information in HTTP Referrer Header [10025]</span><br><span class="line">PASS: HTTP Parameter Override [10026]</span><br><span class="line">PASS: Information Disclosure - Suspicious Comments [10027]</span><br><span class="line">PASS: Open Redirect [10028]</span><br><span class="line">PASS: Cookie Poisoning [10029]</span><br><span class="line">PASS: User Controllable Charset [10030]</span><br><span class="line">PASS: User Controllable HTML Element Attribute (Potential XSS) [10031]</span><br><span class="line">PASS: Viewstate [10032]</span><br><span class="line">PASS: Directory Browsing [10033]</span><br><span class="line">PASS: Heartbleed OpenSSL Vulnerability (Indicative) [10034]</span><br><span class="line">PASS: X-Backend-Server Header Information Leak [10039]</span><br><span class="line">PASS: Secure Pages Include Mixed Content [10040]</span><br><span class="line">PASS: HTTP to HTTPS Insecure Transition in Form Post [10041]</span><br><span class="line">PASS: HTTPS to HTTP Insecure Transition in Form Post [10042]</span><br><span class="line">PASS: User Controllable JavaScript Event (XSS) [10043]</span><br><span class="line">PASS: Big Redirect Detected (Potential Sensitive Information Leak) [10044]</span><br><span class="line">PASS: Retrieved from Cache [10050]</span><br><span class="line">PASS: X-ChromeLogger-Data (XCOLD) Header Information Leak [10052]</span><br><span class="line">PASS: Cookie Without SameSite Attribute [10054]</span><br><span class="line">PASS: X-Debug-Token Information Leak [10056]</span><br><span class="line">PASS: Username Hash Found [10057]</span><br><span class="line">PASS: X-AspNet-Version Response Header [10061]</span><br><span class="line">PASS: PII Disclosure [10062]</span><br><span class="line">PASS: Timestamp Disclosure [10096]</span><br><span class="line">PASS: Hash Disclosure [10097]</span><br><span class="line">PASS: Cross-Domain Misconfiguration [10098]</span><br><span class="line">PASS: Weak Authentication Method [10105]</span><br><span class="line">PASS: Reverse Tabnabbing [10108]</span><br><span class="line">PASS: Modern Web Application [10109]</span><br><span class="line">PASS: Absence of Anti-CSRF Tokens [10202]</span><br><span class="line">PASS: Private IP Disclosure [2]</span><br><span class="line">PASS: Session ID in URL Rewrite [3]</span><br><span class="line">PASS: Script Passive Scan Rules [50001]</span><br><span class="line">PASS: Insecure JSF ViewState [90001]</span><br><span class="line">PASS: Charset Mismatch [90011]</span><br><span class="line">PASS: Application Error Disclosure [90022]</span><br><span class="line">PASS: Loosely Scoped Cookie [90033]</span><br><span class="line">WARN-NEW: Incomplete or No Cache-control and Pragma HTTP Header Set [10015] x 1</span><br><span class="line">        https://xxxxxx.com/ (200 OK)</span><br><span class="line">WARN-NEW: X-Content-Type-Options Header Missing [10021] x 2</span><br><span class="line">        https://xxxxxx.com/ (200 OK)</span><br><span class="line">        https://xxxxxx.com/favicon.ico (200 OK)</span><br><span class="line">WARN-NEW: Strict-Transport-Security Header Not Set [10035] x 4</span><br><span class="line">        https://xxxxxx.com/ (200 OK)</span><br><span class="line">        https://xxxxxx.com/robots.txt (404 Not Found)</span><br><span class="line">        https://xxxxxx.com/sitemap.xml (404 Not Found)</span><br><span class="line">        https://xxxxxx.com/favicon.ico (200 OK)</span><br><span class="line">WARN-NEW: Server Leaks Version Information via "Server" HTTP Response Header Field [10036] x 4</span><br><span class="line">        https://xxxxxx.com/ (200 OK)</span><br><span class="line">        https://xxxxxx.com/robots.txt (404 Not Found)</span><br><span class="line">        https://xxxxxx.com/sitemap.xml (404 Not Found)</span><br><span class="line">        https://xxxxxx.com/favicon.ico (200 OK)</span><br><span class="line">WARN-NEW: Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s) [10037] x 4</span><br><span class="line">        https://xxxxxx.com/ (200 OK)</span><br><span class="line">        https://xxxxxx.com/robots.txt (404 Not Found)</span><br><span class="line">        https://xxxxxx.com/sitemap.xml (404 Not Found)</span><br><span class="line">        https://xxxxxx.com/favicon.ico (200 OK)</span><br><span class="line">WARN-NEW: Content Security Policy (CSP) Header Not Set [10038] x 1</span><br><span class="line">        https://xxxxxx.com/ (200 OK)</span><br><span class="line">WARN-NEW: CSP: Wildcard Directive [10055] x 2</span><br><span class="line">        https://xxxxxx.com/robots.txt (404 Not Found)</span><br><span class="line">        https://xxxxxx.com/sitemap.xml (404 Not Found)</span><br><span class="line">FAIL-NEW: 0     FAIL-INPROG: 0  WARN-NEW: 7     WARN-INPROG: 0  INFO: 0 IGNORE: 0PASS: 44</span><br></pre></td></tr></tbody></table></figure>
+<p>測出結果有 7 項 WARN-NEW ，後面顯示有問題的項目提示，WARN-NEW 下面顯示的是有問題的 URL 有哪些，詳細的弱點描述跟解法資訊請看 report</p>
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://www.zaproxy.org/docs/">官方文件</a><br><a target="_blank" rel="noopener" href="https://ephrain.net/pentest-%E7%94%A8-owasp-zap-%E5%81%9A%E6%BB%B2%E9%80%8F%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%89%BE%E5%B0%8B%E7%B6%B2%E7%AB%99%E5%8F%AF%E8%83%BD%E7%9A%84%E5%BC%B1%E9%BB%9E/">用 OWASP ZAP 做滲透測試，找尋網站可能的弱點</a><br><a target="_blank" rel="noopener" href="https://ephrain.net/pentest-%E7%94%A8-owasp-zap-%E5%81%9A%E6%BB%B2%E9%80%8F%E6%B8%AC%E8%A9%A6%EF%BC%8C%E6%89%BE%E5%B0%8B%E7%B6%B2%E7%AB%99%E5%8F%AF%E8%83%BD%E7%9A%84%E5%BC%B1%E9%BB%9E/">EPH 的程式日記</a></p>
+</body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2020/12/13/Loading/" itemprop="url">用 Vue 做出頁面的 Loading 效果</a>
         
     </h1>
@@ -440,7 +643,7 @@
         <span class="column is-narrow">
             
             
-            4 分钟 read (About 624 words)
+            4 分钟 lesen (Über 624 Wörter)
         </span>
         
     </div>
@@ -509,7 +712,7 @@
         <span class="column is-narrow">
             
             
-            5 分钟 read (About 719 words)
+            5 分钟 lesen (Über 719 Wörter)
         </span>
         
     </div>
@@ -572,7 +775,7 @@
         <span class="column is-narrow">
             
             
-            12 分钟 read (About 1808 words)
+            12 分钟 lesen (Über 1808 Wörter)
         </span>
         
     </div>
@@ -633,186 +836,14 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/09/02/computed/" itemprop="url">計算屬性(computed)</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2020-09-02T15:24:52.567Z" itemprop="datePublished">9月 2 2020</time>
-                <span class="second-date-block"> (9月 2 2020)</span>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Vue/">Vue</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            2 分钟 read (About 253 words)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <p>計算用法:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">v-model</span>=<span class="string">&#x27;a&#x27;</span>&gt;</span></span><br><span class="line">  +</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">v-model</span>=<span class="string">&#x27;b&#x27;</span>&gt;</span></span><br><span class="line">  =</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">v-model</span>=<span class="string">&#x27;ans&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    a: 0,</span><br><span class="line">    b: 0,</span><br><span class="line">    c: 0</span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line">    ans()&#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> <span class="built_in">parseInt</span>(<span class="built_in">this</span>.a)+<span class="built_in">parseInt</span>(<span class="built_in">this</span>.b);</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/ZEWXeer?editors=1010">codepen</a><br>computed 裡面的屬性不能跟 data、methods 撞名，同樣的在 ans 不能是箭頭函式，因為用箭頭函式，那 ans 裡面的 this 就會是 window 物件</p>
-<hr>
-<p>除了簡單的計算外還有進階的用法，就是 computed 裡面除了宣告成函式外還可以宣告成物件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el:<span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  data:&#123;</span><br><span class="line">    a: <span class="number">0</span>,</span><br><span class="line">    b: <span class="number">0</span>,</span><br><span class="line">    c: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line">    ans:&#123;</span><br><span class="line">      get()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">parseInt</span>(<span class="built_in">this</span>.a)+<span class="built_in">parseInt</span>(<span class="built_in">this</span>.b);</span><br><span class="line">      &#125;,</span><br><span class="line">      set(val)&#123;</span><br><span class="line">        <span class="built_in">this</span>.b = <span class="built_in">parseInt</span>(val) - <span class="built_in">parseInt</span>(<span class="built_in">this</span>.a)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/OJNxmGo?editors=1010">codepen</a><br>get 是指，當我需要 ans 值的時候，就會用 get 呼叫函式，取出 return 的值</p>
-<p>set 是指，當我設定某個值到 ans 的時候，要用 set 的函式，那 set 函式它吃一個值( value )，範例是當我設定 ans 的時候就要算出 a or b 的值</p>
-<hr>
-<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/08/30/router/" itemprop="url">Vue-Router</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2020-08-30T11:55:58.883Z" itemprop="datePublished">8月 30 2020</time>
-                <span class="second-date-block"> (8月 30 2020)</span>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Vue/">Vue</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            10 分钟 read (About 1564 words)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <h2 id="新增路由路徑及連結"><a href="#新增路由路徑及連結" class="headerlink" title="新增路由路徑及連結"></a>新增路由路徑及連結</h2><p><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/installation.html"> Vue-router:官方文件</a></p>
-<p>透過切換網址來決定要顯示的組件內容，而切換網址就要用 router 來幫你達成!</p>
-<p>在終端機切換到自己命名的資料夾並安裝 <code>npm install vue-router --save</code></p>
-<p>到 index.js 引入 <code>Vue.use()</code> ，啟用路由功能</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">//以上為官方元件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 這邊路徑就是左邊檔案路徑，保險起見一律都不加 .vue 字尾!!!</span></span><br><span class="line"><span class="comment">// 路徑除了 from 要加入根目錄的 &#x27;@&#x27; 以外，其他地方不要加</span></span><br><span class="line"><span class="keyword">import</span> home <span class="keyword">from</span> <span class="string">&#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line"><span class="keyword">import</span> page <span class="keyword">from</span> <span class="string">&#x27;@/components/pages/page&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter); <span class="comment">//路由啟用。這行很重要!!</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  <span class="comment">// 這邊路徑是自訂的</span></span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">&quot;元件呈現的名稱&quot;</span>, </span><br><span class="line">      path: <span class="string">&quot;對應的虛擬路徑&quot;</span>, </span><br><span class="line">      component: 對應的元件, </span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">&#x27;/index&#x27;</span>,</span><br><span class="line">      name: <span class="string">&#x27;home&#x27;</span>,</span><br><span class="line">      component: home</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">&#x27;/page&#x27;</span>,</span><br><span class="line">      name: <span class="string">&#x27;page&#x27;</span>,</span><br><span class="line">      component: page</span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><a href="export:">export 解釋</a><br>路由載入完啟用後，再到 main.js 載入路由配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&quot;./router&quot;</span>; <span class="comment">//新增這行</span></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: <span class="string">&#x27;&lt;App/&gt;&#x27;</span>,</span><br><span class="line">  router, <span class="comment">//跟這行</span></span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>這邊示範一下透過設定的路徑來顯示組件內容</p>
-<p>因為首頁(HelloWorld.vue)的路徑(path)我定義為 /index ，<br>所以在網址上如果沒有輸入定義路徑會顯示下圖<br><img src="https://i.imgur.com/OpDIjWn.png"><br>可以看到，畫面只會顯示 app.vue 的圖片沒有其他內容，但如果在網址後面輸入 /index ，就會顯示下圖<br><img src="https://i.imgur.com/s8j7vel.png"><br>這樣就可以看到 HelloWorld.vue 的內容</p>
-<hr>
-<h4 id="接下來使用-BS4-套件，來快速顯示組件的內容"><a href="#接下來使用-BS4-套件，來快速顯示組件的內容" class="headerlink" title="接下來使用 BS4 套件，來快速顯示組件的內容"></a>接下來使用 BS4 套件，來快速顯示組件的內容</h4><p>首先，在 index.html 引入 <a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/4.4/getting-started/introduction/">BS4</a> cdn<br>有分頁才會有不同路徑，所以在 components 底下新增 pages 資料夾，裡面新增 page.vue<br><img src="https://i.imgur.com/u1kUcmR.png"></p>
-<p>到 page.vue 新增模板記得在模板內加上 div (這邊用 hello 標籤示範)。<br>接著在標籤內貼上 BS4 套件(這邊用 card 套件示範)，<code>src</code> 裡面的 …記得刪除!!，不然會錯誤!!</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hello&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 18rem;&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;card-img-top&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;...&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card-body&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h5</span> <span class="attr">class</span>=<span class="string">&quot;card-title&quot;</span>&gt;</span>Card title<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;card-text&quot;</span>&gt;</span>Some quick example text to build on the card title and make up the bulk of the card&#x27;s content.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn btn-primary&quot;</span>&gt;</span>Go somewhere<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>再來要製做可以切換組件內容的 navbar<br>先把 app.vue 內容刪除，留下 app 標籤跟 router-view，img 也可以留下做分隔，<br>並在裡面套入 BS4 導覽列套件，然後把不要的內容刪掉並補上 vue 的連結標籤，這邊的連結已經不是&lt; a href=”#” &gt; 了，而是 <code>router-link</code> ，連結路徑用 <code>to</code> ，這個路徑是 index.js 裡面自定義的路徑，記得要寫 router-view 這樣才可以顯示組件，如下圖</p>
-<blockquote>
-<p>這邊說明一下 router-view：<br>router-view 是呈現 router/index.js 裡面的元件，<br>而 router/index.js 是設定各元件之間的連結</p>
-</blockquote>
-<p><img src="https://i.imgur.com/mJyGWw8.png"></p>
-<p>完成後會看到畫面如下<br><img src="https://i.imgur.com/MkY1IT5.png"><br>沒有任何組件，因為網址還沒輸入任何自定義路徑</p>
-<p>按一下 index，會顯示下圖<br><img src="https://i.imgur.com/qNPA2Nv.png"></p>
-<p>按一下 page，會顯示下圖<br><img src="https://i.imgur.com/C7LFYrj.png"></p>
-<hr>
-<h2 id="製作巢狀路由頁面"><a href="#製作巢狀路由頁面" class="headerlink" title="製作巢狀路由頁面"></a>製作巢狀路由頁面</h2><p>接下來要做巢狀路由</p>
-<p><strong>注意!!!!在巢狀裡面一律不加斜號 ‘/‘ !!!</strong></p>
-<p><a target="_blank" rel="noopener" href="https://dotblogs.com.tw/wasichris/2017/03/06/235449">參考文件</a><br>繼續在 pages 資料夾下新建立3個組件(這邊用 childX 示範)，然後再引入 BS4 套件的，只是要辨別而以所以用簡單的 alert 套件就好(其實是懶)</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">這是 child1 範本</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;alert alert-primary&quot;</span> <span class="attr">role</span>=<span class="string">&quot;alert&quot;</span>&gt;</span></span><br><span class="line">      child1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/yWI4RJb.png"></p>
-<p>因為我們要在 page 裡面切換 child 組件，所以先把 card 套件內的內容通通刪掉並補上 <code>router-view</code> </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hello&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 18rem;&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>接下來要自定義路徑，但這是巢狀路徑，所以要在 page 底下加上 children，這 children 是使用陣列，裡面內容就跟外面的物件一樣，但在的第一個子元件的路徑可以是空直，這樣只要切到 page 頁面就會自動載入 child1 元件，子元件下陣列內的路徑也甭加 ‘/‘ ，直接寫路徑名字就好。<br>下面組件新增完後上面也要引入組件路徑。<br>範例如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="comment">//以上為官方元件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 這邊路徑就是左邊檔案路徑</span></span><br><span class="line"><span class="keyword">import</span> home <span class="keyword">from</span> <span class="string">&#x27;@/components/HelloWorld&#x27;</span></span><br><span class="line"><span class="keyword">import</span> page <span class="keyword">from</span> <span class="string">&#x27;@/components/pages/page&#x27;</span></span><br><span class="line"><span class="keyword">import</span> child1 <span class="keyword">from</span> <span class="string">&#x27;@/components/pages/child1&#x27;</span></span><br><span class="line"><span class="keyword">import</span> child2 <span class="keyword">from</span> <span class="string">&#x27;@/components/pages/child2&#x27;</span></span><br><span class="line"><span class="keyword">import</span> child3 <span class="keyword">from</span> <span class="string">&#x27;@/components/pages/child3&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.use(Router) <span class="comment">// 路由啟用。這行很重要!!</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  <span class="comment">// 這邊路徑是自訂的</span></span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">&#x27;/index&#x27;</span>, <span class="comment">//對應的虛擬路徑</span></span><br><span class="line">      name: <span class="string">&#x27;home&#x27;</span>, <span class="comment">//元件呈現的名稱</span></span><br><span class="line">      component: home <span class="comment">//對應的元件</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">&#x27;/page&#x27;</span>, <span class="comment">//對應的虛擬路徑</span></span><br><span class="line">      name: <span class="string">&#x27;page&#x27;</span>,<span class="comment">//元件呈現的名稱</span></span><br><span class="line">      component: page,<span class="comment">//對應的元件</span></span><br><span class="line">      children: [</span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;&#x27;</span>, <span class="comment">//對應的虛擬路徑</span></span><br><span class="line">          name: <span class="string">&#x27;child1&#x27;</span>,<span class="comment">//元件呈現的名稱</span></span><br><span class="line">          component: child1,<span class="comment">//對應的元件</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;child2&#x27;</span>,<span class="comment">//對應的虛擬路徑</span></span><br><span class="line">          name: <span class="string">&#x27;child2&#x27;</span>,<span class="comment">//元件呈現的名稱</span></span><br><span class="line">          component: child2,<span class="comment">//對應的元件</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">&#x27;child3&#x27;</span>,<span class="comment">//對應的虛擬路徑</span></span><br><span class="line">          name: <span class="string">&#x27;child3&#x27;</span>,<span class="comment">//元件呈現的名稱</span></span><br><span class="line">          component: child3,<span class="comment">//對應的元件</span></span><br><span class="line">        &#125;,</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>OK，到目前為止我們只要切換網址就可以看到 child 組件了，先試試 page 頁<br>我有在 app.vue 用 container 限制寬並置中<br><img src="https://i.imgur.com/VQac8sW.png"></p>
-<p>可以看到目前在 page 頁，並自動帶入 child1<br>輸入 child2 如下圖<br><img src="https://i.imgur.com/Oo9tIoy.png"></p>
-<p>接下來要在 page 頁面下新增子分頁的連結，</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hello&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/page/&quot;</span>&gt;</span>child1<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/page/child2&quot;</span>&gt;</span>child2<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/page/child3&quot;</span>&gt;</span>child3<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">&lt;!--     也可以用 v-bind 動態綁定 name 的方式來連結路徑，下面示範 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">&quot;&#123; name: &#x27;child3&#x27; &#125;&quot;</span>&gt;</span>child3<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 18rem;&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>結果如下圖，本想把 card 套件移除，但發現他剛好可以把 alert 套件框住不會滿版，就索性留著<br><img src="https://i.imgur.com/KsCUrFh.png"><br>然後注意網址!!!<br>在點擊子組件的時候就會切換到自訂義的網址，同時也顯示不同子頁面<br><img src="https://i.imgur.com/vEjYlxE.png"><br><img src="https://i.imgur.com/0hV0ukO.png"></p>
-<hr>
-<h3 id="參考資料："><a href="#參考資料：" class="headerlink" title="參考資料："></a>參考資料：</h3><h3 id="Vue-出電商網站"><a href="#Vue-出電商網站" class="headerlink" title="Vue 出電商網站"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/670031/lectures/11949226">Vue 出電商網站</a></h3><h3 id="Vue-官方文件"><a href="#Vue-官方文件" class="headerlink" title="Vue 官方文件"></a><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/#html">Vue 官方文件</a></h3><h3 id="搞搞就懂部落格"><a href="#搞搞就懂部落格" class="headerlink" title="搞搞就懂部落格"></a><a target="_blank" rel="noopener" href="https://dotblogs.com.tw/wasichris/2017/03/06/235449">搞搞就懂部落格</a></h3>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/08/25/data%E5%BF%85%E9%A0%88%E6%98%AF%E5%87%BD%E6%95%B8/" itemprop="url">data必須是函數</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2020-08-25T15:15:54.834Z" itemprop="datePublished">8月 25 2020</time>
-                <span class="second-date-block"> (8月 25 2020)</span>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Vue/">Vue</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 分钟 read (About 170 words)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <h2 id="data-必須是函數"><a href="#data-必須是函數" class="headerlink" title="data 必須是函數"></a>data 必須是函數</h2><p>範例為簡單的計數器<br>在第8行用 data 來 return 一個物件，這時的 data 必須是函式。<br>如果 data 是物件的話，那 counter 是不會被宣告兩次的，但如果 data 是函式的時候，每次只要執行 +1 都會 return 出一個新物件，這樣組件在使用的時候，就不會同時被影響，因為 return 出來的物件都會是新建立的物件</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&#x27;app&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">counter</span>&gt;</span><span class="tag">&lt;/<span class="name">counter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">counter</span>&gt;</span><span class="tag">&lt;/<span class="name">counter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&#x27;counter&#x27;</span>,&#123;</span></span><br><span class="line">  data()&#123;</span><br><span class="line"><span class="javascript">    <span class="keyword">return</span>&#123;</span></span><br><span class="line">      count: 0,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template:`</span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><span class="template-variable">&#123;&#123;<span class="name">count</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&#x27;count+=1&#x27;</span>&gt;</span>+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span>`</span></span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el:<span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/PoNppeB?editors=1011">codepen</a><br><img src="https://i.imgur.com/U9YN08F.png"></p>
-<hr>
-<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
     <div class="pagination-previous is-invisible is-hidden-mobile">
-        <a href="/page/0/">Prev</a>
+        <a href="/page/0/">Vorheriges</a>
     </div>
     <div class="pagination-next">
-        <a href="/page/2/">Next</a>
+        <a href="/page/2/">Nächstes</a>
     </div>
     <ul class="pagination-list is-hidden-mobile">
         
@@ -821,6 +852,8 @@
         <li><a class="pagination-link" href="/page/2/">2</a></li>
         
         <li><a class="pagination-link" href="/page/3/">3</a></li>
+        
+        <li><a class="pagination-link" href="/page/4/">4</a></li>
         
     </ul>
 </nav>
@@ -1006,7 +1039,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Suche etwas..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -1019,10 +1052,10 @@
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
+                PAGES: 'Seiten',
+                CATEGORIES: 'Kategorien',
                 TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                UNTITLED: '(Sans Titre)',
             },
             CONTENT_URL: '/content.json',
         };
