@@ -1,17 +1,15 @@
+
+
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>Vue出電商網站-1 | PK&#39;s 回憶錄</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  <meta name="keywords" content="Vue" />
-  
-  
-  
-  
-  <meta name="description" content="註冊課程專屬練習 API、啟用一個 Vue Cli 並且 引用帶入專屬 API、引用 Bootstrap 套件，並客製化樣式">
+<html lang="zh-TW">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content="每記錄一次就會比昨天的自己更加厲害">
+    <title>Vue出電商網站-1 | PK&#39;s 回憶錄</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="註冊課程專屬練習 API、啟用一個 Vue Cli 並且 引用帶入專屬 API、引用 Bootstrap 套件，並客製化樣式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue出電商網站-1">
 <meta property="og:url" content="https://pktseng.github.io/2020/09/04/%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99-1/index.html">
@@ -46,125 +44,128 @@
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.imgur.com/TU0kFnx.jpg">
-  
-  <link rel="icon" href="/css/images/favicon.ico">
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
-  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-  <style type="text/css">
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "PKTseng",
+  "url": "https://pktseng.github.io"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
     
-  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+</script>
 
-  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
-  
-<link rel="stylesheet" href="/css/style.css">
+    
 
-
-  
-<script src="/js/jquery-3.1.1.min.js"></script>
-
-
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
-  <link rel="stylesheet" href="/css/fashion.css" >
-  <link rel="stylesheet" href="/css/glyphs.css" >
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
 
 <meta name="generator" content="Hexo 5.0.2"></head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
 
-
-
-  <body data-spy="scroll" data-target="#toc" data-offset="50">
-
-
-  
-
-
-<header id="allheader" class="site-header" role="banner" 
-   >
-  <div class="clearfix container">
-      <div class="site-branding">
-
-          <h1 class="site-title">
-            
-              <a href="/" title="PK&#39;s 回憶錄" rel="home"> PK&#39;s 回憶錄 </a>
-            
-          </h1>
-          
-          
-            <div class="site-description">每記錄一次就會比昨天的自己更加厲害</div>
-          
-            
-          <nav id="main-navigation" class="main-navigation" role="navigation">
-            <a class="nav-open">Menu</a>
-            <a class="nav-close">Close</a>
-
-            <div class="clearfix sf-menu">
-              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/"> <a class="" href="/">首頁</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="archives"> <a class="" href="/archives">彙整</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="categories"> <a class="" href="/categories">分類</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="tags"> <a class="" href="/tags">標籤</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="about"> <a class="" href="/about">關于</a> </li>
-                    
-              </ul>
-            </div>
-          </nav>
-
-      </div>
-  </div>
-</header>
-
-
-  <div id="container">
-    <div id="wrap">
-            
-      <div id="content" class="outer">
-        
-          <section id="main" style="float:none;"><article id="post-電商網站-1" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" class="article-title" itemprop="name">
-      Vue出電商網站-1
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/09/04/%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99-1/" class="article-date">
-	  <time datetime="2020-09-04T10:57:46.887Z" itemprop="datePublished">九月 4, 2020</time>
-	</a>
-
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99/">電商網站</a>
- 
-      
-	<span id="busuanzi_container_page_pv">
-	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-	</span>
-
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
     </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="相關文件"><a href="#相關文件" class="headerlink" title="相關文件"></a>相關文件</h2><p><a target="_blank" rel="noopener" href="https://vue-course-api.hexschool.io/">API</a><br><a target="_blank" rel="noopener" href="https://github.com/hexschool/vue-course-api-wiki/wiki">文件</a><br><a target="_blank" rel="noopener" href="https://github.com/hexschool/vue-course-api-wiki/wiki/%E9%80%B2%E5%BA%A6-Commit">進度commit</a></p>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>PK&#39;s 回憶錄</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpg">
+                </div>
+                <div class="content">
+                    <a class="header">PKTseng</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item" >
+        <i class="home icon"></i>
+        HOME
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-電商網站-1" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    Vue出電商網站-1
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <h2 id="相關文件"><a href="#相關文件" class="headerlink" title="相關文件"></a>相關文件</h2><p><a target="_blank" rel="noopener" href="https://vue-course-api.hexschool.io/">API</a><br><a target="_blank" rel="noopener" href="https://github.com/hexschool/vue-course-api-wiki/wiki">文件</a><br><a target="_blank" rel="noopener" href="https://github.com/hexschool/vue-course-api-wiki/wiki/%E9%80%B2%E5%BA%A6-Commit">進度commit</a></p>
 <p>由於 Google Chrome 在後續 80 版本後會預設封鎖第三方 Cookie，所以在登入 Vue 課程 API 就會出現無法登入的問題，在這邊老師也補充相關解決方式<br><a target="_blank" rel="noopener" href="https://paper.dropbox.com/doc/Vue-API-28OrjdvBouPMjspZUM7h7">連結</a></p>
 <hr>
 <h2 id="啟用一個-Vue-Cli-並且-引用帶入專屬-API"><a href="#啟用一個-Vue-Cli-並且-引用帶入專屬-API" class="headerlink" title="啟用一個 Vue Cli 並且 引用帶入專屬 API"></a>啟用一個 Vue Cli 並且 引用帶入專屬 API</h2><h4 id="申請-API-，並載入"><a href="#申請-API-，並載入" class="headerlink" title="申請 API ，並載入"></a>申請 API ，並載入</h4><p>先申請 API ，取得資料<br>再安裝 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/vue-axios">Vue-Axios</a> ，然後把 Vue-Axios 載入到 main.js<br><strong>main.js 載入順序是第三方套件盡量往上放，下面再放自己撰寫的組件</strong></p>
@@ -209,210 +210,121 @@
 <p>如果不想讓各組件之間的樣式互相影響的話就必須在 style 加上 scoped ! </p>
 <hr>
 <h2 id="資料來源-Vue-出電商網站"><a href="#資料來源-Vue-出電商網站" class="headerlink" title="資料來源: Vue 出電商網站"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/670031/lectures/11949315">資料來源: Vue 出電商網站</a></h2>
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99/">電商網站</a>
+                        
+                    </div>
 
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
+                    
+                    
+                    
 
-      
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2020-09-04T10:57:46.887Z" itemprop="datePublished">2020-09-04</time>
+
+    </span>
+    <span class="post-description-item">
         
-	<div id="comment">
-		<!-- 来必力City版安装代码 -->
-		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
-		<script type="text/javascript">
-		   (function(d, s) {
-		       var j, e = d.getElementsByTagName(s)[0];
 
-		       if (typeof LivereTower === 'function') { return; }
+    <span>
+        <i class="tags icon"></i>
+    </span>
 
-		       j = d.createElement(s);
-		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-		       j.async = true;
-
-		       e.parentNode.insertBefore(j, e);
-		   })(document, 'script');
-		</script>
-		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-		</div>
-		<!-- City版安装代码已完成 -->
-	</div>
-
-
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
     
-<nav id="article-nav">
-  
-    <a href="/2020/12/03/%E4%B8%B2%E6%8E%A5%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%20API/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          串接上傳檔案 API
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/09/02/computed/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">計算屬性(computed)</div>
-    </a>
-  
-</nav>
+    <span class="ui tiny label">
+        <a href="/tags/Vue/">Vue</a>
+    </span>
 
-  
-</article>
-
-<!-- Table of Contents -->
-
-  <aside id="sidebar">
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目錄</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E9%97%9C%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">相關文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%95%9F%E7%94%A8%E4%B8%80%E5%80%8B-Vue-Cli-%E4%B8%A6%E4%B8%94-%E5%BC%95%E7%94%A8%E5%B8%B6%E5%85%A5%E5%B0%88%E5%B1%AC-API"><span class="nav-number">2.</span> <span class="nav-text">啟用一個 Vue Cli 並且 引用帶入專屬 API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%B3%E8%AB%8B-API-%EF%BC%8C%E4%B8%A6%E8%BC%89%E5%85%A5"><span class="nav-number">2.0.1.</span> <span class="nav-text">申請 API ，並載入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-API-%E8%B7%AF%E5%BE%91%EF%BC%8C%E7%A2%BA%E8%AA%8D%E6%98%AF%E5%90%A6%E6%9C%89%E6%8A%93%E5%88%B0"><span class="nav-number">2.0.2.</span> <span class="nav-text">修改 API 路徑，確認是否有抓到</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%87%E8%B7%AF%E5%BE%91%E6%94%B9%E6%88%90%E5%AD%97%E4%B8%B2%E6%A8%A1%E6%9D%BF-%E8%AE%8A%E6%95%B8"><span class="nav-number">2.0.3.</span> <span class="nav-text">將路徑改成字串模板+變數</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8-Bootstrap-%E5%A5%97%E4%BB%B6%EF%BC%8C%E4%B8%A6%E5%AE%A2%E8%A3%BD%E5%8C%96%E6%A8%A3%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">引用 Bootstrap 套件，並客製化樣式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E8%B3%87%E6%96%99%E5%A4%BE%EF%BC%8C%E6%96%B0%E5%A2%9E%E6%AA%94%E6%A1%88%EF%BC%8C%E6%8B%89%E9%80%A3%E7%B5%90"><span class="nav-number">3.0.1.</span> <span class="nav-text">建立資料夾，新增檔案，拉連結</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scoped"><span class="nav-number">3.0.2.</span> <span class="nav-text">scoped</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90-Vue-%E5%87%BA%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99"><span class="nav-number">4.</span> <span class="nav-text">資料來源: Vue 出電商網站</span></a></li></ol>
-    
-    </div>
-  </aside>
-</section>
-        
-      </div>
 
-    </div>
-    <!-- <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/categories" class="mobile-nav-link">Categories</a>
-  
-    <a href="/tags" class="mobile-nav-link">Tags</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
-  
-</nav> -->
-    <footer id="footer" class="site-footer">
-  
-
-  <div class="clearfix container">
-      <div class="site-info">
-	      &copy; 2021 PK&#39;s 回憶錄 All Rights Reserved.
-        
-            <span id="busuanzi_container_site_uv">
-              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
-              本站总访问量<span id="busuanzi_value_site_pv"></span>次
-            </span>
-          
-      </div>
-      <div class="site-credit">
-        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
-      </div>
-  </div>
-</footer>
-
-
-<!-- min height -->
-
-<script>
-    var wrapdiv = document.getElementById("wrap");
-    var contentdiv = document.getElementById("content");
-
-    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
-    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
-
-
-    <!-- headerblur min height -->
-    
-    
-</script>
-    
-<div style="display: none;">
-  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+    </span>
 </div>
 
-<!-- mathjax config similar to math.stackexchange -->
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
+                <a href="/2020/12/03/%E4%B8%B2%E6%8E%A5%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%20API/" class="ui tiny button">
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
+                    <i class="angle left icon"></i>
+                    
+                    串接上傳檔案 API
+                    
 
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+                </a>
 
+                
+            </div>
+            <div class="column nav-right">
+                
 
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+                <a href="/2020/09/02/computed/" class="ui tiny button">
+                    
+                    計算屬性(computed)
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
 
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+</div>
+                
+            </div>
 
+            
+            <div class="three wide computer three wide tablet column">
 
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    <ol class="ui ordered list"><li><a href="#相關文件"><span>相關文件</span></a></li><li><a href="#啟用一個-Vue-Cli-並且-引用帶入專屬-API"><span>啟用一個 Vue Cli 並且 引用帶入專屬 API</span></a><ol><li><a href="#申請-API-，並載入"><span>申請 API ，並載入</span></a></li><li><a href="#修改-API-路徑，確認是否有抓到"><span>修改 API 路徑，確認是否有抓到</span></a></li><li><a href="#將路徑改成字串模板-變數"><span>將路徑改成字串模板+變數</span></a></li></ol></li></ol></li><li><a href="#引用-Bootstrap-套件，並客製化樣式"><span>引用 Bootstrap 套件，並客製化樣式</span></a><ol><li><a href="#建立資料夾，新增檔案，拉連結"><span>建立資料夾，新增檔案，拉連結</span></a></li><li><a href="#scoped"><span>scoped</span></a></li></ol></li></ol></li><li><a href="#資料來源-Vue-出電商網站"><span>資料來源: Vue 出電商網站</span></a></li></ol>
+                </div>
 
+            </div>
+            
 
-<script src="/js/script.js"></script>
-
-
-<script src="/js/bootstrap.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-
-
-
+        </div>
+    </div>
+</div>
 
 
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2021 <a href="/">PKTseng</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a
+                href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
 
-  <div style="display: none;">
-    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
-  </div>
-
-
-
-	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-	</script>
+    </div>
 
 
 
 
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
 
 
-  </div>
 
-  <a id="rocket" href="#top" class=""></a>
-  <script type="text/javascript" src="/js/totop.js" async=""></script>
 </body>
 </html>
