@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    
+<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>用 vue 做出頁面的 loading 效果 | PK&#39;s 回憶錄</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Vue" />
+  
+  
+  
+  
+  <meta name="description" content="製作網頁局部或是全域的 Loading 效果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Vue 做出頁面的 Loading 效果">
+<meta property="og:url" content="https://pktseng.github.io/2020/12/13/Loading/index.html">
+<meta property="og:site_name" content="PK&#39;s 回憶錄">
+<meta property="og:description" content="製作網頁局部或是全域的 Loading 效果">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/NxbUi4i.png">
+<meta property="og:image" content="https://i.imgur.com/cLak0kf.png">
+<meta property="og:image" content="https://i.imgur.com/kX4o8Kv.png">
+<meta property="og:image" content="https://i.imgur.com/SKEI2vd.png">
+<meta property="og:image" content="https://i.imgur.com/fszYHjw.png">
+<meta property="og:image" content="https://i.imgur.com/jBEiM1M.png">
+<meta property="og:image" content="https://i.imgur.com/t3XKdnP.png">
+<meta property="og:image" content="https://i.imgur.com/oQk38Gg.png">
+<meta property="og:image" content="https://i.imgur.com/doiggrR.png">
+<meta property="article:published_time" content="2020-12-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-14T11:34:03.916Z">
+<meta property="article:author" content="PKTseng">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/NxbUi4i.png">
+  
+    <link rel="alternate" href="/atom.xml" title="PK&#39;s 回憶錄" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/my.css">
+
+  <!-- Google Adsense -->
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+  
+<meta name="generator" content="Hexo 5.0.2"></head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "首頁"; 
+
+  themeMenus["/archives"] = "彙整"; 
+
+  themeMenus["/categories"] = "分類"; 
+
+  themeMenus["/tags"] = "標籤"; 
+
+  themeMenus["/about"] = "關于"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="PK&#39;s 回憶錄" rel="home"> PK&#39;s 回憶錄 </a>
+            
+          </h1>
+
+          
+            <div class="site-description">每記錄一次就會比昨天的自己更加厲害</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">首頁</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">彙整</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">分類</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">標籤</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">關于</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Loading" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      用 Vue 做出頁面的 Loading 效果
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2020/12/13/Loading/" class="article-date">
+	  <time datetime="2020-12-12T16:00:00.000Z" itemprop="datePublished">十二月 13, 2020</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://github.com/ankurk91/vue-loading-overlay">vue-loading-overlay</a><br>首先安裝 npm: <code>npm install vue-loading-overlay</code><br>再到 main.js 載入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Import component</span></span><br><span class="line"><span class="keyword">import</span> Loading <span class="keyword">from</span> <span class="string">&#x27;vue-loading-overlay&#x27;</span>;</span><br><span class="line"><span class="comment">// Import stylesheet</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;vue-loading-overlay/dist/vue-loading.css&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 因為是全域每個 component 都會用，所以用 Vue.component</span></span><br><span class="line">Vue.component(<span class="string">&#x27;Loading&#x27;</span>, Loading)</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/NxbUi4i.png"></p>
+<hr>
+<h2 id="全域Loading"><a href="#全域Loading" class="headerlink" title="全域Loading"></a>全域Loading</h2><p>接下來要在 components 裡面加入讀取的判斷式跟綁定<br>先將 lading 預設好，只有在等待的時間下才會轉 <code> isLoading: false,</code></p>
+<p><img src="https://i.imgur.com/cLak0kf.png"></p>
+<p>然後把範例拿過來用 </p>
+<p>在div 內一層加上 <code>&lt;loading :active.sync=&quot;isLoading&quot;&gt;&lt;/loading&gt;</code></p>
+<p><img src="https://i.imgur.com/kX4o8Kv.png"></p>
+<p>接下來要在 AJAX 的行為上面新增 <code> isLoading: false,</code><br>在啟用 <code>getProducts</code> 的時候就會觸發 loading ( true )，在完成的時候結束( false )<br>範例如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">getProducts() &#123;</span><br><span class="line">  <span class="keyword">const</span> api = <span class="string">`<span class="subst">$&#123;process.env.APIPATH&#125;</span>/api/<span class="subst">$&#123;process.env.MYPATH&#125;</span>/products`</span></span><br><span class="line">  <span class="built_in">this</span>.isLoading = <span class="literal">true</span></span><br><span class="line">  <span class="built_in">this</span>.$http.get(api).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.products = response.data.products</span><br><span class="line">    <span class="built_in">this</span>.isLoading = <span class="literal">false</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>然後再重新整理，畫面中間就會出現 Loading 的效果，<br>再試試按下編輯或是新增然後直接按下確認也會有 Loading 的效果</p>
+<p>這樣全域就完成了!!</p>
+<hr>
+<h2 id="局部-Loading"><a href="#局部-Loading" class="headerlink" title="局部 Loading"></a>局部 Loading</h2><p>再來要做局部的，我們要在新增或是編輯圖片那邊加上 loading 的效果</p>
+<p>要加的地方在下圖紅框處<br><img src="https://i.imgur.com/SKEI2vd.png"></p>
+<p>這邊偷懶一下直接用 CDN 載入 <a target="_blank" rel="noopener" href="https://cdnjs.com/libraries/font-awesome">font-awesome</a> 到 index.html</p>
+<p><img src="https://i.imgur.com/fszYHjw.png"><br><img src="https://i.imgur.com/jBEiM1M.png"></p>
+<p>然後再到 <a target="_blank" rel="noopener" href="https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons">Animating Icons</a> 選一個自己喜歡的 loading 樣式<br>這邊用 <code>fa-spinner fa-spin</code> 作範例<br>因為要在上傳圖片的旁邊顯示 laoding 效果，所以我們把 <code>fa-spinner fa-spin</code> 加在 label 旁邊，</p>
+<p><img src="https://i.imgur.com/t3XKdnP.png"></p>
+<p>再到 data 函式加入決定局部 loading 的變數</p>
+<p><img src="https://i.imgur.com/oQk38Gg.png"></p>
+<p>再到模板那邊用 v-if 判斷做動態綁定</p>
+<p><img src="https://i.imgur.com/doiggrR.png"></p>
+<p>然後在上傳圖片的函示( uploadImg )內加入局部 loading 判斷</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">uploadImg() &#123;</span><br><span class="line">    <span class="comment">// 在拉圖片進去讀取的時候 fileUpLoading 會是 true</span></span><br><span class="line">  <span class="built_in">this</span>.status.fileUpLoading =  <span class="literal">true</span></span><br><span class="line">  <span class="keyword">const</span> uploadFile = <span class="built_in">this</span>.$refs.files.files[<span class="number">0</span>]</span><br><span class="line">  <span class="keyword">const</span> formData = <span class="keyword">new</span> FormData()</span><br><span class="line">  formData.append(<span class="string">&#x27;file-to-upload&#x27;</span>, uploadFile)</span><br><span class="line">  <span class="comment">//接下來定義路徑</span></span><br><span class="line">  <span class="keyword">const</span> url = <span class="string">`<span class="subst">$&#123;process.env.APIPATH&#125;</span>/api/<span class="subst">$&#123;process.env.MYPATH&#125;</span>/admin/upload`</span></span><br><span class="line">  <span class="built_in">this</span>.$http</span><br><span class="line">    .post(url, formData, &#123;</span><br><span class="line">      headers: &#123;</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;multipart/form-data&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(res.data)</span><br><span class="line">      <span class="comment">// AJAX 結束後 fileUpLoading 就 false</span></span><br><span class="line">      <span class="built_in">this</span>.status.fileUpLoading = <span class="literal">false</span></span><br><span class="line">      <span class="keyword">if</span> (res.data.success) &#123;</span><br><span class="line">        <span class="comment">// this.tempProduct.imgUrl = res.data.imageUrl</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.tempProduct)</span><br><span class="line">        <span class="built_in">this</span>.$set(<span class="built_in">this</span>.tempProduct, <span class="string">&#x27;imgUrl&#x27;</span>, res.data.imageUrl)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="資料來源-Vue-出電商網站"><a href="#資料來源-Vue-出電商網站" class="headerlink" title="資料來源: Vue 出電商網站"></a><a target="_blank" rel="noopener" href="https://www.udemy.com/course/vue-hexschool/learn/lecture/10896746#questions">資料來源: Vue 出電商網站</a></h2>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: '打賞支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/12/15/zh-tw/ZAP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          OWASP ZAP
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/12/03/%E4%B8%B2%E6%8E%A5%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88%20API/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">串接上傳檔案 API</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
+    <strong class="toc-title">文章目錄</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E5%9F%9FLoading"><span class="nav-number">1.</span> <span class="nav-text">全域Loading</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%80%E9%83%A8-Loading"><span class="nav-number">2.</span> <span class="nav-text">局部 Loading</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90-Vue-%E5%87%BA%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99"><span class="nav-number">3.</span> <span class="nav-text">資料來源: Vue 出電商網站</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2021 PK&#39;s 回憶錄 All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+
+<script src="/js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>

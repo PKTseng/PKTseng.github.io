@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    
+<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>javascript 核心篇-執行環境 | PK&#39;s 回憶錄</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="執行環境" />
+  
+  
+  
+  
+  <meta name="description" content="介紹 Javascript 如何執行跟作用域">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript 核心篇-執行環境">
+<meta property="og:url" content="https://pktseng.github.io/2020/08/13/20200813-javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/index.html">
+<meta property="og:site_name" content="PK&#39;s 回憶錄">
+<meta property="og:description" content="介紹 Javascript 如何執行跟作用域">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/lATjYBE.png">
+<meta property="og:image" content="https://i.imgur.com/lbU8OCA.png">
+<meta property="og:image" content="https://i.imgur.com/uXG14Oe.png">
+<meta property="og:image" content="https://i.imgur.com/GRULStI.png">
+<meta property="og:image" content="https://i.imgur.com/I8kQ3ob.png">
+<meta property="og:image" content="https://i.imgur.com/32RDACz.png">
+<meta property="og:image" content="https://i.imgur.com/ddWNmYt.png">
+<meta property="og:image" content="https://i.imgur.com/uPdFhSw.png">
+<meta property="og:image" content="https://i.imgur.com/FwfUh7L.png">
+<meta property="og:image" content="https://i.imgur.com/2aFzBGJ.png">
+<meta property="og:image" content="https://i.imgur.com/iVYdmVA.png">
+<meta property="og:image" content="https://i.imgur.com/WYchUh0.png">
+<meta property="og:image" content="https://i.imgur.com/aNRGXtW.png">
+<meta property="article:published_time" content="2020-08-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-21T12:40:37.605Z">
+<meta property="article:author" content="PKTseng">
+<meta property="article:tag" content="執行環境">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/lATjYBE.png">
+  
+    <link rel="alternate" href="/atom.xml" title="PK&#39;s 回憶錄" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/my.css">
+
+  <!-- Google Adsense -->
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+  
+<meta name="generator" content="Hexo 5.0.2"></head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "首頁"; 
+
+  themeMenus["/archives"] = "彙整"; 
+
+  themeMenus["/categories"] = "分類"; 
+
+  themeMenus["/tags"] = "標籤"; 
+
+  themeMenus["/about"] = "關于"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="PK&#39;s 回憶錄" rel="home"> PK&#39;s 回憶錄 </a>
+            
+          </h1>
+
+          
+            <div class="site-description">每記錄一次就會比昨天的自己更加厲害</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">首頁</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">彙整</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">分類</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">標籤</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">關于</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-20200813-javascript作用域" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Javascript 核心篇-執行環境
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2020/08/13/20200813-javascript%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="article-date">
+	  <time datetime="2020-08-12T16:00:00.000Z" itemprop="datePublished">八月 13, 2020</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript 是直譯式語言<br>當 JavaScript 在函示內找不到變數就會向外查找<br>window === this<br>但this會隨執行環境而有所不同</p>
+<h2 id="語法作用域-Lexical-scope"><a href="#語法作用域-Lexical-scope" class="headerlink" title="語法作用域 (Lexical scope)"></a>語法作用域 (Lexical scope)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value); <span class="comment">// 語法作用域：1</span></span><br><span class="line">  <span class="comment">// 動態作用域：2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> value = <span class="number">2</span>;</span><br><span class="line">  fn1();</span><br><span class="line">&#125;</span><br><span class="line">fn2();</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p><strong>語法作用域的順序:</strong><br>(因為 JS 式語法作用域，所以會跑這個步驟)fu2 執行 value 值就會變 2 ，在執行 fn1 ，因為裡面沒有 value 值所以會向外查找全域變數 value = 1，函式執行完結果為1</p>
+</li>
+<li><p><strong>動態作用域的順序:</strong><br> 全域賦予 value=1，這時候會執行 fn2 ，並且重新定義 value = 2 ，再執行 fn1 ，這時會開始查找 value 值在哪裡，這時因為函式調用的時候才會決定它的作用域，並向上一層函式查找宣告的變數值</p>
+<hr>
+<h2 id="範圍鍊"><a href="#範圍鍊" class="headerlink" title="範圍鍊"></a>範圍鍊</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="string">&#x27;老媽&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;hi &#x27;</span> + person);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person = <span class="string">&#x27;老爸&#x27;</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> person = <span class="string">&#x27;漂亮阿姨&#x27;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;哈囉～ &#x27;</span> + person);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// sayHi();</span></span><br><span class="line">  <span class="comment">//meetAuntie();</span></span><br><span class="line">&#125;</span><br><span class="line"> sayHi();</span><br><span class="line"><span class="comment">//doMorningWork();  // 執行</span></span><br></pre></td></tr></table></figure>
+<p>因為 sayHi function 裡面沒有 person 變數，所以會向外尋找<br><img src="https://i.imgur.com/lATjYBE.png"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="string">&#x27;老媽&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;hi &#x27;</span> + person);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person = <span class="string">&#x27;老爸&#x27;</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> person = <span class="string">&#x27;漂亮阿姨&#x27;</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;哈囉～ &#x27;</span> + person);</span><br><span class="line">  &#125;</span><br><span class="line">  sayHi();</span><br><span class="line">  <span class="comment">//meetAuntie();</span></span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">//sayHi();</span></span><br><span class="line"> doMorningWork();  <span class="comment">// 執行</span></span><br></pre></td></tr></table></figure>
+<p>doMorningWork 函式雖然有 person 變數，但不會影響到 sayHi 函式的範圍練，所以 sayHi 函式一樣會向外尋找 person 變數<br><img src="https://i.imgur.com/lbU8OCA.png"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="string">&#x27;老媽&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;hi &#x27;</span> + person);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person = <span class="string">&#x27;老爸&#x27;</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> person = <span class="string">&#x27;漂亮阿姨&#x27;</span>; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;哈囉～ &#x27;</span> + person);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// sayHi();</span></span><br><span class="line">  meetAuntie();</span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">//sayHi();</span></span><br><span class="line"> doMorningWork();  <span class="comment">// 執行</span></span><br></pre></td></tr></table></figure>
+<p>因為 meetAuntie 函式本身就有 person 變數，所以不會像尋找，結果為 哈囉~ 漂亮阿姨<br>如果把 var person = ‘漂亮阿姨’; 註解掉，那 person 變數會向外尋找。結果為 哈囉~老爸</p>
+</li>
+</ol>
+<h4 id="論是-只要函式內沒找到相對應的變數，就會像向外一層尋找相對應的變數，直到找到為止"><a href="#論是-只要函式內沒找到相對應的變數，就會像向外一層尋找相對應的變數，直到找到為止" class="headerlink" title="論是: 只要函式內沒找到相對應的變數，就會像向外一層尋找相對應的變數，直到找到為止"></a>論是: 只要函式內沒找到相對應的變數，就會像向外一層尋找相對應的變數，直到找到為止</h4><hr>
+<h2 id="提升"><a href="#提升" class="headerlink" title="提升"></a>提升</h2><p><img src="https://i.imgur.com/uXG14Oe.png"><br>先想像記憶體是成對的，左邊的格子表示 key，右邊是 value。<br>再創造環境的時候，會先把 a (變數)放到記憶體裡面(左邊格子)，但這時候還不會給 a 值，所以用 console.log 的時候會 defined ，等到執行時才會把 1 套到 a 裡面。</p>
+<p>所以執行環境的時候會先創造環境，創造環境會先把程式碼裡面的變數全部挑出來並存在記憶體上，這個動作稱為”提升 Hoisting”，在這個階段還不會給他值，所以如果在此時去取用這些變數的話，值會是 undefined。到執行環境的時候才會賦予它的值</p>
+<p><img src="https://i.imgur.com/GRULStI.png"></p>
+<p>再創造階段 a 是沒有值的，所以會顯示 undefined，直到宣告階段才會把值帶入 。<br>但是函式會把整個函式內容都先載入，所以<strong>函式再創造階段就已經可以運行了</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ming;                <span class="comment">//創造階段</span></span><br><span class="line">ming = <span class="string">&quot;小名&quot;</span>;            <span class="comment">//執行</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;ming&#x27;</span>);</span><br><span class="line"></span><br><span class="line">callName();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小名&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//會等於下列</span></span><br><span class="line"><span class="comment">//-----------------------</span></span><br><span class="line"><span class="comment">//創造階段</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小名&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName();</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/I8kQ3ob.png"></p>
+<h3 id="函式表達式寫法"><a href="#函式表達式寫法" class="headerlink" title="函式表達式寫法:"></a>函式表達式寫法:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">callName() <span class="comment">//這時候的 callName 是還沒有被定義的</span></span><br><span class="line"><span class="keyword">var</span> callName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小名&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>輸出如下圖:<br><img src="https://i.imgur.com/32RDACz.png"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//創造階段</span></span><br><span class="line"><span class="keyword">var</span> callName(); <span class="comment">//這時候 callName 被定義了但沒給值，所以會undefine</span></span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">//這時 function 已經被賦予到 callName  這個函式上</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小名&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"> callName(); <span class="comment">//才可呼叫</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/ddWNmYt.png"></p>
+<h3 id="範例"><a href="#範例" class="headerlink" title="範例:"></a>範例:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// var callName = function () &#123;</span></span><br><span class="line"><span class="comment">//   console.log(&#x27;呼叫小明 2&#x27;);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// function callName() &#123;  </span></span><br><span class="line"><span class="comment">//   console.log(&#x27;呼叫小明 1&#x27;);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// callName();</span></span><br><span class="line"><span class="comment">//以上為原式</span></span><br><span class="line"><span class="comment">//-----------------------------------</span></span><br><span class="line"><span class="comment">//拆解過後</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;  <span class="comment">// 首先函式優先 創造階段</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小明 1&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">var</span> callName;<span class="comment">//第2階段才把變數往前移</span></span><br><span class="line">callName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line"><span class="comment">//因為變數往前移的關係，這時 function 已經被賦予到 callName  這個函式上</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;呼叫小明 2&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName();</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/uPdFhSw.png"></p>
+<h2 id="範例-1"><a href="#範例-1" class="headerlink" title="範例:"></a>範例:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//創造，函式陳述式優先創造</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;小明&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">callName(); <span class="comment">// 第一次執行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;杰倫&#x27;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/FwfUh7L.png"></p>
+<h2 id="拆解-amp-分析"><a href="#拆解-amp-分析" class="headerlink" title="拆解&amp;分析:"></a>拆解&amp;分析:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 創造</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;小明&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;杰倫&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 執行</span></span><br><span class="line">callName(); <span class="comment">// 第一次執行</span></span><br><span class="line">callName(); <span class="comment">// 第二次執行</span></span><br></pre></td></tr></table></figure>
+<p>兩個函式長一樣，後面得值會蓋掉前面的值</p>
+<h3 id="測驗分析"><a href="#測驗分析" class="headerlink" title="測驗分析:"></a>測驗分析:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whosName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (name) &#123;</span><br><span class="line">    name = <span class="string">&#x27;杰倫&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;小明&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(name);</span><br><span class="line">whosName()</span><br></pre></td></tr></table></figure>
+<p>因為創造階段，函式陳述式優先創造，變數 name 只生出記憶體，並未賦予值執行階段，呼叫 whosName 的函式時，name 向外查找 name 變數，但未賦予值，所以在 whosName 裡面的 name 被賦予為”杰倫”的值<br>函式跟一般變數不太一樣，函式陳述式在創造環境階段會被優先載入，記憶體在這個階段就會有函式的完整內容。所以函式在創造環境階段就已經可以被運行。</p>
+<h2 id="Not-Defined-VS-undefined"><a href="#Not-Defined-VS-undefined" class="headerlink" title="Not Defined VS undefined"></a>Not Defined VS undefined</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a ;</span><br><span class="line">console.log(a) &#x2F;&#x2F;輸出 undefined</span><br></pre></td></tr></table></figure>
+<p>因為記憶體已經有 a 了，但沒有賦值，所以會跳 undefined<br>同理，記憶體沒有 a 就會跳 Not Defined</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;如果要賦予空值要寫</span><br><span class="line">var a &#x3D; null;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="執行緒與同步、非同步"><a href="#執行緒與同步、非同步" class="headerlink" title="執行緒與同步、非同步"></a>執行緒與同步、非同步</h2><p>JavaScript 是單執行序的語言</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eatBreakfast</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;吃早餐&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">washingPlate</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;洗餐盤&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callSomeone</span>(<span class="params">someone</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;打給&#x27;</span> + someone)</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//這段為非同步，而非同步的任務會移到事件佇列</span></span><br><span class="line">    <span class="built_in">console</span>.log(someone + <span class="string">&#x27;回電&#x27;</span>);</span><br><span class="line">  &#125;, <span class="number">1000</span>); <span class="comment">//就算這邊秒數調成0秒，也不會優先執行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> auntie = <span class="string">&#x27;漂亮阿姨&#x27;</span>;</span><br><span class="line">  eatBreakfast();</span><br><span class="line">  callSomeone(auntie);</span><br><span class="line">  washingPlate();</span><br><span class="line">&#125;</span><br><span class="line">doWork();</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/2aFzBGJ.png"></p>
+<p>同步概念來看的話，這三個概念是依序執行的，不會有早餐沒吃完就跳到洗碗盤去</p>
+<p><img src="https://i.imgur.com/iVYdmVA.png"><br><img src="https://i.imgur.com/WYchUh0.png"></p>
+<hr>
+<p>執行順序為:</p>
+<ol>
+<li>do work</li>
+<li>吃早餐</li>
+<li>打給漂亮阿姨，但因為裡面有 SetTimeout 事件，所以會移到”事件佇列”裡面</li>
+<li>洗碗</li>
+<li>直到 do work 執行完後才會再去執行 SetTimeout 函式<br><img src="https://i.imgur.com/aNRGXtW.png"></li>
+</ol>
+<hr>
+<h2 id="參考資料-JavaScript-核心篇"><a href="#參考資料-JavaScript-核心篇" class="headerlink" title="參考資料: JavaScript 核心篇"></a><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/enrolled/670037">參考資料: JavaScript 核心篇</a></h2>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83/" rel="tag">執行環境</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: '打賞支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/13/20200813-vuemvvm/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MVVM 說明
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/13/20200813-vueon/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">v-bind 及 v-on 的使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
+    <strong class="toc-title">文章目錄</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AA%9E%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F-Lexical-scope"><span class="nav-number">1.</span> <span class="nav-text">語法作用域 (Lexical scope)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AF%84%E5%9C%8D%E9%8D%8A"><span class="nav-number">2.</span> <span class="nav-text">範圍鍊</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AB%96%E6%98%AF-%E5%8F%AA%E8%A6%81%E5%87%BD%E5%BC%8F%E5%85%A7%E6%B2%92%E6%89%BE%E5%88%B0%E7%9B%B8%E5%B0%8D%E6%87%89%E7%9A%84%E8%AE%8A%E6%95%B8%EF%BC%8C%E5%B0%B1%E6%9C%83%E5%83%8F%E5%90%91%E5%A4%96%E4%B8%80%E5%B1%A4%E5%B0%8B%E6%89%BE%E7%9B%B8%E5%B0%8D%E6%87%89%E7%9A%84%E8%AE%8A%E6%95%B8%EF%BC%8C%E7%9B%B4%E5%88%B0%E6%89%BE%E5%88%B0%E7%82%BA%E6%AD%A2"><span class="nav-number">2.0.1.</span> <span class="nav-text">論是: 只要函式內沒找到相對應的變數，就會像向外一層尋找相對應的變數，直到找到為止</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E5%8D%87"><span class="nav-number">3.</span> <span class="nav-text">提升</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E8%A1%A8%E9%81%94%E5%BC%8F%E5%AF%AB%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">函式表達式寫法:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B"><span class="nav-number">3.2.</span> <span class="nav-text">範例:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B-1"><span class="nav-number">4.</span> <span class="nav-text">範例:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%86%E8%A7%A3-amp-%E5%88%86%E6%9E%90"><span class="nav-number">5.</span> <span class="nav-text">拆解&amp;分析:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%AC%E9%A9%97%E5%88%86%E6%9E%90"><span class="nav-number">5.1.</span> <span class="nav-text">測驗分析:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Not-Defined-VS-undefined"><span class="nav-number">6.</span> <span class="nav-text">Not Defined VS undefined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%B7%E8%A1%8C%E7%B7%92%E8%88%87%E5%90%8C%E6%AD%A5%E3%80%81%E9%9D%9E%E5%90%8C%E6%AD%A5"><span class="nav-number">7.</span> <span class="nav-text">執行緒與同步、非同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99-JavaScript-%E6%A0%B8%E5%BF%83%E7%AF%87"><span class="nav-number">8.</span> <span class="nav-text">參考資料: JavaScript 核心篇</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2021 PK&#39;s 回憶錄 All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+
+<script src="/js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
