@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>標籤: jQuery - PK&#39;s 回憶錄</title>
+<title>jQuery - 介紹 - PK&#39;s 回憶錄</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -105,20 +105,12 @@
     </div>
 </nav>
 
-    <section class="section section-heading">
+    <section class="section">
     <div class="container">
-        <div class="content">
-            <h5>#jQuery</h5>
-        </div>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
+    <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2021/01/14/selector/" itemprop="url">jQuery - 介紹</a>
+            jQuery - 介紹
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -139,102 +131,107 @@
         <html><head></head><body><h2 id="三大重點"><a href="#三大重點" class="headerlink" title="三大重點"></a>三大重點</h2><ul>
 <li>選擇器 (selector)</li>
 <li>事件觸發 (event)</li>
-<li>事件處發的回調函數</li></ul></body></html>
-        <p class="article-more-link">
-            <a href="/2021/01/14/selector/#more">閱讀更多</a>
-        </p>
+<li>事件處發的回調函數<a id="more"></a></li>
+</ul>
+<p><strong>撰寫步驟如下:</strong></p>
+<ol>
+<li>選擇: 顯示、隱藏元素</li>
+<li>事件: 改變樣式</li>
+<li>動作: DOM 操作</li>
+</ol>
+<h2 id="選擇器-Selector"><a href="#選擇器-Selector" class="headerlink" title="選擇器 (Selector)"></a>選擇器 (Selector)</h2><h3 id="id-選擇器"><a href="#id-選擇器" class="headerlink" title="id 選擇器"></a>id 選擇器</h3><p>利用按下 <code>button</code> 按鈕改變字體顏色</p>
+<p>以下示範:<br>首先給個 <code>id</code> 元素跟 <code>button</code></p>
+<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"color"</span>&gt;</span>color<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'changeColor'</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>再來是執行步驟:</p>
+<ol>
+<li>選擇要改變的元素 <code>#color</code></li>
+<li>改變顏色 <code>css('color', 'red')</code></li>
+<li>在 click 動作下執行</li>
+</ol>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-string">'#changeColor'</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</span><br><span class="line">  $(<span class="hljs-string">'#color'</span>).css(<span class="hljs-string">'color'</span>, <span class="hljs-string">'red'</span>)</span><br><span class="line">})</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/LYRXxMx?editors=1011">DEMO</a></p>
+<h3 id="class-選擇器"><a href="#class-選擇器" class="headerlink" title="class 選擇器"></a>class 選擇器</h3><p>來看一下跟 <code>id</code> 選擇器有什麼差別</p>
+<p>給同個 <code>id</code> &amp; <code>className</code> 再用 <code>console.log</code> 查看</p>
+<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dog"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dog"</span>&gt;</span>dog 1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dog"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dog"</span>&gt;</span>dog 2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>先示範選擇器抓 <code>id</code> 的效果<br>然後在 <code>console.log</code> 下 <code>$('#dog').text()</code>，顯示如下<br><img src="https://i.imgur.com/HjZsX8q.png"><br>只會抓到第一個 <code>id</code> 的 <code>dog</code> 而已</p>
+<p>再試試選擇器抓 <code>className</code> 的話呢?<br>輸入 <code>$('.dog').text()</code> ，顯示如下紅框處<br><img src="https://i.imgur.com/FdkEjg8.png"></p>
+<p>綠色是選擇器的差別上面是 <code>id</code> ，下面是 <code>className</code><br>可以看如果用 <code>className</code> 選擇器的話兩個都會顯示</p>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/LYRXWPy?editors=1011">DEMO</a></p>
+<h3 id="元素選擇器"><a href="#元素選擇器" class="headerlink" title="元素選擇器"></a>元素選擇器</h3><p>觀念跟 <code>class</code> 很像，可以同時更改多個元素內容或樣式，但會有點風險，因為同個檔案裡面或有多個相同元素</p>
+<p>給三個 <code>p</code> 元素跟一個 <code>button</code> ，透過按下 <code>button</code> 可以更改元素內的內容，以下示範</p>
+<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>p1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>p2<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>p3<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"changeWord"</span>&gt;</span>change-Word<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>jQuery 步驟:</p>
+<ol>
+<li>選擇要改變的元素 <code>p</code></li>
+<li>改變的樣式 <code>.text('changeWord')</code></li>
+<li>按下 <code>button</code> 的動作</li>
+</ol>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-string">'#changeWord'</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</span><br><span class="line">  $(<span class="hljs-string">'p'</span>).text(<span class="hljs-string">'changeWord'</span>)</span><br><span class="line">})</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/GRjwWNX?editors=1011">DEMO</a></p>
+<hr>
+<h2 id="總結-id-、-className-amp-元素的差別"><a href="#總結-id-、-className-amp-元素的差別" class="headerlink" title="總結 id 、 className &amp; 元素的差別:"></a>總結 <code>id</code> 、 <code>className</code> &amp; 元素的差別:</h2><ul>
+<li>id: 若有很多相同 id ，<font color="#FF0000">只會選取第一個</font></li>
+<li>className: 會同時選取<font color="#FF0000">所有</font>相同的 className</li>
+<li>元素: 會同時選取<font color="#FF0000">所有</font>相同的元素</li>
+</ul>
+<p>會用到 <code>className</code> 的原因是為了方便選更改多個樣式，可以用在相同的商品列表上，但如果選擇 <code>id</code> 的話就只會更改單一樣式而且是第一個，之後相同 <code>id</code> 的不會更改到</p>
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a target="_blank" rel="noopener" href="https://codeshiba.teachable.com/courses/1255270/lectures/29521035">jQuery 幼幼班</a></p>
+</body></html>
     
     </div>
     
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/jQuery/">#jQuery</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2021/01/13/%E8%A8%98%E5%B8%B3/">JavaScript - 實作一個記帳簿</a>
+            
+        </span>
+    </div>
     
 </article>
 
 
 
 
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://pktseng.github.io/2021/01/14/selector/';
+        this.page.identifier = '2021/01/14/selector/';
         
-            <a href="/2021/01/13/%E8%A8%98%E5%B8%B3/" itemprop="url">JavaScript - 實作一個記帳簿</a>
+        this.language = 'en';
         
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2021-01-12T16:00:00.000Z" itemprop="datePublished">2021年1月13日</time>
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E4%BD%9C%E5%93%81%E9%9B%86/">作品集</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            15 分鐘 讀完 (約 2197 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p><a target="_blank" rel="noopener" href="https://github.com/PKTseng/Web-Side-Project/tree/gh-pages/mission24">Github</a><br><a href="https://pktseng.github.io/Web-Side-Project/mission24/index.html">DEMO</a></p>
-<h2 id="切出來版型如下"><a href="#切出來版型如下" class="headerlink" title="切出來版型如下"></a>切出來版型如下</h2><p><img src="https://i.imgur.com/EKaScxe.png"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2021/01/13/%E8%A8%98%E5%B8%B3/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'PKTseng' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
 
-
-
-
+<div id="disqus_thread">
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2021/01/08/changeRate/" itemprop="url">簡易版匯率轉換</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2021-01-07T16:00:00.000Z" itemprop="datePublished">2021年1月8日</time>
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E4%BD%9C%E5%93%81%E9%9B%86/">作品集</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            7 分鐘 讀完 (約 1018 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>附上 <a target="_blank" rel="noopener" href="https://github.com/PKTseng/Web-Side-Project/tree/gh-pages/mission23">Github</a><br><a href="https://pktseng.github.io/Web-Side-Project/mission23/index.html">Demo</a></p></body></html>
-        <p class="article-more-link">
-            <a href="/2021/01/08/changeRate/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
 
-
-
-
-    
-    
     </div>
 </section>
     <footer class="footer">
