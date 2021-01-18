@@ -127,7 +127,7 @@
         <span class="column is-narrow">
             
             
-            17 分鐘 讀完 (約 2595 字)
+            17 分鐘 讀完 (約 2596 字)
         </span>
         
     </div>
@@ -149,7 +149,7 @@
 </ol>
 <h3 id="Set-Cookie-header"><a href="#Set-Cookie-header" class="headerlink" title="Set-Cookie header"></a>Set-Cookie header</h3><p>如果要讓無狀態的 http 知道客戶目前的狀態，就要用 Set-Cookie 把使用紀錄存到 cookie 裡面，這樣下次在別的瀏覽器上向同個網頁 (domain) 的 sever 發出 request 的時候，Request Headers 就可以透過 sever 查看 Cookie 的內容同時確認目前客戶的狀態。</p>
 <p>Set-Cookie 寫法如下:</p>
-<figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: key = value</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">Set</span>-Cookie: key = value</span><br></pre></td></tr></tbody></table></figure>
 <p>瀏覽器會依照 Set-Cookie 設定的內容建立 key 跟 value。之後當瀏覽器發出 request 的時候，就會自動載入 key 跟 value。</p>
 <h3 id="Cookie-屬性"><a href="#Cookie-屬性" class="headerlink" title="Cookie 屬性"></a>Cookie 屬性</h3><p>除了 Set-Cookie 外，還有其他要知道的屬性。</p>
 <ul>
