@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pktseng.github.io/2021/01/19/JS%E9%80%B2%E9%9A%8E/</loc>
+    
+    <lastmod>2021-01-19</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pktseng.github.io/2021/01/18/JavaScript%20-%20Cookie%E3%80%81LocalStorage%E3%80%81Sessi/</loc>
     
     <lastmod>2021-01-19</lastmod>
@@ -269,6 +276,34 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://pktseng.github.io/tags/map/</loc>
+    <lastmod>2021-01-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pktseng.github.io/tags/filter/</loc>
+    <lastmod>2021-01-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pktseng.github.io/tags/forEach/</loc>
+    <lastmod>2021-01-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pktseng.github.io/tags/find/</loc>
+    <lastmod>2021-01-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -336,6 +371,13 @@
   
   <url>
     <loc>https://pktseng.github.io/categories/Cookie/LocalStorage/SessionStorage/</loc>
+    <lastmod>2021-01-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pktseng.github.io/categories/JavaScrip/</loc>
     <lastmod>2021-01-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
