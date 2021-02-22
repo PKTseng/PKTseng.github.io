@@ -6,7 +6,7 @@
   <link href="https://pktseng.github.io/atom.xml" rel="self"/>
   
   <link href="https://pktseng.github.io/"/>
-  <updated>2021-02-22T16:13:07.975Z</updated>
+  <updated>2021-02-22T16:14:15.359Z</updated>
   <id>https://pktseng.github.io/</id>
   
   <author>
@@ -21,8 +21,12 @@
     <link href="https://pktseng.github.io/2021/02/23/%E5%9F%BA%E6%9C%AC%E6%A8%A1%E6%9D%BF%E8%AA%9E%E6%B3%95/"/>
     <id>https://pktseng.github.io/2021/02/23/%E5%9F%BA%E6%9C%AC%E6%A8%A1%E6%9D%BF%E8%AA%9E%E6%B3%95/</id>
     <published>2021-02-22T16:00:00.000Z</published>
-    <updated>2021-02-22T16:13:07.975Z</updated>
+    <updated>2021-02-22T16:14:15.359Z</updated>
     
+    <content type="html"><![CDATA[<html><head></head><body><p>簡單介紹 Vue 模板基本語法的使用。<br>以下版本皆使用 2.6.1。</p><a id="more"></a></body></html>]]></content>
+    
+    
+    <summary type="html">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;簡單介紹 Vue 模板基本語法的使用。&lt;br&gt;以下版本皆使用 2.6.1。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</summary>
     
     
     
