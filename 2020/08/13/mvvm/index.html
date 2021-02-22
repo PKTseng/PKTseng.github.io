@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>分類: Vue - PK&#39;s 回憶錄</title>
+<title>Vue - MVVM 說明 - PK&#39;s 回憶錄</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -10,7 +10,7 @@
 
 
 
-<meta name="description" content="每記錄一次就會比昨天的自己更加厲害">
+<meta name="description" content="介紹 MVVM 架構">
 
 
 
@@ -107,141 +107,12 @@
     </div>
 </nav>
 
-    <section class="section section-heading">
+    <section class="section">
     <div class="container">
-        <div class="content">
-            <h5><i class="far fa-folder"></i>Vue</h5>
-        </div>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
+    <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2020/12/13/Loading/" itemprop="url">用 Vue 做出頁面的 Loading 效果</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2020-12-12T16:00:00.000Z" itemprop="datePublished">2020年12月13日</time>
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Vue/">Vue</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分鐘 讀完 (約 625 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p><a target="_blank" rel="noopener" href="https://github.com/ankurk91/vue-loading-overlay">vue-loading-overlay</a><br>首先安裝 npm: <code>npm install vue-loading-overlay</code><br>再到 main.js 載入</p></body></html>
-        <p class="article-more-link">
-            <a href="/2020/12/13/Loading/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/08/30/router/" itemprop="url">Vue-Router</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2020-08-30T11:55:58.883Z" itemprop="datePublished">2020年8月30日</time>
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Vue/">Vue</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            10 分鐘 讀完 (約 1565 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><h2 id="新增路由路徑及連結"><a href="#新增路由路徑及連結" class="headerlink" title="新增路由路徑及連結"></a>新增路由路徑及連結</h2><p><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/installation.html"> Vue-router:官方文件</a></p>
-<p>透過切換網址來決定要顯示的組件內容，而切換網址就要用 router 來幫你達成!</p></body></html>
-        <p class="article-more-link">
-            <a href="/2020/08/30/router/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/08/20/%E8%AA%9E%E6%B3%95%E4%BF%AE%E9%A3%BE/" itemprop="url">語法修飾</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2020-08-20T04:20:59.360Z" itemprop="datePublished">2020年8月20日</time>
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Vue/">Vue</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分鐘 讀完 (約 565 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><h2 id="防止預設事件發生-preventDefault"><a href="#防止預設事件發生-preventDefault" class="headerlink" title="防止預設事件發生: preventDefault"></a>防止預設事件發生: preventDefault</h2><p>a 連結預設是開新分頁，但我想要點 a 連結就跳出 alert 同時又不要開新的分頁，這時候就要用 preventDefault 。<br>先偵聽一個事件 linkClick ，並給 linkClick 一個函式，點擊 a 連結時為了要取消預設行為(開新分頁)，所以在函式內新增 <code>e.preventDefault()</code>。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2020/08/20/%E8%AA%9E%E6%B3%95%E4%BF%AE%E9%A3%BE/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/08/13/mvvm/" itemprop="url">Vue - MVVM 說明</a>
+            Vue - MVVM 說明
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -264,21 +135,65 @@
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p><img src="https://i.imgur.com/u6sNtyl.png"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2020/08/13/mvvm/#more">閱讀更多</a>
-        </p>
+        <html><head></head><body><p><img src="https://i.imgur.com/u6sNtyl.png"></p>
+<a id="more"></a>
+<p><img src="https://i.imgur.com/u71Nukr.png"><br>MVVM 就由這三個東西之間的作用，可以比較好管理開法者的內容</p>
+<p>透過使用者的 view 操作來影響 view model ，只要在 view 裡面操做， view model 同時也會跟著變動，也同時修改 model 的內容，那 view model 資料發生變動，又會同時改變 View 顯示的內容，所以他們三個是互相交互作用的</p>
+<p>Vue 強大的地方在於 Vue 組件，他可以把龐大的 App 分裝，把相關的功能集中，讓這些組件獨立封裝而且好維護也好測試</p>
+<p>vue 組件可以把模板跟實例還有CSS統一放在裡面，讓我們很好的去做開發跟管理.</p>
+<hr>
+<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2></body></html>
     
     </div>
     
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/MVVM/">#MVVM</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2020/12/31/formVaild/">JavaScript - 簡易表單驗證</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-next">
+            
+        </span>
+    </div>
     
 </article>
 
 
 
 
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
     
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://pktseng.github.io/2020/08/13/mvvm/';
+        this.page.identifier = '2020/08/13/mvvm/';
+        
+        this.language = 'en';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'PKTseng' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
     
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
     </div>
 </section>
     <footer class="footer">
