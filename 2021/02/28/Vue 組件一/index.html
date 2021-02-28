@@ -129,7 +129,7 @@
         <span class="column is-narrow">
             
             
-            16 分鐘 讀完 (約 2398 字)
+            17 分鐘 讀完 (約 2495 字)
         </span>
         
     </div>
@@ -141,13 +141,13 @@
 <p>組件化的思想就是盡可能的把頁面拆分成很多個小區塊，變成可重複利用的組件。</p>
 <a id="more"></a>
 
-<h2 id="組件化開發"><a href="#組件化開發" class="headerlink" title="組件化開發"></a>組件化開發</h2><h3 id="1-組件化的基本使用"><a href="#1-組件化的基本使用" class="headerlink" title="1.組件化的基本使用"></a>1.組件化的基本使用</h3><p>直接看程式碼。</p>
+<h2 id="組件化開發"><a href="#組件化開發" class="headerlink" title="組件化開發"></a>組件化開發</h2><h3 id="1-組件化的基本使用"><a href="#1-組件化的基本使用" class="headerlink" title="1.組件化的基本使用"></a>1.組件化的基本使用</h3><p>在之前<a href="https://pktseng.github.io/2021/02/22/%E5%9F%BA%E6%9C%AC%E6%A8%A1%E6%9D%BF%E8%AA%9E%E6%B3%95/#%E4%B8%80%E3%80%81%E6%8F%92%E5%80%BC%E8%AA%9E%E6%B3%95">基本模板語法</a>提到用 mustache 語法可以顯示 <code>data</code> 物件內的 <code>value 值</code>，但如果有非常多重複的內容，這樣做不只可讀性差，也不好維護。用以下程式碼來示範。</p>
 <figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{{message1}}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{message2}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{{message1}}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{message2}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{{message1}}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{message2}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{{message1}}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{message2}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue({</span><br><span class="line">  el: <span class="hljs-string">'#app'</span>,</span><br><span class="line">  data: {</span><br><span class="line">    message1: <span class="hljs-string">'title'</span>,</span><br><span class="line">    message2: <span class="hljs-string">'hello world'</span>,</span><br><span class="line">  },</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://i.imgur.com/Ut7qry9.png"></p>
-<p>這樣寫確實會顯示 4 個內容，但一樣的內容要寫 4 次才會呈現，而且有很冗長，如果是組件化就會比較簡短，可讀性也比較高。</p>
+<p>顯示下圖<br><img src="https://i.imgur.com/Ut7qry9.png"></p>
+<p>這樣寫確實會顯示 4 個內容，但一樣的內容要寫 4 次才會呈現，而且有很冗長，這時就可以用組件的方式撰寫，可讀性也比較高。</p>
 <p>以下示範如何組件化。</p>
 <p><strong>分成三大步驟:</strong></p>
 <ol>
