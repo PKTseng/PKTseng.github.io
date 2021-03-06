@@ -120,7 +120,7 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2021/02/28/Vue%20%E7%B5%84%E4%BB%B6%E4%B8%80/" itemprop="url">Vue - 組件化 ( 一 )</a>
+            <a href="/2021/02/28/Vue-%E7%B5%84%E4%BB%B6%E4%B8%80/" itemprop="url">Vue - 組件化 ( 一 )</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -137,7 +137,7 @@
         <span class="column is-narrow">
             
             
-            17 分鐘 讀完 (約 2497 字)
+            17 分鐘 讀完 (約 2496 字)
         </span>
         
     </div>
@@ -148,7 +148,7 @@
 <p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/components.html">下圖來自官網</a><br><img src="https://i.imgur.com/KxbAXYc.png"></p>
 <p>組件化的思想就是盡可能的把頁面拆分成很多個小區塊，變成可重複利用的組件。</p></body></html>
         <p class="article-more-link">
-            <a href="/2021/02/28/Vue%20%E7%B5%84%E4%BB%B6%E4%B8%80/#more">閱讀更多</a>
+            <a href="/2021/02/28/Vue-%E7%B5%84%E4%BB%B6%E4%B8%80/#more">閱讀更多</a>
         </p>
     
     </div>
@@ -163,7 +163,7 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2021/02/28/Vue%20%E7%B5%84%E4%BB%B6%E5%8C%96%20(%20%E4%BA%8C%20)/" itemprop="url">Vue 組件化 ( 二 )</a>
+            <a href="/2021/02/28/Vue-%E7%B5%84%E4%BB%B6%E5%8C%96-%E4%BA%8C/" itemprop="url">Vue 組件化 - data 函數</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -180,42 +180,16 @@
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 563 字)
+            4 分鐘 讀完 (約 564 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>在上一篇 Vue 組件化 ( 一 ) 介紹了組件話的觀念跟應用，但沒提到組件話的資料應該要動態綁定，確保資料的獨立，所以這篇就來介紹一下組件話的 data ，</p>
-<h2 id="Data-必須是函式"><a href="#Data-必須是函式" class="headerlink" title="Data 必須是函式"></a>Data 必須是函式</h2><p>在上一篇文章中提到組件話的模板，在模板內我都是直接寫值，並沒有用 mustache 語法來做動態綁定，原因是在子組件下的 data 必須是函數的形式，這樣才可以確保資料是獨立的。</p>
-<p>之前的組件範例如下</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">my-cpn1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-cpn1</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">&lt;!-- template 寫法 --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vm1"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>title<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line">    //資料寫死</span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>content<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">    //資料寫死</span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 註冊組件</span></span><br><span class="line">Vue.component(<span class="hljs-string">'my-cpn1'</span>, {</span><br><span class="line">  template: <span class="hljs-string">'#vm1'</span>,</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 3.使用組件</span></span><br><span class="line"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue({</span><br><span class="line">  el: <span class="hljs-string">'#app'</span>,</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<p>在 <code>template</code> 模板裡面的資料，是寫死狀態，那改用 mustache 語法的話，會怎麼樣?</p>
-<p>只改動 template 模板內容</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vm1"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{{title}}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>content<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>在 Vue 實例裡面新 data 物件</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue({</span><br><span class="line">  el: <span class="hljs-string">'#app'</span>,</span><br><span class="line">  data: {</span><br><span class="line">    title: <span class="hljs-string">'我是標題'</span>,</span><br><span class="line">  },</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<p>用開發者工具看，會報錯，也提示 <code>title</code> 沒有被定義<br><img src="https://i.imgur.com/jeS56di.png"></p>
-<p>這是因為組件內部是不能讀取 Vue 實例裡面的資料。<br>而子組件裡面有屬於自己的 HTML 模板，也應該有屬於自己的資料。</p>
-<p>所以把上面組件內的 <code>data</code> 改成用函數的方式回傳，寫法也很簡單，<code>template</code> 內容一樣，只要在子組件裡面新增 <code>data</code> 函數的屬性並 <code>return</code> 物件內的值就好。</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="hljs-string">'my-cpn1'</span>, {</span><br><span class="line">  template: <span class="hljs-string">'#vm1'</span>,</span><br><span class="line">  data() {</span><br><span class="line">    <span class="hljs-keyword">return</span> {</span><br><span class="line">      title: <span class="hljs-string">'我是組件內的標題'</span>,</span><br><span class="line">    }</span><br><span class="line">  },</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<p>結果為下圖<br><img src="https://i.imgur.com/WOFiOtJ.png"></p>
-<p>同樣道理，在把上式改寫成計數器的話</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">my-cpn1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-cpn1</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">my-cpn1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-cpn1</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">my-cpn1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-cpn1</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">&lt;!-- template 寫法 --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"vm1"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{{count}}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"count++"</span>&gt;</span>+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="hljs-string">'my-cpn1'</span>, {</span><br><span class="line">  template: <span class="hljs-string">'#vm1'</span>,</span><br><span class="line">  data() {</span><br><span class="line">    <span class="hljs-keyword">return</span> {</span><br><span class="line">      count: <span class="hljs-number">0</span>,</span><br><span class="line">    }</span><br><span class="line">  },</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<p>組件內的每筆資料也都是互相獨立的<br><img src="https://i.imgur.com/JDevASi.png"></p>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/YzpaRMx?editors=1011">DEMO</a></p>
-<p>總結:<br>在 Vue 實例裡面，data 是物件。<br>在子組件裡面 data 必須以函數的方式回傳物件。</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://book.vue.tw/CH2/2-1-components.html">子元件的 data 必須是函數</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV15741177Eh?p=59">2019 年最全最新 Vue、Vuejs 教程，从入门到精通</a></p>
-</body></html>
+        <html><head></head><body><h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>在上一篇 Vue 組件化 ( 一 ) 介紹了組件話的觀念跟應用，但沒提到組件話的資料應該要動態綁定，確保資料的獨立，所以這篇就來介紹一下組件話的 data ，</p></body></html>
+        <p class="article-more-link">
+            <a href="/2021/02/28/Vue-%E7%B5%84%E4%BB%B6%E5%8C%96-%E4%BA%8C/#more">閱讀更多</a>
+        </p>
     
     </div>
     
@@ -333,7 +307,7 @@
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p>簡單介紹 Vue 模板基本語法的使用，包含 :<code> v-bind</code>、<code>mustache</code> 、<code>v-once</code>、<code>v-html</code>、<code>v-text</code> …等等。<br>以下範例皆使用 Vue 2.6.1 版本。</p></body></html>
+        <html><head></head><body><p>簡單介紹 Vue 模板基本語法的使用，包含 : <code>v-bind</code>、<code>mustache</code> 、<code>v-once</code>、<code>v-html</code>、<code>v-text</code> …等等。<br>以下範例皆使用 Vue 2.6.1 版本。</p></body></html>
         <p class="article-more-link">
             <a href="/2021/02/22/%E5%9F%BA%E6%9C%AC%E6%A8%A1%E6%9D%BF%E8%AA%9E%E6%B3%95/#more">閱讀更多</a>
         </p>

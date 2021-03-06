@@ -129,7 +129,7 @@
         <span class="column is-narrow">
             
             
-            17 分鐘 讀完 (約 2497 字)
+            17 分鐘 讀完 (約 2496 字)
         </span>
         
     </div>
@@ -182,7 +182,7 @@
 
 <p>一樣可以使用，如下圖<br><img src="https://i.imgur.com/K2bd97U.png"></p>
 <p>用開發模式看，會看到 <code>app2</code> 也有用到全域組件<br><img src="https://i.imgur.com/9XXcTf0.png"></p>
-<p>那要怎麼做才會變成區域組件?<br>方法也很簡單，就是把 <code>Vue.component('my-cpn', vm)</code> 移到 Vue 實例裡面 ( 記得 component 要加 s )。<br>Vue 實例裡面新增 <code>components</code> 一個屬性，再給 <code>components</code> 屬性一個物件，裡面放 <code>key</code> 跟 <code>value</code> 值。</p>
+<p>那要怎麼做才會變成區域組件?<br>方法很簡單，就是把 <code>Vue.component('my-cpn', vm)</code> 移到 Vue 實例裡面 ( 記得 component 要加 s )。<br>Vue 實例裡面新增 <code>components</code> 一個屬性，再給 <code>components</code> 屬性一個物件，裡面放 <code>key</code> 跟 <code>value</code> 值。</p>
 <p>key 值指的是<code>自訂義模板的標籤名</code>， value 就是<code>組件的變數名稱</code>。</p>
 <p>要特別注意的是 key 值的寫法，跟 HTML 模板標籤的寫法。<br>key 值的寫法分兩種:</p>
 <ol>
@@ -195,7 +195,7 @@
 <p>以下示範區域組件</p>
 <figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">my-cpn</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-cpn</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app2"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">my-cpn</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-cpn</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 1. 創造組件</span></span><br><span class="line"><span class="hljs-keyword">const</span> vm = Vue.extend({</span><br><span class="line">  template: <span class="hljs-string">`</span></span><br><span class="line"><span class="hljs-string">  &lt;div&gt;</span></span><br><span class="line"><span class="hljs-string">    &lt;h2&gt;我是模板的:title&lt;/h2&gt;</span></span><br><span class="line"><span class="hljs-string">    &lt;p&gt;我是模板的:hello world&lt;/p&gt;</span></span><br><span class="line"><span class="hljs-string">  &lt;/div&gt;</span></span><br><span class="line"><span class="hljs-string">  `</span>,</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 2.註冊組件</span></span><br><span class="line"><span class="hljs-comment">// Vue.component('my-cpn', vm)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 3.使用組件</span></span><br><span class="line"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue({</span><br><span class="line">  el: <span class="hljs-string">'#app'</span>,</span><br><span class="line">  components: {</span><br><span class="line">    <span class="hljs-comment">// 'my-cpn': vm</span></span><br><span class="line">    <span class="hljs-comment">// myCpn: vm</span></span><br><span class="line">    myCpn: vm,</span><br><span class="line">  },</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> app2 = <span class="hljs-keyword">new</span> Vue({</span><br><span class="line">  el: <span class="hljs-string">'#app2'</span>,</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 1. 創造組件</span></span><br><span class="line"><span class="hljs-keyword">const</span> vm = Vue.extend({</span><br><span class="line">  template: <span class="hljs-string">`</span></span><br><span class="line"><span class="hljs-string">  &lt;div&gt;</span></span><br><span class="line"><span class="hljs-string">    &lt;h2&gt;我是模板的:title&lt;/h2&gt;</span></span><br><span class="line"><span class="hljs-string">    &lt;p&gt;我是模板的:hello world&lt;/p&gt;</span></span><br><span class="line"><span class="hljs-string">  &lt;/div&gt;</span></span><br><span class="line"><span class="hljs-string">  `</span>,</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 2.註冊組件</span></span><br><span class="line"><span class="hljs-comment">// Vue.component('my-cpn', vm)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 3.使用組件</span></span><br><span class="line"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue({</span><br><span class="line">  el: <span class="hljs-string">'#app'</span>,</span><br><span class="line">  components: {</span><br><span class="line">    <span class="hljs-comment">// 'my-cpn': vm</span></span><br><span class="line">    <span class="hljs-comment">// 'myCpn': vm</span></span><br><span class="line">    myCpn: vm,</span><br><span class="line">  },</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> app2 = <span class="hljs-keyword">new</span> Vue({</span><br><span class="line">  el: <span class="hljs-string">'#app2'</span>,</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
 
 <p>用開發者工具看，<code>app</code> 有在實例裡面註冊，所以可以使用，但 <code>app2</code> 不能，因為沒有在 <code>app2</code> 裡面註冊，所以不會解析 <code>my-cpn</code> 標籤。<br><img src="https://i.imgur.com/Gf58VOC.png"></p>
 <p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/mdOxOMJ?editors=1011">DEMO</a></p>
@@ -269,7 +269,7 @@
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-            <a href="/2021/02/28/Vue%20%E7%B5%84%E4%BB%B6%E5%8C%96%20(%20%E4%BA%8C%20)/">Vue 組件化 ( 二 )</a>
+            <a href="/2021/02/28/Vue-%E7%B5%84%E4%BB%B6%E5%8C%96-%E4%BA%8C/">Vue 組件化 - data 函數</a>
             
         </span>
     </div>
@@ -284,8 +284,8 @@
     
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://pktseng.github.io/2021/02/28/Vue%20%E7%B5%84%E4%BB%B6%E4%B8%80/';
-        this.page.identifier = '2021/02/28/Vue 組件一/';
+        this.page.url = 'https://pktseng.github.io/2021/02/28/Vue-%E7%B5%84%E4%BB%B6%E4%B8%80/';
+        this.page.identifier = '2021/02/28/Vue-組件一/';
         
         this.language = 'en';
         
