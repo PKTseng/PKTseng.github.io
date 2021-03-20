@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>Vue - loading 效果 - PK&#39;s 回憶錄</title>
+<title>Vue - 動態綁定及監聽 - PK&#39;s 回憶錄</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -10,7 +10,7 @@
 
 
 
-<meta name="description" content="每記錄一次就會比昨天的自己更加厲害">
+<meta name="description" content="用動態綁定製作簡單的按鈕">
 
 
 
@@ -112,64 +112,50 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            Vue - loading 效果
+            Vue - 動態綁定及監聽
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2020-09-24T16:00:00.000Z" itemprop="datePublished">2020年9月25日</time>
+            <time datetime="2021-03-04T16:00:00.000Z" itemprop="datePublished">2021年3月5日</time>
         </span>
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Loading/">Loading</a>
+            <a class="article-category-link" href="/categories/Vue/">Vue</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 603 字)
+            2 分鐘 讀完 (約 240 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p><a target="_blank" rel="noopener" href="https://github.com/ankurk91/vue-loading-overlay">套件</a><br>首先安裝 npm: <code>npm install vue-loading-overlay</code><br>再到 main.js 載入</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// Import component</span></span><br><span class="line"><span class="hljs-keyword">import</span> Loading <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-loading-overlay'</span></span><br><span class="line"><span class="hljs-comment">// Import stylesheet</span></span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">'vue-loading-overlay/dist/vue-loading.css'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 因為是全域每個 component 都會用，所以用 Vue.component</span></span><br><span class="line">Vue.component(<span class="hljs-string">'Loading'</span>, Loading)</span><br></pre></td></tr></tbody></table></figure>
+        <html><head></head><body><h2 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h2><p>v-bind 指令是用來把一個數值綁定到 HTML 屬性上，因為到後期會大量用到，所以會使用縮寫 “ : “</p>
+<h4 id="用-v-bind-製作一個簡單的按鈕"><a href="#用-v-bind-製作一個簡單的按鈕" class="headerlink" title="用 v-bind 製作一個簡單的按鈕"></a>用 v-bind 製作一個簡單的按鈕</h4><figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">:type</span>=<span class="hljs-string">"selected"</span>&gt;</span>selected<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span></span><br><span class="line"><span class="hljs-javascript">  <span class="hljs-keyword">new</span> Vue({</span></span><br><span class="line"><span class="hljs-javascript">    el: <span class="hljs-string">'#app'</span>,</span></span><br><span class="line">    data: {</span><br><span class="line"><span class="hljs-javascript">      selected: <span class="hljs-string">'submit'</span>,</span></span><br><span class="line">    },</span><br><span class="line">  })</span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://i.imgur.com/NxbUi4i.png"></p>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/bGEXQrj">codepen</a></p>
+<p><img src="https://i.imgur.com/ph81atN.png"></p>
+<p>透過 v-bind 可以將 submit 這個值綁到 type 屬性上</p>
 <hr>
-<h2 id="全域-Loading"><a href="#全域-Loading" class="headerlink" title="全域 Loading"></a>全域 Loading</h2><p>接下來要在 components 裡面加入讀取的判斷式跟綁定<br>先將 lading 預設好，只有在等待的時間下才會轉 <code> isLoading: false,</code></p>
-<p><img src="https://i.imgur.com/cLak0kf.png"></p>
-<p>然後把範例拿過來用</p>
-<p>在 div 內一層加上 <code>&lt;loading :active.sync="isLoading"&gt;&lt;/loading&gt;</code></p>
-<p><img src="https://i.imgur.com/kX4o8Kv.png"></p>
-<p>接下來要在 AJAX 的行為上面新增 <code> isLoading: false,</code><br>在啟用 <code>getProducts</code> 的時候就會觸發 loading ( true )，在完成的時候結束( false )<br>範例如下:</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">getProducts() {</span><br><span class="line">  <span class="hljs-keyword">const</span> api = <span class="hljs-string">`<span class="hljs-subst">${process.env.APIPATH}</span>/api/<span class="hljs-subst">${process.env.MYPATH}</span>/products`</span></span><br><span class="line">  <span class="hljs-built_in">this</span>.isLoading = <span class="hljs-literal">true</span></span><br><span class="line">  <span class="hljs-built_in">this</span>.$http.get(api).then(<span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {</span><br><span class="line">    <span class="hljs-built_in">this</span>.products = response.data.products</span><br><span class="line">    <span class="hljs-built_in">this</span>.isLoading = <span class="hljs-literal">false</span></span><br><span class="line">  })</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h2><p>v-on 縮寫為 “@”，用來偵聽 DOM 輸入的事件並改變資料</p>
+<h4 id="製作一個簡單的按鈕"><a href="#製作一個簡單的按鈕" class="headerlink" title="製作一個簡單的按鈕"></a>製作一個簡單的按鈕</h4><figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">:checked</span>=<span class="hljs-string">"selected"</span> /&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"toggle"</span>&gt;</span>toggle<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span></span><br><span class="line"><span class="hljs-javascript">  <span class="hljs-keyword">new</span> Vue({</span></span><br><span class="line"><span class="hljs-javascript">    el: <span class="hljs-string">'#app'</span>,</span></span><br><span class="line">    data: {</span><br><span class="line"><span class="hljs-javascript">      selected: <span class="hljs-literal">false</span>,</span></span><br><span class="line">    },</span><br><span class="line">    methods: {</span><br><span class="line">      toggle() {</span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-built_in">this</span>.selected = !<span class="hljs-built_in">this</span>.selected</span></span><br><span class="line">      },</span><br><span class="line">    },</span><br><span class="line">  })</span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>然後再重新整理，畫面中間就會出現 Loading 的效果，<br>再試試按下編輯或是新增然後直接按下確認也會有 Loading 的效果</p>
-<p>這樣全域就完成了!!</p>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/bGEXQrj?editors=1010">codepen</a></p>
+<p><img src="https://i.imgur.com/9ciSSo0.png"></p>
+<p>checked 屬性是控制 input 著 checkbox 有沒有被勾選到，而 selected 這個值是代表 data 裡面的 selected，要讓 selected 賦予值，就必須要用 v-bind 動態綁定到 checked 屬性上，再透過 v-on 偵聽事件綁定 selected。</p>
 <hr>
-<h2 id="局部-Loading"><a href="#局部-Loading" class="headerlink" title="局部 Loading"></a>局部 Loading</h2><p>再來要做局部的，我們要在新增或是編輯圖片那邊加上 loading 的效果</p>
-<p>要加的地方在下圖紅框處<br><img src="https://i.imgur.com/SKEI2vd.png"></p>
-<p>這邊偷懶一下直接用 CDN 載入 <a target="_blank" rel="noopener" href="https://cdnjs.com/libraries/font-awesome">font-awesome</a> 到 index.html</p>
-<p><img src="https://i.imgur.com/fszYHjw.png"><br><img src="https://i.imgur.com/jBEiM1M.png"></p>
-<p>然後再到 <a target="_blank" rel="noopener" href="https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons">Animating Icons</a> 選一個自己喜歡的 loading 樣式<br>這邊用 <code>fa-spinner fa-spin</code> 作範例<br>因為要在上傳圖片的旁邊顯示 loading 效果，所以我們把 <code>fa-spinner fa-spin</code> 加在 label 旁邊，</p>
-<p><img src="https://i.imgur.com/t3XKdnP.png"></p>
-<p>再到 data 函式加入決定局部 loading 的變數</p>
-<p><img src="https://i.imgur.com/oQk38Gg.png"></p>
-<p>再到模板那邊用 v-if 判斷做動態綁定</p>
-<p><img src="https://i.imgur.com/doiggrR.png"></p>
-<p>然後在上傳圖片的函示( uploadImg )內加入局部 loading 判斷</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">uploadImg() {</span><br><span class="line">    <span class="hljs-comment">// 在拉圖片進去讀取的時候 fileUpLoading 會是 true</span></span><br><span class="line">  <span class="hljs-built_in">this</span>.status.fileUpLoading =  <span class="hljs-literal">true</span></span><br><span class="line">  <span class="hljs-keyword">const</span> uploadFile = <span class="hljs-built_in">this</span>.$refs.files.files[<span class="hljs-number">0</span>]</span><br><span class="line">  <span class="hljs-keyword">const</span> formData = <span class="hljs-keyword">new</span> FormData()</span><br><span class="line">  formData.append(<span class="hljs-string">'file-to-upload'</span>, uploadFile)</span><br><span class="line">  <span class="hljs-comment">//接下來定義路徑</span></span><br><span class="line">  <span class="hljs-keyword">const</span> url = <span class="hljs-string">`<span class="hljs-subst">${process.env.APIPATH}</span>/api/<span class="hljs-subst">${process.env.MYPATH}</span>/admin/upload`</span></span><br><span class="line">  <span class="hljs-built_in">this</span>.$http</span><br><span class="line">    .post(url, formData, {</span><br><span class="line">      headers: {</span><br><span class="line">        <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'multipart/form-data'</span></span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">    .then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> {</span><br><span class="line">      <span class="hljs-built_in">console</span>.log(res.data)</span><br><span class="line">      <span class="hljs-comment">// AJAX 結束後 fileUpLoading 就 false</span></span><br><span class="line">      <span class="hljs-built_in">this</span>.status.fileUpLoading = <span class="hljs-literal">false</span></span><br><span class="line">      <span class="hljs-keyword">if</span> (res.data.success) {</span><br><span class="line">        <span class="hljs-comment">// this.tempProduct.imgUrl = res.data.imageUrl</span></span><br><span class="line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.tempProduct)</span><br><span class="line">        <span class="hljs-built_in">this</span>.$set(<span class="hljs-built_in">this</span>.tempProduct, <span class="hljs-string">'imgUrl'</span>, res.data.imageUrl)</span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-</body></html>
+<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2></body></html>
     
     </div>
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Loading/">#Loading</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Vue/">#Vue</a></span>
     
     </div>
     
@@ -177,12 +163,12 @@
     <div class="columns is-mobile is-multiline article-nav">
         <span class="column is-12-mobile is-half-desktop  article-nav-prev">
             
-            <a href="/2020/09/25/%E8%A8%88%E7%AE%97%E5%B1%AC%E6%80%A7(computed)/">Vue - 計算屬性 ( computed )</a>
+            <a href="/2021/03/06/Vue%E7%B5%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/">Vue - 組件的使用</a>
             
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-            <a href="/2020/08/30/router/">Vue - Router</a>
+            <a href="/2021/03/04/v-if/">Vue - 判斷式</a>
             
         </span>
     </div>
@@ -197,8 +183,8 @@
     
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://pktseng.github.io/2020/09/25/%E8%A3%BD%E4%BD%9C%E5%B1%80%E9%83%A8%E6%88%96%E6%98%AF%E5%85%A8%E5%9F%9F%E7%9A%84%20Loading%20%E6%95%88%E6%9E%9C/';
-        this.page.identifier = '2020/09/25/製作局部或是全域的 Loading 效果/';
+        this.page.url = 'https://pktseng.github.io/2021/03/05/v-bind%20%E5%8F%8A%20v-on%20%E7%9A%84%E4%BD%BF%E7%94%A8/';
+        this.page.identifier = '2021/03/05/v-bind 及 v-on 的使用/';
         
         this.language = 'en';
         

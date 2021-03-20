@@ -120,6 +120,57 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2021/03/05/v-bind%20%E5%8F%8A%20v-on%20%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url">Vue - 動態綁定及監聽</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2021-03-04T16:00:00.000Z" itemprop="datePublished">2021年3月5日</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/Vue/">Vue</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分鐘 讀完 (約 240 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><h2 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h2><p>v-bind 指令是用來把一個數值綁定到 HTML 屬性上，因為到後期會大量用到，所以會使用縮寫 “ : “</p>
+<h4 id="用-v-bind-製作一個簡單的按鈕"><a href="#用-v-bind-製作一個簡單的按鈕" class="headerlink" title="用 v-bind 製作一個簡單的按鈕"></a>用 v-bind 製作一個簡單的按鈕</h4><figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">:type</span>=<span class="hljs-string">"selected"</span>&gt;</span>selected<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span></span><br><span class="line"><span class="hljs-javascript">  <span class="hljs-keyword">new</span> Vue({</span></span><br><span class="line"><span class="hljs-javascript">    el: <span class="hljs-string">'#app'</span>,</span></span><br><span class="line">    data: {</span><br><span class="line"><span class="hljs-javascript">      selected: <span class="hljs-string">'submit'</span>,</span></span><br><span class="line">    },</span><br><span class="line">  })</span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/bGEXQrj">codepen</a></p>
+<p><img src="https://i.imgur.com/ph81atN.png"></p>
+<p>透過 v-bind 可以將 submit 這個值綁到 type 屬性上</p>
+<hr>
+<h2 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h2><p>v-on 縮寫為 “@”，用來偵聽 DOM 輸入的事件並改變資料</p>
+<h4 id="製作一個簡單的按鈕"><a href="#製作一個簡單的按鈕" class="headerlink" title="製作一個簡單的按鈕"></a>製作一個簡單的按鈕</h4><figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">:checked</span>=<span class="hljs-string">"selected"</span> /&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"toggle"</span>&gt;</span>toggle<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span></span><br><span class="line"><span class="hljs-javascript">  <span class="hljs-keyword">new</span> Vue({</span></span><br><span class="line"><span class="hljs-javascript">    el: <span class="hljs-string">'#app'</span>,</span></span><br><span class="line">    data: {</span><br><span class="line"><span class="hljs-javascript">      selected: <span class="hljs-literal">false</span>,</span></span><br><span class="line">    },</span><br><span class="line">    methods: {</span><br><span class="line">      toggle() {</span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-built_in">this</span>.selected = !<span class="hljs-built_in">this</span>.selected</span></span><br><span class="line">      },</span><br><span class="line">    },</span><br><span class="line">  })</span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/bGEXQrj?editors=1010">codepen</a></p>
+<p><img src="https://i.imgur.com/9ciSSo0.png"></p>
+<p>checked 屬性是控制 input 著 checkbox 有沒有被勾選到，而 selected 這個值是代表 data 裡面的 selected，要讓 selected 賦予值，就必須要用 v-bind 動態綁定到 checked 屬性上，再透過 v-on 偵聽事件綁定 selected。</p>
+<hr>
+<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2></body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2021/02/28/Vue-%E7%B5%84%E4%BB%B6%E4%B8%80/" itemprop="url">Vue - 組件化 ( 一 )</a>
         
     </h1>
@@ -324,63 +375,12 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2020/08/13/v-bind%20%E5%8F%8A%20v-on%20%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url">Vue - 動態綁定及監聽</a>
+            <a href="/2020/08/10/Axios/" itemprop="url">Vue - Axios &amp; Bootstrap 引入</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2020-08-12T16:00:00.000Z" itemprop="datePublished">2020年8月13日</time>
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Vue/">Vue</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            2 分鐘 讀完 (約 240 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><h2 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h2><p>v-bind 指令是用來把一個數值綁定到 HTML 屬性上，因為到後期會大量用到，所以會使用縮寫 “ : “</p>
-<h4 id="用-v-bind-製作一個簡單的按鈕"><a href="#用-v-bind-製作一個簡單的按鈕" class="headerlink" title="用 v-bind 製作一個簡單的按鈕"></a>用 v-bind 製作一個簡單的按鈕</h4><figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">:type</span>=<span class="hljs-string">"selected"</span>&gt;</span>selected<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span></span><br><span class="line"><span class="hljs-javascript">  <span class="hljs-keyword">new</span> Vue({</span></span><br><span class="line"><span class="hljs-javascript">    el: <span class="hljs-string">'#app'</span>,</span></span><br><span class="line">    data: {</span><br><span class="line"><span class="hljs-javascript">      selected: <span class="hljs-string">'submit'</span>,</span></span><br><span class="line">    },</span><br><span class="line">  })</span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/bGEXQrj">codepen</a></p>
-<p><img src="https://i.imgur.com/ph81atN.png"></p>
-<p>透過 v-bind 可以將 submit 這個值綁到 type 屬性上</p>
-<hr>
-<h2 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h2><p>v-on 縮寫為 “@”，用來偵聽 DOM 輸入的事件並改變資料</p>
-<h4 id="製作一個簡單的按鈕"><a href="#製作一個簡單的按鈕" class="headerlink" title="製作一個簡單的按鈕"></a>製作一個簡單的按鈕</h4><figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">:checked</span>=<span class="hljs-string">"selected"</span> /&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"toggle"</span>&gt;</span>toggle<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span></span><br><span class="line"><span class="hljs-javascript">  <span class="hljs-keyword">new</span> Vue({</span></span><br><span class="line"><span class="hljs-javascript">    el: <span class="hljs-string">'#app'</span>,</span></span><br><span class="line">    data: {</span><br><span class="line"><span class="hljs-javascript">      selected: <span class="hljs-literal">false</span>,</span></span><br><span class="line">    },</span><br><span class="line">    methods: {</span><br><span class="line">      toggle() {</span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-built_in">this</span>.selected = !<span class="hljs-built_in">this</span>.selected</span></span><br><span class="line">      },</span><br><span class="line">    },</span><br><span class="line">  })</span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/bGEXQrj?editors=1010">codepen</a></p>
-<p><img src="https://i.imgur.com/9ciSSo0.png"></p>
-<p>checked 屬性是控制 input 著 checkbox 有沒有被勾選到，而 selected 這個值是代表 data 裡面的 selected，要讓 selected 賦予值，就必須要用 v-bind 動態綁定到 checked 屬性上，再透過 v-on 偵聽事件綁定 selected。</p>
-<hr>
-<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2></body></html>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/08/08/Vue%E5%87%BA%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99-1/" itemprop="url">Vue - Axios &amp; Bootstrap 引入</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2020-08-07T16:00:00.000Z" itemprop="datePublished">2020年8月8日</time>
+            <time datetime="2020-08-09T16:00:00.000Z" itemprop="datePublished">2020年8月10日</time>
         </span>
         
         <span class="column is-narrow article-category">
