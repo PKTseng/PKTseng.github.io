@@ -120,6 +120,74 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2021/03/22/%E9%A1%AF%E7%A4%BA%E9%A1%9E%E5%9E%8B%E7%9A%84%E6%95%B8%E9%87%8F/" itemprop="url">Vue - 顯示類型的數量 ( count )</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2021-03-21T16:00:00.000Z" itemprop="datePublished">2021年3月22日</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/Vue/">Vue</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分鐘 讀完 (約 962 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>需求: Sidebar 要顯示電影類型的數量，如下圖<br><img src="https://i.imgur.com/DMbdFHI.png"></p>
+<p>進入網頁時前端會發送請求就是打 api ，那後端收到請求後會回傳 <code>response</code> ，再把這 <code>response</code> ，如下圖，我們需要 <code>response</code> 裡面的 <code>data</code>。<br><img src="https://i.imgur.com/nnrCX4J.png"></p>
+<p>再把 <code>data</code> 裡面的資料賦予到 <code>this.products</code> 裡面。</p>
+<p>因為 AJAX 非同步的關係，為了確保執行程式時式有拿到資料的，所以會在打完 api 後同時執行 <code>getCategories()</code> 這個函式。</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">data() {</span><br><span class="line">    <span class="hljs-keyword">return</span> {</span><br><span class="line">      products: [],</span><br><span class="line">      categoryWithCount: {},</span><br><span class="line">      categories: [],</span><br><span class="line">    }</span><br><span class="line">},</span><br><span class="line">methods: {</span><br><span class="line">    getProducts: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">      <span class="hljs-keyword">const</span> api = <span class="hljs-string">`url`</span></span><br><span class="line">      Vue.axios.get(api).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> {</span><br><span class="line">        <span class="hljs-built_in">console</span>.log(response.data)</span><br><span class="line">        <span class="hljs-built_in">this</span>.products = response.data</span><br><span class="line">        <span class="hljs-built_in">this</span>.getCategoryWithCount()</span><br><span class="line">      })</span><br><span class="line">    },</span><br><span class="line">},</span><br><span class="line"></span><br><span class="line">mounted() {</span><br><span class="line"><span class="hljs-built_in">this</span>.getProducts()</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
+
+<p>經過 <a href="https://pktseng.github.io/2021/03/21/%E9%81%BF%E5%85%8D%E9%A1%AF%E7%A4%BA%E9%99%A3%E5%88%97%E5%85%A7%E9%87%8D%E8%A4%87%E7%9A%84%E5%80%BC/">專案筆記 Vue 避免顯示陣列內重複的值</a> 的解釋，已經把電影的類型賦予到 <code>category</code> 陣列上，現在要用 <code>category</code> 陣列內的值，判斷相同的類型有幾個。</p>
+<p>思考方向:<br>先抓取 <code>category</code> 陣列內的值，把這個 <code>category</code> 值跟 <code>products</code> 的值做比對。<br>( <code>products</code> 是打完 api 回傳的資料，資料被賦予到 <code>products</code> 陣列內 )</p>
+<p><code>category</code> 陣列是已經被過濾的電影類型，所以不會有重複的值 ( 請參考 <a href="https://pktseng.github.io/2021/03/21/%E9%81%BF%E5%85%8D%E9%A1%AF%E7%A4%BA%E9%99%A3%E5%88%97%E5%85%A7%E9%87%8D%E8%A4%87%E7%9A%84%E5%80%BC/">專案筆記 Vue 避免顯示陣列內重複的值</a> )。<br><code>products</code> 是後端回傳 response 後沒經過處裡的資料。</p>
+<p>首先，在 <code>for of</code> 迴圈<font color="#FF0000">外</font>用 console.log() 看一下 categories 陣列內的值。</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getCategoryWithCount: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.categories) <span class="hljs-comment">//迴圈外面</span></span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> category <span class="hljs-keyword">of</span> <span class="hljs-built_in">this</span>.categories) {</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(category) <span class="hljs-comment">//迴圈裡面</span></span><br><span class="line">  }</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
+
+<p>會是一個<font color="#FF0000">陣列</font>，如下圖<br><img src="https://i.imgur.com/bCcvRz4.png"></p>
+<p>在 <code>for of</code> 迴圈<font color="#FF0000">內</font>讀取陣列內的每個值，會從陣列中<font color="#FF0000">個別取出</font>，如下圖<br><img src="https://i.imgur.com/Q3CnBXx.png"></p>
+<p>透過迴圈已經將值個別取出，再把這些個別的值跟 <code>products</code> 陣列內的值做比對。</p>
+<p>用 <code>forEach</code> 迴圈讀取 <code>this.products</code> 所有值。<code>forEach</code> 第一個參數會指向代進去的所有值。</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getCategoryWithCount: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> category <span class="hljs-keyword">of</span> <span class="hljs-built_in">this</span>.categories) {</span><br><span class="line">    <span class="hljs-built_in">this</span>.products.forEach(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> {</span><br><span class="line">       <span class="hljs-built_in">console</span>.log(element)</span><br><span class="line">    })</span><br><span class="line">  }</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果不知道 <code>element</code> ，用 <code>console.log()</code> 看一下就知道了，如下圖<br><img src="https://i.imgur.com/ZHEx3Mf.png"><br><code>element</code> 會指向 <code>products</code> 陣列內每一筆的物件。</p>
+<p>然後在最外層宣告一個空物件，每跑一次迴圈相同的電影類型就會 +1。<br>在 <code>for</code> 迴圈裡面加入 <code>if</code> 判斷式，有相同電影類型的話那電影類型的數量就會 +1 ，當電影類型的型別判斷是 <code>undefined</code> 的話就會被歸 0，當迴圈跑完後再把 <code>count_hash</code> 物件賦予到 <code>categoryWithCount</code> 變數上</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">getCategoryWithCount: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-keyword">let</span> count_hash = {}</span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> category <span class="hljs-keyword">of</span> <span class="hljs-built_in">this</span>.categories) {</span><br><span class="line">    <span class="hljs-built_in">this</span>.products.forEach(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> {</span><br><span class="line">      <span class="hljs-keyword">if</span> (element.product_type === category) {</span><br><span class="line">        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> count_hash[category] === <span class="hljs-string">'undefined'</span>) {</span><br><span class="line">          count_hash[category] = <span class="hljs-number">0</span></span><br><span class="line">        }</span><br><span class="line">        count_hash[category] = count_hash[category] + <span class="hljs-number">1</span></span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">  }</span><br><span class="line">  <span class="hljs-built_in">this</span>.categoryWithCount = count_hash</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.categoryWithCount)</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在把跑完迴圈後的 <code>count_hash</code> 物件賦予到 <code>categoryWithCount</code> 上。<br>用 <code>console.log</code> 看一下 <code>categoryWithCount</code> 變數，如下圖<br><img src="https://i.imgur.com/dt6yy9z.png"></p>
+<p>這樣就把所有電影類型的數量計算完成了，接下來把這些數量代到 sidebar 裡面</p>
+<p>下圖為組件的模板，我要把數量放到 <code>span</code> 裡面。<br><img src="https://i.imgur.com/wKPpueD.png"></p>
+<p>思考方向是執行 <code>function</code> 把值代入。</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">getCount: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{</span><br><span class="line">  <span class="hljs-comment">// console.log(item)</span></span><br><span class="line">  <span class="hljs-comment">// console.log(this.categoryWithCount[item])</span></span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.categoryWithCount[item]</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
+
+<p>用 <code>console.log()</code> 看一下 <code>item</code> ，如下圖<br><img src="https://i.imgur.com/02gaLWh.png"></p>
+<p>用 <code>console.log()</code> 看一下 <code>this.categoryWithCount[item]</code>，如下圖<br><img src="https://i.imgur.com/IBEapga.png"></p>
+<p>把 <code>categoryWithCount</code> 物件裡面的數量 <code>return</code> 出來放到 <code>span</code> 標籤裡面，這樣就可以顯示該電影類型的數量了。<br><img src="https://i.imgur.com/VkxeERK.png"></p>
+</body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2021/03/21/%E9%81%BF%E5%85%8D%E9%A1%AF%E7%A4%BA%E9%99%A3%E5%88%97%E5%85%A7%E9%87%8D%E8%A4%87%E7%9A%84%E5%80%BC/" itemprop="url">Vue - 避免顯示陣列內重複的值</a>
         
     </h1>
