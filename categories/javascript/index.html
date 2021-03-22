@@ -561,6 +561,79 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2021/01/13/jQuery%20-%20%E4%BA%8B%E4%BB%B6%20(event)/" itemprop="url">jQuery - 基本使用</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2021-01-12T16:00:00.000Z" itemprop="datePublished">2021年1月13日</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分鐘 讀完 (約 318 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p><strong>分以下四種事件:</strong></p>
+<ol>
+<li>單擊 (click)</li>
+<li>雙擊 (dblclick)</li>
+<li>滑鼠移入 (mouseenter)</li>
+<li>滑鼠移出 (mouseleave)</li>
+</ol>
+<h3 id="1-單擊-click-amp-雙擊-dblclick"><a href="#1-單擊-click-amp-雙擊-dblclick" class="headerlink" title="1. 單擊 (click) &amp; 雙擊 (dblclick)"></a>1. 單擊 (click) &amp; 雙擊 (dblclick)</h3><p>為了方便區分，將 <code>id</code> 設定成 <code>click</code> &amp; <code>dbiclick</code>。</p>
+<p>接下來就是 jquery 三步驟:</p>
+<ol>
+<li>選擇要改變的元素 <code>id</code></li>
+<li>更改的樣式 <code>.css('color', 'red')</code></li>
+<li>動作: 單擊 or 雙擊</li>
+</ol>
+<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"click"</span>&gt;</span>click<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dblclick"</span>&gt;</span>dbiclick<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-string">'#click'</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  $(<span class="hljs-built_in">this</span>).css(<span class="hljs-string">'color'</span>, <span class="hljs-string">'red'</span>)</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">$(<span class="hljs-string">'#dblclick'</span>).dblclick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  $(<span class="hljs-built_in">this</span>).css(<span class="hljs-string">'color'</span>, <span class="hljs-string">'blue'</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<p>原圖:<br><img src="https://i.imgur.com/CYKyNfz.png"></p>
+<p>當我單擊的時候會顯示下圖:<br><img src="https://i.imgur.com/pALzfBQ.png"></p>
+<p>雙擊如下圖:<br><img src="https://i.imgur.com/o4MRJ2x.png"></p>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/MWjzpPb?editors=1011">DEMO</a></p>
+<p>如何知道 API 可以參考 <a target="_blank" rel="noopener" href="https://www.w3schools.com/jquery/jquery_events.asp">W3Schools</a></p>
+<h3 id="2-滑鼠事件，移入-mouseenter-與移出-mouseout"><a href="#2-滑鼠事件，移入-mouseenter-與移出-mouseout" class="headerlink" title="2. 滑鼠事件，移入(mouseenter)與移出(mouseout)"></a>2. 滑鼠事件，移入(mouseenter)與移出(mouseout)</h3><p>給兩個方塊測試，當滑鼠移入或移出方塊的時候就會顯示移入或移出的 log。</p>
+<p>其中 mouseenter 事件跟 hover 一樣，在移入時都會有相同動作。</p>
+<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"red"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"blue"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-id">#red</span>{</span><br><span class="line">  <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">background</span>: red;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-id">#blue</span>{</span><br><span class="line">  <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">background</span>: blue;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-string">'#red'</span>).mouseenter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'滑鼠移入紅色'</span>)</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">$(<span class="hljs-string">'#blue'</span>).mouseleave(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'滑鼠移出藍色'</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<p>當滑鼠移入的時候<br><img src="https://i.imgur.com/d5BLbbQ.png"></p>
+<p>當滑鼠移出的時候<br><img src="https://i.imgur.com/oiRfeKq.png"></p>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/QWKJvdd?editors=0011">DEMO</a></p>
+<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><hr>
+<p><a target="_blank" rel="noopener" href="https://www.w3schools.com/jquery/jquery_events.asp">W3Schools</a></p>
+</body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2021/01/08/changeRate/" itemprop="url">JavaScript 實作 - 簡易版匯率轉換</a>
         
     </h1>
@@ -765,170 +838,6 @@
 <p>就算我把順序顛倒過來，它還是會先捕獲在冒泡，跟上圖一樣</p>
 <hr>
 <h2 id="資料來源-FE102-前端必備：JavaScript"><a href="#資料來源-FE102-前端必備：JavaScript" class="headerlink" title="資料來源: [FE102] 前端必備：JavaScript"></a><a target="_blank" rel="noopener" href="https://lidemy.com/courses/390588/lectures/9653894">資料來源: [FE102] 前端必備：JavaScript</a></h2></body></html>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/07/16/jQuery%20-%20%E4%BB%8B%E7%B4%B9/" itemprop="url">jQuery - 事件介紹</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2020-07-15T16:00:00.000Z" itemprop="datePublished">2020年7月16日</time>
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分鐘 讀完 (約 541 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><h2 id="三大重點"><a href="#三大重點" class="headerlink" title="三大重點"></a>三大重點</h2><ul>
-<li>選擇器 (selector)</li>
-<li>事件觸發 (event)</li>
-<li>事件處發的回調函數</li>
-</ul>
-<p><strong>撰寫步驟如下:</strong></p>
-<ol>
-<li>選擇: 顯示、隱藏元素</li>
-<li>事件: 改變樣式</li>
-<li>動作: DOM 操作</li>
-</ol>
-<h2 id="選擇器-Selector"><a href="#選擇器-Selector" class="headerlink" title="選擇器 (Selector)"></a>選擇器 (Selector)</h2><h3 id="id-選擇器"><a href="#id-選擇器" class="headerlink" title="id 選擇器"></a>id 選擇器</h3><p>利用按下 <code>button</code> 按鈕改變字體顏色</p>
-<p>以下示範:<br>首先給個 <code>id</code> 元素跟 <code>button</code></p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"color"</span>&gt;</span>color<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"changeColor"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>再來是執行步驟:</p>
-<ol>
-<li>選擇要改變的元素 <code>#color</code></li>
-<li>改變顏色 <code>css('color', 'red')</code></li>
-<li>在 click 動作下執行</li>
-</ol>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-string">'#changeColor'</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  $(<span class="hljs-string">'#color'</span>).css(<span class="hljs-string">'color'</span>, <span class="hljs-string">'red'</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/LYRXxMx?editors=1011">DEMO</a></p>
-<h3 id="class-選擇器"><a href="#class-選擇器" class="headerlink" title="class 選擇器"></a>class 選擇器</h3><p>來看一下跟 <code>id</code> 選擇器有什麼差別</p>
-<p>給同個 <code>id</code> &amp; <code>className</code> 再用 <code>console.log</code> 查看</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dog"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dog"</span>&gt;</span>dog 1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dog"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dog"</span>&gt;</span>dog 2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>先示範選擇器抓 <code>id</code> 的效果<br>然後在 <code>console.log</code> 下 <code>$('#dog').text()</code>，顯示如下<br><img src="https://i.imgur.com/HjZsX8q.png"><br>只會抓到第一個 <code>id</code> 的 <code>dog</code> 而已</p>
-<p>再試試選擇器抓 <code>className</code> 的話呢?<br>輸入 <code>$('.dog').text()</code> ，顯示如下紅框處<br><img src="https://i.imgur.com/FdkEjg8.png"></p>
-<p>綠色是選擇器的差別上面是 <code>id</code> ，下面是 <code>className</code><br>可以看如果用 <code>className</code> 選擇器的話兩個都會顯示</p>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/LYRXWPy?editors=1011">DEMO</a></p>
-<h3 id="元素選擇器"><a href="#元素選擇器" class="headerlink" title="元素選擇器"></a>元素選擇器</h3><p>觀念跟 <code>class</code> 很像，可以同時更改多個元素內容或樣式，但會有點風險，因為同個檔案裡面或有多個相同元素</p>
-<p>給三個 <code>p</code> 元素跟一個 <code>button</code> ，透過按下 <code>button</code> 可以更改元素內的內容，以下示範</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>p1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>p2<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>p3<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"changeWord"</span>&gt;</span>change-Word<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>jQuery 步驟:</p>
-<ol>
-<li>選擇要改變的元素 <code>p</code></li>
-<li>改變的樣式 <code>.text('changeWord')</code></li>
-<li>按下 <code>button</code> 的動作</li>
-</ol>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-string">'#changeWord'</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</span><br><span class="line">  $(<span class="hljs-string">'p'</span>).text(<span class="hljs-string">'changeWord'</span>)</span><br><span class="line">})</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/GRjwWNX?editors=1011">DEMO</a></p>
-<hr>
-<h2 id="總結-id-、-className-amp-元素的差別"><a href="#總結-id-、-className-amp-元素的差別" class="headerlink" title="總結 id 、 className &amp; 元素的差別:"></a>總結 <code>id</code> 、 <code>className</code> &amp; 元素的差別:</h2><ul>
-<li>id: 若有很多相同 id ，<font color="#FF0000">只會選取第一個</font></li>
-<li>className: 會同時選取<font color="#FF0000">所有</font>相同的 className</li>
-<li>元素: 會同時選取<font color="#FF0000">所有</font>相同的元素</li>
-</ul>
-<p>會用到 <code>className</code> 的原因是為了方便選更改多個樣式，可以用在相同的商品列表上，但如果選擇 <code>id</code> 的話就只會更改單一樣式而且是第一個，之後相同 <code>id</code> 的不會更改到</p>
-<hr>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h2><p><a target="_blank" rel="noopener" href="https://codeshiba.teachable.com/courses/1255270/lectures/29521035">jQuery 幼幼班</a></p>
-</body></html>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2020/07/16/jQuery%20-%20%E4%BA%8B%E4%BB%B6%20(event)/" itemprop="url">jQuery - 基本使用</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2020-07-15T16:00:00.000Z" itemprop="datePublished">2020年7月16日</time>
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            2 分鐘 讀完 (約 318 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p><strong>分以下四種事件:</strong></p>
-<ol>
-<li>單擊 (click)</li>
-<li>雙擊 (dblclick)</li>
-<li>滑鼠移入 (mouseenter)</li>
-<li>滑鼠移出 (mouseleave)</li>
-</ol>
-<h3 id="1-單擊-click-amp-雙擊-dblclick"><a href="#1-單擊-click-amp-雙擊-dblclick" class="headerlink" title="1. 單擊 (click) &amp; 雙擊 (dblclick)"></a>1. 單擊 (click) &amp; 雙擊 (dblclick)</h3><p>為了方便區分，將 <code>id</code> 設定成 <code>click</code> &amp; <code>dbiclick</code>。</p>
-<p>接下來就是 jquery 三步驟:</p>
-<ol>
-<li>選擇要改變的元素 <code>id</code></li>
-<li>更改的樣式 <code>.css('color', 'red')</code></li>
-<li>動作: 單擊 or 雙擊</li>
-</ol>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"click"</span>&gt;</span>click<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dblclick"</span>&gt;</span>dbiclick<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-string">'#click'</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  $(<span class="hljs-built_in">this</span>).css(<span class="hljs-string">'color'</span>, <span class="hljs-string">'red'</span>)</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">$(<span class="hljs-string">'#dblclick'</span>).dblclick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  $(<span class="hljs-built_in">this</span>).css(<span class="hljs-string">'color'</span>, <span class="hljs-string">'blue'</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<p>原圖:<br><img src="https://i.imgur.com/CYKyNfz.png"></p>
-<p>當我單擊的時候會顯示下圖:<br><img src="https://i.imgur.com/pALzfBQ.png"></p>
-<p>雙擊如下圖:<br><img src="https://i.imgur.com/o4MRJ2x.png"></p>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/MWjzpPb?editors=1011">DEMO</a></p>
-<p>如何知道 API 可以參考 <a target="_blank" rel="noopener" href="https://www.w3schools.com/jquery/jquery_events.asp">W3Schools</a></p>
-<h3 id="2-滑鼠事件，移入-mouseenter-與移出-mouseout"><a href="#2-滑鼠事件，移入-mouseenter-與移出-mouseout" class="headerlink" title="2. 滑鼠事件，移入(mouseenter)與移出(mouseout)"></a>2. 滑鼠事件，移入(mouseenter)與移出(mouseout)</h3><p>給兩個方塊測試，當滑鼠移入或移出方塊的時候就會顯示移入或移出的 log。</p>
-<p>其中 mouseenter 事件跟 hover 一樣，在移入時都會有相同動作。</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"red"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"blue"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight css hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-id">#red</span>{</span><br><span class="line">  <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">background</span>: red;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-id">#blue</span>{</span><br><span class="line">  <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">background</span>: blue;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-string">'#red'</span>).mouseenter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'滑鼠移入紅色'</span>)</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">$(<span class="hljs-string">'#blue'</span>).mouseleave(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'滑鼠移出藍色'</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<p>當滑鼠移入的時候<br><img src="https://i.imgur.com/d5BLbbQ.png"></p>
-<p>當滑鼠移出的時候<br><img src="https://i.imgur.com/oiRfeKq.png"></p>
-<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/QWKJvdd?editors=0011">DEMO</a></p>
-<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><hr>
-<p><a target="_blank" rel="noopener" href="https://www.w3schools.com/jquery/jquery_events.asp">W3Schools</a></p>
-</body></html>
     
     </div>
     

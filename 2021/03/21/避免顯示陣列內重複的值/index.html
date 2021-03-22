@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>Vue - loading 效果 - PK&#39;s 回憶錄</title>
+<title>Vue - 避免顯示陣列內重複的值 - PK&#39;s 回憶錄</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -112,64 +112,63 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            Vue - loading 效果
+            Vue - 避免顯示陣列內重複的值
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2021-03-09T16:00:00.000Z" itemprop="datePublished">2021年3月10日</time>
+            <time datetime="2021-03-20T16:00:00.000Z" itemprop="datePublished">2021年3月21日</time>
         </span>
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Loading/">Loading</a>
+            <a class="article-category-link" href="/categories/Vue/">Vue</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 603 字)
+            4 分鐘 讀完 (約 655 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p><a target="_blank" rel="noopener" href="https://github.com/ankurk91/vue-loading-overlay">套件</a><br>首先安裝 npm: <code>npm install vue-loading-overlay</code><br>再到 main.js 載入</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// Import component</span></span><br><span class="line"><span class="hljs-keyword">import</span> Loading <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-loading-overlay'</span></span><br><span class="line"><span class="hljs-comment">// Import stylesheet</span></span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">'vue-loading-overlay/dist/vue-loading.css'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 因為是全域每個 component 都會用，所以用 Vue.component</span></span><br><span class="line">Vue.component(<span class="hljs-string">'Loading'</span>, Loading)</span><br></pre></td></tr></tbody></table></figure>
+        <html><head></head><body><p>在寫個人專案的過程中遇到一些問題，順便記錄一下。</p>
+<p>要做的需求是 sidebar 顯示電影類型。</p>
+<h2 id="進入頁面獲取資料"><a href="#進入頁面獲取資料" class="headerlink" title="進入頁面獲取資料"></a>進入頁面獲取資料</h2><p>在進入頁面的時候我們必須發送請求跟後端索取資料，後端接受到前端的請求後會進行邏輯判斷再回傳 <code>response</code> 。</p>
+<p>要獲取資料就要用 <code>AJAX</code> 的方式，我選用 <code>Axios</code> 來獲取。<br>再將 api 的資料賦予到 <code>products</code> 變數裡面。<br><code>this</code> 是指向這個 <code>vue 實體</code>。</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">data() {</span><br><span class="line">    <span class="hljs-keyword">return</span> {</span><br><span class="line">      products: [],</span><br><span class="line">      categories: [],</span><br><span class="line">    }</span><br><span class="line">},</span><br><span class="line"></span><br><span class="line">methods: {</span><br><span class="line">    getProducts: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">      <span class="hljs-keyword">const</span> api = <span class="hljs-string">'url'</span></span><br><span class="line">      Vue.axios.get(api).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> {</span><br><span class="line">        <span class="hljs-comment">// console.log(response)</span></span><br><span class="line">        <span class="hljs-built_in">this</span>.products = response.data</span><br><span class="line">        <span class="hljs-built_in">this</span>.getCategories()</span><br><span class="line">      })</span><br><span class="line">    }</span><br><span class="line">},</span><br><span class="line">mounted() {</span><br><span class="line"><span class="hljs-built_in">this</span>.getProducts()</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://i.imgur.com/NxbUi4i.png"></p>
-<hr>
-<h2 id="全域-Loading"><a href="#全域-Loading" class="headerlink" title="全域 Loading"></a>全域 Loading</h2><p>接下來要在 components 裡面加入讀取的判斷式跟綁定<br>先將 lading 預設好，只有在等待的時間下才會轉 <code> isLoading: false,</code></p>
-<p><img src="https://i.imgur.com/cLak0kf.png"></p>
-<p>然後把範例拿過來用</p>
-<p>在 div 內一層加上 <code>&lt;loading :active.sync="isLoading"&gt;&lt;/loading&gt;</code></p>
-<p><img src="https://i.imgur.com/kX4o8Kv.png"></p>
-<p>接下來要在 AJAX 的行為上面新增 <code> isLoading: false,</code><br>在啟用 <code>getProducts</code> 的時候就會觸發 loading ( true )，在完成的時候結束( false )<br>範例如下:</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">getProducts() {</span><br><span class="line">  <span class="hljs-keyword">const</span> api = <span class="hljs-string">`<span class="hljs-subst">${process.env.APIPATH}</span>/api/<span class="hljs-subst">${process.env.MYPATH}</span>/products`</span></span><br><span class="line">  <span class="hljs-built_in">this</span>.isLoading = <span class="hljs-literal">true</span></span><br><span class="line">  <span class="hljs-built_in">this</span>.$http.get(api).then(<span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {</span><br><span class="line">    <span class="hljs-built_in">this</span>.products = response.data.products</span><br><span class="line">    <span class="hljs-built_in">this</span>.isLoading = <span class="hljs-literal">false</span></span><br><span class="line">  })</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
+<p>用 <code>console.log</code> 看一下回傳的資料。<br><img src="https://i.imgur.com/nnrCX4J.png"></p>
+<h2 id="製作-sidebar-類型選單"><a href="#製作-sidebar-類型選單" class="headerlink" title="製作 sidebar 類型選單"></a>製作 sidebar 類型選單</h2><p>因為同類型的電影不只一個，會重複很多個，所以要把重複的過濾掉。</p>
+<p>思考方向:</p>
+<ol>
+<li>第一次先用 <code>map</code> 將所有電影類型全部找出來放到新的陣列裡面。</li>
+<li>第二次用 <code>filter</code> 將重複的電影過濾掉。</li>
+</ol>
+<p>這是 <code>response.data</code> 陣列內回傳的資料，我們要索取陣列內 <code>product_type</code> 這個屬性<br><img src="https://i.imgur.com/aop2BX3.png"></p>
+<p>因為非同步的關係，必須等到後端回傳 <code>response</code> 的時候再執行。所以要在回傳的 <code>response</code> 後面加上 <code>getProducts()</code> 這個函式，這樣就可以同步了。</p>
+<p>首先我把 <code>this.products</code> 所有資料用 <code>map</code> 函式走一遍， <code>map</code> 條件為將資料內的 <code>product_type</code> 屬性，塞選出來放到新的陣列裡面。新的陣列我用 <code>categories</code> 命名。</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getCategories: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">     <span class="hljs-keyword">let</span> categories = <span class="hljs-built_in">this</span>.products.map(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> {</span><br><span class="line">     <span class="hljs-comment">// console.log(element.product_type)</span></span><br><span class="line">       <span class="hljs-keyword">return</span> element.product_type</span><br><span class="line">     })</span><br><span class="line">   },</span><br></pre></td></tr></tbody></table></figure>
 
-<p>然後再重新整理，畫面中間就會出現 Loading 的效果，<br>再試試按下編輯或是新增然後直接按下確認也會有 Loading 的效果</p>
-<p>這樣全域就完成了!!</p>
-<hr>
-<h2 id="局部-Loading"><a href="#局部-Loading" class="headerlink" title="局部 Loading"></a>局部 Loading</h2><p>再來要做局部的，我們要在新增或是編輯圖片那邊加上 loading 的效果</p>
-<p>要加的地方在下圖紅框處<br><img src="https://i.imgur.com/SKEI2vd.png"></p>
-<p>這邊偷懶一下直接用 CDN 載入 <a target="_blank" rel="noopener" href="https://cdnjs.com/libraries/font-awesome">font-awesome</a> 到 index.html</p>
-<p><img src="https://i.imgur.com/fszYHjw.png"><br><img src="https://i.imgur.com/jBEiM1M.png"></p>
-<p>然後再到 <a target="_blank" rel="noopener" href="https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons">Animating Icons</a> 選一個自己喜歡的 loading 樣式<br>這邊用 <code>fa-spinner fa-spin</code> 作範例<br>因為要在上傳圖片的旁邊顯示 loading 效果，所以我們把 <code>fa-spinner fa-spin</code> 加在 label 旁邊，</p>
-<p><img src="https://i.imgur.com/t3XKdnP.png"></p>
-<p>再到 data 函式加入決定局部 loading 的變數</p>
-<p><img src="https://i.imgur.com/oQk38Gg.png"></p>
-<p>再到模板那邊用 v-if 判斷做動態綁定</p>
-<p><img src="https://i.imgur.com/doiggrR.png"></p>
-<p>然後在上傳圖片的函示( uploadImg )內加入局部 loading 判斷</p>
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">uploadImg() {</span><br><span class="line">    <span class="hljs-comment">// 在拉圖片進去讀取的時候 fileUpLoading 會是 true</span></span><br><span class="line">  <span class="hljs-built_in">this</span>.status.fileUpLoading =  <span class="hljs-literal">true</span></span><br><span class="line">  <span class="hljs-keyword">const</span> uploadFile = <span class="hljs-built_in">this</span>.$refs.files.files[<span class="hljs-number">0</span>]</span><br><span class="line">  <span class="hljs-keyword">const</span> formData = <span class="hljs-keyword">new</span> FormData()</span><br><span class="line">  formData.append(<span class="hljs-string">'file-to-upload'</span>, uploadFile)</span><br><span class="line">  <span class="hljs-comment">//接下來定義路徑</span></span><br><span class="line">  <span class="hljs-keyword">const</span> url = <span class="hljs-string">`<span class="hljs-subst">${process.env.APIPATH}</span>/api/<span class="hljs-subst">${process.env.MYPATH}</span>/admin/upload`</span></span><br><span class="line">  <span class="hljs-built_in">this</span>.$http</span><br><span class="line">    .post(url, formData, {</span><br><span class="line">      headers: {</span><br><span class="line">        <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'multipart/form-data'</span></span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">    .then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> {</span><br><span class="line">      <span class="hljs-built_in">console</span>.log(res.data)</span><br><span class="line">      <span class="hljs-comment">// AJAX 結束後 fileUpLoading 就 false</span></span><br><span class="line">      <span class="hljs-built_in">this</span>.status.fileUpLoading = <span class="hljs-literal">false</span></span><br><span class="line">      <span class="hljs-keyword">if</span> (res.data.success) {</span><br><span class="line">        <span class="hljs-comment">// this.tempProduct.imgUrl = res.data.imageUrl</span></span><br><span class="line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.tempProduct)</span><br><span class="line">        <span class="hljs-built_in">this</span>.$set(<span class="hljs-built_in">this</span>.tempProduct, <span class="hljs-string">'imgUrl'</span>, res.data.imageUrl)</span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>用 <code>console.log()</code> 看 <code>element.product_type</code> ， 如下圖<br>( 資料是從 TMDB 用爬蟲爬得，所以會有簡體字 )<br><img src="https://i.imgur.com/OsobCQC.png"></p>
+<p><code>map</code> 會產生新的陣列，新陣列內的資料後會有重複的電影類型，為了不要讓重複的電影類型顯示出來，我用 <code>filter</code> 方法，條件判斷是用 <code>indexOf</code> 。</p>
+<p>indexOf : <code>比較 array 裡面是否有元素 === 你要找的東西</code>。</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">getCategories: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-keyword">let</span> categories = <span class="hljs-built_in">this</span>.products.map(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> {</span><br><span class="line">    <span class="hljs-keyword">return</span> element.product_type</span><br><span class="line">  })</span><br><span class="line"></span><br><span class="line">  <span class="hljs-built_in">this</span>.categories = categories.filter(</span><br><span class="line">    (item, index) =&gt; categories.indexOf(item) === index</span><br><span class="line">  )</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.categories)</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
+
+<p>塞選完會呈現下圖<br><img src="https://i.imgur.com/MXX7XeQ.png"></p>
+<p>重複的電影類型就不見了</p>
+<p>接下來把類型放到陣列裡面，再用 v-for 的方式渲染出來，如下圖<br><img src="https://i.imgur.com/J6kSJ0i.png"></p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10227363">JS 找出元素索引值的陣列 Array 方法 indexOf()</a></p>
 </body></html>
     
     </div>
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Loading/">#Loading</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Vue/">#Vue</a></span>
     
     </div>
     
@@ -177,12 +176,12 @@
     <div class="columns is-mobile is-multiline article-nav">
         <span class="column is-12-mobile is-half-desktop  article-nav-prev">
             
-            <a href="/2021/03/21/%E9%81%BF%E5%85%8D%E9%A1%AF%E7%A4%BA%E9%99%A3%E5%88%97%E5%85%A7%E9%87%8D%E8%A4%87%E7%9A%84%E5%80%BC/">Vue - 避免顯示陣列內重複的值</a>
+            <a href="/2021/03/22/%E9%A1%AF%E7%A4%BA%E9%A1%9E%E5%9E%8B%E7%9A%84%E6%95%B8%E9%87%8F/"></a>
             
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-            <a href="/2021/03/06/%E4%B8%8B%E6%8B%89%E9%81%B8%E5%96%AE/">Vue - 下拉選單</a>
+            <a href="/2021/03/10/loading/">Vue - loading 效果</a>
             
         </span>
     </div>
@@ -197,8 +196,8 @@
     
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://pktseng.github.io/2021/03/10/loading/';
-        this.page.identifier = '2021/03/10/loading/';
+        this.page.url = 'https://pktseng.github.io/2021/03/21/%E9%81%BF%E5%85%8D%E9%A1%AF%E7%A4%BA%E9%99%A3%E5%88%97%E5%85%A7%E9%87%8D%E8%A4%87%E7%9A%84%E5%80%BC/';
+        this.page.identifier = '2021/03/21/避免顯示陣列內重複的值/';
         
         this.language = 'en';
         
