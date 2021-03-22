@@ -129,7 +129,7 @@
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 656 字)
+            5 分鐘 讀完 (約 687 字)
         </span>
         
     </div>
@@ -140,7 +140,8 @@
 <a id="more"></a>
 
 <h2 id="進入頁面獲取資料"><a href="#進入頁面獲取資料" class="headerlink" title="進入頁面獲取資料"></a>進入頁面獲取資料</h2><p>在進入頁面的時候我們必須發送請求跟後端索取資料，後端接受到前端的請求後會進行邏輯判斷再回傳 <code>response</code> 。</p>
-<p>要獲取資料就要用 <code>AJAX</code> 的方式，我選用 <code>Axios</code> 來獲取。<br>再將 api 的資料賦予到 <code>products</code> 變數裡面。<br><code>this</code> 是指向這個 <code>vue 實體</code>。</p>
+<p>要獲取資料就要用 <code>AJAX</code> 的方式，我選用 <code>Axios</code> 來獲取。<br>再將後端回傳的資料賦予到 <code>products</code> 變數裡面。</p>
+<p><code>this</code> 是指向這個 <code>vue 實體</code>。</p>
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">data() {</span><br><span class="line">    <span class="hljs-keyword">return</span> {</span><br><span class="line">      products: [],</span><br><span class="line">      categories: [],</span><br><span class="line">    }</span><br><span class="line">},</span><br><span class="line"></span><br><span class="line">methods: {</span><br><span class="line">    getProducts: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">      <span class="hljs-keyword">const</span> api = <span class="hljs-string">'url'</span></span><br><span class="line">      Vue.axios.get(api).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> {</span><br><span class="line">        <span class="hljs-comment">// console.log(response)</span></span><br><span class="line">        <span class="hljs-built_in">this</span>.products = response.data</span><br><span class="line">        <span class="hljs-built_in">this</span>.getCategories()</span><br><span class="line">      })</span><br><span class="line">    }</span><br><span class="line">},</span><br><span class="line">mounted() {</span><br><span class="line"><span class="hljs-built_in">this</span>.getProducts()</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
 
 <p>用 <code>console.log</code> 看一下回傳的資料。<br><img src="https://i.imgur.com/nnrCX4J.png"></p>
@@ -150,19 +151,20 @@
 <li>第一次先用 <code>map</code> 將所有電影類型全部找出來放到新的陣列裡面。</li>
 <li>第二次用 <code>filter</code> 將重複的電影過濾掉。</li>
 </ol>
-<p>這是 <code>response.data</code> 陣列內回傳的資料，我們要索取陣列內 <code>product_type</code> 這個屬性<br><img src="https://i.imgur.com/aop2BX3.png"></p>
-<p>因為非同步的關係，必須等到後端回傳 <code>response</code> 的時候再執行。所以要在回傳的 <code>response</code> 後面加上 <code>getProducts()</code> 這個函式，這樣就可以同步了。</p>
-<p>首先我把 <code>this.products</code> 所有資料用 <code>map</code> 函式走一遍， <code>map</code> 條件為將資料內的 <code>product_type</code> 屬性，塞選出來放到新的陣列裡面。新的陣列我用 <code>categories</code> 命名。</p>
+<p>下圖是 <code>response.data</code> 陣列內回傳的資料，我們要索取陣列內每筆物件的 <code>product_type</code> 屬性。<br><img src="https://i.imgur.com/aop2BX3.png"></p>
+<p>因為非同步的關係，必須等到後端回傳 <code>response</code> 的時候再執行。所以要在打完 <code>api</code> 回傳 <code>response</code> 後，加上 <code>getProducts()</code> 這個函式，這樣才可以同步。</p>
+<p>首先我把 <code>this.products</code> 所有資料用 <code>map</code> 函式塞選一遍， <code>map</code> 條件為將資料內的 <code>product_type</code> 屬性塞選出來放到新的陣列裡面。<br>新的陣列我用 <code>categories</code> 命名。</p>
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getCategories: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">     <span class="hljs-keyword">let</span> categories = <span class="hljs-built_in">this</span>.products.map(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> {</span><br><span class="line">     <span class="hljs-comment">// console.log(element.product_type)</span></span><br><span class="line">       <span class="hljs-keyword">return</span> element.product_type</span><br><span class="line">     })</span><br><span class="line">   },</span><br></pre></td></tr></tbody></table></figure>
 
 <p>用 <code>console.log()</code> 看 <code>element.product_type</code> ， 如下圖<br>( 資料是從 TMDB 用爬蟲爬得，所以會有簡體字 )<br><img src="https://i.imgur.com/OsobCQC.png"></p>
-<p><code>map</code> 會產生新的陣列，新陣列內的資料後會有重複的電影類型，為了不要讓重複的電影類型顯示出來，我用 <code>filter</code> 方法，條件判斷是用 <code>indexOf</code> 。</p>
-<p>indexOf : <code>比較 array 裡面是否有元素 === 你要找的東西</code>。</p>
+<p><code>map</code> 會產生新的陣列，新陣列內的資料有重複的電影類型，為了不要讓重複的電影類型顯示出來，我用 <code>filter</code> 方法，條件判斷是用 <code>indexOf</code> 。</p>
+<p>indexOf : <code>比較 array 裡面是否有元素 === 你要找的東西</code>。<br>indexOf 的用法可以參考這篇<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10227363">文章</a></p>
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">getCategories: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-keyword">let</span> categories = <span class="hljs-built_in">this</span>.products.map(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> {</span><br><span class="line">    <span class="hljs-keyword">return</span> element.product_type</span><br><span class="line">  })</span><br><span class="line"></span><br><span class="line">  <span class="hljs-built_in">this</span>.categories = categories.filter(</span><br><span class="line">    (item, index) =&gt; categories.indexOf(item) === index</span><br><span class="line">  )</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.categories)</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
 
 <p>塞選完會呈現下圖<br><img src="https://i.imgur.com/MXX7XeQ.png"></p>
 <p>重複的電影類型就不見了</p>
 <p>接下來把類型放到陣列裡面，再用 v-for 的方式渲染出來，如下圖<br><img src="https://i.imgur.com/J6kSJ0i.png"></p>
+<p>這樣就完成了!!!</p>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10227363">JS 找出元素索引值的陣列 Array 方法 indexOf()</a></p>
 </body></html>
     
