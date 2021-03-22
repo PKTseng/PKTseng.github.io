@@ -120,87 +120,6 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2021/03/04/v-if/" itemprop="url">Vue - 判斷式</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2021-03-03T16:00:00.000Z" itemprop="datePublished">2021年3月4日</time>
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Vue/">Vue</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分鐘 讀完 (約 595 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h2><p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/ZEQgEoG?editors=1010">CodePen</a><br>我想透過勾選來決定要不要顯示 h1 標籤的內容，顯用 <code>v-model</code> 綁定屬性，再用 <code>v-if</code> 判斷決定與否</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"checked"</span> /&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"checked"</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">&lt;!-- Scss --&gt;</span></span><br><span class="line"><span class="hljs-comment">&lt;!-- #app{</span></span><br><span class="line"><span class="hljs-comment">  text-align: center;</span></span><br><span class="line"><span class="hljs-comment">  h1{</span></span><br><span class="line"><span class="hljs-comment">    font-size: 30px;</span></span><br><span class="line"><span class="hljs-comment">    color: red;</span></span><br><span class="line"><span class="hljs-comment">  }</span></span><br><span class="line"><span class="hljs-comment">} --&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> vm = <span class="hljs-keyword">new</span> Vue({</span><br><span class="line">  el: <span class="hljs-string">'#app'</span>,</span><br><span class="line">  data: {</span><br><span class="line">    checked: <span class="hljs-literal">false</span>,</span><br><span class="line">  },</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<p><img src="https://i.imgur.com/02GE7NZ.png"></p>
-<hr>
-<p>v-if 除了可以用在元素上，也可以用 template 模板包住某些元素<br><img src="https://i.imgur.com/ZNNucL1.png"></p>
-<p>這樣一個一個寫在元素太麻煩，所以改成直接寫在 <code>template</code> 模板上，會有一樣的效果</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"checked"</span> /&gt;</span></span><br><span class="line">  <span class="hljs-comment">&lt;!--   &lt;h1 v-if="checked"&gt;Hello World!&lt;/h1&gt; --&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"checked"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>html<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>javascript<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>css<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> vm = <span class="hljs-keyword">new</span> Vue({</span><br><span class="line">  el: <span class="hljs-string">'#app'</span>,</span><br><span class="line">  data: {</span><br><span class="line">    checked: <span class="hljs-literal">false</span>,</span><br><span class="line">  },</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<p><img src="https://i.imgur.com/wakHHCD.png"></p>
-<hr>
-<p>在<strong>勾選</strong>顯示時，用開發者工具看會顯示 DOM 元素<br><img src="https://i.imgur.com/eZ04Y1R.png"></p>
-<hr>
-<p>但是<strong>不勾選</strong>時，DOM 元素會直接被拿掉而不是用 <code>display:none</code> 隱藏<br><img src="https://i.imgur.com/rBTAJQ8.png"></p>
-<hr>
-<h2 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a>v-else</h2><p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/PoZMwpr?editors=1010">CodePen</a></p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"checked"</span> /&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"checked"</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">v-else</span>&gt;</span>OverWatch<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> vm = <span class="hljs-keyword">new</span> Vue({</span><br><span class="line">  el: <span class="hljs-string">'#app'</span>,</span><br><span class="line">  data: {</span><br><span class="line">    checked: <span class="hljs-literal">true</span>,</span><br><span class="line">  },</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<p>不是 A 就是 B，當 <code>v-if</code> 屬性是 <code>false</code> 時，則會顯示 <code>v-else</code>，而 <strong><code>v-if</code> 跟 <code>v-else</code> 之間不能有任何元素</strong>，若出現其他元素 <code>v-else</code> 就不會觸發<br>用開發者工具看，會發現一樣不是透過 <code>display:none</code> 隱藏<br><img src="https://i.imgur.com/CWUZZn3.png"><br><img src="https://i.imgur.com/3qKlC19.png"></p>
-<hr>
-<h2 id="v-else-if"><a href="#v-else-if" class="headerlink" title="v-else-if"></a>v-else-if</h2><p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/ExPqabQ?editors=1010">CodePen</a></p>
-<p><code>v-if</code> 跟 <code>v-else</code> 是簡單的二元判斷，那<code>v-else-if</code> 是提供兩者之間的選擇，介於 <code>v-if</code> 跟 <code>v-else</code> 之間，同時很多個 <code>v-else-if</code> 也沒關係!</p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"checkedOne"</span> /&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"checkedTwo"</span> /&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"checkedOne"</span>&gt;</span>勾選 checkedOne!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">v-else-if</span>=<span class="hljs-string">"checkedTwo"</span>&gt;</span>勾選 checkedTwo<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">v-else</span>&gt;</span>checkedOne、checkedTwo，都不是<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> vm = <span class="hljs-keyword">new</span> Vue({</span><br><span class="line">  el: <span class="hljs-string">'#app'</span>,</span><br><span class="line">  data: {</span><br><span class="line">    checkedOne: <span class="hljs-literal">false</span>,</span><br><span class="line">    checkedTwo: <span class="hljs-literal">false</span>,</span><br><span class="line">  },</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<p>再都不勾選情況下:<br><img src="https://i.imgur.com/Z2PDQ6q.png"></p>
-<p>勾選 checkedOne:<br><img src="https://i.imgur.com/aUjUlsJ.png"></p>
-<p>勾選 checkTwo:<br><img src="https://i.imgur.com/g8cSZyH.png"></p>
-<p>兩個都勾，會顯示 checkedOne 是因為判斷第一個 v-if 已經成立<br><img src="https://i.imgur.com/vdKqwV4.png"></p>
-<hr>
-<h2 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h2><p><code>v-if</code> 是透過刪除 DOM 元素來決定顯示與否，但如果要透過 CSS 的 <code>display:none</code>來控制 並且在不刪除 DOM 情況下，這時就要用 <code>v-show</code> 。</p>
-<p>v-show 有兩個地方要特別注意:<br><font color="red">1. 沒有 v-else 2. 不能用 template </font></p>
-<figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"checkedOne"</span> /&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">"checkedOne"</span>&gt;</span>勾選 checkedOne!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> vm = <span class="hljs-keyword">new</span> Vue({</span><br><span class="line">  el: <span class="hljs-string">'#app'</span>,</span><br><span class="line">  data: {</span><br><span class="line">    checkedOne: <span class="hljs-literal">false</span>,</span><br><span class="line">    checkedTwo: <span class="hljs-literal">false</span>,</span><br><span class="line">  },</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<h2 id="參考資料-精通-VueJS-前端開發完全指南"><a href="#參考資料-精通-VueJS-前端開發完全指南" class="headerlink" title="參考資料:精通 VueJS 前端開發完全指南"></a><a target="_blank" rel="noopener" href="https://hiskio.com/courses/145">參考資料:精通 VueJS 前端開發完全指南</a></h2></body></html>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
             <a href="/2021/02/24/Vue%E5%9F%BA%E6%9C%AC%E8%AA%9E%E6%B3%95(%20%E4%B8%89%20)/" itemprop="url">Vue - 基本語法( 三 )</a>
         
     </h1>
@@ -227,6 +146,46 @@
         <html><head></head><body><p>用 <code>v-if</code>、<code>v-show</code> 的條件判斷決定選染的內容。</p></body></html>
         <p class="article-more-link">
             <a href="/2021/02/24/Vue%E5%9F%BA%E6%9C%AC%E8%AA%9E%E6%B3%95(%20%E4%B8%89%20)/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2020/08/08/v-if/" itemprop="url">Vue - 判斷式</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2020-08-07T16:00:00.000Z" itemprop="datePublished">2020年8月8日</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/Vue/">Vue</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分鐘 讀完 (約 596 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h2><p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/ZEQgEoG?editors=1010">CodePen</a><br>我想透過勾選來決定要不要顯示 <code>h1</code> 標籤的內容，顯用 <code>v-model</code> 綁定屬性，再用 <code>v-if</code> 判斷決定與否</p></body></html>
+        <p class="article-more-link">
+            <a href="/2020/08/08/v-if/#more">閱讀更多</a>
         </p>
     
     </div>

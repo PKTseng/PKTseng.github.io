@@ -129,13 +129,15 @@
         <span class="column is-narrow">
             
             
-            8 分鐘 讀完 (約 1255 字)
+            8 分鐘 讀完 (約 1256 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <html><head></head><body><h2 id="8-1-用-v-for-把陣列轉換為一組元素"><a href="#8-1-用-v-for-把陣列轉換為一組元素" class="headerlink" title="8-1 用 v-for 把陣列轉換為一組元素"></a>8-1 用 v-for 把陣列轉換為一組元素</h2><p>將 <code>data</code> 裡面的 <code>todo</code> 陣列顯示在 <code>li</code> 上，<code>v-for="todos in todo"</code> 後面的<code>todos</code> 代表陣列，前面的<code>todo</code> 代表陣列裡面的每個元素</p>
+<a id="more"></a>
+
 <figure class="highlight html hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"todos in todo"</span>&gt;</span>{{todos}}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">new</span> Vue({</span><br><span class="line">  el: <span class="hljs-string">'#app'</span>,</span><br><span class="line">  data: {</span><br><span class="line">    todo: [<span class="hljs-string">'html'</span>, <span class="hljs-string">'javascript'</span>, <span class="hljs-string">'css'</span>],</span><br><span class="line">  },</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
