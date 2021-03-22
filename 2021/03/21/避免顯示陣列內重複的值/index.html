@@ -129,7 +129,7 @@
         <span class="column is-narrow">
             
             
-            4 分鐘 讀完 (約 655 字)
+            4 分鐘 讀完 (約 656 字)
         </span>
         
     </div>
@@ -137,6 +137,8 @@
     
         <html><head></head><body><p>在寫個人專案的過程中遇到一些問題，順便記錄一下。</p>
 <p>要做的需求是 sidebar 顯示電影類型。</p>
+<a id="more"></a>
+
 <h2 id="進入頁面獲取資料"><a href="#進入頁面獲取資料" class="headerlink" title="進入頁面獲取資料"></a>進入頁面獲取資料</h2><p>在進入頁面的時候我們必須發送請求跟後端索取資料，後端接受到前端的請求後會進行邏輯判斷再回傳 <code>response</code> 。</p>
 <p>要獲取資料就要用 <code>AJAX</code> 的方式，我選用 <code>Axios</code> 來獲取。<br>再將 api 的資料賦予到 <code>products</code> 變數裡面。<br><code>this</code> 是指向這個 <code>vue 實體</code>。</p>
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">data() {</span><br><span class="line">    <span class="hljs-keyword">return</span> {</span><br><span class="line">      products: [],</span><br><span class="line">      categories: [],</span><br><span class="line">    }</span><br><span class="line">},</span><br><span class="line"></span><br><span class="line">methods: {</span><br><span class="line">    getProducts: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{</span><br><span class="line">      <span class="hljs-keyword">const</span> api = <span class="hljs-string">'url'</span></span><br><span class="line">      Vue.axios.get(api).then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> {</span><br><span class="line">        <span class="hljs-comment">// console.log(response)</span></span><br><span class="line">        <span class="hljs-built_in">this</span>.products = response.data</span><br><span class="line">        <span class="hljs-built_in">this</span>.getCategories()</span><br><span class="line">      })</span><br><span class="line">    }</span><br><span class="line">},</span><br><span class="line">mounted() {</span><br><span class="line"><span class="hljs-built_in">this</span>.getProducts()</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>

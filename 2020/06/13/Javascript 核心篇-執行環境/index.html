@@ -129,13 +129,15 @@
         <span class="column is-narrow">
             
             
-            11 分鐘 讀完 (約 1588 字)
+            11 分鐘 讀完 (約 1589 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <html><head></head><body><p>JavaScript 是直譯式語言<br>當 JavaScript 在函示內找不到變數就會向外查找<br>window === this<br>但 this 會隨執行環境而有所不同</p>
+<a id="more"></a>
+
 <h2 id="語法作用域-Lexical-scope"><a href="#語法作用域-Lexical-scope" class="headerlink" title="語法作用域 (Lexical scope)"></a>語法作用域 (Lexical scope)</h2><figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> value = <span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn1</span>(<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(value) <span class="hljs-comment">// 語法作用域：1</span></span><br><span class="line">  <span class="hljs-comment">// 動態作用域：2</span></span><br><span class="line">}</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn2</span>(<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-keyword">var</span> value = <span class="hljs-number">2</span></span><br><span class="line">  fn1()</span><br><span class="line">}</span><br><span class="line">fn2()</span><br></pre></td></tr></tbody></table></figure>
 
 <ol>

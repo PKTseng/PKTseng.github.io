@@ -129,7 +129,7 @@
         <span class="column is-narrow">
             
             
-            12 分鐘 讀完 (約 1808 字)
+            12 分鐘 讀完 (約 1809 字)
         </span>
         
     </div>
@@ -137,6 +137,8 @@
     
         <html><head></head><body><h2 id="相關文件"><a href="#相關文件" class="headerlink" title="相關文件"></a>相關文件</h2><p><a target="_blank" rel="noopener" href="https://vue-course-api.hexschool.io/">API</a><br><a target="_blank" rel="noopener" href="https://github.com/hexschool/vue-course-api-wiki/wiki">文件</a><br><a target="_blank" rel="noopener" href="https://github.com/hexschool/vue-course-api-wiki/wiki/%E9%80%B2%E5%BA%A6-Commit">進度 commit</a></p>
 <p>由於 Google Chrome 在後續 80 版本後會預設封鎖第三方 Cookie，所以在登入 Vue 課程 API 就會出現無法登入的問題，在這邊老師也補充相關解決方式<br><a target="_blank" rel="noopener" href="https://paper.dropbox.com/doc/Vue-API-28OrjdvBouPMjspZUM7h7">連結</a></p>
+<a id="more"></a>
+
 <hr>
 <h2 id="啟用一個-Vue-Cli-並且-引用帶入專屬-API"><a href="#啟用一個-Vue-Cli-並且-引用帶入專屬-API" class="headerlink" title="啟用一個 Vue Cli 並且 引用帶入專屬 API"></a>啟用一個 Vue Cli 並且 引用帶入專屬 API</h2><h4 id="申請-API-，並載入"><a href="#申請-API-，並載入" class="headerlink" title="申請 API ，並載入"></a>申請 API ，並載入</h4><p>先申請 API ，取得資料<br>再安裝 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/vue-axios">Vue-Axios</a> ，然後把 Vue-Axios 載入到 main.js<br><strong>main.js 載入順序是第三方套件盡量往上放，下面再放自己撰寫的組件</strong></p>
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 第三方套件</span></span><br><span class="line"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span></span><br><span class="line"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">'axios'</span></span><br><span class="line"><span class="hljs-keyword">import</span> VueAxios <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-axios'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 自己撰寫</span></span><br><span class="line"><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App'</span></span><br><span class="line"><span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">'./router'</span></span><br></pre></td></tr></tbody></table></figure>

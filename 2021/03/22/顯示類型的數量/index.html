@@ -129,13 +129,15 @@
         <span class="column is-narrow">
             
             
-            6 分鐘 讀完 (約 962 字)
+            6 分鐘 讀完 (約 963 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <html><head></head><body><p>需求: Sidebar 要顯示電影類型的數量，如下圖<br><img src="https://i.imgur.com/DMbdFHI.png"></p>
+<a id="more"></a>
+
 <p>進入網頁時前端會發送請求就是打 api ，那後端收到請求後會回傳 <code>response</code> ，再把這 <code>response</code> ，如下圖，我們需要 <code>response</code> 裡面的 <code>data</code>。<br><img src="https://i.imgur.com/nnrCX4J.png"></p>
 <p>再把 <code>data</code> 裡面的資料賦予到 <code>this.products</code> 裡面。</p>
 <p>因為 AJAX 非同步的關係，為了確保執行程式時式有拿到資料的，所以會在打完 api 後同時執行 <code>getCategories()</code> 這個函式。</p>
