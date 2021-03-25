@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>文章列表: 2021/3 - PK&#39;s 回憶錄</title>
+<title>JavaScript - this 在 具名函式 &amp; 箭頭函式下的差異。 - PK&#39;s 回憶錄</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -109,70 +109,93 @@
 
     <section class="section">
     <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            JavaScript - this 在 具名函式 &amp; 箭頭函式下的差異。
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2021-03-23T16:00:00.000Z" itemprop="datePublished">2021年3月24日</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/JavaScrip/">JavaScrip</a><span>></span><a class="article-category-link" href="/categories/JavaScrip/this/">this</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分鐘 讀完 (約 200 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>以下示範 function &amp; arrow function 的差異。</p>
+<figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//具名函釋</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test1</span>(<span class="hljs-params"></span>) </span>{</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.name)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 箭頭函式</span></span><br><span class="line"><span class="hljs-keyword">let</span> test2 = <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.name)</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">window</span>.name = <span class="hljs-string">'外層'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> obj = {</span><br><span class="line">  name: <span class="hljs-string">'ken'</span>,</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 具名函示會看命名變數作用域下的 this</span></span><br><span class="line">test1() <span class="hljs-comment">// "外層"</span></span><br><span class="line">test1.call(obj) <span class="hljs-comment">// "ken"</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 箭頭函式永遠指向 window</span></span><br><span class="line">test2() <span class="hljs-comment">// "外層"</span></span><br><span class="line">test2.call(obj) <span class="hljs-comment">// "外層"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果想改變函示內的 this 值可以用 call 方法，但從結果來看，這對箭頭函式來說是無效的。</p>
+<p>總結:<br>test1 具名函示的 this 會指向<font color="#FF0000">函示作用域下</font>命名變數的 this 值。<br>test2 箭頭函示的 this 會指向<font color="#FF0000"> window 作用域</font>命名的變數。</p>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/jOyPdrL?editors=1012">codePen</a></p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1uK411H7on?p=9">尚硅谷 Web 前端 ES6 教程，涵盖 ES6-ES11</a></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/this/">#this</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/JavaScrip/">#JavaScrip</a></span>
+    
+    </div>
     
     
-        <div class="archive content">
-            <h4 class="title is-4" id="2021">2021</h4>
-            <div class="articles">
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
             
-                <div class="article content flexbox">
-                    <time class="is-text-small monospace mr1" datetime="2021-03-23T16:00:00.000Z" itemprop="datePublished">
-                        03月24日</time>
-                    <h6 class="title is-6"><a href="/2021/03/24/this/">JavaScript - this 在 具名函式 &amp; 箭頭函式下的差異。</a></h6>
-                </div>
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-                <div class="article content flexbox">
-                    <time class="is-text-small monospace mr1" datetime="2021-03-21T16:00:00.000Z" itemprop="datePublished">
-                        03月22日</time>
-                    <h6 class="title is-6"><a href="/2021/03/22/%E9%A1%AF%E7%A4%BA%E9%A1%9E%E5%9E%8B%E7%9A%84%E6%95%B8%E9%87%8F/">Vue - 顯示類型的數量 ( count )</a></h6>
-                </div>
+            <a href="/2021/03/22/%E9%A1%AF%E7%A4%BA%E9%A1%9E%E5%9E%8B%E7%9A%84%E6%95%B8%E9%87%8F/">Vue - 顯示類型的數量 ( count )</a>
             
-                <div class="article content flexbox">
-                    <time class="is-text-small monospace mr1" datetime="2021-03-20T16:00:00.000Z" itemprop="datePublished">
-                        03月21日</time>
-                    <h6 class="title is-6"><a href="/2021/03/21/%E9%81%BF%E5%85%8D%E9%A1%AF%E7%A4%BA%E9%99%A3%E5%88%97%E5%85%A7%E9%87%8D%E8%A4%87%E7%9A%84%E5%80%BC/">Vue - 避免顯示陣列內重複的值</a></h6>
-                </div>
-            
-                <div class="article content flexbox">
-                    <time class="is-text-small monospace mr1" datetime="2021-03-09T16:00:00.000Z" itemprop="datePublished">
-                        03月10日</time>
-                    <h6 class="title is-6"><a href="/2021/03/10/loading/">Vue - loading 效果</a></h6>
-                </div>
-            
-                <div class="article content flexbox">
-                    <time class="is-text-small monospace mr1" datetime="2021-03-05T16:00:00.000Z" itemprop="datePublished">
-                        03月06日</time>
-                    <h6 class="title is-6"><a href="/2021/03/06/%E4%B8%8B%E6%8B%89%E9%81%B8%E5%96%AE/">Vue - 下拉選單</a></h6>
-                </div>
-            
-                <div class="article content flexbox">
-                    <time class="is-text-small monospace mr1" datetime="2021-03-03T16:00:00.000Z" itemprop="datePublished">
-                        03月04日</time>
-                    <h6 class="title is-6"><a href="/2021/03/04/%E8%A1%A8%E5%96%AE%E7%B6%81%E5%AE%9A/">Vue - 輸入框雙向綁定</a></h6>
-                </div>
-            
-                <div class="article content flexbox">
-                    <time class="is-text-small monospace mr1" datetime="2021-03-02T16:00:00.000Z" itemprop="datePublished">
-                        03月03日</time>
-                    <h6 class="title is-6"><a href="/2021/03/03/%E8%A1%A8%E5%96%AE%E7%B6%81%E5%AE%9A%E2%80%94%E6%8C%89%E9%88%95/">Vue - 表單綁定—按鈕</a></h6>
-                </div>
-            
-                <div class="article content flexbox">
-                    <time class="is-text-small monospace mr1" datetime="2021-03-01T16:00:00.000Z" itemprop="datePublished">
-                        03月02日</time>
-                    <h6 class="title is-6"><a href="/2021/03/02/props/">Vue - 父組件傳遞到子組件的  props 語法</a></h6>
-                </div>
-            
-                <div class="article content flexbox">
-                    <time class="is-text-small monospace mr1" datetime="2021-03-01T16:00:00.000Z" itemprop="datePublished">
-                        03月02日</time>
-                    <h6 class="title is-6"><a href="/2021/03/02/%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/">Vue - 列表渲染</a></h6>
-                </div>
-            
-            </div>
-        </div>
+        </span>
+    </div>
     
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
     
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://pktseng.github.io/2021/03/24/this/';
+        this.page.identifier = '2021/03/24/this/';
+        
+        this.language = 'en';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'PKTseng' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
     </div>
 </section>
     <footer class="footer">
