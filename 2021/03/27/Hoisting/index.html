@@ -129,7 +129,7 @@
         <span class="column is-narrow">
             
             
-            6 分鐘 讀完 (約 847 字)
+            6 分鐘 讀完 (約 851 字)
         </span>
         
     </div>
@@ -143,18 +143,20 @@
 <p>看起來沒甚麼很正常的顯示<br><img src="https://i.imgur.com/2rDOBI6.png"></p>
 <p>如果我把宣告變數移到下面的話會顯示甚麼?</p>
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">console</span>.log(a)</span><br><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">10</span> <span class="hljs-comment">//undefined</span></span><br></pre></td></tr></tbody></table></figure>
-<p>會顯示 undefined 。<br><img src="https://i.imgur.com/A2qvpOc.png"></p>
-<p>為什麼會這樣?<br>因為 JavaScript 的特性，變數的宣告會提升 ( Hoisting )，所以當瀏覽器在讀取程式碼時，會變成下面這樣。</p>
+<p>會顯示 <code>undefined</code> 。<br><img src="https://i.imgur.com/A2qvpOc.png"></p>
+<p>為什麼會這樣?</p>
+<p>因為 JavaScript 的特性，變數的宣告會提升 ( Hoisting )，所以當瀏覽器在讀取程式碼時，會變成下面這樣。</p>
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//這是瀏覽器讀取後的</span></span><br><span class="line"><span class="hljs-keyword">var</span> a <span class="hljs-comment">//宣告變數</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(a) <span class="hljs-comment">//undefined</span></span><br><span class="line">a = <span class="hljs-number">10</span> <span class="hljs-comment">//變數賦值</span></span><br></pre></td></tr></tbody></table></figure>
 <p><img src="https://i.imgur.com/ez0GKJ0.png"></p>
 <p><code>undefined</code> 的意思就是我已經宣告這個變數了，但是變數沒有被賦值，所以會顯示 <code>undefined</code>。</p>
 <p>那在換個寫法，<code>宣告</code> 跟 <code>賦值</code> 下上對調。</p>
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="hljs-number">10</span> <span class="hljs-comment">//變數賦值</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(a) <span class="hljs-comment">//10</span></span><br><span class="line"><span class="hljs-keyword">var</span> a <span class="hljs-comment">//宣告變數</span></span><br></pre></td></tr></tbody></table></figure>
 <p><img src="https://i.imgur.com/Nbyz9Jk.png"></p>
-<p>這樣可以讀到值，為什麼?<br>因為 JavaScript 的特性，變數的宣告會提升 ( Hoisting )，所以當瀏覽器在讀取程式碼時，會變成下面這樣。</p>
+<p>這樣可以讀到值，為什麼?</p>
+<p>因為 JavaScript 的特性，變數的宣告會提升 ( Hoisting )，所以當瀏覽器在讀取程式碼時，會變成下面這樣。</p>
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//這是瀏覽器讀取後的</span></span><br><span class="line"><span class="hljs-keyword">var</span> a <span class="hljs-comment">//宣告變數</span></span><br><span class="line">a = <span class="hljs-number">10</span> <span class="hljs-comment">//變數賦值</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(a) <span class="hljs-comment">//10</span></span><br></pre></td></tr></tbody></table></figure>
 <p><img src="https://i.imgur.com/FoJvksj.png"></p>
-<p>不過宣告跟賦值下上對調這樣的寫法在一般開發過程中是不被允許的，正常情況下，當我們在使用某個變數之前一定要先宣告變數，這是個好習慣。</p>
+<p>不過宣告跟賦值下上對調這樣的寫法在一般開發過程中是不被允許的，正常情況下，當我們在使用某個變數之前一定要先宣告變數，這是必須養成的好習慣。</p>
 <p><a target="_blank" rel="noopener" href="https://codepen.io/gleofgja/pen/dyNMGrm?editors=0012">DEMO</a></p>
 <h2 id="函式的-Hoisting"><a href="#函式的-Hoisting" class="headerlink" title="函式的 Hoisting"></a>函式的 Hoisting</h2><p>上面講變數的宣告，接下來講函式的宣告。</p>
 <h3 id="1-陳述式"><a href="#1-陳述式" class="headerlink" title="1. 陳述式"></a>1. 陳述式</h3><p>先宣告一個陳述式的函式再呼叫。</p>
